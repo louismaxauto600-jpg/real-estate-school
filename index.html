@@ -3,230 +3,136 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#070402">
-  <meta name="description" content="PRO-MAX Académie Real Estate School — fòmasyon pwofesyonèl nan byen imobilye.">
-  <title>PRO-MAX Académie | Real Estate School</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <meta name="theme-color" content="#000000">
+  <meta name="description" content="DEVAN DEVAN NÈT — mouvman vizyon, teknoloji ak avni BSS1815 PRO-MAX DMP.">
+  <title>DEVAN DEVAN NÈT | BSS1815 PRO-MAX DMP</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
   <link rel="stylesheet" href="style.css">
   <script src="javascript.js" defer></script>
 </head>
 <body>
-  <div class="ambient ambient-one"></div>
-  <div class="ambient ambient-two"></div>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="#home" aria-label="DEVAN DEVAN NÈT">
+        <span class="brand-mark"><img src="devandevanner.png" alt="DEVAN DEVAN NÈT logo"></span>
+        <strong>DEVAN DEVAN NÈT</strong>
+      </a>
 
-  <header class="site-header" id="top">
-    <a class="brand" href="#top" aria-label="Real Estate School home">
-      <img src="real-estate-school-logo.png" alt="PRO-MAX Académie Real Estate School logo">
-      <span><b>PRO-MAX ACADÉMIE</b><small>REAL ESTATE SCHOOL</small></span>
-    </a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Ouvri meni" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
 
-    <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
+      <nav class="main-nav" id="mainNav" aria-label="Navigasyon prensipal">
+        <a href="#home" data-i18n="navHome">Akèy</a>
+        <a href="#vision" data-i18n="navVision">Vizyon</a>
+        <a href="#commitment" data-i18n="navCommitment">Angajman</a>
+        <a href="#pillars" data-i18n="navPillars">Prensip</a>
+        <a href="#aiCenter" data-i18n="navAI">AI Center</a>
+        <a href="#movement" data-i18n="navMovement">Mouvman</a>
+      </nav>
 
-    <nav class="main-nav" id="mainNav" aria-label="Main navigation">
-      <a href="#home" data-i18n="navHome">Akèy</a>
-      <a href="#courses" data-i18n="navCourses">Kou yo</a>
-      <a href="#pathway" data-i18n="navPath">Parcours</a>
-      <a href="#practice" data-i18n="navExam">Egzamen</a>
-      <a href="#certificate" data-i18n="navCertificate">Sètifika</a>
-    </nav>
-
-    <div class="language-switcher" aria-label="Language selector">
-      <button class="lang-btn" data-lang="en">ENG</button>
-      <button class="lang-btn" data-lang="es">ESP</button>
-      <button class="lang-btn active" data-lang="ht">KRE</button>
+      <div class="language-switcher" aria-label="Chwazi lang">
+        <button class="lang-btn active" data-lang="ht">HT</button>
+        <button class="lang-btn" data-lang="fr">FR</button>
+        <button class="lang-btn" data-lang="en">EN</button>
+      </div>
     </div>
   </header>
 
   <main>
     <section class="hero" id="home">
       <div class="hero-copy reveal">
-        <p class="eyebrow" data-i18n="heroEyebrow">YON LEKÒL PRO-MAX ACADÉMIE</p>
-        <h1><span data-i18n="heroTitleOne">Bati konesans ou.</span><strong data-i18n="heroTitleTwo">Louvri pòt avni ou.</strong></h1>
-        <p class="hero-text" data-i18n="heroText">Aprann prensip byen imobilye, prepare pou egzamen lisans ou, epi devlope konpetans pou sèvi kliyan avèk konfyans ak pwofesyonalis.</p>
+        <p class="eyebrow" data-i18n="heroEyebrow">YON MOUVMAN. YON VIZYON. YON AVNI.</p>
+        <h1><span>DEVAN</span><span>DEVAN NÈT</span></h1>
+        <p class="hero-text" data-i18n="heroText">Nou pa tann demen pou nou kòmanse. Nou bati jodi a avèk vizyon, kouraj, teknoloji ak entèlijans.</p>
         <div class="hero-actions">
-          <a class="btn btn-primary" href="#courses" data-i18n="startLearning">Kòmanse aprann</a>
-          <button class="btn btn-secondary" id="openEnroll" data-i18n="enrollNow">Enskri kounye a</button>
-        </div>
-        <div class="trust-row">
-          <span><b>6</b><small data-i18n="statCourses">Kou esansyèl</small></span>
-          <span><b>3</b><small data-i18n="statLanguages">Lang</small></span>
-          <span><b>100%</b><small data-i18n="statOnline">Sou entènèt</small></span>
+          <a class="btn btn-primary" href="#commitment" data-i18n="readCommitment">Li angajman an</a>
+          <a class="btn btn-secondary" href="#movement" data-i18n="joinMovement">Antre nan mouvman an</a>
         </div>
       </div>
 
-      <div class="hero-emblem reveal" aria-label="Animated digital real estate globe">
+      <div class="hero-media reveal" aria-label="Globe DEVAN DEVAN NÈT">
+        <div class="orbit-wrap one"><div class="orbit orbit-one"></div></div>
+        <div class="orbit-wrap two"><div class="orbit orbit-two"></div></div>
         <div class="globe-stage">
-          <div class="globe-halo halo-one"></div>
-          <div class="globe-halo halo-two"></div>
-          <div class="digital-globe">
-            <div class="world-map" aria-hidden="true">
-              <span class="continent north-america"></span>
-              <span class="continent south-america"></span>
-              <span class="continent europe-africa"></span>
-              <span class="continent asia"></span>
-            </div>
-            <span class="latitude lat-one"></span>
-            <span class="latitude lat-two"></span>
-            <span class="latitude lat-three"></span>
-            <span class="longitude long-one"></span>
-            <span class="longitude long-two"></span>
-            <span class="longitude long-three"></span>
-            <div class="globe-core">
-              <div class="globe-house"><span></span><i></i></div>
-              <div class="globe-buildings"><b></b><b></b><b></b><b></b></div>
-            </div>
-          </div>
-          <div class="orbit-label orbit-label-top">PRO-MAX ACADÉMIE</div>
-          <div class="orbit-label orbit-label-bottom">REAL ESTATE SCHOOL</div>
-          <span class="orbit-dot dot-one"></span>
-          <span class="orbit-dot dot-two"></span>
+          <video autoplay loop muted playsinline poster="devandevanner.png">
+            <source src="devan-devan-net-II.mp4" type="video/mp4">
+            <img src="devandevanner.png" alt="Globe DEVAN DEVAN NÈT">
+          </video>
         </div>
-        <div class="hero-badge"><span>PRO-MAX</span><b data-i18n="officialSchool">LEKÒL OFISYÈL</b></div>
       </div>
     </section>
 
-    <section class="announcement" aria-label="School announcement">
-      <span class="pulse-dot"></span>
-      <b data-i18n="announcementTitle">ENSKRIPSYON OUVÈ</b>
-      <p data-i18n="announcementText">Nouvo sesyon Real Estate School la disponib kounye a.</p>
-      <button id="announcementEnroll" data-i18n="reserveSeat">Rezève plas ou</button>
-    </section>
-
-    <section class="section" id="courses">
-      <div class="section-heading reveal">
-        <p class="eyebrow" data-i18n="coursesEyebrow">PWOGRAM FÒMASYON</p>
-        <h2 data-i18n="coursesTitle">Kou ki prepare w pou mache a</h2>
-        <p data-i18n="coursesText">Chak modil fèt pou mennen w soti nan fondasyon yo rive nan pratik pwofesyonèl.</p>
-      </div>
-
-      <div class="course-grid">
-        <article class="course-card reveal" data-course="fundamentals">
-          <div class="course-number">01</div><div class="course-icon">⌂</div>
-          <span class="level" data-i18n="levelBeginner">DEBITAN</span>
-          <h3 data-i18n="course1Title">Fondasyon byen imobilye</h3>
-          <p data-i18n="course1Text">Pwopriyete, tit, dwa, responsablite ak vokabilè endistri a.</p>
-          <div class="progress-track"><span style="width:0%"></span></div>
-          <button class="course-start" data-i18n="openCourse">Ouvri kou a</button>
+    <section class="section" id="vision">
+      <p class="section-number">01</p>
+      <p class="eyebrow" data-i18n="visionEyebrow">VIZYON NOU</p>
+      <h2 data-i18n="visionTitle">Nou chwazi avanse</h2>
+      <div class="vision-grid">
+        <article class="statement-card wide reveal">
+          <i class="fa-solid fa-arrow-trend-up"></i>
+          <h3 data-i18n="visionCard1Title">Avni a kòmanse kounye a</h3>
+          <p data-i18n="visionCard1Text">DEVAN DEVAN NÈT se desizyon pou nou pran responsabilite, kreye solisyon epi fè aksyon nou pale pou nou.</p>
         </article>
-
-        <article class="course-card reveal" data-course="law">
-          <div class="course-number">02</div><div class="course-icon">⚖</div>
-          <span class="level" data-i18n="levelCore">ESANSYÈL</span>
-          <h3 data-i18n="course2Title">Lwa ak etik pwofesyonèl</h3>
-          <p data-i18n="course2Text">Kontra, divilgasyon, lojman ekitab ak obligasyon fidisyè.</p>
-          <div class="progress-track"><span style="width:0%"></span></div>
-          <button class="course-start" data-i18n="openCourse">Ouvri kou a</button>
+        <article class="statement-card reveal">
+          <i class="fa-solid fa-eye"></i>
+          <h3 data-i18n="visionCard2Title">Vizyon</h3>
+          <p data-i18n="visionCard2Text">Wè pi lwen pase pwoblèm jodi a pou konstwi opòtinite demen.</p>
         </article>
-
-        <article class="course-card reveal" data-course="finance">
-          <div class="course-number">03</div><div class="course-icon">%</div>
-          <span class="level" data-i18n="levelCore">ESANSYÈL</span>
-          <h3 data-i18n="course3Title">Finansman ak ipotèk</h3>
-          <p data-i18n="course3Text">Prè, enterè, kredi, closing costs ak kalkil finansye.</p>
-          <div class="progress-track"><span style="width:0%"></span></div>
-          <button class="course-start" data-i18n="openCourse">Ouvri kou a</button>
-        </article>
-
-        <article class="course-card reveal" data-course="valuation">
-          <div class="course-number">04</div><div class="course-icon">⌁</div>
-          <span class="level" data-i18n="levelIntermediate">ENTÈMEDYÈ</span>
-          <h3 data-i18n="course4Title">Valyasyon pwopriyete</h3>
-          <p data-i18n="course4Text">Analiz mache, konparab, estimasyon valè ak envestisman.</p>
-          <div class="progress-track"><span style="width:0%"></span></div>
-          <button class="course-start" data-i18n="openCourse">Ouvri kou a</button>
-        </article>
-
-        <article class="course-card reveal" data-course="sales">
-          <div class="course-number">05</div><div class="course-icon">◆</div>
-          <span class="level" data-i18n="levelProfessional">PWOFESYONÈL</span>
-          <h3 data-i18n="course5Title">Komèsyalizasyon ak kliyan</h3>
-          <p data-i18n="course5Text">Listing, negosyasyon, prezantasyon ak relasyon kliyan.</p>
-          <div class="progress-track"><span style="width:0%"></span></div>
-          <button class="course-start" data-i18n="openCourse">Ouvri kou a</button>
-        </article>
-
-        <article class="course-card reveal" data-course="exam">
-          <div class="course-number">06</div><div class="course-icon">✓</div>
-          <span class="level" data-i18n="levelFinal">FINAL</span>
-          <h3 data-i18n="course6Title">Preparasyon egzamen</h3>
-          <p data-i18n="course6Text">Revizyon estriktire, kesyon pratik ak estrateji egzamen.</p>
-          <div class="progress-track"><span style="width:0%"></span></div>
-          <button class="course-start" data-i18n="openCourse">Ouvri kou a</button>
+        <article class="statement-card reveal">
+          <i class="fa-solid fa-people-group"></i>
+          <h3 data-i18n="visionCard3Title">Inite</h3>
+          <p data-i18n="visionCard3Text">Mete fòs nou ansanm pou kominote a grandi avèk diyite.</p>
         </article>
       </div>
     </section>
 
-    <section class="section pathway-section" id="pathway">
-      <div class="section-heading reveal">
-        <p class="eyebrow" data-i18n="pathEyebrow">DEVAN DEVAN NÈT</p>
-        <h2 data-i18n="pathTitle">Chemen ou pou reyisit</h2>
-      </div>
-      <div class="pathway">
-        <div class="path-step reveal"><span>1</span><h3 data-i18n="step1Title">Enskri</h3><p data-i18n="step1Text">Kreye pwofil etidyan ou.</p></div>
-        <div class="path-line"></div>
-        <div class="path-step reveal"><span>2</span><h3 data-i18n="step2Title">Aprann</h3><p data-i18n="step2Text">Fini 6 modil yo nan rit ou.</p></div>
-        <div class="path-line"></div>
-        <div class="path-step reveal"><span>3</span><h3 data-i18n="step3Title">Pratike</h3><p data-i18n="step3Text">Teste konesans ou regilyèman.</p></div>
-        <div class="path-line"></div>
-        <div class="path-step reveal"><span>4</span><h3 data-i18n="step4Title">Reyisi</h3><p data-i18n="step4Text">Prepare pou egzamen ak karyè.</p></div>
+    <section class="section commitment" id="commitment">
+      <p class="section-number">02</p>
+      <p class="eyebrow" data-i18n="commitmentEyebrow">ANGAJMAN OFISYÈL</p>
+      <h2 data-i18n="commitmentTitle">Nou bati pou jodi a. Nou pare pou demen.</h2>
+      <blockquote data-i18n="commitmentText">Nou angaje nou pou nou aprann, kreye, sèvi epi dirije avèk respè. Nou pap tann chanjman an: n ap òganize l, n ap konstwi l, epi n ap fè l viv.</blockquote>
+    </section>
+
+    <section class="section" id="pillars">
+      <p class="section-number">03</p>
+      <p class="eyebrow" data-i18n="pillarsEyebrow">4 FÒS KI POUSE NOU</p>
+      <h2 data-i18n="pillarsTitle">Prensip mouvman an</h2>
+      <div class="pillars-grid">
+        <article class="pillar-card reveal"><span>01</span><i class="fa-solid fa-lightbulb"></i><h3 data-i18n="pillar1Title">Vizyon</h3><p data-i18n="pillar1Text">Panse klè. Gade lwen.</p></article>
+        <article class="pillar-card reveal"><span>02</span><i class="fa-solid fa-bolt"></i><h3 data-i18n="pillar2Title">Aksyon</h3><p data-i18n="pillar2Text">Kòmanse epi kontinye.</p></article>
+        <article class="pillar-card reveal"><span>03</span><i class="fa-solid fa-microchip"></i><h3 data-i18n="pillar3Title">Teknoloji</h3><p data-i18n="pillar3Text">Sèvi ak zouti ki louvri pòt.</p></article>
+        <article class="pillar-card reveal"><span>04</span><i class="fa-solid fa-hand-fist"></i><h3 data-i18n="pillar4Title">Kouraj</h3><p data-i18n="pillar4Text">Kanpe fèm devan defi.</p></article>
       </div>
     </section>
 
-    <section class="section practice-section" id="practice">
-      <div class="quiz-panel reveal">
-        <div class="quiz-copy">
-          <p class="eyebrow" data-i18n="quizEyebrow">KESYON PRATIK</p>
-          <h2 data-i18n="quizTitle">Teste konesans ou</h2>
-          <p id="quizQuestion" data-i18n="quizQuestion">Ki dokiman ki esplike kondisyon yon tranzaksyon ant achtè ak vandè?</p>
-          <div class="quiz-options">
-            <button data-answer="wrong" data-i18n="answer1">Yon appraisal</button>
-            <button data-answer="correct" data-i18n="answer2">Yon kontra acha</button>
-            <button data-answer="wrong" data-i18n="answer3">Yon listing photo</button>
-          </div>
-          <p class="quiz-result" id="quizResult" aria-live="polite"></p>
+    <section class="section" id="aiCenter">
+      <div class="ai-command reveal">
+        <div class="ai-globe">
+          <div class="css-globe"><i class="fa-solid fa-globe"></i><span></span><span></span></div>
         </div>
-        <div class="score-ring"><div><b id="scoreValue">0</b><span data-i18n="scoreLabel">NÒT</span></div></div>
+        <div>
+          <p class="eyebrow" data-i18n="aiEyebrow">DDN AI CENTER</p>
+          <h2 data-i18n="aiTitle">Entèlijans pou mete vizyon an an mouvman</h2>
+          <p data-i18n="aiText">AI Center la ede kominote a prepare lide, dokiman, mesaj, pwojè ak estrateji ki transfòme vizyon an an rezilta.</p>
+          <a class="btn btn-primary" href="#movement" data-i18n="discoverAI">Dekouvri misyon an</a>
+        </div>
       </div>
     </section>
 
-    <section class="section certificate-section" id="certificate">
-      <div class="certificate-card reveal">
-        <div class="certificate-seal">★</div>
-        <p class="eyebrow">PRO-MAX ACADÉMIE</p>
-        <h2 data-i18n="certificateTitle">Sètifika akonplisman</h2>
-        <p data-i18n="certificateText">Apre w fin konplete tout modil yo ak evalyasyon final la, w ap resevwa yon sètifika dijital PRO-MAX Académie.</p>
-        <button class="btn btn-primary" id="certificateBtn" data-i18n="viewRequirements">Gade kondisyon yo</button>
+    <section class="section" id="movement">
+      <div class="movement-panel reveal">
+        <p class="eyebrow" data-i18n="movementEyebrow">MOUVMAN AN SE POU NOU TOUT</p>
+        <h2 data-i18n="movementTitle">Pa rete dèyè. Antre nan mouvman an.</h2>
+        <p data-i18n="movementText">Pote vizyon ou, talan ou ak kouraj ou. Ansanm nou bati yon avni ki pi fò.</p>
+        <a class="btn btn-primary" href="mailto:contact@bss1815.com" data-i18n="contactUs">Kontakte nou</a>
       </div>
     </section>
   </main>
 
-  <footer>
-    <div class="footer-brand"><b>PRO-MAX ACADÉMIE</b><span>REAL ESTATE SCHOOL</span></div>
+  <footer class="site-footer">
+    <div><strong>DEVAN DEVAN NÈT</strong><p>BSS1815 PRO-MAX DMP</p></div>
     <p data-i18n="footerSlogan">Bati pou jodi a. Pare pou demen. Devan devan nèt.</p>
-    <a href="../index.html" data-i18n="backAcademy">← Retounen nan PRO-MAX ACADÉMIE</a>
-    <small>© <span id="year"></span> PRO-MAX ACADÉMIE</small>
+    <small>© <span id="year"></span> BSS1815 PRO-MAX DMP</small>
   </footer>
-
-  <div class="modal" id="enrollModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-    <div class="modal-card">
-      <button class="modal-close" id="closeEnroll" aria-label="Close">×</button>
-      <p class="eyebrow">REAL ESTATE SCHOOL</p>
-      <h2 id="modalTitle" data-i18n="modalTitle">Kòmanse enskripsyon ou</h2>
-      <p data-i18n="modalText">Ranpli enfòmasyon yo pou nou ka prepare pwofil etidyan ou.</p>
-      <form id="enrollForm">
-        <label><span data-i18n="labelName">Non konplè</span><input type="text" name="name" required></label>
-        <label><span data-i18n="labelEmail">Imèl</span><input type="email" name="email" required></label>
-        <label><span data-i18n="labelPhone">Telefòn</span><input type="tel" name="phone"></label>
-        <button class="btn btn-primary" type="submit" data-i18n="submitEnroll">Voye enskripsyon</button>
-      </form>
-      <p class="form-status" id="formStatus" aria-live="polite"></p>
-    </div>
-  </div>
-
-  <div class="toast" id="toast" aria-live="polite"></div>
 </body>
 </html>
