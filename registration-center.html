@@ -38,6 +38,30 @@
         <form class="registration-form" id="registrationForm" name="real-estate-registration" method="POST" action="./registration-success.html" data-netlify="true" netlify-honeypot="bot-field">
           <input type="hidden" name="form-name" value="real-estate-registration">
           <p hidden><label>Do not fill this out: <input name="bot-field"></label></p>
+          <fieldset class="package-selector">
+            <legend data-i18n="choosePlan">Chwazi plan fòmasyon ou</legend>
+            <div class="package-grid">
+              <label class="package-card">
+                <input type="radio" name="training_plan" value="Basic - $149" required>
+                <span class="package-check"><i class="fa-solid fa-check"></i></span>
+                <strong data-i18n="basicPlan">BASIC</strong><b>$149</b>
+                <small data-i18n="basicDetails">Kou 63 èdtan sou entènèt</small>
+              </label>
+              <label class="package-card featured">
+                <input type="radio" name="training_plan" value="Professional - $249" required>
+                <span class="popular-tag" data-i18n="mostPopular">PI POPILÈ</span>
+                <span class="package-check"><i class="fa-solid fa-check"></i></span>
+                <strong data-i18n="professionalPlan">PROFESSIONAL</strong><b>$249</b>
+                <small data-i18n="professionalDetails">Kou ak materyèl etid</small>
+              </label>
+              <label class="package-card">
+                <input type="radio" name="training_plan" value="Premium - $399" required>
+                <span class="package-check"><i class="fa-solid fa-check"></i></span>
+                <strong data-i18n="premiumPlan">PREMIUM</strong><b>$399</b>
+                <small data-i18n="premiumDetails">Kou, sipò ak preparasyon karyè</small>
+              </label>
+            </div>
+          </fieldset>
           <div class="form-grid">
             <label><span data-i18n="firstName">Prenon</span><input type="text" name="first_name" autocomplete="given-name" required></label>
             <label><span data-i18n="lastName">Siyati</span><input type="text" name="last_name" autocomplete="family-name" required></label>
