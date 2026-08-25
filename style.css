@@ -59,8 +59,8 @@ button { cursor: pointer; }
 .brand { display: flex; align-items: center; gap: 12px; margin-right: auto; }
 .brand-emblem { position: relative; width: 62px; height: 62px; flex: 0 0 62px; display: grid; place-items: center; border: 2px solid var(--orange); border-radius: 50%; color: var(--black); background: radial-gradient(circle, var(--apricot), var(--orange)); box-shadow: 0 0 22px rgba(255,115,0,.42); }
 .brand-emblem::before { content: ""; position: absolute; inset: 5px; border: 1px solid var(--black); border-radius: 50%; opacity: .72; }
-.brand-emblem > i { position: absolute; z-index: 1; color: var(--black); font-size: 1.55rem; }
-.brand-emblem img { position: relative; z-index: 2; width: 88%; height: 88%; object-fit: contain; }
+.brand-emblem > i { position: absolute; z-index: 2; top: 12px; color: var(--black); font-size: 1.45rem; }
+.brand-emblem > small { position: absolute; z-index: 2; bottom: 8px; color: var(--black); font-family: "Cinzel", serif; font-size: .52rem; font-weight: 900; letter-spacing: .08em; }
 .brand span { display: grid; gap: 3px; }
 .brand b { font-family: "Cinzel", serif; color: var(--orange); letter-spacing: .07em; font-size: 1.12rem; }
 .brand small { color: var(--apricot); font-weight: 800; letter-spacing: .15em; font-size: .72rem; }
@@ -99,8 +99,8 @@ button { cursor: pointer; }
 .trust-row small { color: var(--orange-muted); font-size: .67rem; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; }
 .hero-emblem { position: relative; min-height: 610px; display: grid; place-items: center; }
 .globe-stage { position: relative; width: min(92%, 570px); aspect-ratio: 1; display: grid; place-items: center; filter: drop-shadow(0 28px 45px #000); }
-.digital-globe { position: relative; z-index: 3; width: 84%; aspect-ratio: 1; display: grid; place-items: center; animation: globePulse 4.5s ease-in-out infinite; }
-.digital-globe img { width: 100%; height: 100%; object-fit: contain; filter: drop-shadow(0 0 25px rgba(255,115,0,.55)); animation: float 6s ease-in-out infinite; }
+.digital-globe { position: relative; z-index: 3; width: 84%; aspect-ratio: 1; display: grid; place-items: center; perspective: 1200px; transform-style: preserve-3d; }
+.digital-globe img { width: 100%; height: 100%; object-fit: contain; filter: drop-shadow(0 0 25px rgba(255,115,0,.55)); transform-origin: 50% 50%; backface-visibility: visible; animation: globeTurn 9s ease-in-out infinite; }
 .globe-fallback { position: absolute; inset: 9%; z-index: 1; display: grid; place-items: center; border: 4px solid var(--orange); border-radius: 50%; background: radial-gradient(circle at 35% 25%, rgba(255,173,102,.42), rgba(255,115,0,.12) 30%, #050201 72%); box-shadow: inset -35px -25px 55px #000, 0 0 45px rgba(255,115,0,.4); }
 .globe-fallback::before, .globe-fallback::after { content: ""; position: absolute; border: 1px solid rgba(255,115,0,.65); border-radius: 50%; }
 .globe-fallback::before { inset: 5% 28%; }
@@ -241,6 +241,13 @@ footer small { display: block; color: var(--orange-deep); }
 @keyframes worldDrift { from { transform: translateX(-2%) scale(1.02); } to { transform: translateX(3%) scale(1.05); } }
 @keyframes dotPulse { 0%,100% { opacity: .35; transform: scale(.7); } 50% { opacity: 1; transform: scale(1.35); } }
 @keyframes pulse { 70% { box-shadow: 0 0 0 12px rgba(255,115,0,0); } 100% { box-shadow: 0 0 0 0 rgba(255,115,0,0); } }
+@keyframes globeTurn {
+  0% { transform: rotateY(-13deg) rotateX(2deg) translateY(0) scale(1); }
+  25% { transform: rotateY(0deg) rotateX(-1deg) translateY(-8px) scale(1.02); }
+  50% { transform: rotateY(13deg) rotateX(2deg) translateY(0) scale(1); }
+  75% { transform: rotateY(0deg) rotateX(-2deg) translateY(8px) scale(.99); }
+  100% { transform: rotateY(-13deg) rotateX(2deg) translateY(0) scale(1); }
+}
 
 @media (max-width: 1100px) {
   .main-nav { display: none; position: absolute; left: 4%; right: 4%; top: 83px; padding: 24px; flex-direction: column; align-items: stretch; border: 1px solid var(--line); background: #080401; }
@@ -285,4 +292,70 @@ footer small { display: block; color: var(--orange-deep); }
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; }
+}
+
+/* FINAL 3D GLOBE ASSET — KEEP THE PNG VISIBLE WHILE THE ORBITS ROTATE */
+.brand .official-school-logo {
+  width: 66px;
+  height: 66px;
+  flex: 0 0 66px;
+  display: block;
+  object-fit: contain;
+  border-radius: 50%;
+  filter: drop-shadow(0 0 15px rgba(255,115,0,.62));
+}
+
+.globe-float-wrapper {
+  width: 100%;
+  display: grid;
+  place-items: center;
+  animation: promaxFloat 5s ease-in-out infinite;
+}
+
+.digital-globe .promax-new-globe {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+  object-fit: contain;
+  transform-origin: 50% 50%;
+  backface-visibility: visible;
+  filter: drop-shadow(0 0 28px rgba(255,115,0,.72));
+  animation: promaxGlobeLive 6s ease-in-out infinite;
+  will-change: transform, filter;
+}
+
+.globe-stage .globe-halo,
+.globe-stage .orbit-dot {
+  animation-play-state: running;
+}
+
+@keyframes promaxGlobeLive {
+  0%, 100% {
+    transform: translateY(0) rotateY(-7deg) scale(1);
+    filter: drop-shadow(0 0 28px rgba(255,115,0,.72));
+  }
+  50% {
+    transform: translateY(-8px) rotateY(7deg) scale(1.025);
+    filter: drop-shadow(0 0 48px rgba(255,115,0,.95));
+  }
+}
+
+@keyframes promaxFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-14px); }
+}
+
+@media (max-width: 720px) {
+  .brand .official-school-logo {
+    width: 52px;
+    height: 52px;
+    flex-basis: 52px;
+  }
+
+  .language-switcher {
+    position: static;
+    margin-left: auto;
+    box-shadow: none;
+  }
 }
