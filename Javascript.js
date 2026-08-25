@@ -1,5 +1,6 @@
 const translations = {
   ht: {
+    ecosystemLabel:"EKOSISTÈM DIJITAL PWOFESYONÈL",
     navHome:"Akèy", navCourses:"Kou yo", navPath:"Parcours", navExam:"Egzamen", navCertificate:"Sètifika", navContact:"Kontak",
     heroEyebrow:"YON LEKÒL PRO-MAX ACADÉMIE", heroTitleOne:"Bati konesans ou.", heroTitleTwo:"Louvri pòt avni ou.",
     heroText:"Aprann prensip byen imobilye, prepare pou egzamen lisans ou, epi devlope konpetans pou sèvi kliyan avèk konfyans ak pwofesyonalis.",
@@ -21,6 +22,7 @@ const translations = {
     courseOpened:"Kou a ajoute nan pwogrè ou.", requirements:"Konplete 6 kou yo epi pase evalyasyon final la ak omwen 80%.", contactEyebrow:"KONTAK OFISYÈL", contactTitle:"Konekte avèk Real Estate School", websiteLabel:"Sit entènèt", emailLabel:"Imèl", phoneLabel:"Telefòn", phoneHaitiLabel:"Telefòn Ayiti 🇭🇹", locationLabel:"Lokalizasyon", globeOnline:"100% SOU ENTÈNÈT"
   },
   en: {
+    ecosystemLabel:"PROFESSIONAL DIGITAL ECOSYSTEM",
     navHome:"Home", navCourses:"Courses", navPath:"Pathway", navExam:"Practice Exam", navCertificate:"Certificate", navContact:"Contact",
     heroEyebrow:"A PRO-MAX ACADÉMIE SCHOOL", heroTitleOne:"Build your knowledge.", heroTitleTwo:"Open the door to your future.",
     heroText:"Learn real estate principles, prepare for your licensing exam, and develop the skills to serve clients with confidence and professionalism.",
@@ -42,6 +44,7 @@ const translations = {
     courseOpened:"The course was added to your progress.", requirements:"Complete all 6 courses and pass the final assessment with at least 80%.", contactEyebrow:"OFFICIAL CONTACT", contactTitle:"Connect with the Real Estate School", websiteLabel:"Website", emailLabel:"Email", phoneLabel:"Phone", phoneHaitiLabel:"Haiti phone 🇭🇹", locationLabel:"Location", globeOnline:"100% ONLINE"
   },
   es: {
+    ecosystemLabel:"ECOSISTEMA DIGITAL PROFESIONAL",
     navHome:"Inicio", navCourses:"Cursos", navPath:"Trayectoria", navExam:"Examen práctico", navCertificate:"Certificado", navContact:"Contacto",
     heroEyebrow:"UNA ESCUELA DE PRO-MAX ACADÉMIE", heroTitleOne:"Construye tus conocimientos.", heroTitleTwo:"Abre la puerta a tu futuro.",
     heroText:"Aprende los principios de bienes raíces, prepárate para tu examen de licencia y desarrolla las habilidades necesarias para servir a tus clientes con confianza y profesionalismo.",
