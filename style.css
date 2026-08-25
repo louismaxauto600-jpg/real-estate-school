@@ -62,10 +62,10 @@ button { cursor: pointer; }
 .brand-emblem > i { position: absolute; z-index: 2; top: 12px; color: var(--black); font-size: 1.45rem; }
 .brand-emblem > small { position: absolute; z-index: 2; bottom: 8px; color: var(--black); font-family: "Cinzel", serif; font-size: .52rem; font-weight: 900; letter-spacing: .08em; }
 .brand span { display: grid; gap: 3px; }
-.brand b { font-family: "Cinzel", serif; color: var(--orange); letter-spacing: .07em; font-size: 1.12rem; }
-.brand small { color: var(--apricot); font-weight: 800; letter-spacing: .15em; font-size: .72rem; }
+.brand b { font-family: "Cinzel", serif; color: var(--apricot); letter-spacing: .075em; font-size: clamp(1.22rem, 1.7vw, 1.58rem); font-weight: 800; line-height: 1.1; text-shadow: 0 0 18px rgba(255,115,0,.28); }
+.brand small { color: var(--orange); font-weight: 900; letter-spacing: .17em; font-size: clamp(.72rem, 1vw, .86rem); line-height: 1.2; }
 .brand-text { display: grid; gap: 3px; }
-.ecosystem-label { margin-top: 2px; color: var(--orange-muted); font-style: normal; font-size: .51rem; font-weight: 800; letter-spacing: .11em; line-height: 1.25; text-transform: uppercase; }
+.ecosystem-label { margin-top: 5px; color: var(--apricot); font-family: "Montserrat", sans-serif; font-style: normal; font-size: clamp(.58rem, .85vw, .72rem); font-weight: 900; letter-spacing: .105em; line-height: 1.25; text-transform: uppercase; text-shadow: 0 0 14px rgba(255,115,0,.22); }
 .main-nav { display: flex; align-items: center; gap: 25px; }
 .main-nav a { font-size: .74rem; font-weight: 700; letter-spacing: .07em; transition: .25s; }
 .main-nav a:hover { color: var(--orange); transform: translateY(-2px); }
@@ -315,6 +315,10 @@ footer small { display: block; color: var(--orange-deep); }
   animation: promaxFloat 5s ease-in-out infinite;
 }
 
+.globe-stage { width: min(100%, 660px); }
+.digital-globe { width: 100%; }
+.hero-emblem { min-height: 720px; }
+
 .digital-globe .promax-new-globe {
   display: block;
   width: 100%;
@@ -350,11 +354,18 @@ footer small { display: block; color: var(--orange-deep); }
 }
 
 @media (max-width: 720px) {
+  .hero-emblem { min-height: 540px; }
+  .globe-stage { width: min(100%, 540px); }
+
   .brand .official-school-logo {
     width: 52px;
     height: 52px;
     flex-basis: 52px;
   }
+
+  .brand b { font-size: .92rem; }
+  .brand small { font-size: .59rem; }
+  .ecosystem-label { max-width: 225px; font-size: .48rem; letter-spacing: .065em; }
 
   .language-switcher {
     position: static;
