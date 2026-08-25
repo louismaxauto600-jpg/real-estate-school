@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ht" id="htmlRoot" translate="no">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#070402">
+  <meta name="google" content="notranslate">
+  <title>Registration Center | PRO-MAX Académie Real Estate School</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+  <script src="Javascript.js?v=8" defer onerror="this.onerror=null;this.src='javascript.js?v=8';"></script>
+</head>
+<body>
+  <div class="ambient ambient-one"></div><div class="ambient ambient-two"></div>
+  <header class="site-header" id="top">
+    <a class="brand" href="./index.html" aria-label="Real Estate School home">
+      <img class="official-school-logo" src="./real-estate-school-logo.png" alt="PRO-MAX Académie Real Estate School logo">
+      <span class="brand-text"><b>PRO-MAX ACADÉMIE</b><small>REAL ESTATE SCHOOL</small><em class="ecosystem-label" data-i18n="ecosystemLabel">EKOSISTÈM DIJITAL PWOFESYONÈL</em></span>
+    </a>
+    <div class="language-switcher" aria-label="Language selector">
+      <button class="lang-btn notranslate" type="button" translate="no" data-lang="en">ENG</button>
+      <button class="lang-btn notranslate" type="button" translate="no" data-lang="es">ESP</button>
+      <button class="lang-btn notranslate active" type="button" translate="no" data-lang="ht">KRE</button>
+    </div>
+  </header>
+
+  <main class="registration-main">
+    <section class="registration-hero reveal">
+      <p class="eyebrow" data-i18n="registrationEyebrow">ENSKRIPSYON ETIDYAN</p>
+      <h1 data-i18n="registrationTitle">Registration Center</h1>
+      <p data-i18n="registrationIntro">Kreye pwofil etidyan ou pou kòmanse chemen ou nan Real Estate School.</p>
+    </section>
+    <div class="registration-layout">
+      <section class="registration-card reveal">
+        <form class="registration-form" id="registrationForm" name="real-estate-registration" method="POST" action="./registration-success.html" data-netlify="true" netlify-honeypot="bot-field">
+          <input type="hidden" name="form-name" value="real-estate-registration">
+          <p hidden><label>Do not fill this out: <input name="bot-field"></label></p>
+          <div class="form-grid">
+            <label><span data-i18n="firstName">Prenon</span><input type="text" name="first_name" autocomplete="given-name" required></label>
+            <label><span data-i18n="lastName">Siyati</span><input type="text" name="last_name" autocomplete="family-name" required></label>
+            <label><span data-i18n="labelEmail">Imèl</span><input type="email" name="email" autocomplete="email" required></label>
+            <label><span data-i18n="labelPhone">Telefòn</span><input type="tel" name="phone" autocomplete="tel" required></label>
+          </div>
+          <label><span data-i18n="cityState">Vil ak Eta/Peyi</span><input type="text" name="location" autocomplete="address-level2" required></label>
+          <div class="form-grid">
+            <label><span data-i18n="preferredLanguage">Lang ou prefere</span><select name="preferred_language" required><option value="" data-i18n="chooseLanguage">Chwazi yon lang</option><option value="KRE" data-i18n="kreOption">Kreyòl</option><option value="ENG" data-i18n="engOption">Anglè</option><option value="ESP" data-i18n="espOption">Panyòl</option></select></label>
+            <label><span data-i18n="experienceLevel">Eksperyans nan byen imobilye</span><select name="experience" required><option value="" data-i18n="chooseExperience">Chwazi nivo ou</option><option value="none" data-i18n="expNone">Mwen poko gen eksperyans</option><option value="beginner" data-i18n="expBeginner">Debitan</option><option value="some" data-i18n="expSome">Mwen gen kèk eksperyans</option><option value="professional" data-i18n="expProfessional">Pwofesyonèl</option></select></label>
+          </div>
+          <label><span data-i18n="studentGoal">Objektif ou</span><textarea name="goal" data-i18n-placeholder="goalPlaceholder" placeholder="Di nou sa ou vle reyalize ak fòmasyon sa a."></textarea></label>
+          <label class="checkbox-row"><input type="checkbox" name="consent" value="yes" required><span data-i18n="consentText">Mwen konfime enfòmasyon sa yo kòrèk epi mwen dakò PRO-MAX Académie kontakte mwen sou enskripsyon an.</span></label>
+          <div class="registration-actions"><button class="btn btn-primary" type="submit" data-i18n="submitRegistration">Voye enskripsyon mwen</button><a class="btn btn-secondary" href="./index.html" data-i18n="backSchool">← Retounen nan Real Estate School</a></div>
+          <p class="registration-note" data-i18n="privacyNote">Nou itilize enfòmasyon ou sèlman pou enskripsyon ak kominikasyon lekòl la.</p>
+        </form>
+      </section>
+      <aside class="registration-summary reveal">
+        <p class="eyebrow">PRO-MAX ACADÉMIE</p><h2 data-i18n="registrationSummary">Sa enskripsyon an gen ladan</h2>
+        <ul>
+          <li><i class="fa-solid fa-user-graduate"></i><span data-i18n="summaryProfile">Pwofil etidyan pèsonalize</span></li>
+          <li><i class="fa-solid fa-language"></i><span data-i18n="summaryLanguages">Fòmasyon disponib nan 3 lang</span></li>
+          <li><i class="fa-solid fa-globe"></i><span data-i18n="summaryOnline">Aksè 100% sou entènèt</span></li>
+          <li><i class="fa-solid fa-certificate"></i><span data-i18n="summarySupport">Sipò pou preparasyon egzamen</span></li>
+        </ul>
+      </aside>
+    </div>
+  </main>
+  <footer><div class="footer-brand"><b>PRO-MAX ACADÉMIE</b><span>REAL ESTATE SCHOOL</span></div><p data-i18n="footerSlogan">Konesans. Preparasyon. Siksè nan byen imobilye.</p><small>© <span id="year"></span> PRO-MAX ACADÉMIE</small></footer>
+</body>
+</html>
