@@ -1,532 +1,282 @@
-const translations = {
-  ht: {
-    navHome: "Akèy",
-    navCourses: "Kou yo",
-    navPath: "Parcours",
-    navExam: "Egzamen",
-    navCertificate: "Sètifika",
-    heroEyebrow: "YON LEKÒL PRO-MAX ACADÉMIE",
-    heroTitleOne: "Bati konesans ou.",
-    heroTitleTwo: "Louvri pòt avni ou.",
-    heroText: "Aprann prensip byen imobilye, prepare pou egzamen lisans ou, epi devlope konpetans pou sèvi kliyan avèk konfyans ak pwofesyonalis.",
-    startLearning: "Kòmanse aprann",
-    enrollNow: "Enskri kounye a",
-    statCourses: "Kou esansyèl",
-    statLanguages: "Lang",
-    statOnline: "Sou entènèt",
-    officialSchool: "LEKÒL OFISYÈL",
-    announcementTitle: "ENSKRIPSYON OUVÈ",
-    announcementText: "Nouvo sesyon Real Estate School la disponib kounye a.",
-    reserveSeat: "Rezève plas ou",
-    coursesEyebrow: "PWOGRAM FÒMASYON",
-    coursesTitle: "Kou ki prepare w pou mache a",
-    coursesText: "Chak modil fèt pou mennen w soti nan fondasyon yo rive nan pratik pwofesyonèl.",
-    levelBeginner: "DEBITAN",
-    levelCore: "ESANSYÈL",
-    levelIntermediate: "ENTÈMEDYÈ",
-    levelProfessional: "PWOFESYONÈL",
-    levelFinal: "FINAL",
-    openCourse: "Ouvri kou a",
-    course1Title: "Fondasyon byen imobilye",
-    course1Text: "Pwopriyete, tit, dwa, responsablite ak vokabilè endistri a.",
-    course2Title: "Lwa ak etik pwofesyonèl",
-    course2Text: "Kontra, divilgasyon, lojman ekitab ak obligasyon fidisyè.",
-    course3Title: "Finansman ak ipotèk",
-    course3Text: "Prè, enterè, kredi, closing costs ak kalkil finansye.",
-    course4Title: "Valyasyon pwopriyete",
-    course4Text: "Analiz mache, konparab, estimasyon valè ak envestisman.",
-    course5Title: "Komèsyalizasyon ak kliyan",
-    course5Text: "Listing, negosyasyon, prezantasyon ak relasyon kliyan.",
-    course6Title: "Preparasyon egzamen",
-    course6Text: "Revizyon estriktire, kesyon pratik ak estrateji egzamen.",
-    pathEyebrow: "DEVAN DEVAN NÈT",
-    pathTitle: "Chemen ou pou reyisit",
-    step1Title: "Enskri",
-    step1Text: "Kreye pwofil etidyan ou.",
-    step2Title: "Aprann",
-    step2Text: "Fini 6 modil yo nan rit ou.",
-    step3Title: "Pratike",
-    step3Text: "Teste konesans ou regilyèman.",
-    step4Title: "Reyisi",
-    step4Text: "Prepare pou egzamen ak karyè.",
-    quizEyebrow: "KESYON PRATIK",
-    quizTitle: "Teste konesans ou",
-    quizQuestion: "Ki dokiman ki esplike kondisyon yon tranzaksyon ant achtè ak vandè?",
-    answer1: "Yon appraisal",
-    answer2: "Yon kontra acha",
-    answer3: "Yon listing photo",
-    scoreLabel: "NÒT",
-    correct: "Kòrèk! Se kontra acha a.",
-    incorrect: "Pa kòrèk. Eseye ankò.",
-    certificateTitle: "Sètifika akonplisman",
-    certificateText: "Apre w fin konplete tout modil yo ak evalyasyon final la, w ap resevwa yon sètifika dijital PRO-MAX Académie.",
-    viewRequirements: "Gade kondisyon yo",
-    footerSlogan: "Bati pou jodi a. Pare pou demen. Devan devan nèt.",
-    backAcademy: "← Retounen nan PRO-MAX ACADÉMIE",
-    modalTitle: "Kòmanse enskripsyon ou",
-    modalText: "Ranpli enfòmasyon yo pou nou ka prepare pwofil etidyan ou.",
-    labelName: "Non konplè",
-    labelEmail: "Imèl",
-    labelPhone: "Telefòn",
-    submitEnroll: "Voye enskripsyon",
-    submitted: "Enskripsyon ou anrejistre sou aparèy sa a.",
-    courseOpened: "Kou a ajoute nan pwogrè ou.",
-    requirements: "Konplete 6 kou yo epi pase evalyasyon final la ak omwen 80%."
-  },
-
-  en: {
-    navHome: "Home",
-    navCourses: "Courses",
-    navPath: "Pathway",
-    navExam: "Practice Exam",
-    navCertificate: "Certificate",
-    heroEyebrow: "A PRO-MAX ACADÉMIE SCHOOL",
-    heroTitleOne: "Build your knowledge.",
-    heroTitleTwo: "Open the door to your future.",
-    heroText: "Learn real estate principles, prepare for your licensing exam, and develop the skills to serve clients with confidence and professionalism.",
-    startLearning: "Start learning",
-    enrollNow: "Enroll now",
-    statCourses: "Essential courses",
-    statLanguages: "Languages",
-    statOnline: "Online",
-    officialSchool: "OFFICIAL SCHOOL",
-    announcementTitle: "ENROLLMENT OPEN",
-    announcementText: "The new Real Estate School session is now available.",
-    reserveSeat: "Reserve your seat",
-    coursesEyebrow: "TRAINING PROGRAM",
-    coursesTitle: "Courses that prepare you for the market",
-    coursesText: "Each module takes you from core foundations to professional practice.",
-    levelBeginner: "BEGINNER",
-    levelCore: "CORE",
-    levelIntermediate: "INTERMEDIATE",
-    levelProfessional: "PROFESSIONAL",
-    levelFinal: "FINAL",
-    openCourse: "Open course",
-    course1Title: "Real estate fundamentals",
-    course1Text: "Property, title, rights, responsibilities, and industry vocabulary.",
-    course2Title: "Law and professional ethics",
-    course2Text: "Contracts, disclosures, fair housing, and fiduciary duties.",
-    course3Title: "Finance and mortgages",
-    course3Text: "Loans, interest, credit, closing costs, and financial calculations.",
-    course4Title: "Property valuation",
-    course4Text: "Market analysis, comparables, value estimates, and investments.",
-    course5Title: "Marketing and clients",
-    course5Text: "Listings, negotiation, presentations, and client relationships.",
-    course6Title: "Exam preparation",
-    course6Text: "Structured review, practice questions, and exam strategy.",
-    pathEyebrow: "FORWARD ALL THE WAY",
-    pathTitle: "Your pathway to success",
-    step1Title: "Enroll",
-    step1Text: "Create your student profile.",
-    step2Title: "Learn",
-    step2Text: "Complete all 6 modules at your pace.",
-    step3Title: "Practice",
-    step3Text: "Test your knowledge regularly.",
-    step4Title: "Succeed",
-    step4Text: "Prepare for your exam and career.",
-    quizEyebrow: "PRACTICE QUESTION",
-    quizTitle: "Test your knowledge",
-    quizQuestion: "Which document states the terms of a transaction between a buyer and seller?",
-    answer1: "An appraisal",
-    answer2: "A purchase agreement",
-    answer3: "A listing photo",
-    scoreLabel: "SCORE",
-    correct: "Correct! It is the purchase agreement.",
-    incorrect: "Not correct. Try again.",
-    certificateTitle: "Certificate of completion",
-    certificateText: "After completing all modules and the final assessment, you will receive a digital PRO-MAX Académie certificate.",
-    viewRequirements: "View requirements",
-    footerSlogan: "Built for today. Ready for tomorrow. Forward all the way.",
-    backAcademy: "← Return to PRO-MAX ACADÉMIE",
-    modalTitle: "Start your enrollment",
-    modalText: "Complete the information so we can prepare your student profile.",
-    labelName: "Full name",
-    labelEmail: "Email",
-    labelPhone: "Phone",
-    submitEnroll: "Submit enrollment",
-    submitted: "Your enrollment was saved on this device.",
-    courseOpened: "The course was added to your progress.",
-    requirements: "Complete all 6 courses and pass the final assessment with at least 80%."
-  },
-
-  es: {
-    navHome: "Inicio",
-    navCourses: "Cursos",
-    navPath: "Trayectoria",
-    navExam: "Examen práctico",
-    navCertificate: "Certificado",
-    heroEyebrow: "UNA ESCUELA DE PRO-MAX ACADÉMIE",
-    heroTitleOne: "Construye tus conocimientos.",
-    heroTitleTwo: "Abre la puerta a tu futuro.",
-    heroText: "Aprende los principios de bienes raíces, prepárate para tu examen de licencia y desarrolla las habilidades necesarias para servir a tus clientes con confianza y profesionalismo.",
-    startLearning: "Comenzar a aprender",
-    enrollNow: "Inscribirse ahora",
-    statCourses: "Cursos esenciales",
-    statLanguages: "Idiomas",
-    statOnline: "En línea",
-    officialSchool: "ESCUELA OFICIAL",
-    announcementTitle: "INSCRIPCIONES ABIERTAS",
-    announcementText: "La nueva sesión de Real Estate School ya está disponible.",
-    reserveSeat: "Reserva tu lugar",
-    coursesEyebrow: "PROGRAMA DE FORMACIÓN",
-    coursesTitle: "Cursos que te preparan para el mercado",
-    coursesText: "Cada módulo te lleva desde los fundamentos hasta la práctica profesional.",
-    levelBeginner: "PRINCIPIANTE",
-    levelCore: "ESENCIAL",
-    levelIntermediate: "INTERMEDIO",
-    levelProfessional: "PROFESIONAL",
-    levelFinal: "FINAL",
-    openCourse: "Abrir el curso",
-    course1Title: "Fundamentos de bienes raíces",
-    course1Text: "Propiedad, títulos, derechos, responsabilidades y vocabulario del sector.",
-    course2Title: "Ley y ética profesional",
-    course2Text: "Contratos, divulgaciones, vivienda justa y deberes fiduciarios.",
-    course3Title: "Financiamiento e hipotecas",
-    course3Text: "Préstamos, intereses, crédito, costos de cierre y cálculos financieros.",
-    course4Title: "Valoración de propiedades",
-    course4Text: "Análisis de mercado, comparables, estimación de valor e inversión.",
-    course5Title: "Mercadeo y clientes",
-    course5Text: "Listados, negociación, presentaciones y relaciones con clientes.",
-    course6Title: "Preparación para el examen",
-    course6Text: "Repaso estructurado, preguntas de práctica y estrategia de examen.",
-    pathEyebrow: "SIEMPRE HACIA ADELANTE",
-    pathTitle: "Tu camino hacia el éxito",
-    step1Title: "Inscríbete",
-    step1Text: "Crea tu perfil de estudiante.",
-    step2Title: "Aprende",
-    step2Text: "Completa los 6 módulos a tu ritmo.",
-    step3Title: "Practica",
-    step3Text: "Evalúa tus conocimientos regularmente.",
-    step4Title: "Triunfa",
-    step4Text: "Prepárate para tu examen y tu carrera.",
-    quizEyebrow: "PREGUNTA DE PRÁCTICA",
-    quizTitle: "Evalúa tus conocimientos",
-    quizQuestion: "¿Qué documento establece las condiciones de una transacción entre un comprador y un vendedor?",
-    answer1: "Una tasación",
-    answer2: "Un contrato de compraventa",
-    answer3: "Una foto del anuncio",
-    scoreLabel: "PUNTUACIÓN",
-    correct: "¡Correcto! Es el contrato de compraventa.",
-    incorrect: "Respuesta incorrecta. Inténtalo de nuevo.",
-    certificateTitle: "Certificado de finalización",
-    certificateText: "Después de completar todos los módulos y la evaluación final, recibirás un certificado digital de PRO-MAX Académie.",
-    viewRequirements: "Ver los requisitos",
-    footerSlogan: "Construido para hoy. Preparado para mañana. Siempre hacia adelante.",
-    backAcademy: "← Volver a PRO-MAX ACADÉMIE",
-    modalTitle: "Comienza tu inscripción",
-    modalText: "Completa la información para que podamos preparar tu perfil de estudiante.",
-    labelName: "Nombre completo",
-    labelEmail: "Correo electrónico",
-    labelPhone: "Teléfono",
-    submitEnroll: "Enviar inscripción",
-    submitted: "Tu inscripción se guardó en este dispositivo.",
-    courseOpened: "El curso fue añadido a tu progreso.",
-    requirements: "Completa los 6 cursos y aprueba la evaluación final con al menos un 80 %."
-  }
-};
-
-document.addEventListener("DOMContentLoaded", function () {
-  let currentLanguage = "ht";
-  let progress = {};
-
-  function readStorage(key, fallback) {
-    try {
-      const value = window.localStorage.getItem(key);
-      return value === null ? fallback : value;
-    } catch (error) {
-      return fallback;
-    }
-  }
-
-  function writeStorage(key, value) {
-    try {
-      window.localStorage.setItem(key, value);
-      return true;
-    } catch (error) {
-      return false;
-    }
-  }
-
-  function translatePage(language) {
-    const languagePack = translations[language] || translations.ht;
-    currentLanguage = translations[language] ? language : "ht";
-    document.documentElement.lang = currentLanguage;
-
-    document.querySelectorAll("[data-i18n]").forEach(function (element) {
-      const key = element.getAttribute("data-i18n");
-
-      if (Object.prototype.hasOwnProperty.call(languagePack, key)) {
-        element.textContent = languagePack[key];
-      }
-    });
-
-    document.querySelectorAll(".lang-btn").forEach(function (button) {
-      button.classList.toggle(
-        "active",
-        button.getAttribute("data-lang") === currentLanguage
-      );
-    });
-
-    writeStorage("promaxRealEstateLanguage", currentLanguage);
-  }
-
-  function showToast(message) {
-    const toast = document.getElementById("toast");
-
-    if (!toast) {
-      return;
-    }
-
-    toast.textContent = message;
-    toast.classList.add("show");
-
-    window.clearTimeout(showToast.timeoutId);
-
-    showToast.timeoutId = window.setTimeout(function () {
-      toast.classList.remove("show");
-    }, 3000);
-  }
-
-  const menuToggle = document.getElementById("menuToggle");
-  const mainNav = document.getElementById("mainNav");
-
-  if (menuToggle && mainNav) {
-    menuToggle.addEventListener("click", function () {
-      const open = mainNav.classList.toggle("open");
-      menuToggle.setAttribute("aria-expanded", String(open));
-    });
-
-    mainNav.querySelectorAll("a").forEach(function (link) {
-      link.addEventListener("click", function () {
-        mainNav.classList.remove("open");
-        menuToggle.setAttribute("aria-expanded", "false");
-      });
-    });
-  }
-
-  document.querySelectorAll(".lang-btn").forEach(function (button) {
-    button.addEventListener("click", function () {
-      translatePage(button.getAttribute("data-lang") || "ht");
-    });
-  });
-
-  const modal = document.getElementById("enrollModal");
-
-  function openModal() {
-    if (!modal) {
-      return;
-    }
-
-    modal.classList.add("open");
-    modal.setAttribute("aria-hidden", "false");
-    document.body.style.overflow = "hidden";
-
-    const firstInput = modal.querySelector("input");
-
-    if (firstInput) {
-      firstInput.focus();
-    }
-  }
-
-  function closeModal() {
-    if (!modal) {
-      return;
-    }
-
-    modal.classList.remove("open");
-    modal.setAttribute("aria-hidden", "true");
-    document.body.style.overflow = "";
-  }
-
-  ["openEnroll", "announcementEnroll"].forEach(function (id) {
-    const openButton = document.getElementById(id);
-
-    if (openButton) {
-      openButton.addEventListener("click", openModal);
-    }
-  });
-
-  const closeButton = document.getElementById("closeEnroll");
-
-  if (closeButton) {
-    closeButton.addEventListener("click", closeModal);
-  }
-
-  if (modal) {
-    modal.addEventListener("click", function (event) {
-      if (event.target === modal) {
-        closeModal();
-      }
-    });
-  }
-
-  document.addEventListener("keydown", function (event) {
-    if (event.key === "Escape") {
-      closeModal();
-    }
-  });
-
-  const enrollForm = document.getElementById("enrollForm");
-
-  if (enrollForm) {
-    enrollForm.addEventListener("submit", function (event) {
-      event.preventDefault();
-
-      const student = {};
-      const formData = new FormData(enrollForm);
-
-      formData.forEach(function (value, key) {
-        student[key] = value;
-      });
-
-      student.submittedAt = new Date().toISOString();
-
-      writeStorage(
-        "promaxRealEstateStudent",
-        JSON.stringify(student)
-      );
-
-      const formStatus = document.getElementById("formStatus");
-
-      if (formStatus) {
-        formStatus.textContent = translations[currentLanguage].submitted;
-      }
-
-      enrollForm.reset();
-    });
-  }
-
-  try {
-    const savedProgress = JSON.parse(
-      readStorage("promaxRealEstateProgress", "{}")
-    );
-
-    progress =
-      savedProgress && typeof savedProgress === "object"
-        ? savedProgress
-        : {};
-  } catch (error) {
-    progress = {};
-    writeStorage("promaxRealEstateProgress", "{}");
-  }
-
-  document.querySelectorAll(".course-card").forEach(function (card) {
-    const courseKey = card.getAttribute("data-course");
-    const progressBar = card.querySelector(".progress-track span");
-    const courseButton = card.querySelector(".course-start");
-
-    if (courseKey && progress[courseKey] && progressBar) {
-      progressBar.style.width = "20%";
-    }
-
-    if (courseButton) {
-      courseButton.addEventListener("click", function () {
-        if (courseKey) {
-          progress[courseKey] = true;
-        }
-
-        writeStorage(
-          "promaxRealEstateProgress",
-          JSON.stringify(progress)
-        );
-
-        if (progressBar) {
-          progressBar.style.width = "20%";
-        }
-
-        showToast(translations[currentLanguage].courseOpened);
-      });
-    }
-  });
-
-  const quizButtons = document.querySelectorAll(
-    ".quiz-options button"
-  );
-  const quizResult = document.getElementById("quizResult");
-  const scoreValue = document.getElementById("scoreValue");
-  const scoreRing = document.querySelector(".score-ring");
-
-  quizButtons.forEach(function (button) {
-    button.addEventListener("click", function () {
-      quizButtons.forEach(function (option) {
-        option.classList.remove("correct", "wrong");
-      });
-
-      const correct =
-        button.getAttribute("data-answer") === "correct";
-
-      button.classList.add(correct ? "correct" : "wrong");
-
-      if (quizResult) {
-        quizResult.textContent =
-          translations[currentLanguage][
-            correct ? "correct" : "incorrect"
-          ];
-      }
-
-      if (scoreValue) {
-        scoreValue.textContent = correct ? "100" : "0";
-      }
-
-      if (scoreRing) {
-        const degree = correct ? 360 : 0;
-
-        scoreRing.style.background =
-          "conic-gradient(var(--orange) " +
-          degree +
-          "deg, #251005 0deg)";
-      }
-    });
-  });
-
-  const certificateButton =
-    document.getElementById("certificateBtn");
-
-  if (certificateButton) {
-    certificateButton.addEventListener("click", function () {
-      showToast(
-        translations[currentLanguage].requirements
-      );
-    });
-  }
-
-  const yearElement = document.getElementById("year");
-
-  if (yearElement) {
-    yearElement.textContent = new Date().getFullYear();
-  }
-
-  const revealElements =
-    document.querySelectorAll(".reveal");
-
-  if ("IntersectionObserver" in window) {
-    const observer = new IntersectionObserver(
-      function (entries, activeObserver) {
-        entries.forEach(function (entry) {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("visible");
-            activeObserver.unobserve(entry.target);
-          }
-        });
-      },
-      {
-        threshold: 0.12
-      }
-    );
-
-    revealElements.forEach(function (element) {
-      observer.observe(element);
-    });
-  } else {
-    revealElements.forEach(function (element) {
-      element.classList.add("visible");
-    });
-  }
-
-  currentLanguage = readStorage(
-    "promaxRealEstateLanguage",
-    "ht"
-  );
-
-  translatePage(currentLanguage);
-});
+:root {
+  --black: #030201;
+  --black-soft: #0b0704;
+  --black-card: #120a05;
+  --orange: #ff7300;
+  --apricot: #ffad66;
+  --orange-deep: #b83b00;
+  --orange-muted: #d96a22;
+  --line: rgba(255, 115, 0, .30);
+  --shadow: 0 24px 70px rgba(0, 0, 0, .58);
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  color: var(--apricot);
+  background:
+    radial-gradient(circle at 15% 12%, rgba(255,115,0,.16), transparent 28%),
+    radial-gradient(circle at 90% 42%, rgba(184,59,0,.14), transparent 30%),
+    linear-gradient(145deg, #020100 0%, #0a0502 48%, #020100 100%);
+  font-family: "Montserrat", sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: .16;
+  background-image: linear-gradient(var(--line) 1px, transparent 1px), linear-gradient(90deg, var(--line) 1px, transparent 1px);
+  background-size: 80px 80px;
+  mask-image: linear-gradient(to bottom, transparent, #000 25%, transparent 78%);
+}
+
+a { color: inherit; text-decoration: none; }
+button, input { font: inherit; }
+button { cursor: pointer; }
+.ambient { position: fixed; border-radius: 50%; filter: blur(90px); opacity: .15; pointer-events: none; }
+.ambient-one { width: 320px; height: 320px; background: var(--orange); top: 8%; left: -180px; }
+.ambient-two { width: 430px; height: 430px; background: var(--orange-deep); right: -250px; top: 58%; }
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  min-height: 84px;
+  padding: 10px clamp(20px, 5vw, 76px);
+  display: flex;
+  align-items: center;
+  gap: 26px;
+  border-bottom: 1px solid var(--line);
+  background: rgba(3,2,1,.90);
+  backdrop-filter: blur(18px);
+}
+
+.brand { display: flex; align-items: center; gap: 12px; margin-right: auto; }
+.brand-emblem { position: relative; width: 62px; height: 62px; flex: 0 0 62px; display: grid; place-items: center; border: 2px solid var(--orange); border-radius: 50%; color: var(--black); background: radial-gradient(circle, var(--apricot), var(--orange)); box-shadow: 0 0 22px rgba(255,115,0,.42); }
+.brand-emblem::before { content: ""; position: absolute; inset: 5px; border: 1px solid var(--black); border-radius: 50%; opacity: .72; }
+.brand-emblem img { position: relative; z-index: 2; width: 88%; height: 88%; object-fit: contain; }
+.brand span { display: grid; gap: 3px; }
+.brand b { font-family: "Cinzel", serif; color: var(--orange); letter-spacing: .07em; font-size: 1.12rem; }
+.brand small { color: var(--apricot); font-weight: 800; letter-spacing: .15em; font-size: .72rem; }
+.main-nav { display: flex; align-items: center; gap: 25px; }
+.main-nav a { font-size: .74rem; font-weight: 700; letter-spacing: .07em; transition: .25s; }
+.main-nav a:hover { color: var(--orange); transform: translateY(-2px); }
+.language-switcher { display: flex; padding: 4px; border: 1px solid var(--line); border-radius: 999px; background: #080401; }
+.lang-btn { border: 0; color: var(--orange-muted); background: transparent; padding: 8px 10px; border-radius: 999px; font-size: .64rem; font-weight: 800; }
+.lang-btn.active { color: var(--black); background: linear-gradient(135deg, var(--apricot), var(--orange)); }
+.menu-toggle { display: none; width: 42px; height: 42px; border: 1px solid var(--line); background: var(--black-soft); border-radius: 10px; padding: 10px; }
+.menu-toggle span { display: block; height: 2px; background: var(--orange); margin: 5px 0; }
+
+.hero {
+  width: min(1480px, 92%);
+  min-height: 710px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.08fr .92fr;
+  align-items: center;
+  gap: 50px;
+  padding: 75px 0 55px;
+}
+.eyebrow { color: var(--orange); font-size: .73rem; font-weight: 800; letter-spacing: .24em; text-transform: uppercase; }
+.hero h1 { margin: 15px 0 25px; font-family: "Cinzel", serif; font-size: clamp(3rem, 6vw, 6.4rem); line-height: .98; letter-spacing: -.045em; }
+.hero h1 span { display: block; color: var(--apricot); }
+.hero h1 strong { display: block; margin-top: 10px; color: var(--orange); text-shadow: 0 0 28px rgba(255,115,0,.28); }
+.hero-text { max-width: 720px; font-size: clamp(1rem, 1.7vw, 1.19rem); line-height: 1.85; color: var(--orange-muted); }
+.hero-actions { display: flex; flex-wrap: wrap; gap: 14px; margin: 34px 0; }
+.btn { border-radius: 8px; padding: 15px 25px; border: 1px solid var(--orange); font-weight: 800; letter-spacing: .04em; transition: .25s; }
+.btn-primary { color: var(--black); background: linear-gradient(135deg, var(--apricot), var(--orange)); box-shadow: 0 12px 34px rgba(255,115,0,.22); }
+.btn-secondary { color: var(--orange); background: transparent; }
+.btn:hover { transform: translateY(-3px); box-shadow: 0 15px 38px rgba(255,115,0,.30); }
+.trust-row { display: flex; gap: 35px; margin-top: 44px; }
+.trust-row span { display: grid; gap: 3px; border-left: 2px solid var(--orange); padding-left: 12px; }
+.trust-row b { color: var(--orange); font-family: "Cinzel", serif; font-size: 1.5rem; }
+.trust-row small { color: var(--orange-muted); font-size: .67rem; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; }
+.hero-emblem { position: relative; min-height: 610px; display: grid; place-items: center; }
+.globe-stage { position: relative; width: min(92%, 570px); aspect-ratio: 1; display: grid; place-items: center; filter: drop-shadow(0 28px 45px #000); }
+.digital-globe { position: relative; z-index: 3; width: 84%; aspect-ratio: 1; display: grid; place-items: center; animation: globePulse 4.5s ease-in-out infinite; }
+.digital-globe img { width: 100%; height: 100%; object-fit: contain; filter: drop-shadow(0 0 25px rgba(255,115,0,.55)); animation: float 6s ease-in-out infinite; }
+.globe-information { position: absolute; z-index: 12; left: 50%; bottom: 4%; width: min(86%, 390px); padding: 12px 16px; display: grid; gap: 3px; text-align: center; border: 1px solid var(--orange); color: var(--apricot); background: rgba(3,2,1,.92); box-shadow: 0 10px 30px #000, 0 0 22px rgba(255,115,0,.28); transform: translateX(-50%); }
+.globe-information strong { color: var(--orange); font-family: "Cinzel", serif; font-size: clamp(.74rem, 2vw, 1rem); letter-spacing: .12em; }
+.globe-information b { font-size: clamp(.55rem, 1.5vw, .72rem); letter-spacing: .18em; }
+.globe-information span, .globe-information small { color: var(--orange-muted); font-size: clamp(.5rem, 1.4vw, .65rem); font-weight: 800; letter-spacing: .08em; }
+.globe-information i { color: var(--orange); }
+.digital-globe::after { content: ""; position: absolute; inset: 4%; border: 1px solid rgba(255,173,102,.25); border-radius: 50%; }
+.world-map { position: absolute; z-index: 1; inset: 8%; border-radius: 50%; animation: worldDrift 16s ease-in-out infinite alternate; }
+.continent { position: absolute; display: block; background: linear-gradient(145deg, var(--apricot), var(--orange-deep)); opacity: .62; filter: drop-shadow(0 0 8px rgba(255,115,0,.55)); }
+.north-america { width: 34%; height: 32%; left: 8%; top: 18%; clip-path: polygon(0 18%, 21% 2%, 47% 8%, 61% 0, 95% 20%, 77% 42%, 63% 46%, 58% 70%, 38% 88%, 24% 68%, 8% 62%); transform: rotate(-8deg); }
+.south-america { width: 20%; height: 39%; left: 32%; top: 47%; clip-path: polygon(10% 0, 88% 5%, 100% 25%, 76% 48%, 65% 72%, 41% 100%, 24% 75%, 19% 51%, 0 25%); transform: rotate(10deg); }
+.europe-africa { width: 28%; height: 50%; left: 48%; top: 21%; clip-path: polygon(8% 6%, 32% 0, 48% 11%, 74% 4%, 100% 23%, 78% 34%, 72% 56%, 60% 83%, 42% 100%, 24% 78%, 16% 54%, 0 35%); }
+.asia { width: 31%; height: 28%; right: 3%; top: 22%; clip-path: polygon(0 19%, 20% 5%, 44% 10%, 61% 0, 100% 17%, 87% 45%, 68% 53%, 61% 82%, 34% 100%, 17% 75%, 8% 46%); transform: rotate(6deg); }
+.latitude, .longitude { position: absolute; z-index: 2; display: block; border: 1px solid rgba(255,115,0,.65); border-radius: 50%; }
+.latitude { left: 4%; right: 4%; height: 23%; }
+.lat-one { top: 18%; }
+.lat-two { top: 39%; height: 20%; }
+.lat-three { bottom: 18%; }
+.longitude { top: 3%; bottom: 3%; width: 42%; }
+.long-one { left: 29%; }
+.long-two { left: 29%; transform: rotateY(58deg); }
+.long-three { left: 29%; transform: rotateY(-58deg); }
+.globe-core { position: absolute; z-index: 5; inset: 0; display: grid; place-items: center; }
+.globe-house { position: absolute; bottom: 29%; width: 39%; height: 25%; background: #080401; border: 3px solid var(--orange); box-shadow: 0 0 20px rgba(255,115,0,.30); }
+.globe-house::before { content: ""; position: absolute; width: 72%; aspect-ratio: 1; left: 12%; top: -48%; border-left: 4px solid var(--orange); border-top: 4px solid var(--orange); background: #080401; transform: rotate(45deg); }
+.globe-house span { position: absolute; z-index: 2; left: 16%; bottom: 18%; width: 18%; height: 31%; border: 2px solid var(--orange); }
+.globe-house i { position: absolute; z-index: 2; right: 16%; bottom: 18%; width: 25%; height: 22%; border: 2px solid var(--orange); }
+.globe-buildings { position: absolute; bottom: 28%; left: 20%; right: 20%; height: 40%; display: flex; justify-content: space-between; align-items: flex-end; opacity: .75; }
+.globe-buildings b { width: 9%; border: 2px solid var(--orange-deep); background: #050201; }
+.globe-buildings b:nth-child(1) { height: 30%; }.globe-buildings b:nth-child(2) { height: 52%; }.globe-buildings b:nth-child(3) { height: 67%; }.globe-buildings b:nth-child(4) { height: 38%; }
+.globe-halo { position: absolute; z-index: 1; border: 1px solid var(--orange); border-radius: 50%; box-shadow: 0 0 25px rgba(255,115,0,.16); }
+.halo-one { inset: 4%; animation: spin 20s linear infinite; }
+.halo-two { inset: 14%; transform: rotateX(68deg); animation: spinReverse 12s linear infinite; }
+.orbit-label { position: absolute; z-index: 6; left: 50%; color: var(--orange); background: #050201; border: 1px solid var(--line); padding: 8px 18px; font-family: "Cinzel", serif; font-weight: 800; letter-spacing: .16em; white-space: nowrap; box-shadow: 0 8px 22px #000; }
+.orbit-label-top { top: 5%; transform: translateX(-50%); }
+.orbit-label-bottom { bottom: 5%; transform: translateX(-50%); color: var(--apricot); }
+.orbit-dot { position: absolute; z-index: 7; width: 11px; height: 11px; border-radius: 50%; background: var(--orange); box-shadow: 0 0 18px var(--orange); }
+.dot-one { left: 8%; top: 28%; animation: dotPulse 1.5s ease-in-out infinite; }
+.dot-two { right: 8%; bottom: 28%; animation: dotPulse 1.5s .75s ease-in-out infinite; }
+.hero-badge { position: absolute; z-index: 4; right: -10px; bottom: 70px; display: grid; gap: 3px; padding: 12px 18px; border: 1px solid var(--orange); background: rgba(5,2,1,.92); box-shadow: var(--shadow); transform: rotate(-3deg); }
+.hero-badge span { color: var(--orange); font-weight: 900; letter-spacing: .15em; }
+.hero-badge b { font-size: .65rem; letter-spacing: .12em; }
+
+.announcement { width: min(1480px, 92%); margin: 0 auto 70px; padding: 18px 22px; display: flex; align-items: center; gap: 15px; border: 1px solid var(--line); background: linear-gradient(90deg, rgba(255,115,0,.13), rgba(4,2,1,.88)); }
+.announcement b { color: var(--orange); font-size: .75rem; letter-spacing: .11em; }
+.announcement p { margin: 0; color: var(--orange-muted); font-size: .83rem; }
+.announcement button { margin-left: auto; color: var(--black); background: var(--orange); border: 0; border-radius: 5px; padding: 9px 15px; font-weight: 800; }
+.pulse-dot { width: 9px; height: 9px; border-radius: 50%; background: var(--orange); box-shadow: 0 0 0 0 rgba(255,115,0,.6); animation: pulse 1.8s infinite; }
+
+.section { width: min(1380px, 90%); margin: 0 auto; padding: 95px 0; }
+.section-heading { max-width: 760px; margin-bottom: 46px; }
+.section-heading h2, .quiz-copy h2, .certificate-card h2, .modal-card h2 { margin: 12px 0 15px; color: var(--apricot); font-family: "Cinzel", serif; font-size: clamp(2.1rem, 4vw, 4rem); line-height: 1.08; }
+.section-heading > p:last-child { color: var(--orange-muted); line-height: 1.8; }
+.course-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+.course-card { position: relative; min-height: 390px; padding: 33px; overflow: hidden; border: 1px solid var(--line); background: linear-gradient(145deg, rgba(20,10,4,.97), rgba(5,3,1,.96)); box-shadow: 0 20px 45px rgba(0,0,0,.25); transition: .32s; }
+.course-card::after { content: ""; position: absolute; inset: auto -35% -55% auto; width: 220px; height: 220px; border: 1px solid var(--line); border-radius: 50%; }
+.course-card:hover { transform: translateY(-8px); border-color: var(--orange); box-shadow: 0 24px 55px rgba(255,115,0,.12); }
+.course-number { position: absolute; right: 22px; top: 15px; color: rgba(255,115,0,.13); font-family: "Cinzel", serif; font-size: 4rem; font-weight: 800; }
+.course-icon { width: 58px; height: 58px; margin-bottom: 25px; display: grid; place-items: center; color: var(--black); background: linear-gradient(135deg, var(--apricot), var(--orange)); font-size: 1.8rem; font-weight: 900; transform: rotate(-4deg); }
+.level { color: var(--orange); font-size: .64rem; font-weight: 800; letter-spacing: .18em; }
+.course-card h3 { position: relative; z-index: 2; color: var(--apricot); font-family: "Cinzel", serif; font-size: 1.35rem; line-height: 1.3; }
+.course-card p { position: relative; z-index: 2; min-height: 76px; color: var(--orange-muted); font-size: .85rem; line-height: 1.7; }
+.progress-track { position: relative; z-index: 2; height: 5px; margin: 25px 0 18px; overflow: hidden; background: #261208; }
+.progress-track span { display: block; height: 100%; background: linear-gradient(90deg, var(--orange-deep), var(--orange)); transition: width .4s; }
+.course-start { position: relative; z-index: 2; padding: 0; border: 0; color: var(--orange); background: none; font-weight: 800; text-transform: uppercase; letter-spacing: .08em; }
+
+.pathway-section { width: 100%; max-width: none; padding-left: 5%; padding-right: 5%; background: linear-gradient(90deg, rgba(255,115,0,.06), transparent 45%, rgba(255,115,0,.05)); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.pathway { display: grid; grid-template-columns: 1fr 80px 1fr 80px 1fr 80px 1fr; align-items: center; }
+.path-step { text-align: center; }
+.path-step span { width: 68px; height: 68px; display: grid; place-items: center; margin: 0 auto 20px; border: 1px solid var(--orange); border-radius: 50%; color: var(--black); background: var(--orange); font-family: "Cinzel", serif; font-size: 1.7rem; font-weight: 900; box-shadow: 0 0 30px rgba(255,115,0,.18); }
+.path-step h3 { color: var(--apricot); font-family: "Cinzel", serif; }
+.path-step p { color: var(--orange-muted); font-size: .83rem; }
+.path-line { height: 1px; background: linear-gradient(90deg, var(--orange), var(--orange-deep)); }
+
+.quiz-panel { display: grid; grid-template-columns: 1fr 280px; gap: 50px; align-items: center; padding: clamp(28px, 5vw, 70px); border: 1px solid var(--line); background: linear-gradient(135deg, rgba(26,12,4,.97), rgba(3,2,1,.98)); box-shadow: var(--shadow); }
+.quiz-copy > p:not(.eyebrow):not(.quiz-result) { color: var(--orange-muted); font-weight: 600; line-height: 1.7; }
+.quiz-options { display: grid; gap: 10px; margin-top: 25px; }
+.quiz-options button { padding: 15px 18px; text-align: left; color: var(--apricot); border: 1px solid var(--line); background: #0a0502; transition: .2s; }
+.quiz-options button:hover { border-color: var(--orange); transform: translateX(5px); }
+.quiz-options button.correct { color: var(--black); background: var(--orange); }
+.quiz-options button.wrong { color: var(--orange); border-color: var(--orange-deep); opacity: .55; }
+.quiz-result { min-height: 24px; color: var(--orange); font-weight: 800; }
+.score-ring { width: 240px; aspect-ratio: 1; margin: auto; display: grid; place-items: center; border-radius: 50%; background: conic-gradient(var(--orange) 0deg, #251005 0deg); transition: background .5s; }
+.score-ring::before { content: ""; position: absolute; width: 190px; aspect-ratio: 1; border-radius: 50%; background: var(--black-soft); }
+.score-ring div { position: relative; z-index: 2; display: grid; text-align: center; }
+.score-ring b { color: var(--orange); font-family: "Cinzel", serif; font-size: 4rem; }
+.score-ring span { font-size: .68rem; font-weight: 800; letter-spacing: .2em; }
+
+.certificate-card { position: relative; max-width: 980px; margin: 0 auto; padding: clamp(35px, 7vw, 85px); text-align: center; border: 2px solid var(--orange); outline: 1px solid var(--orange-deep); outline-offset: -12px; background: radial-gradient(circle, rgba(255,115,0,.13), transparent 55%), #070301; box-shadow: var(--shadow); }
+.certificate-card p:not(.eyebrow) { max-width: 700px; margin: 0 auto 28px; color: var(--orange-muted); line-height: 1.8; }
+.certificate-seal { width: 78px; height: 78px; margin: 0 auto 25px; display: grid; place-items: center; border-radius: 50%; color: var(--black); background: var(--orange); font-size: 2rem; box-shadow: 0 0 35px rgba(255,115,0,.25); }
+
+footer { padding: 55px 5%; text-align: center; border-top: 1px solid var(--line); background: #020100; }
+.footer-brand { display: grid; gap: 5px; }
+.footer-brand b { color: var(--orange); font-family: "Cinzel", serif; font-size: 1.2rem; letter-spacing: .08em; }
+.footer-brand span { font-size: .68rem; font-weight: 800; letter-spacing: .18em; }
+footer p { color: var(--orange-muted); }
+footer a { display: inline-block; margin: 10px 0 25px; color: var(--orange); font-weight: 800; }
+footer small { display: block; color: var(--orange-deep); }
+
+.contact-section { border-top: 1px solid var(--line); }
+.contact-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; }
+.contact-card { min-height: 135px; padding: 23px 18px; display: flex; align-items: center; gap: 15px; border: 1px solid var(--line); background: linear-gradient(145deg, rgba(23,11,4,.98), rgba(4,2,1,.98)); transition: .25s; }
+.contact-card:hover { transform: translateY(-4px); border-color: var(--orange); }
+.contact-card > i { width: 44px; height: 44px; flex: 0 0 44px; display: grid; place-items: center; color: var(--black); background: var(--orange); border-radius: 50%; }
+.contact-card span { min-width: 0; display: grid; gap: 5px; }
+.contact-card b { color: var(--orange); font-size: .72rem; text-transform: uppercase; letter-spacing: .1em; }
+.contact-card small { color: var(--apricot); overflow-wrap: anywhere; line-height: 1.45; }
+.social-networks { margin-top: 24px; display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; }
+.social-networks a { min-height: 78px; display: flex; align-items: center; justify-content: center; gap: 10px; border: 1px solid var(--line); background: #080401; color: var(--orange); font-weight: 800; font-size: .78rem; transition: .25s; }
+.social-networks a:hover { color: var(--black); background: var(--orange); transform: translateY(-3px); }
+.social-networks i { font-size: 1.25rem; }
+
+.modal { position: fixed; inset: 0; z-index: 1000; display: none; place-items: center; padding: 20px; background: rgba(0,0,0,.86); backdrop-filter: blur(10px); }
+.modal.open { display: grid; }
+.modal-card { position: relative; width: min(560px, 100%); padding: 42px; border: 1px solid var(--orange); background: linear-gradient(145deg, #160a04, #030201); box-shadow: var(--shadow); }
+.modal-close { position: absolute; right: 14px; top: 10px; color: var(--orange); background: transparent; border: 0; font-size: 2rem; }
+.modal-card h2 { font-size: 2rem; }
+.modal-card > p:not(.eyebrow) { color: var(--orange-muted); line-height: 1.6; }
+#enrollForm { display: grid; gap: 15px; margin-top: 25px; }
+#enrollForm label { display: grid; gap: 7px; color: var(--orange); font-size: .75rem; font-weight: 800; text-transform: uppercase; letter-spacing: .08em; }
+#enrollForm input { width: 100%; padding: 13px; color: var(--apricot); border: 1px solid var(--line); outline: 0; background: #070301; }
+#enrollForm input:focus { border-color: var(--orange); box-shadow: 0 0 0 3px rgba(255,115,0,.08); }
+.form-status { min-height: 22px; color: var(--orange) !important; font-weight: 800; }
+.toast { position: fixed; z-index: 1100; right: 22px; bottom: 22px; max-width: 360px; padding: 15px 20px; color: var(--black); background: var(--orange); font-weight: 800; box-shadow: var(--shadow); transform: translateY(120px); opacity: 0; transition: .35s; }
+.toast.show { transform: translateY(0); opacity: 1; }
+.reveal { opacity: 0; transform: translateY(25px); transition: opacity .7s, transform .7s; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+@keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-15px); } }
+@keyframes spin { to { transform: rotate(360deg); } }
+@keyframes spinReverse { from { transform: rotateX(68deg) rotate(360deg); } to { transform: rotateX(68deg) rotate(0deg); } }
+@keyframes globePulse { 0%,100% { transform: scale(1); } 50% { transform: scale(1.025); } }
+@keyframes worldDrift { from { transform: translateX(-2%) scale(1.02); } to { transform: translateX(3%) scale(1.05); } }
+@keyframes dotPulse { 0%,100% { opacity: .35; transform: scale(.7); } 50% { opacity: 1; transform: scale(1.35); } }
+@keyframes pulse { 70% { box-shadow: 0 0 0 12px rgba(255,115,0,0); } 100% { box-shadow: 0 0 0 0 rgba(255,115,0,0); } }
+
+@media (max-width: 1100px) {
+  .main-nav { display: none; position: absolute; left: 4%; right: 4%; top: 83px; padding: 24px; flex-direction: column; align-items: stretch; border: 1px solid var(--line); background: #080401; }
+  .main-nav.open { display: flex; }
+  .menu-toggle { display: block; }
+  .hero { grid-template-columns: 1fr; text-align: center; padding-top: 80px; }
+  .hero-text { margin-inline: auto; }
+  .hero-actions, .trust-row { justify-content: center; }
+  .hero-emblem { min-height: 500px; }
+  .course-grid { grid-template-columns: repeat(2, 1fr); }
+  .contact-grid { grid-template-columns: repeat(2, 1fr); }
+  .social-networks { grid-template-columns: repeat(3, 1fr); }
+  .pathway { grid-template-columns: repeat(4, 1fr); gap: 18px; }
+  .path-line { display: none; }
+}
+
+@media (max-width: 720px) {
+  .site-header { padding: 9px 14px; gap: 10px; }
+  .brand-emblem { width: 49px; height: 49px; flex-basis: 49px; }
+  .brand b { font-size: .84rem; }
+  .brand small { font-size: .57rem; letter-spacing: .10em; }
+  .language-switcher { position: fixed; z-index: 150; right: 12px; bottom: 12px; box-shadow: var(--shadow); }
+  .hero { width: 90%; min-height: auto; gap: 10px; padding: 60px 0 30px; }
+  .hero h1 { font-size: clamp(2.45rem, 13vw, 4rem); }
+  .hero-emblem { min-height: 450px; }
+  .globe-stage { width: 100%; }
+  .orbit-label { font-size: .57rem; padding: 6px 10px; letter-spacing: .10em; }
+  .hero-badge { right: 0; bottom: 30px; }
+  .trust-row { gap: 16px; }
+  .announcement { align-items: flex-start; flex-wrap: wrap; }
+  .announcement button { width: 100%; margin-left: 0; }
+  .section { width: 90%; padding: 70px 0; }
+  .course-grid { grid-template-columns: 1fr; }
+  .course-card { min-height: 360px; }
+  .pathway { grid-template-columns: repeat(2, 1fr); }
+  .quiz-panel { grid-template-columns: 1fr; }
+  .score-ring { order: -1; width: 190px; }
+  .score-ring::before { width: 150px; }
+  .modal-card { padding: 34px 24px; }
+  .contact-grid, .social-networks { grid-template-columns: 1fr; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; }
+}
