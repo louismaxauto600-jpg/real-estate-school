@@ -14,6 +14,16 @@
   <link rel="stylesheet" href="style.css">
   <style>
     /* PRO-MAX REAL ESTATE 3D GLOBE — ANIMATION BUILT INTO INDEX.HTML */
+    .brand .official-school-logo {
+      width: 66px;
+      height: 66px;
+      flex: 0 0 66px;
+      display: block;
+      object-fit: contain;
+      border-radius: 50%;
+      filter: drop-shadow(0 0 15px rgba(255,115,0,.62));
+    }
+
     .digital-globe {
       position: relative;
       perspective: 1400px;
@@ -44,7 +54,7 @@
       100% { transform: rotateY(-14deg) rotateX(2deg) translateY(0) scale(1); filter: drop-shadow(0 0 22px rgba(255,115,0,.55)); }
     }
   </style>
-  <script src="javascript.js" defer></script>
+  <script src="Javascript.js" defer></script>
 </head>
 <body>
   <div class="ambient ambient-one"></div>
@@ -52,10 +62,7 @@
 
   <header class="site-header" id="top">
     <a class="brand" href="#top" aria-label="Real Estate School home">
-      <span class="brand-emblem">
-        <i class="fa-solid fa-house-chimney" aria-hidden="true"></i>
-        <small>P-M</small>
-      </span>
+      <img class="official-school-logo" src="./real-estate-school-logo.png" alt="PRO-MAX Académie Real Estate School logo" onerror="this.onerror=null;this.src='https://github.com/louismaxauto600-jpg/real-estate-school/raw/refs/heads/main/real-estate-school-logo.png';">
       <span><b>PRO-MAX ACADÉMIE</b><small>REAL ESTATE SCHOOL</small></span>
     </a>
 
@@ -101,14 +108,7 @@
           <div class="globe-halo halo-one"></div>
           <div class="globe-halo halo-two"></div>
           <div class="digital-globe">
-            <div class="globe-fallback" aria-hidden="true"><i class="fa-solid fa-house-chimney"></i></div>
             <img class="promax-animated-globe" src="./promax-real-estate-3d-3.png" alt="PRO-MAX Académie Real Estate School — animated 3D globe, Orlando Florida, 100% online">
-            <div class="globe-information">
-              <strong>PRO-MAX ACADÉMIE</strong>
-              <b>REAL ESTATE SCHOOL</b>
-              <span><i class="fa-solid fa-location-dot"></i> ORLANDO, FLORIDA</span>
-              <small data-i18n="globeOnline">100% SOU ENTÈNÈT</small>
-            </div>
           </div>
           <div class="orbit-label orbit-label-bottom">REAL ESTATE SCHOOL</div>
           <span class="orbit-dot dot-one"></span>
