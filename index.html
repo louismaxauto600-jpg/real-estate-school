@@ -12,6 +12,38 @@
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
   <link rel="stylesheet" href="style.css">
+  <style>
+    /* PRO-MAX REAL ESTATE 3D GLOBE — ANIMATION BUILT INTO INDEX.HTML */
+    .digital-globe {
+      position: relative;
+      perspective: 1400px;
+      transform-style: preserve-3d;
+    }
+
+    .digital-globe .promax-animated-globe {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      transform-origin: 50% 50%;
+      filter: drop-shadow(0 0 28px rgba(255,115,0,.72));
+      animation: promaxGlobeTurn 8s ease-in-out infinite;
+      will-change: transform, filter;
+    }
+
+    .globe-stage .globe-halo,
+    .globe-stage .orbit-dot {
+      animation-play-state: running;
+    }
+
+    @keyframes promaxGlobeTurn {
+      0%   { transform: rotateY(-14deg) rotateX(2deg) translateY(0) scale(1); filter: drop-shadow(0 0 22px rgba(255,115,0,.55)); }
+      25%  { transform: rotateY(0deg) rotateX(-1deg) translateY(-10px) scale(1.025); filter: drop-shadow(0 0 40px rgba(255,115,0,.85)); }
+      50%  { transform: rotateY(14deg) rotateX(2deg) translateY(0) scale(1); filter: drop-shadow(0 0 28px rgba(255,115,0,.68)); }
+      75%  { transform: rotateY(0deg) rotateX(-2deg) translateY(8px) scale(.995); filter: drop-shadow(0 0 42px rgba(255,115,0,.9)); }
+      100% { transform: rotateY(-14deg) rotateX(2deg) translateY(0) scale(1); filter: drop-shadow(0 0 22px rgba(255,115,0,.55)); }
+    }
+  </style>
   <script src="javascript.js" defer></script>
 </head>
 <body>
@@ -22,7 +54,7 @@
     <a class="brand" href="#top" aria-label="Real Estate School home">
       <span class="brand-emblem">
         <i class="fa-solid fa-house-chimney" aria-hidden="true"></i>
-        <img src="promax-real-estate-3d.png" alt="" onerror="this.style.display='none'">
+        <small>P-M</small>
       </span>
       <span><b>PRO-MAX ACADÉMIE</b><small>REAL ESTATE SCHOOL</small></span>
     </a>
@@ -70,7 +102,7 @@
           <div class="globe-halo halo-two"></div>
           <div class="digital-globe">
             <div class="globe-fallback" aria-hidden="true"><i class="fa-solid fa-house-chimney"></i></div>
-            <img src="promax-real-estate-3d.png" alt="Luxury 3D real estate house inside a digital globe" onerror="this.style.display='none'">
+            <img class="promax-animated-globe" src="./promax-real-estate-3d-3.png" alt="PRO-MAX Académie Real Estate School — animated 3D globe, Orlando Florida, 100% online">
             <div class="globe-information">
               <strong>PRO-MAX ACADÉMIE</strong>
               <b>REAL ESTATE SCHOOL</b>
@@ -211,6 +243,7 @@
         <a class="contact-card" href="mailto:realestateschool60@gmail.com"><i class="fa-solid fa-envelope"></i><span><b data-i18n="emailLabel">Imèl</b><small>realestateschool60@gmail.com</small></span></a>
         <a class="contact-card" href="tel:+14076405166"><i class="fa-solid fa-phone"></i><span><b data-i18n="phoneLabel">Telefòn</b><small>(407) 640-5166</small></span></a>
         <a class="contact-card" href="tel:+15162168494"><i class="fa-solid fa-mobile-screen-button"></i><span><b data-i18n="phoneLabel">Telefòn</b><small>(516) 216-8494</small></span></a>
+        <a class="contact-card" href="tel:+50943437488"><i class="fa-solid fa-phone-volume"></i><span><b data-i18n="phoneHaitiLabel">Telefòn Ayiti 🇭🇹</b><small>+509 43 43 74 88</small></span></a>
         <div class="contact-card"><i class="fa-solid fa-location-dot"></i><span><b data-i18n="locationLabel">Lokalizasyon</b><small>Orlando, Florida</small></span></div>
       </div>
       <div class="social-networks reveal" aria-label="Social networks">
