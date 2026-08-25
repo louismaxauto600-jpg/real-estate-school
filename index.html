@@ -1,1712 +1,252 @@
-Worked for 16s
-
-Efase tout sa ki nan index.html, epi kole kòd sa a sèlman:
-
 <!DOCTYPE html>
-<html lang="ht" id="htmlRoot">
+<html lang="ht" id="htmlRoot" translate="no">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#030201">
-<title>PRO-MAX Académie | Real Estate School</title>
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-
-<style>
-:root{
-  --black:#030201;
-  --black-soft:#0b0603;
-  --orange:#ff7300;
-  --apricot:#ffad66;
-  --orange-deep:#b83b00;
-  --line:rgba(255,115,0,.34);
-  --shadow:0 25px 70px rgba(0,0,0,.62)
-}
-
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{
-  margin:0;
-  min-height:100vh;
-  overflow-x:hidden;
-  color:var(--apricot);
-  background:
-    radial-gradient(circle at 15% 10%,rgba(255,115,0,.16),transparent 27%),
-    radial-gradient(circle at 90% 55%,rgba(184,59,0,.13),transparent 29%),
-    var(--black);
-  font-family:"Montserrat",sans-serif
-}
-
-a{color:inherit;text-decoration:none}
-button,input{font:inherit}
-button{cursor:pointer}
-
-.site-header{
-  position:sticky;
-  top:0;
-  z-index:1000;
-  min-height:88px;
-  padding:10px clamp(15px,4vw,60px);
-  display:flex;
-  align-items:center;
-  gap:20px;
-  border-bottom:1px solid var(--line);
-  background:rgba(3,2,1,.96);
-  backdrop-filter:blur(18px)
-}
-
-.brand{
-  margin-right:auto;
-  display:flex;
-  align-items:center;
-  gap:13px
-}
-
-.brand-logo{
-  position:relative;
-  width:66px;
-  height:66px;
-  flex:0 0 66px;
-  display:grid;
-  place-items:center;
-  border:3px solid var(--orange);
-  border-radius:50%;
-  color:var(--black);
-  background:radial-gradient(circle,var(--apricot),var(--orange));
-  box-shadow:0 0 25px rgba(255,115,0,.48)
-}
-
-.brand-logo:before{
-  content:"";
-  position:absolute;
-  inset:6px;
-  border:1px solid var(--black);
-  border-radius:50%
-}
-
-.brand-logo i{
-  position:relative;
-  z-index:2;
-  font-size:1.7rem
-}
-
-.brand-text{display:grid;gap:5px}
-
-.brand-text b{
-  color:var(--orange);
-  font-family:"Cinzel",serif;
-  font-size:1rem;
-  letter-spacing:.08em
-}
-
-.brand-text small{
-  font-size:.62rem;
-  font-weight:800;
-  letter-spacing:.18em
-}
-
-.main-nav{
-  display:flex;
-  align-items:center;
-  gap:18px
-}
-
-.main-nav a{
-  font-size:.72rem;
-  font-weight:800;
-  text-transform:uppercase
-}
-
-.main-nav a:hover{color:var(--orange)}
-
-.language-switcher{
-  display:flex;
-  padding:4px;
-  border:1px solid var(--line);
-  border-radius:999px;
-  background:#080401
-}
-
-.lang-btn{
-  padding:9px 11px;
-  border:0;
-  border-radius:999px;
-  color:var(--orange);
-  background:transparent;
-  font-size:.68rem;
-  font-weight:900
-}
-
-.lang-btn.active{
-  color:var(--black);
-  background:linear-gradient(135deg,var(--apricot),var(--orange))
-}
-
-.menu-toggle{
-  display:none;
-  width:44px;
-  height:44px;
-  padding:9px;
-  border:1px solid var(--line);
-  background:var(--black)
-}
-
-.menu-toggle span{
-  display:block;
-  height:2px;
-  margin:6px 0;
-  background:var(--orange)
-}
-
-.hero{
-  width:min(1400px,92%);
-  min-height:760px;
-  margin:auto;
-  padding:70px 0;
-  display:grid;
-  grid-template-columns:1.08fr .92fr;
-  align-items:center;
-  gap:50px
-}
-
-.eyebrow{
-  color:var(--orange);
-  font-size:.75rem;
-  font-weight:900;
-  letter-spacing:.22em;
-  text-transform:uppercase
-}
-
-.hero h1{
-  margin:15px 0 25px;
-  font-family:"Cinzel",serif;
-  font-size:clamp(3rem,6vw,6.3rem);
-  line-height:.98;
-  letter-spacing:-.04em
-}
-
-.hero h1 span,.hero h1 strong{display:block}
-.hero h1 strong{margin-top:12px;color:var(--orange)}
-
-.hero-text{
-  max-width:700px;
-  color:var(--orange);
-  font-size:1.08rem;
-  line-height:1.8
-}
-
-.hero-actions{
-  margin:32px 0;
-  display:flex;
-  flex-wrap:wrap;
-  gap:14px
-}
-
-.btn{
-  padding:15px 24px;
-  border:1px solid var(--orange);
-  border-radius:7px;
-  font-weight:900;
-  transition:.25s
-}
-
-.btn-primary{
-  color:var(--black);
-  background:linear-gradient(135deg,var(--apricot),var(--orange))
-}
-
-.btn-secondary{
-  color:var(--orange);
-  background:transparent
-}
-
-.btn:hover{
-  transform:translateY(-3px);
-  box-shadow:0 15px 35px rgba(255,115,0,.25)
-}
-
-.trust-row{
-  display:flex;
-  flex-wrap:wrap;
-  gap:30px
-}
-
-.trust-row span{
-  padding-left:12px;
-  display:grid;
-  border-left:2px solid var(--orange)
-}
-
-.trust-row b{
-  color:var(--orange);
-  font-family:"Cinzel",serif;
-  font-size:1.55rem
-}
-
-.trust-row small{
-  font-size:.65rem;
-  font-weight:800;
-  text-transform:uppercase
-}
-
-.hero-globe{
-  position:relative;
-  min-height:610px;
-  display:grid;
-  place-items:center
-}
-
-.digital-globe{
-  position:relative;
-  z-index:4;
-  width:min(430px,78vw);
-  aspect-ratio:1;
-  overflow:hidden;
-  border:4px solid var(--orange);
-  border-radius:50%;
-  background:
-    radial-gradient(circle at 31% 24%,rgba(255,173,102,.5),transparent 23%),
-    radial-gradient(circle,rgba(255,115,0,.2),#120703 58%,#030201 86%);
-  box-shadow:
-    inset -50px -35px 70px #000,
-    inset 25px 18px 45px rgba(255,115,0,.35),
-    0 0 35px rgba(255,115,0,.55),
-    0 0 110px rgba(255,115,0,.2);
-  animation:globePulse 4s ease-in-out infinite
-}
-
-.digital-globe:after{
-  content:"";
-  position:absolute;
-  inset:4%;
-  border:1px solid rgba(255,173,102,.3);
-  border-radius:50%
-}
-
-.latitude,.longitude{
-  position:absolute;
-  z-index:3;
-  display:block;
-  border:1px solid rgba(255,115,0,.65);
-  border-radius:50%
-}
-
-.latitude{left:4%;right:4%;height:23%}
-.latitude-one{top:17%}
-.latitude-two{top:39%}
-.latitude-three{bottom:17%}
-
-.longitude{
-  top:3%;
-  bottom:3%;
-  left:29%;
-  width:42%
-}
-
-.longitude-two{transform:rotateY(58deg)}
-.longitude-three{transform:rotateY(-58deg)}
-
-.continent{
-  position:absolute;
-  z-index:2;
-  display:block;
-  background:linear-gradient(145deg,var(--apricot),var(--orange-deep));
-  opacity:.72;
-  filter:drop-shadow(0 0 8px rgba(255,115,0,.55))
-}
-
-.north-america{
-  width:34%;
-  height:32%;
-  left:8%;
-  top:18%;
-  clip-path:polygon(0 18%,21% 2%,47% 8%,61% 0,95% 20%,77% 42%,63% 46%,58% 70%,38% 88%,24% 68%,8% 62%)
-}
-
-.south-america{
-  width:20%;
-  height:39%;
-  left:32%;
-  top:47%;
-  clip-path:polygon(10% 0,88% 5%,100% 25%,76% 48%,65% 72%,41% 100%,24% 75%,19% 51%,0 25%)
-}
-
-.africa-europe{
-  width:28%;
-  height:50%;
-  left:48%;
-  top:21%;
-  clip-path:polygon(8% 6%,32% 0,48% 11%,74% 4%,100% 23%,78% 34%,72% 56%,60% 83%,42% 100%,24% 78%,16% 54%,0 35%)
-}
-
-.asia{
-  width:31%;
-  height:28%;
-  right:3%;
-  top:22%;
-  clip-path:polygon(0 19%,20% 5%,44% 10%,61% 0,100% 17%,87% 45%,68% 53%,61% 82%,34% 100%,17% 75%,8% 46%)
-}
-
-.real-estate-icon{
-  position:absolute;
-  z-index:8;
-  inset:0;
-  display:grid;
-  place-items:center
-}
-
-.real-estate-icon i{
-  padding:27px;
-  border:3px solid var(--orange);
-  color:var(--orange);
-  background:rgba(3,2,1,.92);
-  font-size:4rem;
-  box-shadow:0 0 35px rgba(255,115,0,.45)
-}
-
-.orbit{
-  position:absolute;
-  z-index:1;
-  width:min(570px,92vw);
-  aspect-ratio:1;
-  border:1px solid var(--orange);
-  border-radius:50%
-}
-
-.orbit-one{animation:spin 20s linear infinite}
-
-.orbit-two{
-  width:min(500px,82vw);
-  transform:rotateX(68deg);
-  animation:reverseSpin 14s linear infinite
-}
-
-.globe-label{
-  position:absolute;
-  z-index:9;
-  left:50%;
-  padding:8px 15px;
-  border:1px solid var(--line);
-  color:var(--orange);
-  background:var(--black);
-  font-family:"Cinzel",serif;
-  font-size:.72rem;
-  font-weight:900;
-  letter-spacing:.13em;
-  white-space:nowrap;
-  transform:translateX(-50%)
-}
-
-.globe-label-top{top:5%}
-.globe-label-bottom{bottom:5%}
-
-.announcement{
-  width:min(1400px,92%);
-  margin:0 auto 60px;
-  padding:18px 22px;
-  display:flex;
-  align-items:center;
-  gap:15px;
-  border:1px solid var(--line);
-  background:linear-gradient(90deg,rgba(255,115,0,.14),#050201)
-}
-
-.announcement b{color:var(--orange)}
-.announcement p{margin:0}
-
-.announcement button{
-  margin-left:auto;
-  padding:10px 15px;
-  border:0;
-  color:var(--black);
-  background:var(--orange);
-  font-weight:900
-}
-
-.pulse-dot{
-  width:10px;
-  height:10px;
-  border-radius:50%;
-  background:var(--orange);
-  animation:pulse 1.6s infinite
-}
-
-.section{
-  width:min(1320px,90%);
-  margin:auto;
-  padding:90px 0
-}
-
-.section-heading{
-  max-width:760px;
-  margin-bottom:45px
-}
-
-.section h2{
-  margin:12px 0;
-  font-family:"Cinzel",serif;
-  font-size:clamp(2rem,4vw,4rem);
-  line-height:1.08
-}
-
-.section-heading>p:last-child{line-height:1.8}
-
-.course-grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:20px
-}
-
-.course-card{
-  position:relative;
-  min-height:380px;
-  padding:32px;
-  border:1px solid var(--line);
-  background:linear-gradient(145deg,#160b05,#050201);
-  transition:.3s
-}
-
-.course-card:hover{
-  transform:translateY(-7px);
-  border-color:var(--orange)
-}
-
-.course-number{
-  position:absolute;
-  top:12px;
-  right:20px;
-  color:rgba(255,115,0,.15);
-  font-family:"Cinzel",serif;
-  font-size:4rem;
-  font-weight:900
-}
-
-.course-icon{
-  width:58px;
-  height:58px;
-  margin-bottom:24px;
-  display:grid;
-  place-items:center;
-  color:var(--black);
-  background:linear-gradient(135deg,var(--apricot),var(--orange));
-  font-size:1.6rem
-}
-
-.course-card small{
-  color:var(--orange);
-  font-weight:900;
-  letter-spacing:.15em
-}
-
-.course-card h3{
-  position:relative;
-  z-index:2;
-  font-family:"Cinzel",serif;
-  font-size:1.35rem
-}
-
-.course-card p{
-  min-height:75px;
-  line-height:1.7
-}
-
-.progress-track{
-  height:5px;
-  margin:24px 0 18px;
-  overflow:hidden;
-  background:#281208
-}
-
-.progress-track span{
-  display:block;
-  width:0;
-  height:100%;
-  background:var(--orange);
-  transition:.35s
-}
-
-.course-start{
-  padding:0;
-  border:0;
-  color:var(--orange);
-  background:transparent;
-  font-weight:900;
-  text-transform:uppercase
-}
-
-.pathway-section{
-  width:100%;
-  max-width:none;
-  padding-inline:5%;
-  border-block:1px solid var(--line);
-  background:rgba(255,115,0,.05)
-}
-
-.pathway{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:25px
-}
-
-.pathway article{
-  padding:28px;
-  text-align:center;
-  border:1px solid var(--line);
-  background:var(--black)
-}
-
-.pathway article>span{
-  width:65px;
-  height:65px;
-  margin:auto;
-  display:grid;
-  place-items:center;
-  border-radius:50%;
-  color:var(--black);
-  background:var(--orange);
-  font-family:"Cinzel",serif;
-  font-size:1.6rem;
-  font-weight:900
-}
-
-.quiz-panel{
-  padding:clamp(28px,5vw,65px);
-  display:grid;
-  grid-template-columns:1fr 260px;
-  align-items:center;
-  gap:45px;
-  border:1px solid var(--line);
-  background:linear-gradient(135deg,#1b0c04,var(--black));
-  box-shadow:var(--shadow)
-}
-
-.quiz-options{
-  margin-top:24px;
-  display:grid;
-  gap:10px
-}
-
-.quiz-options button{
-  padding:15px;
-  text-align:left;
-  border:1px solid var(--line);
-  color:var(--apricot);
-  background:var(--black)
-}
-
-.quiz-options button.correct{
-  color:var(--black);
-  background:var(--orange)
-}
-
-.quiz-options button.wrong{opacity:.55}
-
-.quiz-result{
-  min-height:25px;
-  color:var(--orange);
-  font-weight:900
-}
-
-.score-ring{
-  width:230px;
-  aspect-ratio:1;
-  display:grid;
-  place-items:center;
-  border-radius:50%;
-  background:conic-gradient(var(--orange) 0deg,#2b1308 0deg)
-}
-
-.score-ring>div{
-  width:180px;
-  aspect-ratio:1;
-  display:grid;
-  place-items:center;
-  align-content:center;
-  border-radius:50%;
-  background:var(--black)
-}
-
-.score-ring b{
-  color:var(--orange);
-  font-family:"Cinzel",serif;
-  font-size:4rem
-}
-
-.certificate-card{
-  max-width:950px;
-  margin:auto;
-  padding:clamp(40px,7vw,80px);
-  text-align:center;
-  border:2px solid var(--orange);
-  outline:1px solid var(--orange-deep);
-  outline-offset:-12px;
-  background:radial-gradient(circle,rgba(255,115,0,.13),transparent 55%),var(--black)
-}
-
-.certificate-seal{
-  width:75px;
-  height:75px;
-  margin:0 auto 22px;
-  display:grid;
-  place-items:center;
-  border-radius:50%;
-  color:var(--black);
-  background:var(--orange);
-  font-size:1.8rem
-}
-
-.contact-section{border-top:1px solid var(--line)}
-
-.contact-grid{
-  display:grid;
-  grid-template-columns:repeat(5,1fr);
-  gap:14px
-}
-
-.contact-grid>a,.location-card{
-  min-height:135px;
-  padding:20px;
-  display:flex;
-  align-items:center;
-  gap:14px;
-  border:1px solid var(--line);
-  background:linear-gradient(145deg,#160b05,#050201)
-}
-
-.contact-grid i{
-  width:45px;
-  height:45px;
-  flex:0 0 45px;
-  display:grid;
-  place-items:center;
-  border-radius:50%;
-  color:var(--black);
-  background:var(--orange)
-}
-
-.contact-grid span{
-  min-width:0;
-  display:grid;
-  gap:5px
-}
-
-.contact-grid b{
-  color:var(--orange);
-  text-transform:uppercase;
-  font-size:.72rem
-}
-
-.contact-grid small{overflow-wrap:anywhere}
-
-.social-networks{
-  margin-top:24px;
-  display:grid;
-  grid-template-columns:repeat(5,1fr);
-  gap:12px
-}
-
-.social-networks a{
-  min-height:75px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:9px;
-  border:1px solid var(--line);
-  color:var(--orange);
-  background:#080401;
-  font-size:.78rem;
-  font-weight:900
-}
-
-.social-networks a:hover{
-  color:var(--black);
-  background:var(--orange)
-}
-
-footer{
-  padding:55px 5%;
-  display:grid;
-  gap:8px;
-  text-align:center;
-  border-top:1px solid var(--line);
-  background:var(--black)
-}
-
-footer b{
-  color:var(--orange);
-  font-family:"Cinzel",serif;
-  font-size:1.35rem
-}
-
-footer strong{
-  letter-spacing:.16em;
-  font-size:.75rem
-}
-
-.modal{
-  position:fixed;
-  inset:0;
-  z-index:2000;
-  display:none;
-  place-items:center;
-  padding:20px;
-  background:rgba(0,0,0,.88)
-}
-
-.modal.open{display:grid}
-
-.modal-card{
-  position:relative;
-  width:min(560px,100%);
-  padding:40px;
-  border:1px solid var(--orange);
-  background:linear-gradient(145deg,#160a04,var(--black))
-}
-
-.modal-close{
-  position:absolute;
-  top:8px;
-  right:15px;
-  border:0;
-  color:var(--orange);
-  background:transparent;
-  font-size:2rem
-}
-
-#enrollForm{
-  margin-top:22px;
-  display:grid;
-  gap:15px
-}
-
-#enrollForm label{
-  display:grid;
-  gap:7px;
-  color:var(--orange);
-  font-weight:800
-}
-
-#enrollForm input{
-  width:100%;
-  padding:13px;
-  border:1px solid var(--line);
-  color:var(--apricot);
-  background:var(--black)
-}
-
-#formStatus{
-  min-height:24px;
-  color:var(--orange);
-  font-weight:900
-}
-
-.toast{
-  position:fixed;
-  right:20px;
-  bottom:20px;
-  z-index:2500;
-  max-width:350px;
-  padding:15px 20px;
-  color:var(--black);
-  background:var(--orange);
-  font-weight:900;
-  opacity:0;
-  transform:translateY(100px);
-  transition:.3s
-}
-
-.toast.show{
-  opacity:1;
-  transform:translateY(0)
-}
-
-@keyframes spin{
-  to{transform:rotate(360deg)}
-}
-
-@keyframes reverseSpin{
-  to{transform:rotate(-360deg)}
-}
-
-@keyframes globePulse{
-  50%{transform:scale(1.025)}
-}
-
-@keyframes pulse{
-  70%{box-shadow:0 0 0 13px rgba(255,115,0,0)}
-}
-
-@media(max-width:1100px){
-  .menu-toggle{display:block}
-
-  .main-nav{
-    position:absolute;
-    top:87px;
-    left:4%;
-    right:4%;
-    display:none;
-    padding:24px;
-    flex-direction:column;
-    align-items:stretch;
-    border:1px solid var(--line);
-    background:#080401
-  }
-
-  .main-nav.open{display:flex}
-
-  .hero{
-    grid-template-columns:1fr;
-    text-align:center
-  }
-
-  .hero-text{margin-inline:auto}
-
-  .hero-actions,.trust-row{justify-content:center}
-
-  .course-grid,.contact-grid{
-    grid-template-columns:repeat(2,1fr)
-  }
-
-  .social-networks{
-    grid-template-columns:repeat(3,1fr)
-  }
-}
-
-@media(max-width:720px){
-  .site-header{
-    padding:9px 13px;
-    gap:9px
-  }
-
-  .brand-logo{
-    width:50px;
-    height:50px;
-    flex-basis:50px
-  }
-
-  .brand-text b{font-size:.72rem}
-  .brand-text small{font-size:.48rem}
-
-  .language-switcher{
-    position:fixed;
-    right:12px;
-    bottom:12px;
-    z-index:1800;
-    box-shadow:var(--shadow)
-  }
-
-  .hero{
-    width:90%;
-    min-height:auto;
-    padding-top:55px
-  }
-
-  .hero h1{
-    font-size:clamp(2.7rem,13vw,4.2rem)
-  }
-
-  .hero-globe{min-height:500px}
-
-  .announcement{flex-wrap:wrap}
-
-  .announcement button{
-    width:100%;
-    margin-left:0
-  }
-
-  .course-grid,.pathway,.contact-grid,
-  .social-networks,.quiz-panel{
-    grid-template-columns:1fr
-  }
-
-  .score-ring{
-    order:-1;
-    margin:auto
-  }
-
-  .section{
-    width:90%;
-    padding:70px 0
-  }
-
-  footer{padding-bottom:90px}
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#070402">
+  <meta name="google" content="notranslate">
+  <meta name="description" content="PRO-MAX Académie Real Estate School — fòmasyon pwofesyonèl nan byen imobilye.">
+  <title>PRO-MAX Académie | Real Estate School</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+  <script src="javascript.js" defer></script>
 </head>
-
 <body>
+  <div class="ambient ambient-one"></div>
+  <div class="ambient ambient-two"></div>
 
-<header class="site-header" id="top">
-  <a class="brand" href="#home">
-    <span class="brand-logo">
-      <i class="fa-solid fa-house-chimney"></i>
-    </span>
+  <header class="site-header" id="top">
+    <a class="brand" href="#top" aria-label="Real Estate School home">
+      <span class="brand-emblem"><img src="promax-real-estate-3d.png" alt="PRO-MAX Académie Real Estate School 3D logo"></span>
+      <span><b>PRO-MAX ACADÉMIE</b><small>REAL ESTATE SCHOOL</small></span>
+    </a>
 
-    <span class="brand-text">
-      <b>PRO-MAX ACADÉMIE</b>
-      <small>REAL ESTATE SCHOOL</small>
-    </span>
-  </a>
-
-  <button class="menu-toggle" id="menuToggle" type="button">
-    <span></span>
-    <span></span>
-    <span></span>
-  </button>
-
-  <nav class="main-nav" id="mainNav">
-    <a href="#home" data-i18n="navHome">Akèy</a>
-    <a href="#courses" data-i18n="navCourses">Kou yo</a>
-    <a href="#pathway" data-i18n="navPath">Parcours</a>
-    <a href="#practice" data-i18n="navExam">Egzamen</a>
-    <a href="#certificate" data-i18n="navCertificate">Sètifika</a>
-    <a href="#contact" data-i18n="navContact">Kontak</a>
-  </nav>
-
-  <div class="language-switcher">
-    <button class="lang-btn" type="button" data-lang="en">ENG</button>
-    <button class="lang-btn" type="button" data-lang="es">ESP</button>
-    <button class="lang-btn active" type="button" data-lang="ht">KRE</button>
-  </div>
-</header>
-
-<main>
-
-<section class="hero" id="home">
-  <div>
-    <p class="eyebrow" data-i18n="heroEyebrow">
-      YON LEKÒL PRO-MAX ACADÉMIE
-    </p>
-
-    <h1>
-      <span data-i18n="heroTitleOne">Bati konesans ou.</span>
-      <strong data-i18n="heroTitleTwo">Louvri pòt avni ou.</strong>
-    </h1>
-
-    <p class="hero-text" data-i18n="heroText">
-      Aprann prensip byen imobilye, prepare pou egzamen lisans ou,
-      epi devlope konpetans pou sèvi kliyan avèk konfyans ak
-      pwofesyonalis.
-    </p>
-
-    <div class="hero-actions">
-      <a class="btn btn-primary" href="#courses" data-i18n="startLearning">
-        Kòmanse aprann
-      </a>
-
-      <button class="btn btn-secondary" id="openEnroll" type="button" data-i18n="enrollNow">
-        Enskri kounye a
-      </button>
-    </div>
-
-    <div class="trust-row">
-      <span><b>6</b><small data-i18n="statCourses">Kou esansyèl</small></span>
-      <span><b>3</b><small data-i18n="statLanguages">Lang</small></span>
-      <span><b>100%</b><small data-i18n="statOnline">Sou entènèt</small></span>
-    </div>
-  </div>
-
-  <div class="hero-globe">
-    <div class="orbit orbit-one"></div>
-    <div class="orbit orbit-two"></div>
-
-    <div class="digital-globe">
-      <span class="latitude latitude-one"></span>
-      <span class="latitude latitude-two"></span>
-      <span class="latitude latitude-three"></span>
-
-      <span class="longitude longitude-one"></span>
-      <span class="longitude longitude-two"></span>
-      <span class="longitude longitude-three"></span>
-
-      <span class="continent north-america"></span>
-      <span class="continent south-america"></span>
-      <span class="continent africa-europe"></span>
-      <span class="continent asia"></span>
-
-      <div class="real-estate-icon">
-        <i class="fa-solid fa-house-chimney"></i>
-      </div>
-    </div>
-
-    <span class="globe-label globe-label-top">PRO-MAX ACADÉMIE</span>
-    <span class="globe-label globe-label-bottom">REAL ESTATE SCHOOL</span>
-  </div>
-</section>
-
-<section class="announcement">
-  <span class="pulse-dot"></span>
-  <b data-i18n="announcementTitle">ENSKRIPSYON OUVÈ</b>
-  <p data-i18n="announcementText">
-    Nouvo sesyon Real Estate School la disponib kounye a.
-  </p>
-  <button id="announcementEnroll" type="button" data-i18n="reserveSeat">
-    Rezève plas ou
-  </button>
-</section>
-
-<section class="section" id="courses">
-  <div class="section-heading">
-    <p class="eyebrow" data-i18n="coursesEyebrow">PWOGRAM FÒMASYON</p>
-    <h2 data-i18n="coursesTitle">Kou ki prepare w pou mache a</h2>
-    <p data-i18n="coursesText">
-      Chak modil fèt pou mennen w soti nan fondasyon yo rive nan
-      pratik pwofesyonèl.
-    </p>
-  </div>
-
-  <div class="course-grid">
-
-    <article class="course-card" data-course="fundamentals">
-      <span class="course-number">01</span>
-      <div class="course-icon"><i class="fa-solid fa-house"></i></div>
-      <small data-i18n="levelBeginner">DEBITAN</small>
-      <h3 data-i18n="course1Title">Fondasyon byen imobilye</h3>
-      <p data-i18n="course1Text">
-        Pwopriyete, tit, dwa, responsablite ak vokabilè endistri a.
-      </p>
-      <div class="progress-track"><span></span></div>
-      <button type="button" class="course-start" data-i18n="openCourse">
-        Ouvri kou a
-      </button>
-    </article>
-
-    <article class="course-card" data-course="law">
-      <span class="course-number">02</span>
-      <div class="course-icon"><i class="fa-solid fa-scale-balanced"></i></div>
-      <small data-i18n="levelCore">ESANSYÈL</small>
-      <h3 data-i18n="course2Title">Lwa ak etik pwofesyonèl</h3>
-      <p data-i18n="course2Text">
-        Kontra, divilgasyon, lojman ekitab ak obligasyon fidisyè.
-      </p>
-      <div class="progress-track"><span></span></div>
-      <button type="button" class="course-start" data-i18n="openCourse">
-        Ouvri kou a
-      </button>
-    </article>
-
-    <article class="course-card" data-course="finance">
-      <span class="course-number">03</span>
-      <div class="course-icon"><i class="fa-solid fa-percent"></i></div>
-      <small data-i18n="levelCore">ESANSYÈL</small>
-      <h3 data-i18n="course3Title">Finansman ak ipotèk</h3>
-      <p data-i18n="course3Text">
-        Prè, enterè, kredi, closing costs ak kalkil finansye.
-      </p>
-      <div class="progress-track"><span></span></div>
-      <button type="button" class="course-start" data-i18n="openCourse">
-        Ouvri kou a
-      </button>
-    </article>
-
-    <article class="course-card" data-course="valuation">
-      <span class="course-number">04</span>
-      <div class="course-icon"><i class="fa-solid fa-chart-line"></i></div>
-      <small data-i18n="levelIntermediate">ENTÈMEDYÈ</small>
-      <h3 data-i18n="course4Title">Valyasyon pwopriyete</h3>
-      <p data-i18n="course4Text">
-        Analiz mache, konparab, estimasyon valè ak envestisman.
-      </p>
-      <div class="progress-track"><span></span></div>
-      <button type="button" class="course-start" data-i18n="openCourse">
-        Ouvri kou a
-      </button>
-    </article>
-
-    <article class="course-card" data-course="marketing">
-      <span class="course-number">05</span>
-      <div class="course-icon"><i class="fa-solid fa-handshake"></i></div>
-      <small data-i18n="levelProfessional">PWOFESYONÈL</small>
-      <h3 data-i18n="course5Title">Maketing ak kliyan</h3>
-      <p data-i18n="course5Text">
-        Listing, negosyasyon, prezantasyon ak relasyon kliyan.
-      </p>
-      <div class="progress-track"><span></span></div>
-      <button type="button" class="course-start" data-i18n="openCourse">
-        Ouvri kou a
-      </button>
-    </article>
-
-    <article class="course-card" data-course="exam">
-      <span class="course-number">06</span>
-      <div class="course-icon"><i class="fa-solid fa-graduation-cap"></i></div>
-      <small data-i18n="levelFinal">FINAL</small>
-      <h3 data-i18n="course6Title">Preparasyon egzamen</h3>
-      <p data-i18n="course6Text">
-        Revizyon estriktire, kesyon pratik ak estrateji egzamen.
-      </p>
-      <div class="progress-track"><span></span></div>
-      <button type="button" class="course-start" data-i18n="openCourse">
-        Ouvri kou a
-      </button>
-    </article>
-
-  </div>
-</section>
-
-<section class="section pathway-section" id="pathway">
-  <div class="section-heading">
-    <p class="eyebrow" data-i18n="pathEyebrow">PARCOURS ETIDYAN</p>
-    <h2 data-i18n="pathTitle">Chemen ou pou reyisit</h2>
-  </div>
-
-  <div class="pathway">
-    <article>
-      <span>1</span>
-      <h3 data-i18n="step1Title">Enskri</h3>
-      <p data-i18n="step1Text">Kreye pwofil etidyan ou.</p>
-    </article>
-
-    <article>
-      <span>2</span>
-      <h3 data-i18n="step2Title">Aprann</h3>
-      <p data-i18n="step2Text">Fini 6 modil yo nan rit ou.</p>
-    </article>
-
-    <article>
-      <span>3</span>
-      <h3 data-i18n="step3Title">Pratike</h3>
-      <p data-i18n="step3Text">Teste konesans ou regilyèman.</p>
-    </article>
-
-    <article>
-      <span>4</span>
-      <h3 data-i18n="step4Title">Reyisi</h3>
-      <p data-i18n="step4Text">Prepare pou egzamen ak karyè.</p>
-    </article>
-  </div>
-</section>
-
-<section class="section" id="practice">
-  <div class="quiz-panel">
-    <div>
-      <p class="eyebrow" data-i18n="quizEyebrow">KESYON PRATIK</p>
-      <h2 data-i18n="quizTitle">Teste konesans ou</h2>
-
-      <p data-i18n="quizQuestion">
-        Ki dokiman ki esplike kondisyon yon tranzaksyon ant achtè ak vandè?
-      </p>
-
-      <div class="quiz-options">
-        <button type="button" data-answer="wrong" data-i18n="answer1">
-          Yon appraisal
-        </button>
-
-        <button type="button" data-answer="correct" data-i18n="answer2">
-          Yon kontra acha
-        </button>
-
-        <button type="button" data-answer="wrong" data-i18n="answer3">
-          Yon listing photo
-        </button>
-      </div>
-
-      <p class="quiz-result" id="quizResult"></p>
-    </div>
-
-    <div class="score-ring" id="scoreRing">
-      <div>
-        <b id="scoreValue">0</b>
-        <span data-i18n="scoreLabel">NÒT</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section" id="certificate">
-  <div class="certificate-card">
-    <div class="certificate-seal">
-      <i class="fa-solid fa-star"></i>
-    </div>
-
-    <p class="eyebrow">PRO-MAX ACADÉMIE</p>
-
-    <h2 data-i18n="certificateTitle">
-      Sètifika akonplisman
-    </h2>
-
-    <p data-i18n="certificateText">
-      Apre w fin konplete tout modil yo ak evalyasyon final la,
-      w ap resevwa yon sètifika dijital PRO-MAX Académie.
-    </p>
-
-    <button class="btn btn-primary" id="certificateBtn" type="button" data-i18n="viewRequirements">
-      Gade kondisyon yo
+    <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
     </button>
-  </div>
-</section>
 
-<section class="section contact-section" id="contact">
-  <div class="section-heading">
-    <p class="eyebrow" data-i18n="contactEyebrow">KONTAK OFISYÈL</p>
-    <h2 data-i18n="contactTitle">
-      Konekte avèk Real Estate School
-    </h2>
-  </div>
+    <nav class="main-nav" id="mainNav" aria-label="Main navigation">
+      <a href="#home" data-i18n="navHome">Akèy</a>
+      <a href="#courses" data-i18n="navCourses">Kou yo</a>
+      <a href="#pathway" data-i18n="navPath">Parcours</a>
+      <a href="#practice" data-i18n="navExam">Egzamen</a>
+      <a href="#certificate" data-i18n="navCertificate">Sètifika</a>
+      <a href="#contact" data-i18n="navContact">Kontak</a>
+    </nav>
 
-  <div class="contact-grid">
-    <a href="https://bss1815promaxdmp.com" target="_blank" rel="noopener">
-      <i class="fa-solid fa-globe"></i>
-      <span>
-        <b data-i18n="websiteLabel">Sit entènèt</b>
-        <small>bss1815promaxdmp.com</small>
-      </span>
-    </a>
+    <div class="language-switcher" aria-label="Language selector">
+      <button class="lang-btn notranslate" type="button" translate="no" data-lang="en">ENG</button>
+      <button class="lang-btn notranslate" type="button" translate="no" data-lang="es">ESP</button>
+      <button class="lang-btn notranslate active" type="button" translate="no" data-lang="ht">KRE</button>
+    </div>
+  </header>
 
-    <a href="mailto:realestateschool60@gmail.com">
-      <i class="fa-solid fa-envelope"></i>
-      <span>
-        <b data-i18n="emailLabel">Imèl</b>
-        <small>realestateschool60@gmail.com</small>
-      </span>
-    </a>
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-copy reveal">
+        <p class="eyebrow" data-i18n="heroEyebrow">YON LEKÒL PRO-MAX ACADÉMIE</p>
+        <h1><span data-i18n="heroTitleOne">Bati konesans ou.</span><strong data-i18n="heroTitleTwo">Louvri pòt avni ou.</strong></h1>
+        <p class="hero-text" data-i18n="heroText">Aprann prensip byen imobilye, prepare pou egzamen lisans ou, epi devlope konpetans pou sèvi kliyan avèk konfyans ak pwofesyonalis.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#courses" data-i18n="startLearning">Kòmanse aprann</a>
+          <button class="btn btn-secondary" id="openEnroll" data-i18n="enrollNow">Enskri kounye a</button>
+        </div>
+        <div class="trust-row">
+          <span><b>6</b><small data-i18n="statCourses">Kou esansyèl</small></span>
+          <span><b>3</b><small data-i18n="statLanguages">Lang</small></span>
+          <span><b>100%</b><small data-i18n="statOnline">Sou entènèt</small></span>
+        </div>
+      </div>
 
-    <a href="tel:+14076405166">
-      <i class="fa-solid fa-phone"></i>
-      <span>
-        <b data-i18n="phoneLabel">Telefòn</b>
-        <small>(407) 640-5166</small>
-      </span>
-    </a>
+      <div class="hero-emblem reveal" aria-label="Animated digital real estate globe">
+        <div class="globe-stage">
+          <div class="globe-halo halo-one"></div>
+          <div class="globe-halo halo-two"></div>
+          <div class="digital-globe">
+            <img src="promax-real-estate-3d.png" alt="Luxury 3D real estate house inside a digital globe">
+            <div class="globe-information">
+              <strong>PRO-MAX ACADÉMIE</strong>
+              <b>REAL ESTATE SCHOOL</b>
+              <span><i class="fa-solid fa-location-dot"></i> ORLANDO, FLORIDA</span>
+              <small data-i18n="globeOnline">100% SOU ENTÈNÈT</small>
+            </div>
+          </div>
+          <div class="orbit-label orbit-label-top">PRO-MAX ACADÉMIE</div>
+          <div class="orbit-label orbit-label-bottom">REAL ESTATE SCHOOL</div>
+          <span class="orbit-dot dot-one"></span>
+          <span class="orbit-dot dot-two"></span>
+        </div>
+        <div class="hero-badge"><span>PRO-MAX</span><b data-i18n="officialSchool">LEKÒL OFISYÈL</b></div>
+      </div>
+    </section>
 
-    <a href="tel:+15162168494">
-      <i class="fa-solid fa-mobile-screen-button"></i>
-      <span>
-        <b data-i18n="phoneLabel">Telefòn</b>
-        <small>(516) 216-8494</small>
-      </span>
-    </a>
+    <section class="announcement" aria-label="School announcement">
+      <span class="pulse-dot"></span>
+      <b data-i18n="announcementTitle">ENSKRIPSYON OUVÈ</b>
+      <p data-i18n="announcementText">Nouvo sesyon Real Estate School la disponib kounye a.</p>
+      <button id="announcementEnroll" data-i18n="reserveSeat">Rezève plas ou</button>
+    </section>
 
-    <div class="location-card">
-      <i class="fa-solid fa-location-dot"></i>
-      <span>
-        <b data-i18n="locationLabel">Lokalizasyon</b>
-        <small>Orlando, Florida</small>
-      </span>
+    <section class="section" id="courses">
+      <div class="section-heading reveal">
+        <p class="eyebrow" data-i18n="coursesEyebrow">PWOGRAM FÒMASYON</p>
+        <h2 data-i18n="coursesTitle">Kou ki prepare w pou mache a</h2>
+        <p data-i18n="coursesText">Chak modil fèt pou mennen w soti nan fondasyon yo rive nan pratik pwofesyonèl.</p>
+      </div>
+
+      <div class="course-grid">
+        <article class="course-card reveal" data-course="fundamentals">
+          <div class="course-number">01</div><div class="course-icon">⌂</div>
+          <span class="level" data-i18n="levelBeginner">DEBITAN</span>
+          <h3 data-i18n="course1Title">Fondasyon byen imobilye</h3>
+          <p data-i18n="course1Text">Pwopriyete, tit, dwa, responsablite ak vokabilè endistri a.</p>
+          <div class="progress-track"><span style="width:0%"></span></div>
+          <button class="course-start" data-i18n="openCourse">Ouvri kou a</button>
+        </article>
+
+        <article class="course-card reveal" data-course="law">
+          <div class="course-number">02</div><div class="course-icon">⚖</div>
+          <span class="level" data-i18n="levelCore">ESANSYÈL</span>
+          <h3 data-i18n="course2Title">Lwa ak etik pwofesyonèl</h3>
+          <p data-i18n="course2Text">Kontra, divilgasyon, lojman ekitab ak obligasyon fidisyè.</p>
+          <div class="progress-track"><span style="width:0%"></span></div>
+          <button class="course-start" data-i18n="openCourse">Ouvri kou a</button>
+        </article>
+
+        <article class="course-card reveal" data-course="finance">
+          <div class="course-number">03</div><div class="course-icon">%</div>
+          <span class="level" data-i18n="levelCore">ESANSYÈL</span>
+          <h3 data-i18n="course3Title">Finansman ak ipotèk</h3>
+          <p data-i18n="course3Text">Prè, enterè, kredi, closing costs ak kalkil finansye.</p>
+          <div class="progress-track"><span style="width:0%"></span></div>
+          <button class="course-start" data-i18n="openCourse">Ouvri kou a</button>
+        </article>
+
+        <article class="course-card reveal" data-course="valuation">
+          <div class="course-number">04</div><div class="course-icon">⌁</div>
+          <span class="level" data-i18n="levelIntermediate">ENTÈMEDYÈ</span>
+          <h3 data-i18n="course4Title">Valyasyon pwopriyete</h3>
+          <p data-i18n="course4Text">Analiz mache, konparab, estimasyon valè ak envestisman.</p>
+          <div class="progress-track"><span style="width:0%"></span></div>
+          <button class="course-start" data-i18n="openCourse">Ouvri kou a</button>
+        </article>
+
+        <article class="course-card reveal" data-course="sales">
+          <div class="course-number">05</div><div class="course-icon">◆</div>
+          <span class="level" data-i18n="levelProfessional">PWOFESYONÈL</span>
+          <h3 data-i18n="course5Title">Komèsyalizasyon ak kliyan</h3>
+          <p data-i18n="course5Text">Listing, negosyasyon, prezantasyon ak relasyon kliyan.</p>
+          <div class="progress-track"><span style="width:0%"></span></div>
+          <button class="course-start" data-i18n="openCourse">Ouvri kou a</button>
+        </article>
+
+        <article class="course-card reveal" data-course="exam">
+          <div class="course-number">06</div><div class="course-icon">✓</div>
+          <span class="level" data-i18n="levelFinal">FINAL</span>
+          <h3 data-i18n="course6Title">Preparasyon egzamen</h3>
+          <p data-i18n="course6Text">Revizyon estriktire, kesyon pratik ak estrateji egzamen.</p>
+          <div class="progress-track"><span style="width:0%"></span></div>
+          <button class="course-start" data-i18n="openCourse">Ouvri kou a</button>
+        </article>
+      </div>
+    </section>
+
+    <section class="section pathway-section" id="pathway">
+      <div class="section-heading reveal">
+        <p class="eyebrow" data-i18n="pathEyebrow">PARCOURS ETIDYAN</p>
+        <h2 data-i18n="pathTitle">Chemen ou pou reyisit</h2>
+      </div>
+      <div class="pathway">
+        <div class="path-step reveal"><span>1</span><h3 data-i18n="step1Title">Enskri</h3><p data-i18n="step1Text">Kreye pwofil etidyan ou.</p></div>
+        <div class="path-line"></div>
+        <div class="path-step reveal"><span>2</span><h3 data-i18n="step2Title">Aprann</h3><p data-i18n="step2Text">Fini 6 modil yo nan rit ou.</p></div>
+        <div class="path-line"></div>
+        <div class="path-step reveal"><span>3</span><h3 data-i18n="step3Title">Pratike</h3><p data-i18n="step3Text">Teste konesans ou regilyèman.</p></div>
+        <div class="path-line"></div>
+        <div class="path-step reveal"><span>4</span><h3 data-i18n="step4Title">Reyisi</h3><p data-i18n="step4Text">Prepare pou egzamen ak karyè.</p></div>
+      </div>
+    </section>
+
+    <section class="section practice-section" id="practice">
+      <div class="quiz-panel reveal">
+        <div class="quiz-copy">
+          <p class="eyebrow" data-i18n="quizEyebrow">KESYON PRATIK</p>
+          <h2 data-i18n="quizTitle">Teste konesans ou</h2>
+          <p id="quizQuestion" data-i18n="quizQuestion">Ki dokiman ki esplike kondisyon yon tranzaksyon ant achtè ak vandè?</p>
+          <div class="quiz-options">
+            <button data-answer="wrong" data-i18n="answer1">Yon appraisal</button>
+            <button data-answer="correct" data-i18n="answer2">Yon kontra acha</button>
+            <button data-answer="wrong" data-i18n="answer3">Yon listing photo</button>
+          </div>
+          <p class="quiz-result" id="quizResult" aria-live="polite"></p>
+        </div>
+        <div class="score-ring"><div><b id="scoreValue">0</b><span data-i18n="scoreLabel">NÒT</span></div></div>
+      </div>
+    </section>
+
+    <section class="section certificate-section" id="certificate">
+      <div class="certificate-card reveal">
+        <div class="certificate-seal">★</div>
+        <p class="eyebrow">PRO-MAX ACADÉMIE</p>
+        <h2 data-i18n="certificateTitle">Sètifika akonplisman</h2>
+        <p data-i18n="certificateText">Apre w fin konplete tout modil yo ak evalyasyon final la, w ap resevwa yon sètifika dijital PRO-MAX Académie.</p>
+        <button class="btn btn-primary" id="certificateBtn" data-i18n="viewRequirements">Gade kondisyon yo</button>
+      </div>
+    </section>
+
+    <section class="section contact-section" id="contact">
+      <div class="section-heading reveal">
+        <p class="eyebrow" data-i18n="contactEyebrow">KONTAK OFISYÈL</p>
+        <h2 data-i18n="contactTitle">Konekte avèk Real Estate School</h2>
+      </div>
+      <div class="contact-grid reveal">
+        <a class="contact-card" href="https://bss1815promaxdmp.com" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-globe"></i><span><b data-i18n="websiteLabel">Sit entènèt</b><small>bss1815promaxdmp.com</small></span></a>
+        <a class="contact-card" href="mailto:realestateschool60@gmail.com"><i class="fa-solid fa-envelope"></i><span><b data-i18n="emailLabel">Imèl</b><small>realestateschool60@gmail.com</small></span></a>
+        <a class="contact-card" href="tel:+14076405166"><i class="fa-solid fa-phone"></i><span><b data-i18n="phoneLabel">Telefòn</b><small>(407) 640-5166</small></span></a>
+        <a class="contact-card" href="tel:+15162168494"><i class="fa-solid fa-mobile-screen-button"></i><span><b data-i18n="phoneLabel">Telefòn</b><small>(516) 216-8494</small></span></a>
+        <div class="contact-card"><i class="fa-solid fa-location-dot"></i><span><b data-i18n="locationLabel">Lokalizasyon</b><small>Orlando, Florida</small></span></div>
+      </div>
+      <div class="social-networks reveal" aria-label="Social networks">
+        <a href="https://telegram.org" target="_blank" rel="noopener noreferrer" aria-label="Telegram"><i class="fa-brands fa-telegram"></i><span>Telegram</span></a>
+        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fa-brands fa-instagram"></i><span>Instagram</span></a>
+        <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i><span>Facebook</span></a>
+        <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fa-brands fa-youtube"></i><span>YouTube</span></a>
+        <a href="https://wa.me/14076405166" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i><span>WhatsApp</span></a>
+        <a href="https://x.com" target="_blank" rel="noopener noreferrer" aria-label="X Twitter"><i class="fa-brands fa-x-twitter"></i><span>X / Twitter</span></a>
+        <a href="https://truthsocial.com" target="_blank" rel="noopener noreferrer" aria-label="Truth Social"><i class="fa-solid fa-t"></i><span>Truth Social</span></a>
+        <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i><span>TikTok</span></a>
+        <a href="https://spotify.com" target="_blank" rel="noopener noreferrer" aria-label="Spotify"><i class="fa-brands fa-spotify"></i><span>Spotify</span></a>
+        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i><span>LinkedIn</span></a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-brand"><b>PRO-MAX ACADÉMIE</b><span>REAL ESTATE SCHOOL</span></div>
+    <p data-i18n="footerSlogan">Konesans. Preparasyon. Siksè nan byen imobilye.</p>
+    <a href="../index.html" data-i18n="backAcademy">← Retounen nan PRO-MAX ACADÉMIE</a>
+    <small>© <span id="year"></span> PRO-MAX ACADÉMIE</small>
+  </footer>
+
+  <div class="modal" id="enrollModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-card">
+      <button class="modal-close" id="closeEnroll" aria-label="Close">×</button>
+      <p class="eyebrow">REAL ESTATE SCHOOL</p>
+      <h2 id="modalTitle" data-i18n="modalTitle">Kòmanse enskripsyon ou</h2>
+      <p data-i18n="modalText">Ranpli enfòmasyon yo pou nou ka prepare pwofil etidyan ou.</p>
+      <form id="enrollForm">
+        <label><span data-i18n="labelName">Non konplè</span><input type="text" name="name" required></label>
+        <label><span data-i18n="labelEmail">Imèl</span><input type="email" name="email" required></label>
+        <label><span data-i18n="labelPhone">Telefòn</span><input type="tel" name="phone"></label>
+        <button class="btn btn-primary" type="submit" data-i18n="submitEnroll">Voye enskripsyon</button>
+      </form>
+      <p class="form-status" id="formStatus" aria-live="polite"></p>
     </div>
   </div>
 
-  <div class="social-networks">
-    <a href="https://telegram.org" target="_blank" rel="noopener">
-      <i class="fa-brands fa-telegram"></i><span>Telegram</span>
-    </a>
-
-    <a href="https://instagram.com" target="_blank" rel="noopener">
-      <i class="fa-brands fa-instagram"></i><span>Instagram</span>
-    </a>
-
-    <a href="https://facebook.com" target="_blank" rel="noopener">
-      <i class="fa-brands fa-facebook-f"></i><span>Facebook</span>
-    </a>
-
-    <a href="https://youtube.com" target="_blank" rel="noopener">
-      <i class="fa-brands fa-youtube"></i><span>YouTube</span>
-    </a>
-
-    <a href="https://wa.me/14076405166" target="_blank" rel="noopener">
-      <i class="fa-brands fa-whatsapp"></i><span>WhatsApp</span>
-    </a>
-
-    <a href="https://x.com" target="_blank" rel="noopener">
-      <i class="fa-brands fa-x-twitter"></i><span>X / Twitter</span>
-    </a>
-
-    <a href="https://truthsocial.com" target="_blank" rel="noopener">
-      <i class="fa-solid fa-t"></i><span>Truth Social</span>
-    </a>
-
-    <a href="https://tiktok.com" target="_blank" rel="noopener">
-      <i class="fa-brands fa-tiktok"></i><span>TikTok</span>
-    </a>
-
-    <a href="https://spotify.com" target="_blank" rel="noopener">
-      <i class="fa-brands fa-spotify"></i><span>Spotify</span>
-    </a>
-
-    <a href="https://linkedin.com" target="_blank" rel="noopener">
-      <i class="fa-brands fa-linkedin-in"></i><span>LinkedIn</span>
-    </a>
-  </div>
-</section>
-
-</main>
-
-<footer>
-  <b>PRO-MAX ACADÉMIE</b>
-  <strong>REAL ESTATE SCHOOL</strong>
-  <p data-i18n="footerSlogan">
-    Konesans. Preparasyon. Siksè nan byen imobilye.
-  </p>
-  <small>© <span id="year"></span> PRO-MAX ACADÉMIE</small>
-</footer>
-
-<div class="modal" id="enrollModal" aria-hidden="true">
-  <div class="modal-card">
-    <button class="modal-close" id="closeEnroll" type="button">×</button>
-
-    <p class="eyebrow">REAL ESTATE SCHOOL</p>
-
-    <h2 data-i18n="modalTitle">
-      Kòmanse enskripsyon ou
-    </h2>
-
-    <p data-i18n="modalText">
-      Ranpli enfòmasyon yo pou nou ka prepare pwofil etidyan ou.
-    </p>
-
-    <form id="enrollForm">
-      <label>
-        <span data-i18n="labelName">Non konplè</span>
-        <input type="text" name="name" required>
-      </label>
-
-      <label>
-        <span data-i18n="labelEmail">Imèl</span>
-        <input type="email" name="email" required>
-      </label>
-
-      <label>
-        <span data-i18n="labelPhone">Telefòn</span>
-        <input type="tel" name="phone">
-      </label>
-
-      <button class="btn btn-primary" type="submit" data-i18n="submitEnroll">
-        Voye enskripsyon
-      </button>
-    </form>
-
-    <p id="formStatus"></p>
-  </div>
-</div>
-
-<div class="toast" id="toast"></div>
-
-<script>
-const translations={
-ht:{
-navHome:"Akèy",navCourses:"Kou yo",navPath:"Parcours",navExam:"Egzamen",navCertificate:"Sètifika",navContact:"Kontak",
-heroEyebrow:"YON LEKÒL PRO-MAX ACADÉMIE",heroTitleOne:"Bati konesans ou.",heroTitleTwo:"Louvri pòt avni ou.",
-heroText:"Aprann prensip byen imobilye, prepare pou egzamen lisans ou, epi devlope konpetans pou sèvi kliyan avèk konfyans ak pwofesyonalis.",
-startLearning:"Kòmanse aprann",enrollNow:"Enskri kounye a",statCourses:"Kou esansyèl",statLanguages:"Lang",statOnline:"Sou entènèt",
-announcementTitle:"ENSKRIPSYON OUVÈ",announcementText:"Nouvo sesyon Real Estate School la disponib kounye a.",reserveSeat:"Rezève plas ou",
-coursesEyebrow:"PWOGRAM FÒMASYON",coursesTitle:"Kou ki prepare w pou mache a",coursesText:"Chak modil fèt pou mennen w soti nan fondasyon yo rive nan pratik pwofesyonèl.",
-levelBeginner:"DEBITAN",levelCore:"ESANSYÈL",levelIntermediate:"ENTÈMEDYÈ",levelProfessional:"PWOFESYONÈL",levelFinal:"FINAL",openCourse:"Ouvri kou a",
-course1Title:"Fondasyon byen imobilye",course1Text:"Pwopriyete, tit, dwa, responsablite ak vokabilè endistri a.",
-course2Title:"Lwa ak etik pwofesyonèl",course2Text:"Kontra, divilgasyon, lojman ekitab ak obligasyon fidisyè.",
-course3Title:"Finansman ak ipotèk",course3Text:"Prè, enterè, kredi, closing costs ak kalkil finansye.",
-course4Title:"Valyasyon pwopriyete",course4Text:"Analiz mache, konparab, estimasyon valè ak envestisman.",
-course5Title:"Maketing ak kliyan",course5Text:"Listing, negosyasyon, prezantasyon ak relasyon kliyan.",
-course6Title:"Preparasyon egzamen",course6Text:"Revizyon estriktire, kesyon pratik ak estrateji egzamen.",
-pathEyebrow:"PARCOURS ETIDYAN",pathTitle:"Chemen ou pou reyisit",
-step1Title:"Enskri",step1Text:"Kreye pwofil etidyan ou.",step2Title:"Aprann",step2Text:"Fini 6 modil yo nan rit ou.",
-step3Title:"Pratike",step3Text:"Teste konesans ou regilyèman.",step4Title:"Reyisi",step4Text:"Prepare pou egzamen ak karyè.",
-quizEyebrow:"KESYON PRATIK",quizTitle:"Teste konesans ou",quizQuestion:"Ki dokiman ki esplike kondisyon yon tranzaksyon ant achtè ak vandè?",
-answer1:"Yon appraisal",answer2:"Yon kontra acha",answer3:"Yon listing photo",scoreLabel:"NÒT",
-correct:"Kòrèk! Se kontra acha a.",incorrect:"Pa kòrèk. Eseye ankò.",
-certificateTitle:"Sètifika akonplisman",certificateText:"Apre w fin konplete tout modil yo ak evalyasyon final la, w ap resevwa yon sètifika dijital PRO-MAX Académie.",
-viewRequirements:"Gade kondisyon yo",contactEyebrow:"KONTAK OFISYÈL",contactTitle:"Konekte avèk Real Estate School",
-websiteLabel:"Sit entènèt",emailLabel:"Imèl",phoneLabel:"Telefòn",locationLabel:"Lokalizasyon",
-footerSlogan:"Konesans. Preparasyon. Siksè nan byen imobilye.",
-modalTitle:"Kòmanse enskripsyon ou",modalText:"Ranpli enfòmasyon yo pou nou ka prepare pwofil etidyan ou.",
-labelName:"Non konplè",labelEmail:"Imèl",labelPhone:"Telefòn",submitEnroll:"Voye enskripsyon",
-submitted:"Enskripsyon ou anrejistre.",courseOpened:"Kou a ajoute nan pwogrè ou.",
-requirements:"Konplete 6 kou yo epi pase evalyasyon final la ak omwen 80%."
-},
-en:{
-navHome:"Home",navCourses:"Courses",navPath:"Pathway",navExam:"Practice Exam",navCertificate:"Certificate",navContact:"Contact",
-heroEyebrow:"A PRO-MAX ACADÉMIE SCHOOL",heroTitleOne:"Build your knowledge.",heroTitleTwo:"Open the door to your future.",
-heroText:"Learn real estate principles, prepare for your licensing exam, and develop the skills to serve clients with confidence and professionalism.",
-startLearning:"Start learning",enrollNow:"Enroll now",statCourses:"Essential courses",statLanguages:"Languages",statOnline:"Online",
-announcementTitle:"ENROLLMENT OPEN",announcementText:"The new Real Estate School session is now available.",reserveSeat:"Reserve your seat",
-coursesEyebrow:"TRAINING PROGRAM",coursesTitle:"Courses that prepare you for the market",coursesText:"Each module takes you from core foundations to professional practice.",
-levelBeginner:"BEGINNER",levelCore:"CORE",levelIntermediate:"INTERMEDIATE",levelProfessional:"PROFESSIONAL",levelFinal:"FINAL",openCourse:"Open course",
-course1Title:"Real estate fundamentals",course1Text:"Property, title, rights, responsibilities, and industry vocabulary.",
-course2Title:"Law and professional ethics",course2Text:"Contracts, disclosures, fair housing, and fiduciary duties.",
-course3Title:"Finance and mortgages",course3Text:"Loans, interest, credit, closing costs, and financial calculations.",
-course4Title:"Property valuation",course4Text:"Market analysis, comparables, value estimates, and investments.",
-course5Title:"Marketing and clients",course5Text:"Listings, negotiation, presentations, and client relationships.",
-course6Title:"Exam preparation",course6Text:"Structured review, practice questions, and exam strategy.",
-pathEyebrow:"STUDENT PATHWAY",pathTitle:"Your pathway to success",
-step1Title:"Enroll",step1Text:"Create your student profile.",step2Title:"Learn",step2Text:"Complete all 6 modules at your pace.",
-step3Title:"Practice",step3Text:"Test your knowledge regularly.",step4Title:"Succeed",step4Text:"Prepare for your exam and career.",
-quizEyebrow:"PRACTICE QUESTION",quizTitle:"Test your knowledge",quizQuestion:"Which document states the terms of a transaction between a buyer and seller?",
-answer1:"An appraisal",answer2:"A purchase agreement",answer3:"A listing photo",scoreLabel:"SCORE",
-correct:"Correct! It is the purchase agreement.",incorrect:"Not correct. Try again.",
-certificateTitle:"Certificate of completion",certificateText:"After completing all modules and the final assessment, you will receive a digital PRO-MAX Académie certificate.",
-viewRequirements:"View requirements",contactEyebrow:"OFFICIAL CONTACT",contactTitle:"Connect with the Real Estate School",
-websiteLabel:"Website",emailLabel:"Email",phoneLabel:"Phone",locationLabel:"Location",
-footerSlogan:"Knowledge. Preparation. Real estate success.",
-modalTitle:"Start your enrollment",modalText:"Complete the information so we can prepare your student profile.",
-labelName:"Full name",labelEmail:"Email",labelPhone:"Phone",submitEnroll:"Submit enrollment",
-submitted:"Your enrollment was saved.",courseOpened:"The course was added to your progress.",
-requirements:"Complete all 6 courses and pass the final assessment with at least 80%."
-},
-es:{
-navHome:"Inicio",navCourses:"Cursos",navPath:"Trayectoria",navExam:"Examen práctico",navCertificate:"Certificado",navContact:"Contacto",
-heroEyebrow:"UNA ESCUELA DE PRO-MAX ACADÉMIE",heroTitleOne:"Construye tus conocimientos.",heroTitleTwo:"Abre la puerta a tu futuro.",
-heroText:"Aprende los principios de bienes raíces, prepárate para tu examen de licencia y desarrolla habilidades para servir a tus clientes con confianza y profesionalismo.",
-startLearning:"Comenzar a aprender",enrollNow:"Inscribirse ahora",statCourses:"Cursos esenciales",statLanguages:"Idiomas",statOnline:"En línea",
-announcementTitle:"INSCRIPCIONES ABIERTAS",announcementText:"La nueva sesión de Real Estate School ya está disponible.",reserveSeat:"Reserva tu lugar",
-coursesEyebrow:"PROGRAMA DE FORMACIÓN",coursesTitle:"Cursos que te preparan para el mercado",coursesText:"Cada módulo te lleva desde los fundamentos hasta la práctica profesional.",
-levelBeginner:"PRINCIPIANTE",levelCore:"ESENCIAL",levelIntermediate:"INTERMEDIO",levelProfessional:"PROFESIONAL",levelFinal:"FINAL",openCourse:"Abrir el curso",
-course1Title:"Fundamentos de bienes raíces",course1Text:"Propiedad, títulos, derechos, responsabilidades y vocabulario del sector.",
-course2Title:"Ley y ética profesional",course2Text:"Contratos, divulgaciones, vivienda justa y deberes fiduciarios.",
-course3Title:"Financiamiento e hipotecas",course3Text:"Préstamos, intereses, crédito, costos de cierre y cálculos financieros.",
-course4Title:"Valoración de propiedades",course4Text:"Análisis de mercado, comparables, estimación de valor e inversión.",
-course5Title:"Mercadeo y clientes",course5Text:"Listados, negociación, presentaciones y relaciones con clientes.",
-course6Title:"Preparación para el examen",course6Text:"Repaso estructurado, preguntas de práctica y estrategia de examen.",
-pathEyebrow:"TRAYECTORIA ESTUDIANTIL",pathTitle:"Tu camino hacia el éxito",
-step1Title:"Inscríbete",step1Text:"Crea tu perfil de estudiante.",step2Title:"Aprende",step2Text:"Completa los 6 módulos a tu ritmo.",
-step3Title:"Practica",step3Text:"Evalúa tus conocimientos regularmente.",step4Title:"Triunfa",step4Text:"Prepárate para tu examen y tu carrera.",
-quizEyebrow:"PREGUNTA DE PRÁCTICA",quizTitle:"Evalúa tus conocimientos",quizQuestion:"¿Qué documento establece las condiciones de una transacción entre un comprador y un vendedor?",
-answer1:"Una tasación",answer2:"Un contrato de compraventa",answer3:"Una foto del anuncio",scoreLabel:"PUNTUACIÓN",
-correct:"¡Correcto! Es el contrato de compraventa.",incorrect:"Respuesta incorrecta. Inténtalo de nuevo.",
-certificateTitle:"Certificado de finalización",certificateText:"Después de completar todos los módulos y la evaluación final, recibirás un certificado digital de PRO-MAX Académie.",
-viewRequirements:"Ver los requisitos",contactEyebrow:"CONTACTO OFICIAL",contactTitle:"Conéctate con Real Estate School",
-websiteLabel:"Sitio web",emailLabel:"Correo electrónico",phoneLabel:"Teléfono",locationLabel:"Ubicación",
-footerSlogan:"Conocimiento. Preparación. Éxito inmobiliario.",
-modalTitle:"Comienza tu inscripción",modalText:"Completa la información para que podamos preparar tu perfil de estudiante.",
-labelName:"Nombre completo",labelEmail:"Correo electrónico",labelPhone:"Teléfono",submitEnroll:"Enviar inscripción",
-submitted:"Tu inscripción fue guardada.",courseOpened:"El curso fue añadido a tu progreso.",
-requirements:"Completa los 6 cursos y aprueba la evaluación final con al menos un 80%."
-}
-};
-
-document.addEventListener("DOMContentLoaded",function(){
-let currentLanguage="ht";
-let progress={};
-
-function readStorage(key,fallback){
-  try{
-    const value=localStorage.getItem(key);
-    return value===null?fallback:value
-  }catch(error){
-    return fallback
-  }
-}
-
-function writeStorage(key,value){
-  try{
-    localStorage.setItem(key,value)
-  }catch(error){}
-}
-
-function translatePage(language){
-  const pack=translations[language]||translations.ht;
-  currentLanguage=translations[language]?language:"ht";
-  document.documentElement.lang=currentLanguage;
-
-  document.querySelectorAll("[data-i18n]").forEach(function(element){
-    const key=element.getAttribute("data-i18n");
-    if(pack[key]) element.textContent=pack[key]
-  });
-
-  document.querySelectorAll(".lang-btn").forEach(function(button){
-    button.classList.toggle(
-      "active",
-      button.getAttribute("data-lang")===currentLanguage
-    )
-  });
-
-  writeStorage("promaxRealEstateLanguage",currentLanguage)
-}
-
-function showToast(message){
-  const toast=document.getElementById("toast");
-  if(!toast)return;
-
-  toast.textContent=message;
-  toast.classList.add("show");
-
-  clearTimeout(showToast.timer);
-  showToast.timer=setTimeout(function(){
-    toast.classList.remove("show")
-  },3000)
-}
-
-const menuToggle=document.getElementById("menuToggle");
-const mainNav=document.getElementById("mainNav");
-
-if(menuToggle&&mainNav){
-  menuToggle.addEventListener("click",function(){
-    const open=mainNav.classList.toggle("open");
-    menuToggle.setAttribute("aria-expanded",String(open))
-  });
-
-  mainNav.querySelectorAll("a").forEach(function(link){
-    link.addEventListener("click",function(){
-      mainNav.classList.remove("open");
-      menuToggle.setAttribute("aria-expanded","false")
-    })
-  })
-}
-
-document.querySelectorAll(".lang-btn").forEach(function(button){
-  button.addEventListener("click",function(){
-    translatePage(button.getAttribute("data-lang")||"ht")
-  })
-});
-
-const modal=document.getElementById("enrollModal");
-
-function openModal(){
-  if(!modal)return;
-  modal.classList.add("open");
-  modal.setAttribute("aria-hidden","false");
-  document.body.style.overflow="hidden"
-}
-
-function closeModal(){
-  if(!modal)return;
-  modal.classList.remove("open");
-  modal.setAttribute("aria-hidden","true");
-  document.body.style.overflow=""
-}
-
-const openEnroll=document.getElementById("openEnroll");
-const announcementEnroll=document.getElementById("announcementEnroll");
-const closeEnroll=document.getElementById("closeEnroll");
-
-if(openEnroll)openEnroll.addEventListener("click",openModal);
-if(announcementEnroll)announcementEnroll.addEventListener("click",openModal);
-if(closeEnroll)closeEnroll.addEventListener("click",closeModal);
-
-if(modal){
-  modal.addEventListener("click",function(event){
-    if(event.target===modal)closeModal()
-  })
-}
-
-document.addEventListener("keydown",function(event){
-  if(event.key==="Escape")closeModal()
-});
-
-const enrollForm=document.getElementById("enrollForm");
-
-if(enrollForm){
-  enrollForm.addEventListener("submit",function(event){
-    event.preventDefault();
-
-    const student={};
-    const formData=new FormData(enrollForm);
-
-    formData.forEach(function(value,key){
-      student[key]=value
-    });
-
-    writeStorage(
-      "promaxRealEstateStudent",
-      JSON.stringify(student)
-    );
-
-    const status=document.getElementById("formStatus");
-
-    if(status){
-      status.textContent=translations[currentLanguage].submitted
-    }
-
-    enrollForm.reset()
-  })
-}
-
-try{
-  progress=JSON.parse(
-    readStorage("promaxRealEstateProgress","{}")
-  );
-
-  if(!progress||typeof progress!=="object"){
-    progress={}
-  }
-}catch(error){
-  progress={}
-}
-
-document.querySelectorAll(".course-card").forEach(function(card){
-  const key=card.getAttribute("data-course");
-  const bar=card.querySelector(".progress-track span");
-  const button=card.querySelector(".course-start");
-
-  if(key&&progress[key]&&bar){
-    bar.style.width="20%"
-  }
-
-  if(button){
-    button.addEventListener("click",function(){
-      if(key)progress[key]=true;
-
-      writeStorage(
-        "promaxRealEstateProgress",
-        JSON.stringify(progress)
-      );
-
-      if(bar)bar.style.width="20%";
-
-      showToast(
-        translations[currentLanguage].courseOpened
-      )
-    })
-  }
-});
-
-const quizButtons=document.querySelectorAll(".quiz-options button");
-const quizResult=document.getElementById("quizResult");
-const scoreValue=document.getElementById("scoreValue");
-const scoreRing=document.getElementById("scoreRing");
-
-quizButtons.forEach(function(button){
-  button.addEventListener("click",function(){
-    quizButtons.forEach(function(option){
-      option.classList.remove("correct","wrong")
-    });
-
-    const correct=button.getAttribute("data-answer")==="correct";
-
-    button.classList.add(correct?"correct":"wrong");
-
-    if(quizResult){
-      quizResult.textContent=
-        translations[currentLanguage][
-          correct?"correct":"incorrect"
-        ]
-    }
-
-    if(scoreValue){
-      scoreValue.textContent=correct?"100":"0"
-    }
-
-    if(scoreRing){
-      scoreRing.style.background=
-        "conic-gradient(var(--orange) "+
-        (correct?"360deg":"0deg")+
-        ",#2b1308 0deg)"
-    }
-  })
-});
-
-const certificateButton=document.getElementById("certificateBtn");
-
-if(certificateButton){
-  certificateButton.addEventListener("click",function(){
-    showToast(
-      translations[currentLanguage].requirements
-    )
-  })
-}
-
-const year=document.getElementById("year");
-if(year)year.textContent=new Date().getFullYear();
-
-currentLanguage=readStorage(
-  "promaxRealEstateLanguage",
-  "ht"
-);
-
-translatePage(currentLanguage)
-});
-</script>
-
+  <div class="toast" id="toast" aria-live="polite"></div>
 </body>
 </html>
