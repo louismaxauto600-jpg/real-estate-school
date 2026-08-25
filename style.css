@@ -64,6 +64,8 @@ button { cursor: pointer; }
 .brand span { display: grid; gap: 3px; }
 .brand b { font-family: "Cinzel", serif; color: var(--orange); letter-spacing: .07em; font-size: 1.12rem; }
 .brand small { color: var(--apricot); font-weight: 800; letter-spacing: .15em; font-size: .72rem; }
+.brand-text { display: grid; gap: 3px; }
+.ecosystem-label { margin-top: 2px; color: var(--orange-muted); font-style: normal; font-size: .51rem; font-weight: 800; letter-spacing: .11em; line-height: 1.25; text-transform: uppercase; }
 .main-nav { display: flex; align-items: center; gap: 25px; }
 .main-nav a { font-size: .74rem; font-weight: 700; letter-spacing: .07em; transition: .25s; }
 .main-nav a:hover { color: var(--orange); transform: translateY(-2px); }
@@ -269,6 +271,7 @@ footer small { display: block; color: var(--orange-deep); }
   .brand-emblem { width: 49px; height: 49px; flex-basis: 49px; }
   .brand b { font-size: .84rem; }
   .brand small { font-size: .57rem; letter-spacing: .10em; }
+  .ecosystem-label { max-width: 210px; font-size: .44rem; letter-spacing: .07em; }
   .language-switcher { position: fixed; z-index: 150; right: 12px; bottom: 12px; box-shadow: var(--shadow); }
   .hero { width: 90%; min-height: auto; gap: 10px; padding: 60px 0 30px; }
   .hero h1 { font-size: clamp(2.45rem, 13vw, 4rem); }
