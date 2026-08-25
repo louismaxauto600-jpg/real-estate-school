@@ -56,7 +56,7 @@
         <p class="hero-text" data-i18n="heroText">Aprann prensip byen imobilye, prepare pou egzamen lisans ou, epi devlope konpetans pou sèvi kliyan avèk konfyans ak pwofesyonalis.</p>
         <div class="hero-actions">
           <a class="btn btn-primary" href="#courses" data-i18n="startLearning">Kòmanse aprann</a>
-          <button class="btn btn-secondary" id="openEnroll" data-i18n="enrollNow">Enskri kounye a</button>
+          <a class="btn btn-secondary" href="./registration-center.html" data-i18n="enrollNow">Enskri kounye a</a>
         </div>
         <div class="trust-row">
           <span><b>6</b><small data-i18n="statCourses">Kou esansyèl</small></span>
@@ -84,7 +84,7 @@
       <span class="pulse-dot"></span>
       <b data-i18n="announcementTitle">ENSKRIPSYON OUVÈ</b>
       <p data-i18n="announcementText">Nouvo sesyon Real Estate School la disponib kounye a.</p>
-      <button id="announcementEnroll" data-i18n="reserveSeat">Rezève plas ou</button>
+      <a class="announcement-register" href="./registration-center.html" data-i18n="reserveSeat">Rezève plas ou</a>
     </section>
 
     <section class="section" id="courses">
@@ -228,22 +228,6 @@
     <a href="../index.html" data-i18n="backAcademy">← Retounen nan PRO-MAX ACADÉMIE</a>
     <small>© <span id="year"></span> PRO-MAX ACADÉMIE</small>
   </footer>
-
-  <div class="modal" id="enrollModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-    <div class="modal-card">
-      <button class="modal-close" id="closeEnroll" aria-label="Close">×</button>
-      <p class="eyebrow">REAL ESTATE SCHOOL</p>
-      <h2 id="modalTitle" data-i18n="modalTitle">Kòmanse enskripsyon ou</h2>
-      <p data-i18n="modalText">Ranpli enfòmasyon yo pou nou ka prepare pwofil etidyan ou.</p>
-      <form id="enrollForm">
-        <label><span data-i18n="labelName">Non konplè</span><input type="text" name="name" required></label>
-        <label><span data-i18n="labelEmail">Imèl</span><input type="email" name="email" required></label>
-        <label><span data-i18n="labelPhone">Telefòn</span><input type="tel" name="phone"></label>
-        <button class="btn btn-primary" type="submit" data-i18n="submitEnroll">Voye enskripsyon</button>
-      </form>
-      <p class="form-status" id="formStatus" aria-live="polite"></p>
-    </div>
-  </div>
 
   <div class="toast" id="toast" aria-live="polite"></div>
 </body>
