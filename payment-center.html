@@ -1,0 +1,1596 @@
+<!DOCTYPE html>
+<html lang="ht" id="htmlRoot" translate="no">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#070402">
+  <meta name="google" content="notranslate">
+
+  <title>Payment Center | PRO-MAX Académie Real Estate School</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+  <style>
+    :root {
+      --black: #030201;
+      --black-soft: #0b0704;
+      --black-card: #120a05;
+      --orange: #ff7300;
+      --apricot: #ffad66;
+      --orange-deep: #b83b00;
+      --orange-muted: #d96a22;
+      --line: rgba(255, 115, 0, 0.3);
+      --shadow: 0 24px 70px rgba(0, 0, 0, 0.58);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      overflow-x: hidden;
+      color: var(--apricot);
+      background:
+        radial-gradient(circle at 12% 10%, rgba(255, 115, 0, 0.18), transparent 27%),
+        radial-gradient(circle at 90% 60%, rgba(184, 59, 0, 0.15), transparent 30%),
+        linear-gradient(145deg, #020100 0%, #0a0502 48%, #020100 100%);
+      font-family: "Montserrat", sans-serif;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+      opacity: 0.15;
+      background-image:
+        linear-gradient(var(--line) 1px, transparent 1px),
+        linear-gradient(90deg, var(--line) 1px, transparent 1px);
+      background-size: 80px 80px;
+      mask-image: linear-gradient(to bottom, transparent, #000 20%, transparent 85%);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    input,
+    select {
+      font: inherit;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    .ambient {
+      position: fixed;
+      z-index: -1;
+      border-radius: 50%;
+      filter: blur(100px);
+      pointer-events: none;
+      opacity: 0.15;
+    }
+
+    .ambient-one {
+      width: 360px;
+      height: 360px;
+      top: 8%;
+      left: -200px;
+      background: var(--orange);
+    }
+
+    .ambient-two {
+      width: 440px;
+      height: 440px;
+      right: -250px;
+      bottom: 5%;
+      background: var(--orange-deep);
+    }
+
+    /* HEADER */
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      min-height: 96px;
+      padding: 10px clamp(18px, 5vw, 76px);
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      border-bottom: 1px solid var(--line);
+      background: rgba(3, 2, 1, 0.95);
+      backdrop-filter: blur(18px);
+    }
+
+    .brand {
+      min-width: 0;
+      margin-right: auto;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .brand img {
+      width: 76px;
+      height: 76px;
+      flex: 0 0 76px;
+      display: block;
+      object-fit: contain;
+      border-radius: 50%;
+      filter: drop-shadow(0 0 17px rgba(255, 115, 0, 0.65));
+    }
+
+    .brand-text {
+      min-width: 0;
+      display: grid;
+      gap: 4px;
+    }
+
+    .brand-text b {
+      color: var(--apricot);
+      font-family: "Cinzel", serif;
+      font-size: clamp(1.05rem, 2vw, 1.55rem);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: 0.06em;
+    }
+
+    .brand-text small {
+      color: var(--orange);
+      font-size: clamp(0.64rem, 1vw, 0.84rem);
+      font-weight: 900;
+      letter-spacing: 0.15em;
+    }
+
+    .ecosystem-label {
+      margin-top: 4px;
+      color: var(--apricot);
+      font-size: clamp(0.52rem, 0.9vw, 0.72rem);
+      font-style: normal;
+      font-weight: 900;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+    }
+
+    .language-switcher {
+      flex: 0 0 auto;
+      display: flex;
+      padding: 4px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: #080401;
+    }
+
+    .lang-btn {
+      padding: 10px 13px;
+      border: 0;
+      border-radius: 999px;
+      color: var(--orange-muted);
+      background: transparent;
+      font-size: 0.68rem;
+      font-weight: 900;
+    }
+
+    .lang-btn.active {
+      color: var(--black);
+      background: linear-gradient(135deg, var(--apricot), var(--orange));
+    }
+
+    /* PAGE */
+
+    .payment-main {
+      width: min(1260px, 92%);
+      margin: 0 auto;
+      padding: 70px 0 100px;
+    }
+
+    .payment-hero {
+      max-width: 920px;
+      margin: 0 auto 50px;
+      text-align: center;
+    }
+
+    .eyebrow {
+      margin: 0;
+      color: var(--orange);
+      font-size: 0.74rem;
+      font-weight: 900;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+    }
+
+    .payment-hero h1 {
+      margin: 14px 0 20px;
+      color: var(--apricot);
+      font-family: "Cinzel", serif;
+      font-size: clamp(2.6rem, 6vw, 5.4rem);
+      line-height: 1;
+    }
+
+    .payment-hero > p:last-child {
+      max-width: 760px;
+      margin: 0 auto;
+      color: var(--orange-muted);
+      font-size: 1rem;
+      line-height: 1.8;
+    }
+
+    .secure-badge {
+      width: max-content;
+      margin: 28px auto 0;
+      padding: 10px 16px;
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: var(--orange);
+      background: rgba(7, 3, 1, 0.9);
+      font-size: 0.72rem;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+    }
+
+    /* PLANS */
+
+    .section-title {
+      margin-bottom: 24px;
+    }
+
+    .section-title h2 {
+      margin: 10px 0;
+      color: var(--apricot);
+      font-family: "Cinzel", serif;
+      font-size: clamp(1.8rem, 4vw, 3rem);
+    }
+
+    .section-title p:last-child {
+      color: var(--orange-muted);
+      line-height: 1.7;
+    }
+
+    .plan-grid {
+      margin-bottom: 65px;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .plan-card {
+      position: relative;
+      min-height: 390px;
+      padding: 38px 28px 30px;
+      display: flex;
+      flex-direction: column;
+      border: 1px solid var(--line);
+      background: linear-gradient(145deg, rgba(22, 10, 4, 0.98), rgba(3, 2, 1, 0.98));
+      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.3);
+      transition: 0.28s;
+    }
+
+    .plan-card:hover {
+      transform: translateY(-7px);
+      border-color: var(--orange);
+    }
+
+    .plan-card.selected {
+      border-color: var(--orange);
+      background: linear-gradient(145deg, rgba(255, 115, 0, 0.18), rgba(3, 2, 1, 0.98));
+      box-shadow:
+        0 0 0 2px rgba(255, 115, 0, 0.14),
+        0 25px 60px rgba(255, 115, 0, 0.14);
+    }
+
+    .popular-label {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      padding: 7px 18px;
+      color: var(--black);
+      background: linear-gradient(135deg, var(--apricot), var(--orange));
+      font-size: 0.61rem;
+      font-weight: 900;
+      letter-spacing: 0.1em;
+      white-space: nowrap;
+      transform: translate(-50%, -50%);
+    }
+
+    .plan-card > i {
+      width: 58px;
+      height: 58px;
+      margin-bottom: 24px;
+      display: grid;
+      place-items: center;
+      color: var(--black);
+      background: linear-gradient(135deg, var(--apricot), var(--orange));
+      font-size: 1.6rem;
+      transform: rotate(-4deg);
+    }
+
+    .plan-card h3 {
+      margin: 0;
+      color: var(--apricot);
+      font-family: "Cinzel", serif;
+      font-size: 1.35rem;
+      letter-spacing: 0.05em;
+    }
+
+    .plan-price {
+      margin: 16px 0;
+      color: var(--orange);
+      font-family: "Cinzel", serif;
+      font-size: 3rem;
+      font-weight: 800;
+      line-height: 1;
+    }
+
+    .plan-price small {
+      color: var(--orange-muted);
+      font-family: "Montserrat", sans-serif;
+      font-size: 0.68rem;
+      letter-spacing: 0.08em;
+    }
+
+    .plan-card ul {
+      margin: 8px 0 28px;
+      padding: 0;
+      display: grid;
+      gap: 12px;
+      list-style: none;
+    }
+
+    .plan-card li {
+      display: flex;
+      align-items: flex-start;
+      gap: 9px;
+      color: var(--orange-muted);
+      font-size: 0.82rem;
+      line-height: 1.5;
+    }
+
+    .plan-card li i {
+      margin-top: 4px;
+      color: var(--orange);
+    }
+
+    .select-plan {
+      width: 100%;
+      min-height: 50px;
+      margin-top: auto;
+      padding: 13px 18px;
+      border: 1px solid var(--orange);
+      border-radius: 6px;
+      color: var(--orange);
+      background: transparent;
+      font-weight: 900;
+    }
+
+    .plan-card.selected .select-plan {
+      color: var(--black);
+      background: linear-gradient(135deg, var(--apricot), var(--orange));
+    }
+
+    /* PAYMENT AREA */
+
+    .checkout-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(310px, 0.85fr);
+      align-items: start;
+      gap: 28px;
+    }
+
+    .checkout-card,
+    .order-summary {
+      border: 1px solid var(--line);
+      background: linear-gradient(145deg, rgba(20, 10, 4, 0.98), rgba(3, 2, 1, 0.98));
+      box-shadow: var(--shadow);
+    }
+
+    .checkout-card {
+      padding: clamp(26px, 5vw, 52px);
+    }
+
+    .order-summary {
+      position: sticky;
+      top: 120px;
+      padding: 32px;
+    }
+
+    .checkout-card h2,
+    .order-summary h2 {
+      margin: 10px 0 24px;
+      color: var(--apricot);
+      font-family: "Cinzel", serif;
+    }
+
+    .customer-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 17px;
+    }
+
+    .field {
+      margin-bottom: 18px;
+      display: grid;
+      gap: 8px;
+    }
+
+    .field span {
+      color: var(--orange);
+      font-size: 0.7rem;
+      font-weight: 900;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+    }
+
+    .field input {
+      width: 100%;
+      padding: 14px 15px;
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      outline: none;
+      color: var(--apricot);
+      background: #070301;
+    }
+
+    .field input:focus {
+      border-color: var(--orange);
+      box-shadow: 0 0 0 3px rgba(255, 115, 0, 0.1);
+    }
+
+    .payment-method-title {
+      margin: 28px 0 14px;
+      color: var(--orange);
+      font-size: 0.76rem;
+      font-weight: 900;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .payment-methods {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 13px;
+    }
+
+    .payment-method {
+      min-height: 86px;
+      padding: 16px;
+      display: flex;
+      align-items: center;
+      gap: 13px;
+      border: 1px solid var(--line);
+      color: var(--apricot);
+      background: #070301;
+      font-weight: 900;
+      transition: 0.23s;
+    }
+
+    .payment-method:hover {
+      border-color: var(--orange);
+    }
+
+    .payment-method.active {
+      color: var(--black);
+      border-color: var(--orange);
+      background: linear-gradient(135deg, var(--apricot), var(--orange));
+    }
+
+    .payment-method i {
+      width: 38px;
+      font-size: 1.5rem;
+      text-align: center;
+    }
+
+    .payment-notice {
+      margin: 20px 0;
+      padding: 16px;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      border-left: 3px solid var(--orange);
+      color: var(--orange-muted);
+      background: rgba(255, 115, 0, 0.07);
+      font-size: 0.78rem;
+      line-height: 1.6;
+    }
+
+    .payment-notice i {
+      margin-top: 3px;
+      color: var(--orange);
+    }
+
+    .continue-payment {
+      width: 100%;
+      min-height: 56px;
+      padding: 15px 22px;
+      border: 1px solid var(--orange);
+      border-radius: 7px;
+      color: var(--black);
+      background: linear-gradient(135deg, var(--apricot), var(--orange));
+      box-shadow: 0 14px 35px rgba(255, 115, 0, 0.22);
+      font-weight: 900;
+      letter-spacing: 0.04em;
+    }
+
+    .continue-payment:disabled {
+      cursor: not-allowed;
+      opacity: 0.45;
+    }
+
+    /* SUMMARY */
+
+    .summary-logo {
+      width: 74px;
+      height: 74px;
+      margin-bottom: 20px;
+      object-fit: contain;
+      border-radius: 50%;
+      filter: drop-shadow(0 0 15px rgba(255, 115, 0, 0.55));
+    }
+
+    .summary-row {
+      padding: 15px 0;
+      display: flex;
+      justify-content: space-between;
+      gap: 15px;
+      border-bottom: 1px solid var(--line);
+      color: var(--orange-muted);
+      font-size: 0.82rem;
+    }
+
+    .summary-row strong {
+      color: var(--apricot);
+      text-align: right;
+    }
+
+    .summary-total {
+      padding: 22px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 15px;
+    }
+
+    .summary-total span {
+      color: var(--orange);
+      font-size: 0.8rem;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .summary-total strong {
+      color: var(--orange);
+      font-family: "Cinzel", serif;
+      font-size: 2.4rem;
+    }
+
+    .summary-security {
+      margin-top: 15px;
+      display: grid;
+      gap: 11px;
+    }
+
+    .summary-security span {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      color: var(--orange-muted);
+      font-size: 0.73rem;
+    }
+
+    .summary-security i {
+      color: var(--orange);
+    }
+
+    .back-links {
+      margin-top: 30px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .back-links a {
+      padding: 12px 18px;
+      border: 1px solid var(--line);
+      color: var(--orange);
+      background: #070301;
+      font-size: 0.75rem;
+      font-weight: 900;
+    }
+
+    /* MODAL */
+
+    .payment-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 2000;
+      padding: 20px;
+      display: none;
+      place-items: center;
+      background: rgba(0, 0, 0, 0.88);
+      backdrop-filter: blur(12px);
+    }
+
+    .payment-modal.open {
+      display: grid;
+    }
+
+    .modal-card {
+      position: relative;
+      width: min(580px, 100%);
+      padding: clamp(30px, 6vw, 52px);
+      text-align: center;
+      border: 2px solid var(--orange);
+      background:
+        radial-gradient(circle, rgba(255, 115, 0, 0.14), transparent 56%),
+        #070301;
+      box-shadow: var(--shadow);
+    }
+
+    .modal-icon {
+      width: 78px;
+      height: 78px;
+      margin: 0 auto 22px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      color: var(--black);
+      background: var(--orange);
+      font-size: 2rem;
+    }
+
+    .modal-card h2 {
+      color: var(--apricot);
+      font-family: "Cinzel", serif;
+      font-size: clamp(1.7rem, 5vw, 2.8rem);
+    }
+
+    .modal-card p {
+      color: var(--orange-muted);
+      line-height: 1.7;
+    }
+
+    .payment-reference {
+      margin: 22px 0;
+      padding: 15px;
+      border: 1px solid var(--line);
+      color: var(--orange);
+      background: #030201;
+      font-family: monospace;
+      font-size: 1rem;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+    }
+
+    .close-modal {
+      min-height: 50px;
+      padding: 13px 24px;
+      border: 1px solid var(--orange);
+      border-radius: 6px;
+      color: var(--black);
+      background: var(--orange);
+      font-weight: 900;
+    }
+
+    /* FOOTER */
+
+    footer {
+      padding: 50px 5%;
+      text-align: center;
+      border-top: 1px solid var(--line);
+      background: #020100;
+    }
+
+    footer b {
+      display: block;
+      color: var(--orange);
+      font-family: "Cinzel", serif;
+      font-size: 1.2rem;
+      letter-spacing: 0.08em;
+    }
+
+    footer span {
+      display: block;
+      margin-top: 5px;
+      font-size: 0.68rem;
+      font-weight: 900;
+      letter-spacing: 0.18em;
+    }
+
+    footer p {
+      color: var(--orange-muted);
+    }
+
+    /* RESPONSIVE */
+
+    @media (max-width: 950px) {
+      .plan-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .plan-card {
+        min-height: 340px;
+      }
+
+      .checkout-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .order-summary {
+        position: static;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .site-header {
+        min-height: 88px;
+        padding: 9px 13px;
+        gap: 8px;
+      }
+
+      .brand {
+        gap: 9px;
+      }
+
+      .brand img {
+        width: 54px;
+        height: 54px;
+        flex-basis: 54px;
+      }
+
+      .brand-text b {
+        font-size: 0.8rem;
+      }
+
+      .brand-text small {
+        font-size: 0.49rem;
+        letter-spacing: 0.09em;
+      }
+
+      .ecosystem-label {
+        max-width: 200px;
+        font-size: 0.4rem;
+        letter-spacing: 0.05em;
+      }
+
+      .language-switcher {
+        margin-left: auto;
+        padding: 3px;
+      }
+
+      .lang-btn {
+        padding: 8px 9px;
+        font-size: 0.59rem;
+      }
+
+      .payment-main {
+        width: 94%;
+        padding-top: 48px;
+      }
+
+      .payment-hero h1 {
+        font-size: clamp(2.3rem, 11vw, 3.5rem);
+      }
+
+      .customer-grid,
+      .payment-methods {
+        grid-template-columns: 1fr;
+      }
+
+      .checkout-card,
+      .order-summary {
+        padding: 27px 19px;
+      }
+
+      .back-links {
+        display: grid;
+      }
+
+      .back-links a {
+        text-align: center;
+      }
+    }
+
+    @media (max-width: 500px) {
+      .site-header {
+        flex-wrap: wrap;
+      }
+
+      .brand {
+        width: calc(100% - 145px);
+      }
+
+      .brand-text b {
+        font-size: 0.72rem;
+      }
+
+      .brand-text small {
+        font-size: 0.45rem;
+      }
+
+      .ecosystem-label {
+        font-size: 0.36rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="ambient ambient-one"></div>
+  <div class="ambient ambient-two"></div>
+
+  <header class="site-header">
+    <a class="brand" href="./index.html" aria-label="PRO-MAX Académie homepage">
+      <img src="./real-estate-school-logo.png" alt="PRO-MAX Académie Real Estate School logo">
+
+      <span class="brand-text">
+        <b>PRO-MAX ACADÉMIE</b>
+        <small>REAL ESTATE SCHOOL</small>
+        <em class="ecosystem-label" data-i18n="ecosystem">
+          EKOSISTÈM DIJITAL PWOFESYONÈL
+        </em>
+      </span>
+    </a>
+
+    <div class="language-switcher" aria-label="Language selector">
+      <button class="lang-btn notranslate" type="button" data-lang="en">ENG</button>
+      <button class="lang-btn notranslate" type="button" data-lang="es">ESP</button>
+      <button class="lang-btn notranslate active" type="button" data-lang="ht">KRE</button>
+    </div>
+  </header>
+
+  <main class="payment-main">
+    <section class="payment-hero">
+      <p class="eyebrow" data-i18n="paymentEyebrow">PEMAN AK ENSKRIPSYON</p>
+
+      <h1 data-i18n="paymentTitle">Payment Center</h1>
+
+      <p data-i18n="paymentIntro">
+        Chwazi plan fòmasyon ou epi prepare demann peman ou nan yon espas senp ak sekirize.
+      </p>
+
+      <div class="secure-badge">
+        <i class="fa-solid fa-lock"></i>
+        <span data-i18n="secureCenter">SANT PEMAN SEKIRIZE</span>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-title">
+        <p class="eyebrow" data-i18n="plansEyebrow">PLAN FÒMASYON</p>
+        <h2 data-i18n="plansTitle">Chwazi plan ki bon pou ou</h2>
+        <p data-i18n="plansIntro">
+          Ou kapab chanje plan ou anvan ou kontinye nan etap peman an.
+        </p>
+      </div>
+
+      <div class="plan-grid">
+        <article class="plan-card" data-plan="basic" data-price="149">
+          <i class="fa-solid fa-book-open"></i>
+
+          <h3 data-i18n="basicPlan">BASIC</h3>
+
+          <div class="plan-price">
+            $149
+            <small data-i18n="onePayment">YON SÈL PEMAN</small>
+          </div>
+
+          <ul>
+            <li>
+              <i class="fa-solid fa-check"></i>
+              <span data-i18n="basicFeature1">Kou 63 èdtan sou entènèt</span>
+            </li>
+
+            <li>
+              <i class="fa-solid fa-check"></i>
+              <span data-i18n="basicFeature2">Aksè nan materyèl fondamantal</span>
+            </li>
+
+            <li>
+              <i class="fa-solid fa-check"></i>
+              <span data-i18n="basicFeature3">Pwofil etidyan dijital</span>
+            </li>
+          </ul>
+
+          <button class="select-plan" type="button" data-plan-button="basic" data-i18n="selectPlan">
+            Chwazi plan sa a
+          </button>
+        </article>
+
+        <article class="plan-card selected" data-plan="professional" data-price="249">
+          <span class="popular-label" data-i18n="mostPopular">PI POPILÈ</span>
+
+          <i class="fa-solid fa-user-graduate"></i>
+
+          <h3 data-i18n="professionalPlan">PROFESSIONAL</h3>
+
+          <div class="plan-price">
+            $249
+            <small data-i18n="onePayment">YON SÈL PEMAN</small>
+          </div>
+
+          <ul>
+            <li>
+              <i class="fa-solid fa-check"></i>
+              <span data-i18n="professionalFeature1">Tout sa ki nan Basic</span>
+            </li>
+
+            <li>
+              <i class="fa-solid fa-check"></i>
+              <span data-i18n="professionalFeature2">Materyèl etid avanse</span>
+            </li>
+
+            <li>
+              <i class="fa-solid fa-check"></i>
+              <span data-i18n="professionalFeature3">Kesyon pratik ak revizyon</span>
+            </li>
+          </ul>
+
+          <button class="select-plan" type="button" data-plan-button="professional" data-i18n="selectedPlan">
+            PLAN CHWAZI
+          </button>
+        </article>
+
+        <article class="plan-card" data-plan="premium" data-price="399">
+          <i class="fa-solid fa-crown"></i>
+
+          <h3 data-i18n="premiumPlan">PREMIUM</h3>
+
+          <div class="plan-price">
+            $399
+            <small data-i18n="onePayment">YON SÈL PEMAN</small>
+          </div>
+
+          <ul>
+            <li>
+              <i class="fa-solid fa-check"></i>
+              <span data-i18n="premiumFeature1">Tout sa ki nan Professional</span>
+            </li>
+
+            <li>
+              <i class="fa-solid fa-check"></i>
+              <span data-i18n="premiumFeature2">Sipò pèsonalize</span>
+            </li>
+
+            <li>
+              <i class="fa-solid fa-check"></i>
+              <span data-i18n="premiumFeature3">Preparasyon karyè pwofesyonèl</span>
+            </li>
+          </ul>
+
+          <button class="select-plan" type="button" data-plan-button="premium" data-i18n="selectPlan">
+            Chwazi plan sa a
+          </button>
+        </article>
+      </div>
+    </section>
+
+    <section class="checkout-layout">
+      <div class="checkout-card">
+        <p class="eyebrow" data-i18n="studentInformation">ENFÒMASYON ETIDYAN</p>
+        <h2 data-i18n="completePayment">Prepare peman ou</h2>
+
+        <form id="paymentForm">
+          <div class="customer-grid">
+            <label class="field">
+              <span data-i18n="fullName">Non konplè</span>
+              <input id="studentName" name="student_name" type="text" autocomplete="name" required>
+            </label>
+
+            <label class="field">
+              <span data-i18n="email">Imèl</span>
+              <input id="studentEmail" name="student_email" type="email" autocomplete="email" required>
+            </label>
+
+            <label class="field">
+              <span data-i18n="phone">Telefòn</span>
+              <input id="studentPhone" name="student_phone" type="tel" autocomplete="tel" required>
+            </label>
+
+            <label class="field">
+              <span data-i18n="location">Vil ak Eta/Peyi</span>
+              <input id="studentLocation" name="student_location" type="text" required>
+            </label>
+          </div>
+
+          <input id="selectedPlanInput" type="hidden" name="selected_plan" value="Professional">
+          <input id="selectedPriceInput" type="hidden" name="selected_price" value="249">
+          <input id="selectedMethodInput" type="hidden" name="payment_method" value="">
+
+          <p class="payment-method-title" data-i18n="choosePaymentMethod">
+            Chwazi metòd peman
+          </p>
+
+          <div class="payment-methods">
+            <button class="payment-method" type="button" data-method="stripe">
+              <i class="fa-solid fa-credit-card"></i>
+              <span>Stripe</span>
+            </button>
+
+            <button class="payment-method" type="button" data-method="paypal">
+              <i class="fa-brands fa-paypal"></i>
+              <span>PayPal</span>
+            </button>
+
+            <button class="payment-method" type="button" data-method="zelle">
+              <i class="fa-solid fa-building-columns"></i>
+              <span>Zelle</span>
+            </button>
+
+            <button class="payment-method" type="button" data-method="cashapp">
+              <i class="fa-solid fa-dollar-sign"></i>
+              <span>Cash App</span>
+            </button>
+          </div>
+
+          <div class="payment-notice">
+            <i class="fa-solid fa-circle-info"></i>
+
+            <span data-i18n="paymentNotice">
+              Payment Center sa a pa mande nimewo kat oswa enfòmasyon bankè dirèkteman. Lè lyen ofisyèl yo konekte, peman an ap fèt sou platfòm sekirize ou chwazi a.
+            </span>
+          </div>
+
+          <button class="continue-payment" id="continuePayment" type="submit" disabled data-i18n="continuePayment">
+            Kontinye ak peman an
+          </button>
+        </form>
+
+        <div class="back-links">
+          <a href="./registration-center.html" data-i18n="backRegistration">
+            ← Retounen nan Registration Center
+          </a>
+
+          <a href="./index.html" data-i18n="backHome">
+            Retounen sou homepage la
+          </a>
+        </div>
+      </div>
+
+      <aside class="order-summary">
+        <img class="summary-logo" src="./real-estate-school-logo.png" alt="PRO-MAX Académie logo">
+
+        <p class="eyebrow" data-i18n="orderSummary">REZIME KÒMAND</p>
+        <h2 data-i18n="yourSelection">Plan ou chwazi</h2>
+
+        <div class="summary-row">
+          <span data-i18n="schoolLabel">Lekòl</span>
+          <strong>PRO-MAX ACADÉMIE</strong>
+        </div>
+
+        <div class="summary-row">
+          <span data-i18n="programLabel">Pwogram</span>
+          <strong>REAL ESTATE SCHOOL</strong>
+        </div>
+
+        <div class="summary-row">
+          <span data-i18n="planLabel">Plan</span>
+          <strong id="summaryPlan">PROFESSIONAL</strong>
+        </div>
+
+        <div class="summary-row">
+          <span data-i18n="paymentMethodLabel">Metòd peman</span>
+          <strong id="summaryMethod" data-i18n="notSelected">Poko chwazi</strong>
+        </div>
+
+        <div class="summary-total">
+          <span data-i18n="totalLabel">Total</span>
+          <strong id="summaryTotal">$249</strong>
+        </div>
+
+        <div class="summary-security">
+          <span>
+            <i class="fa-solid fa-lock"></i>
+            <b data-i18n="secureInformation">Enfòmasyon ou pwoteje</b>
+          </span>
+
+          <span>
+            <i class="fa-solid fa-receipt"></i>
+            <b data-i18n="receiptIncluded">Konfimasyon ak referans enkli</b>
+          </span>
+
+          <span>
+            <i class="fa-solid fa-headset"></i>
+            <b data-i18n="supportAvailable">Sipò enskripsyon disponib</b>
+          </span>
+        </div>
+      </aside>
+    </section>
+  </main>
+
+  <footer>
+    <b>PRO-MAX ACADÉMIE</b>
+    <span>REAL ESTATE SCHOOL</span>
+    <p data-i18n="footerText">
+      Konesans. Preparasyon. Siksè nan byen imobilye.
+    </p>
+    <small>© <span id="year"></span> PRO-MAX ACADÉMIE</small>
+  </footer>
+
+  <div class="payment-modal" id="paymentModal" aria-hidden="true">
+    <div class="modal-card">
+      <div class="modal-icon">
+        <i class="fa-solid fa-receipt"></i>
+      </div>
+
+      <p class="eyebrow">PRO-MAX ACADÉMIE</p>
+
+      <h2 data-i18n="requestReady">Demann peman ou pare</h2>
+
+      <p id="modalMessage">
+        Demann nan prepare. Lyen ofisyèl processeur peman an dwe konekte pou tranzaksyon an fini.
+      </p>
+
+      <div class="payment-reference" id="paymentReference"></div>
+
+      <button class="close-modal" id="closeModal" type="button" data-i18n="closeButton">
+        Fèmen
+      </button>
+    </div>
+  </div>
+
+  <script>
+    const PAYMENT_LINKS = {
+      stripe: "",
+      paypal: "",
+      zelle: "",
+      cashapp: ""
+    };
+
+    const translations = {
+      ht: {
+        ecosystem: "EKOSISTÈM DIJITAL PWOFESYONÈL",
+        paymentEyebrow: "PEMAN AK ENSKRIPSYON",
+        paymentTitle: "Payment Center",
+        paymentIntro: "Chwazi plan fòmasyon ou epi prepare demann peman ou nan yon espas senp ak sekirize.",
+        secureCenter: "SANT PEMAN SEKIRIZE",
+        plansEyebrow: "PLAN FÒMASYON",
+        plansTitle: "Chwazi plan ki bon pou ou",
+        plansIntro: "Ou kapab chanje plan ou anvan ou kontinye nan etap peman an.",
+        onePayment: "YON SÈL PEMAN",
+        basicPlan: "BASIC",
+        professionalPlan: "PROFESSIONAL",
+        premiumPlan: "PREMIUM",
+        mostPopular: "PI POPILÈ",
+        basicFeature1: "Kou 63 èdtan sou entènèt",
+        basicFeature2: "Aksè nan materyèl fondamantal",
+        basicFeature3: "Pwofil etidyan dijital",
+        professionalFeature1: "Tout sa ki nan Basic",
+        professionalFeature2: "Materyèl etid avanse",
+        professionalFeature3: "Kesyon pratik ak revizyon",
+        premiumFeature1: "Tout sa ki nan Professional",
+        premiumFeature2: "Sipò pèsonalize",
+        premiumFeature3: "Preparasyon karyè pwofesyonèl",
+        selectPlan: "Chwazi plan sa a",
+        selectedPlan: "PLAN CHWAZI",
+        studentInformation: "ENFÒMASYON ETIDYAN",
+        completePayment: "Prepare peman ou",
+        fullName: "Non konplè",
+        email: "Imèl",
+        phone: "Telefòn",
+        location: "Vil ak Eta/Peyi",
+        choosePaymentMethod: "Chwazi metòd peman",
+        paymentNotice: "Payment Center sa a pa mande nimewo kat oswa enfòmasyon bankè dirèkteman. Lè lyen ofisyèl yo konekte, peman an ap fèt sou platfòm sekirize ou chwazi a.",
+        continuePayment: "Kontinye ak peman an",
+        backRegistration: "← Retounen nan Registration Center",
+        backHome: "Retounen sou homepage la",
+        orderSummary: "REZIME KÒMAND",
+        yourSelection: "Plan ou chwazi",
+        schoolLabel: "Lekòl",
+        programLabel: "Pwogram",
+        planLabel: "Plan",
+        paymentMethodLabel: "Metòd peman",
+        notSelected: "Poko chwazi",
+        totalLabel: "Total",
+        secureInformation: "Enfòmasyon ou pwoteje",
+        receiptIncluded: "Konfimasyon ak referans enkli",
+        supportAvailable: "Sipò enskripsyon disponib",
+        footerText: "Konesans. Preparasyon. Siksè nan byen imobilye.",
+        requestReady: "Demann peman ou pare",
+        closeButton: "Fèmen",
+        pendingMessage: "Demann nan prepare. Lyen ofisyèl processeur peman an dwe konekte pou tranzaksyon an fini."
+      },
+
+      en: {
+        ecosystem: "PROFESSIONAL DIGITAL ECOSYSTEM",
+        paymentEyebrow: "PAYMENT AND ENROLLMENT",
+        paymentTitle: "Payment Center",
+        paymentIntro: "Choose your training plan and prepare your payment request in a simple and secure space.",
+        secureCenter: "SECURE PAYMENT CENTER",
+        plansEyebrow: "TRAINING PLANS",
+        plansTitle: "Choose the right plan for you",
+        plansIntro: "You may change your plan before continuing to the payment step.",
+        onePayment: "ONE-TIME PAYMENT",
+        basicPlan: "BASIC",
+        professionalPlan: "PROFESSIONAL",
+        premiumPlan: "PREMIUM",
+        mostPopular: "MOST POPULAR",
+        basicFeature1: "63-hour online course",
+        basicFeature2: "Access to foundational materials",
+        basicFeature3: "Digital student profile",
+        professionalFeature1: "Everything included in Basic",
+        professionalFeature2: "Advanced study materials",
+        professionalFeature3: "Practice questions and review",
+        premiumFeature1: "Everything included in Professional",
+        premiumFeature2: "Personalized support",
+        premiumFeature3: "Professional career preparation",
+        selectPlan: "Select this plan",
+        selectedPlan: "SELECTED PLAN",
+        studentInformation: "STUDENT INFORMATION",
+        completePayment: "Prepare your payment",
+        fullName: "Full name",
+        email: "Email",
+        phone: "Phone",
+        location: "City and State/Country",
+        choosePaymentMethod: "Choose a payment method",
+        paymentNotice: "This Payment Center does not request card numbers or banking information directly. Once the official links are connected, payment will take place on the secure platform you select.",
+        continuePayment: "Continue to payment",
+        backRegistration: "← Return to Registration Center",
+        backHome: "Return to homepage",
+        orderSummary: "ORDER SUMMARY",
+        yourSelection: "Your selected plan",
+        schoolLabel: "School",
+        programLabel: "Program",
+        planLabel: "Plan",
+        paymentMethodLabel: "Payment method",
+        notSelected: "Not selected",
+        totalLabel: "Total",
+        secureInformation: "Your information is protected",
+        receiptIncluded: "Confirmation and reference included",
+        supportAvailable: "Enrollment support available",
+        footerText: "Knowledge. Preparation. Success in real estate.",
+        requestReady: "Your payment request is ready",
+        closeButton: "Close",
+        pendingMessage: "The request is prepared. The official payment processor link must be connected to complete the transaction."
+      },
+
+      es: {
+        ecosystem: "ECOSISTEMA DIGITAL PROFESIONAL",
+        paymentEyebrow: "PAGO E INSCRIPCIÓN",
+        paymentTitle: "Centro de Pagos",
+        paymentIntro: "Elige tu plan de formación y prepara tu solicitud de pago en un espacio sencillo y seguro.",
+        secureCenter: "CENTRO DE PAGOS SEGURO",
+        plansEyebrow: "PLANES DE FORMACIÓN",
+        plansTitle: "Elige el plan adecuado para ti",
+        plansIntro: "Puedes cambiar tu plan antes de continuar con el pago.",
+        onePayment: "PAGO ÚNICO",
+        basicPlan: "BÁSICO",
+        professionalPlan: "PROFESIONAL",
+        premiumPlan: "PREMIUM",
+        mostPopular: "MÁS POPULAR",
+        basicFeature1: "Curso en línea de 63 horas",
+        basicFeature2: "Acceso a materiales fundamentales",
+        basicFeature3: "Perfil digital del estudiante",
+        professionalFeature1: "Todo lo incluido en Básico",
+        professionalFeature2: "Materiales de estudio avanzados",
+        professionalFeature3: "Preguntas de práctica y repaso",
+        premiumFeature1: "Todo lo incluido en Profesional",
+        premiumFeature2: "Apoyo personalizado",
+        premiumFeature3: "Preparación profesional",
+        selectPlan: "Seleccionar este plan",
+        selectedPlan: "PLAN SELECCIONADO",
+        studentInformation: "INFORMACIÓN DEL ESTUDIANTE",
+        completePayment: "Prepara tu pago",
+        fullName: "Nombre completo",
+        email: "Correo electrónico",
+        phone: "Teléfono",
+        location: "Ciudad y Estado/País",
+        choosePaymentMethod: "Elige un método de pago",
+        paymentNotice: "Este Centro de Pagos no solicita directamente números de tarjeta ni información bancaria. Cuando se conecten los enlaces oficiales, el pago se realizará en la plataforma segura seleccionada.",
+        continuePayment: "Continuar con el pago",
+        backRegistration: "← Volver al Centro de Inscripción",
+        backHome: "Volver a la página principal",
+        orderSummary: "RESUMEN DEL PEDIDO",
+        yourSelection: "Tu plan seleccionado",
+        schoolLabel: "Escuela",
+        programLabel: "Programa",
+        planLabel: "Plan",
+        paymentMethodLabel: "Método de pago",
+        notSelected: "No seleccionado",
+        totalLabel: "Total",
+        secureInformation: "Tu información está protegida",
+        receiptIncluded: "Confirmación y referencia incluidas",
+        supportAvailable: "Apoyo de inscripción disponible",
+        footerText: "Conocimiento. Preparación. Éxito en bienes raíces.",
+        requestReady: "Tu solicitud de pago está lista",
+        closeButton: "Cerrar",
+        pendingMessage: "La solicitud está preparada. Debe conectarse el enlace oficial del procesador para completar la transacción."
+      }
+    };
+
+    let currentLanguage =
+      localStorage.getItem("promaxPaymentLanguage") || "ht";
+
+    let selectedPlan = {
+      id: "professional",
+      name: "PROFESSIONAL",
+      price: 249
+    };
+
+    let selectedMethod = "";
+
+    const htmlRoot = document.documentElement;
+    const planCards = document.querySelectorAll(".plan-card");
+    const planButtons = document.querySelectorAll(".select-plan");
+    const paymentMethods = document.querySelectorAll(".payment-method");
+    const continueButton = document.getElementById("continuePayment");
+    const summaryPlan = document.getElementById("summaryPlan");
+    const summaryTotal = document.getElementById("summaryTotal");
+    const summaryMethod = document.getElementById("summaryMethod");
+    const selectedPlanInput = document.getElementById("selectedPlanInput");
+    const selectedPriceInput = document.getElementById("selectedPriceInput");
+    const selectedMethodInput = document.getElementById("selectedMethodInput");
+    const paymentForm = document.getElementById("paymentForm");
+    const paymentModal = document.getElementById("paymentModal");
+    const paymentReference = document.getElementById("paymentReference");
+    const modalMessage = document.getElementById("modalMessage");
+
+    const planNames = {
+      basic: {
+        ht: "BASIC",
+        en: "BASIC",
+        es: "BÁSICO"
+      },
+      professional: {
+        ht: "PROFESSIONAL",
+        en: "PROFESSIONAL",
+        es: "PROFESIONAL"
+      },
+      premium: {
+        ht: "PREMIUM",
+        en: "PREMIUM",
+        es: "PREMIUM"
+      }
+    };
+
+    function translatePage(language) {
+      const pack = translations[language] || translations.ht;
+
+      currentLanguage = language;
+      htmlRoot.lang = language;
+
+      document.querySelectorAll("[data-i18n]").forEach(element => {
+        const key = element.dataset.i18n;
+
+        if (pack[key]) {
+          element.textContent = pack[key];
+        }
+      });
+
+      document.querySelectorAll(".lang-btn").forEach(button => {
+        button.classList.toggle(
+          "active",
+          button.dataset.lang === language
+        );
+      });
+
+      localStorage.setItem("promaxPaymentLanguage", language);
+
+      updatePlanDisplay();
+      updateMethodDisplay();
+    }
+
+    function selectPlan(planId) {
+      const card = document.querySelector(
+        `.plan-card[data-plan="${planId}"]`
+      );
+
+      if (!card) return;
+
+      selectedPlan = {
+        id: planId,
+        name: planNames[planId][currentLanguage],
+        price: Number(card.dataset.price)
+      };
+
+      planCards.forEach(item => {
+        item.classList.toggle(
+          "selected",
+          item.dataset.plan === planId
+        );
+      });
+
+      planButtons.forEach(button => {
+        const isSelected = button.dataset.planButton === planId;
+
+        button.textContent = isSelected
+          ? translations[currentLanguage].selectedPlan
+          : translations[currentLanguage].selectPlan;
+      });
+
+      updatePlanDisplay();
+
+      localStorage.setItem(
+        "promaxSelectedPlan",
+        JSON.stringify(selectedPlan)
+      );
+    }
+
+    function updatePlanDisplay() {
+      selectedPlan.name =
+        planNames[selectedPlan.id][currentLanguage];
+
+      summaryPlan.textContent = selectedPlan.name;
+      summaryTotal.textContent = `$${selectedPlan.price}`;
+
+      selectedPlanInput.value = selectedPlan.name;
+      selectedPriceInput.value = String(selectedPlan.price);
+    }
+
+    function selectPaymentMethod(method) {
+      selectedMethod = method;
+
+      paymentMethods.forEach(button => {
+        button.classList.toggle(
+          "active",
+          button.dataset.method === method
+        );
+      });
+
+      selectedMethodInput.value = method;
+      continueButton.disabled = false;
+
+      updateMethodDisplay();
+    }
+
+    function updateMethodDisplay() {
+      if (!selectedMethod) {
+        summaryMethod.textContent =
+          translations[currentLanguage].notSelected;
+
+        return;
+      }
+
+      const names = {
+        stripe: "Stripe",
+        paypal: "PayPal",
+        zelle: "Zelle",
+        cashapp: "Cash App"
+      };
+
+      summaryMethod.textContent = names[selectedMethod];
+    }
+
+    function createReference() {
+      const date = new Date();
+      const year = date.getFullYear();
+      const random = Math.floor(100000 + Math.random() * 900000);
+
+      return `PMRE-${year}-${random}`;
+    }
+
+    function openModal(reference) {
+      paymentReference.textContent = reference;
+      modalMessage.textContent =
+        translations[currentLanguage].pendingMessage;
+
+      paymentModal.classList.add("open");
+      paymentModal.setAttribute("aria-hidden", "false");
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeModal() {
+      paymentModal.classList.remove("open");
+      paymentModal.setAttribute("aria-hidden", "true");
+      document.body.style.overflow = "";
+    }
+
+    document.querySelectorAll(".lang-btn").forEach(button => {
+      button.addEventListener("click", () => {
+        translatePage(button.dataset.lang);
+      });
+    });
+
+    planButtons.forEach(button => {
+      button.addEventListener("click", () => {
+        selectPlan(button.dataset.planButton);
+      });
+    });
+
+    paymentMethods.forEach(button => {
+      button.addEventListener("click", () => {
+        selectPaymentMethod(button.dataset.method);
+      });
+    });
+
+    paymentForm.addEventListener("submit", event => {
+      event.preventDefault();
+
+      if (!paymentForm.checkValidity()) {
+        paymentForm.reportValidity();
+        return;
+      }
+
+      if (!selectedMethod) return;
+
+      const reference = createReference();
+
+      const requestData = {
+        reference,
+        studentName: document.getElementById("studentName").value.trim(),
+        studentEmail: document.getElementById("studentEmail").value.trim(),
+        studentPhone: document.getElementById("studentPhone").value.trim(),
+        studentLocation: document.getElementById("studentLocation").value.trim(),
+        plan: selectedPlan.name,
+        amount: selectedPlan.price,
+        method: selectedMethod,
+        createdAt: new Date().toISOString(),
+        status: "pending"
+      };
+
+      localStorage.setItem(
+        "promaxPaymentRequest",
+        JSON.stringify(requestData)
+      );
+
+      const paymentLink = PAYMENT_LINKS[selectedMethod];
+
+      if (paymentLink) {
+        window.location.href = paymentLink;
+        return;
+      }
+
+      openModal(reference);
+    });
+
+    document.getElementById("closeModal").addEventListener(
+      "click",
+      closeModal
+    );
+
+    paymentModal.addEventListener("click", event => {
+      if (event.target === paymentModal) {
+        closeModal();
+      }
+    });
+
+    document.addEventListener("keydown", event => {
+      if (event.key === "Escape") {
+        closeModal();
+      }
+    });
+
+    const savedPlan = localStorage.getItem("promaxSelectedPlan");
+
+    if (savedPlan) {
+      try {
+        const parsedPlan = JSON.parse(savedPlan);
+
+        if (
+          parsedPlan &&
+          ["basic", "professional", "premium"].includes(parsedPlan.id)
+        ) {
+          selectPlan(parsedPlan.id);
+        }
+      } catch (error) {
+        selectPlan("professional");
+      }
+    } else {
+      selectPlan("professional");
+    }
+
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+
+    translatePage(currentLanguage);
+  </script>
+</body>
+</html>
