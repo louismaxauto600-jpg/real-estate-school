@@ -1,0 +1,116 @@
+const OPENAI_URL = "https://api.openai.com/v1/responses";
+
+const courseGuide = `
+PRO-MAX ACADEMIE REAL ESTATE SCHOOL COURSE GUIDE
+Course 01 — Real estate foundations: land, permanent improvements, real property, property types, ownership rights, title, deeds, public recording, transaction stages.
+Course 02 — Law and professional ethics: contracts, disclosures, fair housing, agency, fiduciary duties, loyalty, confidentiality, lawful obedience, accounting, reasonable care.
+Course 03 — Financing and mortgages: mortgage loans, loan types, interest, credit, down payments, closing costs, amortization, financial calculations.
+Course 04 — Property valuation: market analysis, comparable properties, appraisal principles, value estimates, investments.
+Course 05 — Marketing and clients: personal brand, professional listings, digital marketing, client communication, negotiation.
+Course 06 — Exam preparation: study planning, legal review, calculations, vocabulary, test strategy and final review.
+`;
+
+function json(statusCode, body) {
+  return {
+    statusCode,
+    headers: {
+      "Content-Type": "application/json; charset=utf-8",
+      "Cache-Control": "no-store"
+    },
+    body: JSON.stringify(body)
+  };
+}
+
+exports.handler = async function (event) {
+  if (event.httpMethod !== "POST") {
+    return json(405, { error: "Method not allowed" });
+  }
+
+  if (!process.env.OPENAI_API_KEY) {
+    return json(503, { error: "Professor AI is not configured yet." });
+  }
+
+  let payload;
+  try {
+    payload = JSON.parse(event.body || "{}");
+  } catch (_error) {
+    return json(400, { error: "Invalid request." });
+  }
+
+  const question = String(payload.question || "").trim().slice(0, 2000);
+  const language = ["ht", "en", "es"].includes(payload.language)
+    ? payload.language
+    : "ht";
+  const course = String(payload.course || "general").slice(0, 40);
+  const history = Array.isArray(payload.history)
+    ? payload.history.slice(-6).map(function (item) {
+        return {
+          role: item.role === "assistant" ? "assistant" : "user",
+          content: String(item.content || "").slice(0, 1500)
+        };
+      })
+    : [];
+
+  if (!question) {
+    return json(400, { error: "A question is required." });
+  }
+
+  const languageName = {
+    ht: "Haitian Creole",
+    en: "English",
+    es: "Spanish"
+  }[language];
+
+  const instructions = `
+You are Professor Max Louis, alias Le Baron, the official AI professor of PRO-MAX Academie Real Estate School in Orlando, Florida.
+Answer in ${languageName}. Be clear, patient, professional and encouraging.
+The selected course is: ${course}.
+Base answers primarily on the school guide below. Explain concepts step by step and use short practical examples when useful.
+If the question requires state-specific law, current regulation, legal advice, financial advice, or a fact not established by the guide, clearly say that the student should verify it with a Florida-licensed professional or an authoritative current source.
+Never claim that completing this private course grants a government real-estate license.
+Keep most answers under 220 words unless the student asks for more detail.
+
+${courseGuide}
+`;
+
+  try {
+    const response = await fetch(OPENAI_URL, {
+      method: "POST",
+      headers: {
+        "Authorization": `Bearer ${process.env.OPENAI_API_KEY}`,
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        model: process.env.OPENAI_MODEL || "gpt-5.6-luna",
+        instructions,
+        input: history.concat([{ role: "user", content: question }]),
+        max_output_tokens: 700,
+        store: false
+      })
+    });
+
+    const data = await response.json();
+    if (!response.ok) {
+      console.error("OpenAI error", response.status, data.error && data.error.message);
+      return json(502, { error: "Professor AI is temporarily unavailable." });
+    }
+
+    const answer = (data.output || [])
+      .filter(function (item) { return item.type === "message"; })
+      .flatMap(function (item) { return item.content || []; })
+      .filter(function (item) { return item.type === "output_text"; })
+      .map(function (item) { return item.text; })
+      .join("\n")
+      .trim();
+
+    if (!answer) {
+      return json(502, { error: "Professor AI returned no answer." });
+    }
+
+    return json(200, { answer });
+  } catch (error) {
+    console.error("Professor function error", error);
+    return json(500, { error: "Professor AI is temporarily unavailable." });
+  }
+};
+
