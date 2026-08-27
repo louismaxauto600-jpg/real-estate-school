@@ -1,6 +1,8 @@
 const translations = {
   ht: {
     ecosystemLabel:"EKOSISTÈM DIJITAL PWOFESYONÈL",
+    choosePlan:"Chwazi plan fòmasyon ou", basicPlan:"BASIC", basicDetails:"Kou 63 èdtan sou entènèt", professionalPlan:"PROFESSIONAL", professionalDetails:"Kou ak materyèl etid", premiumPlan:"PREMIUM", premiumDetails:"Kou, sipò ak preparasyon karyè", mostPopular:"PI POPILÈ",
+    registrationEyebrow:"ENSKRIPSYON ETIDYAN", registrationTitle:"Registration Center", registrationIntro:"Kreye pwofil etidyan ou pou kòmanse chemen ou nan Real Estate School.", firstName:"Prenon", lastName:"Siyati", cityState:"Vil ak Eta/Peyi", preferredLanguage:"Lang ou prefere", chooseLanguage:"Chwazi yon lang", kreOption:"Kreyòl", engOption:"Anglè", espOption:"Panyòl", experienceLevel:"Eksperyans nan byen imobilye", chooseExperience:"Chwazi nivo ou", expNone:"Mwen poko gen eksperyans", expBeginner:"Debitan", expSome:"Mwen gen kèk eksperyans", expProfessional:"Pwofesyonèl", studentGoal:"Objektif ou", goalPlaceholder:"Di nou sa ou vle reyalize ak fòmasyon sa a.", consentText:"Mwen konfime enfòmasyon sa yo kòrèk epi mwen dakò PRO-MAX Académie kontakte mwen sou enskripsyon an.", submitRegistration:"Voye enskripsyon mwen", backSchool:"← Retounen nan Real Estate School", registrationSummary:"Sa enskripsyon an gen ladan", summaryProfile:"Pwofil etidyan pèsonalize", summaryLanguages:"Fòmasyon disponib nan 3 lang", summaryOnline:"Aksè 100% sou entènèt", summarySupport:"Sipò pou preparasyon egzamen", privacyNote:"Nou itilize enfòmasyon ou sèlman pou enskripsyon ak kominikasyon lekòl la.", successTitle:"Enskripsyon resevwa", successText:"Mèsi. PRO-MAX Académie resevwa demann ou an. Nou pral kontakte ou ak pwochen etap yo.", returnHome:"Retounen sou homepage la",
     navHome:"Akèy", navCourses:"Kou yo", navPath:"Parcours", navExam:"Egzamen", navCertificate:"Sètifika", navContact:"Kontak",
     heroEyebrow:"YON LEKÒL PRO-MAX ACADÉMIE", heroTitleOne:"Bati konesans ou.", heroTitleTwo:"Louvri pòt avni ou.",
     heroText:"Aprann prensip byen imobilye, prepare pou egzamen lisans ou, epi devlope konpetans pou sèvi kliyan avèk konfyans ak pwofesyonalis.",
@@ -23,6 +25,8 @@ const translations = {
   },
   en: {
     ecosystemLabel:"PROFESSIONAL DIGITAL ECOSYSTEM",
+    choosePlan:"Choose your training plan", basicPlan:"BASIC", basicDetails:"63-hour online course", professionalPlan:"PROFESSIONAL", professionalDetails:"Course and study materials", premiumPlan:"PREMIUM", premiumDetails:"Course, support and career preparation", mostPopular:"MOST POPULAR",
+    registrationEyebrow:"STUDENT ENROLLMENT", registrationTitle:"Registration Center", registrationIntro:"Create your student profile to begin your path at Real Estate School.", firstName:"First name", lastName:"Last name", cityState:"City and State/Country", preferredLanguage:"Preferred language", chooseLanguage:"Choose a language", kreOption:"Haitian Creole", engOption:"English", espOption:"Spanish", experienceLevel:"Real estate experience", chooseExperience:"Choose your level", expNone:"I have no experience yet", expBeginner:"Beginner", expSome:"I have some experience", expProfessional:"Professional", studentGoal:"Your goal", goalPlaceholder:"Tell us what you want to achieve with this training.", consentText:"I confirm that this information is correct and agree that PRO-MAX Académie may contact me about enrollment.", submitRegistration:"Submit my registration", backSchool:"← Return to Real Estate School", registrationSummary:"Your registration includes", summaryProfile:"Personalized student profile", summaryLanguages:"Training available in 3 languages", summaryOnline:"100% online access", summarySupport:"Licensing exam preparation support", privacyNote:"We use your information only for enrollment and school communications.", successTitle:"Registration received", successText:"Thank you. PRO-MAX Académie received your request. We will contact you with the next steps.", returnHome:"Return to the homepage",
     navHome:"Home", navCourses:"Courses", navPath:"Pathway", navExam:"Practice Exam", navCertificate:"Certificate", navContact:"Contact",
     heroEyebrow:"A PRO-MAX ACADÉMIE SCHOOL", heroTitleOne:"Build your knowledge.", heroTitleTwo:"Open the door to your future.",
     heroText:"Learn real estate principles, prepare for your licensing exam, and develop the skills to serve clients with confidence and professionalism.",
@@ -45,6 +49,8 @@ const translations = {
   },
   es: {
     ecosystemLabel:"ECOSISTEMA DIGITAL PROFESIONAL",
+    choosePlan:"Elige tu plan de formación", basicPlan:"BÁSICO", basicDetails:"Curso en línea de 63 horas", professionalPlan:"PROFESIONAL", professionalDetails:"Curso y materiales de estudio", premiumPlan:"PREMIUM", premiumDetails:"Curso, apoyo y preparación profesional", mostPopular:"MÁS POPULAR",
+    registrationEyebrow:"INSCRIPCIÓN DE ESTUDIANTES", registrationTitle:"Centro de Inscripción", registrationIntro:"Crea tu perfil de estudiante para comenzar tu trayectoria en Real Estate School.", firstName:"Nombre", lastName:"Apellido", cityState:"Ciudad y Estado/País", preferredLanguage:"Idioma preferido", chooseLanguage:"Selecciona un idioma", kreOption:"Criollo haitiano", engOption:"Inglés", espOption:"Español", experienceLevel:"Experiencia en bienes raíces", chooseExperience:"Selecciona tu nivel", expNone:"Aún no tengo experiencia", expBeginner:"Principiante", expSome:"Tengo algo de experiencia", expProfessional:"Profesional", studentGoal:"Tu objetivo", goalPlaceholder:"Cuéntanos qué deseas lograr con esta formación.", consentText:"Confirmo que esta información es correcta y acepto que PRO-MAX Académie me contacte sobre la inscripción.", submitRegistration:"Enviar mi inscripción", backSchool:"← Volver a Real Estate School", registrationSummary:"Tu inscripción incluye", summaryProfile:"Perfil de estudiante personalizado", summaryLanguages:"Formación disponible en 3 idiomas", summaryOnline:"Acceso 100 % en línea", summarySupport:"Apoyo para preparar el examen de licencia", privacyNote:"Usamos tu información únicamente para la inscripción y las comunicaciones escolares.", successTitle:"Inscripción recibida", successText:"Gracias. PRO-MAX Académie recibió tu solicitud. Nos pondremos en contacto contigo con los próximos pasos.", returnHome:"Volver a la página principal",
     navHome:"Inicio", navCourses:"Cursos", navPath:"Trayectoria", navExam:"Examen práctico", navCertificate:"Certificado", navContact:"Contacto",
     heroEyebrow:"UNA ESCUELA DE PRO-MAX ACADÉMIE", heroTitleOne:"Construye tus conocimientos.", heroTitleTwo:"Abre la puerta a tu futuro.",
     heroText:"Aprende los principios de bienes raíces, prepárate para tu examen de licencia y desarrolla las habilidades necesarias para servir a tus clientes con confianza y profesionalismo.",
@@ -98,6 +104,13 @@ document.addEventListener("DOMContentLoaded", function () {
       var key = element.getAttribute("data-i18n");
       if (Object.prototype.hasOwnProperty.call(languagePack, key)) {
         element.textContent = languagePack[key];
+      }
+    });
+
+    document.querySelectorAll("[data-i18n-placeholder]").forEach(function (element) {
+      var placeholderKey = element.getAttribute("data-i18n-placeholder");
+      if (Object.prototype.hasOwnProperty.call(languagePack, placeholderKey)) {
+        element.setAttribute("placeholder", languagePack[placeholderKey]);
       }
     });
 
@@ -201,6 +214,11 @@ document.addEventListener("DOMContentLoaded", function () {
     var courseButton = card.querySelector(".course-start");
     if (courseButton) {
       courseButton.addEventListener("click", function () {
+        var courseUrl = courseButton.getAttribute("data-course-url");
+        if (courseUrl) {
+          window.location.href = courseUrl;
+          return;
+        }
         if (key) progress[key] = true;
         writeStorage("promaxRealEstateProgress", JSON.stringify(progress));
         if (bar) bar.style.width = "20%";
