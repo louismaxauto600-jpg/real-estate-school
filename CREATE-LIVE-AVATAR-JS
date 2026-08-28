@@ -1,0 +1,51 @@
+"use strict";
+
+exports.handler = async function (event) {
+  if (event.httpMethod !== "POST") return json(405, { error: "Method not allowed" });
+
+  const apiKey = process.env.LIVEAVATAR_API_KEY;
+  const avatarId = process.env.LIVEAVATAR_AVATAR_ID;
+  const contextId = process.env.LIVEAVATAR_CONTEXT_ID;
+  if (!apiKey || !avatarId || !contextId) {
+    return json(503, { error: "LiveAvatar is not configured" });
+  }
+
+  try {
+    const response = await fetch("https://api.liveavatar.com/v2/embeddings", {
+      method: "POST",
+      headers: {
+        "X-API-KEY": apiKey,
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        avatar_id: avatarId,
+        context_id: contextId,
+        is_sandbox: process.env.LIVEAVATAR_SANDBOX !== "false"
+      })
+    });
+
+    const data = await response.json();
+    if (!response.ok || !data.data || !data.data.url) {
+      console.error("LiveAvatar API error", response.status, data);
+      return json(502, { error: "LiveAvatar is unavailable" });
+    }
+
+    const url = String(data.data.url);
+    if (!url.startsWith("https://embed.liveavatar.com/")) {
+      return json(502, { error: "Invalid LiveAvatar URL" });
+    }
+    return json(200, { url });
+  } catch (error) {
+    console.error("LiveAvatar connection error", error);
+    return json(500, { error: "LiveAvatar is unavailable" });
+  }
+};
+
+function json(statusCode, body) {
+  return {
+    statusCode,
+    headers: { "Content-Type": "application/json", "Cache-Control": "no-store" },
+    body: JSON.stringify(body)
+  };
+}
+
