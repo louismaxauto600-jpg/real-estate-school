@@ -1,164 +1,6 @@
+"use strict";
+
 const translations = {
-  ht: {
-    ecosystemLabel: "EKOSISTÈM DIJITAL PWOFESYONÈL",
-    choosePlan: "Chwazi plan fòmasyon ou",
-    basicPlan: "BASIC",
-    basicDetails: "Kou 63 èdtan sou entènèt",
-    professionalPlan: "PROFESSIONAL",
-    professionalDetails: "Kou ak materyèl etid",
-    premiumPlan: "PREMIUM",
-    premiumDetails: "Kou, sipò ak preparasyon karyè",
-    mostPopular: "PI POPILÈ",
-
-    registrationEyebrow: "ENSKRIPSYON ETIDYAN",
-    registrationTitle: "Registration Center",
-    registrationIntro:
-      "Kreye pwofil etidyan ou pou kòmanse chemen ou nan Real Estate School.",
-    firstName: "Prenon",
-    lastName: "Siyati",
-    cityState: "Vil ak Eta/Peyi",
-    preferredLanguage: "Lang ou prefere",
-    chooseLanguage: "Chwazi yon lang",
-    kreOption: "Kreyòl",
-    engOption: "Anglè",
-    espOption: "Panyòl",
-    experienceLevel: "Eksperyans nan byen imobilye",
-    chooseExperience: "Chwazi nivo ou",
-    expNone: "Mwen poko gen eksperyans",
-    expBeginner: "Debitan",
-    expSome: "Mwen gen kèk eksperyans",
-    expProfessional: "Pwofesyonèl",
-    studentGoal: "Objektif ou",
-    goalPlaceholder:
-      "Di nou sa ou vle reyalize ak fòmasyon sa a.",
-    consentText:
-      "Mwen konfime enfòmasyon sa yo kòrèk epi mwen dakò PRO-MAX Académie kontakte mwen sou enskripsyon an.",
-    submitRegistration: "Voye enskripsyon mwen",
-    backSchool: "← Retounen nan Real Estate School",
-    registrationSummary: "Sa enskripsyon an gen ladan",
-    summaryProfile: "Pwofil etidyan pèsonalize",
-    summaryLanguages: "Fòmasyon disponib nan 3 lang",
-    summaryOnline: "Aksè 100% sou entènèt",
-    summarySupport: "Sipò pou preparasyon egzamen",
-    privacyNote:
-      "Nou itilize enfòmasyon ou sèlman pou enskripsyon ak kominikasyon lekòl la.",
-    successTitle: "Enskripsyon resevwa",
-    successText:
-      "Mèsi. PRO-MAX Académie resevwa demann ou an. Nou pral kontakte ou ak pwochen etap yo.",
-    returnHome: "Retounen sou homepage la",
-
-    navHome: "Akèy",
-    navCourses: "Kou yo",
-    navPath: "Parcours",
-    navExam: "Egzamen",
-    navCertificate: "Sètifika",
-    navAskProf: "Mande Pwofesè",
-    askProf: "Mande Pwofesè",
-    navContact: "Kontak",
-
-    heroEyebrow: "YON LEKÒL PRO-MAX ACADÉMIE",
-    heroTitleOne: "Bati konesans ou.",
-    heroTitleTwo: "Louvri pòt avni ou.",
-    heroText:
-      "Aprann prensip byen imobilye, prepare pou egzamen lisans ou, epi devlope konpetans pou sèvi kliyan avèk konfyans ak pwofesyonalis.",
-    startLearning: "Kòmanse aprann",
-    enrollNow: "Enskri kounye a",
-    statCourses: "Kou esansyèl",
-    statLanguages: "Lang",
-    statOnline: "Sou entènèt",
-    officialSchool: "LEKÒL OFISYÈL",
-
-    announcementTitle: "ENSKRIPSYON OUVÈ",
-    announcementText:
-      "Nouvo sesyon Real Estate School la disponib kounye a.",
-    reserveSeat: "Rezève plas ou",
-
-    coursesEyebrow: "PWOGRAM FÒMASYON",
-    coursesTitle: "Kou ki prepare w pou mache a",
-    coursesText:
-      "Chak modil fèt pou mennen w soti nan fondasyon yo rive nan pratik pwofesyonèl.",
-
-    levelBeginner: "DEBITAN",
-    levelCore: "ESANSYÈL",
-    levelIntermediate: "ENTÈMEDYÈ",
-    levelProfessional: "PWOFESYONÈL",
-    levelFinal: "FINAL",
-    openCourse: "Ouvri kou a",
-
-    course1Title: "Fondasyon byen imobilye",
-    course1Text:
-      "Pwopriyete, tit, dwa, responsablite ak vokabilè endistri a.",
-    course2Title: "Lwa ak etik pwofesyonèl",
-    course2Text:
-      "Kontra, divilgasyon, lojman ekitab ak obligasyon fidisyè.",
-    course3Title: "Finansman ak ipotèk",
-    course3Text:
-      "Prè, enterè, kredi, closing costs ak kalkil finansye.",
-    course4Title: "Valyasyon pwopriyete",
-    course4Text:
-      "Analiz mache, konparab, estimasyon valè ak envestisman.",
-    course5Title: "Komèsyalizasyon ak kliyan",
-    course5Text:
-      "Listing, negosyasyon, prezantasyon ak relasyon kliyan.",
-    course6Title: "Preparasyon egzamen",
-    course6Text:
-      "Revizyon estriktire, kesyon pratik ak estrateji egzamen.",
-
-    pathEyebrow: "PARCOURS ETIDYAN",
-    pathTitle: "Chemen ou pou reyisit",
-    step1Title: "Enskri",
-    step1Text: "Kreye pwofil etidyan ou.",
-    step2Title: "Aprann",
-    step2Text: "Fini 6 modil yo nan rit ou.",
-    step3Title: "Pratike",
-    step3Text: "Teste konesans ou regilyèman.",
-    step4Title: "Reyisi",
-    step4Text: "Prepare pou egzamen ak karyè.",
-
-    quizEyebrow: "KESYON PRATIK",
-    quizTitle: "Teste konesans ou",
-    quizQuestion:
-      "Ki dokiman ki esplike kondisyon yon tranzaksyon ant achtè ak vandè?",
-    answer1: "Yon appraisal",
-    answer2: "Yon kontra acha",
-    answer3: "Yon listing photo",
-    scoreLabel: "NÒT",
-    correct: "Kòrèk! Se kontra acha a.",
-    incorrect: "Pa kòrèk. Eseye ankò.",
-
-    certificateTitle: "Sètifika akonplisman",
-    certificateText:
-      "Apre w fin konplete tout modil yo ak evalyasyon final la, w ap resevwa yon sètifika dijital PRO-MAX Académie.",
-    viewRequirements: "Gade kondisyon yo",
-
-    footerSlogan:
-      "Konesans. Preparasyon. Siksè nan byen imobilye.",
-    backAcademy: "← Retounen nan PRO-MAX ACADÉMIE",
-
-    modalTitle: "Kòmanse enskripsyon ou",
-    modalText:
-      "Ranpli enfòmasyon yo pou nou ka prepare pwofil etidyan ou.",
-    labelName: "Non konplè",
-    labelEmail: "Imèl",
-    labelPhone: "Telefòn",
-    submitEnroll: "Voye enskripsyon",
-    submitted:
-      "Enskripsyon ou anrejistre sou aparèy sa a.",
-
-    courseOpened: "Kou a ajoute nan pwogrè ou.",
-    requirements:
-      "Konplete 6 kou yo epi pase evalyasyon final la ak omwen 80%.",
-
-    contactEyebrow: "KONTAK OFISYÈL",
-    contactTitle: "Konekte avèk Real Estate School",
-    websiteLabel: "Sit entènèt",
-    emailLabel: "Imèl",
-    phoneLabel: "Telefòn",
-    phoneHaitiLabel: "Telefòn Ayiti 🇭🇹",
-    locationLabel: "Lokalizasyon",
-    globeOnline: "100% SOU ENTÈNÈT"
-  },
-
   en: {
     ecosystemLabel: "PROFESSIONAL DIGITAL ECOSYSTEM",
     choosePlan: "Choose your training plan",
@@ -167,8 +9,7 @@ const translations = {
     professionalPlan: "PROFESSIONAL",
     professionalDetails: "Course and study materials",
     premiumPlan: "PREMIUM",
-    premiumDetails:
-      "Course, support and career preparation",
+    premiumDetails: "Course, support and career preparation",
     mostPopular: "MOST POPULAR",
 
     registrationEyebrow: "STUDENT ENROLLMENT",
@@ -200,8 +41,7 @@ const translations = {
     summaryProfile: "Personalized student profile",
     summaryLanguages: "Training available in 3 languages",
     summaryOnline: "100% online access",
-    summarySupport:
-      "Licensing exam preparation support",
+    summarySupport: "Licensing exam preparation support",
     privacyNote:
       "We use your information only for enrollment and school communications.",
     successTitle: "Registration received",
@@ -236,11 +76,9 @@ const translations = {
     reserveSeat: "Reserve your seat",
 
     coursesEyebrow: "TRAINING PROGRAM",
-    coursesTitle:
-      "Courses that prepare you for the market",
+    coursesTitle: "Courses that prepare you for the market",
     coursesText:
       "Each module takes you from core foundations to professional practice.",
-
     levelBeginner: "BEGINNER",
     levelCore: "CORE",
     levelIntermediate: "INTERMEDIATE",
@@ -267,7 +105,7 @@ const translations = {
     course6Text:
       "Structured review, practice questions, and exam strategy.",
 
-    pathEyebrow: "FORWARD ALL THE WAY",
+    pathEyebrow: "STUDENT PATHWAY",
     pathTitle: "Your pathway to success",
     step1Title: "Enroll",
     step1Text: "Create your student profile.",
@@ -305,11 +143,9 @@ const translations = {
     labelEmail: "Email",
     labelPhone: "Phone",
     submitEnroll: "Submit enrollment",
-    submitted:
-      "Your enrollment was saved on this device.",
+    submitted: "Your enrollment was saved on this device.",
 
-    courseOpened:
-      "The course was added to your progress.",
+    courseOpened: "The course was added to your progress.",
     requirements:
       "Complete all 6 courses and pass the final assessment with at least 80%.",
 
@@ -329,15 +165,13 @@ const translations = {
     basicPlan: "BÁSICO",
     basicDetails: "Curso en línea de 63 horas",
     professionalPlan: "PROFESIONAL",
-    professionalDetails:
-      "Curso y materiales de estudio",
+    professionalDetails: "Curso y materiales de estudio",
     premiumPlan: "PREMIUM",
     premiumDetails:
       "Curso, apoyo y preparación profesional",
     mostPopular: "MÁS POPULAR",
 
-    registrationEyebrow:
-      "INSCRIPCIÓN DE ESTUDIANTES",
+    registrationEyebrow: "INSCRIPCIÓN DE ESTUDIANTES",
     registrationTitle: "Centro de Inscripción",
     registrationIntro:
       "Crea tu perfil de estudiante para comenzar tu trayectoria en Real Estate School.",
@@ -363,10 +197,8 @@ const translations = {
     submitRegistration: "Enviar mi inscripción",
     backSchool: "← Volver a Real Estate School",
     registrationSummary: "Tu inscripción incluye",
-    summaryProfile:
-      "Perfil de estudiante personalizado",
-    summaryLanguages:
-      "Formación disponible en 3 idiomas",
+    summaryProfile: "Perfil de estudiante personalizado",
+    summaryLanguages: "Formación disponible en 3 idiomas",
     summaryOnline: "Acceso 100 % en línea",
     summarySupport:
       "Apoyo para preparar el examen de licencia",
@@ -404,11 +236,9 @@ const translations = {
     reserveSeat: "Reserva tu lugar",
 
     coursesEyebrow: "PROGRAMA DE FORMACIÓN",
-    coursesTitle:
-      "Cursos que te preparan para el mercado",
+    coursesTitle: "Cursos que te preparan para el mercado",
     coursesText:
       "Cada módulo te lleva desde los fundamentos hasta la práctica profesional.",
-
     levelBeginner: "PRINCIPIANTE",
     levelCore: "ESENCIAL",
     levelIntermediate: "INTERMEDIO",
@@ -435,18 +265,16 @@ const translations = {
     course6Text:
       "Repaso estructurado, preguntas de práctica y estrategia de examen.",
 
-    pathEyebrow: "SIEMPRE HACIA ADELANTE",
+    pathEyebrow: "TRAYECTORIA DEL ESTUDIANTE",
     pathTitle: "Tu camino hacia el éxito",
     step1Title: "Inscríbete",
     step1Text: "Crea tu perfil de estudiante.",
     step2Title: "Aprende",
     step2Text: "Completa los 6 módulos a tu ritmo.",
     step3Title: "Practica",
-    step3Text:
-      "Evalúa tus conocimientos regularmente.",
+    step3Text: "Evalúa tus conocimientos regularmente.",
     step4Title: "Triunfa",
-    step4Text:
-      "Prepárate para tu examen y tu carrera.",
+    step4Text: "Prepárate para tu examen y tu carrera.",
 
     quizEyebrow: "PREGUNTA DE PRÁCTICA",
     quizTitle: "Evalúa tus conocimientos",
@@ -461,8 +289,7 @@ const translations = {
     incorrect:
       "Respuesta incorrecta. Inténtalo de nuevo.",
 
-    certificateTitle:
-      "Certificado de finalización",
+    certificateTitle: "Certificado de finalización",
     certificateText:
       "Después de completar todos los módulos y la evaluación final, recibirás un certificado digital de PRO-MAX Académie.",
     viewRequirements: "Ver los requisitos",
@@ -495,24 +322,204 @@ const translations = {
     phoneHaitiLabel: "Teléfono de Haití 🇭🇹",
     locationLabel: "Ubicación",
     globeOnline: "100% EN LÍNEA"
+  },
+
+  ht: {
+    ecosystemLabel: "EKOSISTÈM DIJITAL PWOFESYONÈL",
+    choosePlan: "Chwazi plan fòmasyon ou",
+    basicPlan: "BASIC",
+    basicDetails: "Kou 63 èdtan sou entènèt",
+    professionalPlan: "PROFESSIONAL",
+    professionalDetails: "Kou ak materyèl etid",
+    premiumPlan: "PREMIUM",
+    premiumDetails: "Kou, sipò ak preparasyon karyè",
+    mostPopular: "PI POPILÈ",
+
+    registrationEyebrow: "ENSKRIPSYON ETIDYAN",
+    registrationTitle: "Sant Enskripsyon",
+    registrationIntro:
+      "Kreye pwofil etidyan ou pou kòmanse chemen ou nan Real Estate School.",
+    firstName: "Prenon",
+    lastName: "Siyati",
+    cityState: "Vil ak Eta/Peyi",
+    preferredLanguage: "Lang ou prefere",
+    chooseLanguage: "Chwazi yon lang",
+    kreOption: "Kreyòl",
+    engOption: "Anglè",
+    espOption: "Panyòl",
+    experienceLevel:
+      "Eksperyans nan byen imobilye",
+    chooseExperience: "Chwazi nivo ou",
+    expNone: "Mwen poko gen eksperyans",
+    expBeginner: "Debitan",
+    expSome: "Mwen gen kèk eksperyans",
+    expProfessional: "Pwofesyonèl",
+    studentGoal: "Objektif ou",
+    goalPlaceholder:
+      "Di nou sa ou vle reyalize ak fòmasyon sa a.",
+    consentText:
+      "Mwen konfime enfòmasyon sa yo kòrèk epi mwen dakò PRO-MAX Académie kontakte mwen sou enskripsyon an.",
+    submitRegistration: "Voye enskripsyon mwen",
+    backSchool: "← Retounen nan Real Estate School",
+    registrationSummary:
+      "Sa enskripsyon an gen ladan",
+    summaryProfile:
+      "Pwofil etidyan pèsonalize",
+    summaryLanguages:
+      "Fòmasyon disponib nan 3 lang",
+    summaryOnline: "Aksè 100% sou entènèt",
+    summarySupport:
+      "Sipò pou preparasyon egzamen",
+    privacyNote:
+      "Nou itilize enfòmasyon ou sèlman pou enskripsyon ak kominikasyon lekòl la.",
+    successTitle: "Enskripsyon resevwa",
+    successText:
+      "Mèsi. PRO-MAX Académie resevwa demann ou an. Nou pral kontakte ou ak pwochen etap yo.",
+    returnHome: "Retounen sou homepage la",
+
+    navHome: "Akèy",
+    navCourses: "Kou yo",
+    navPath: "Parcours",
+    navExam: "Egzamen",
+    navCertificate: "Sètifika",
+    navAskProf: "Mande Pwofesè",
+    askProf: "Mande Pwofesè",
+    navContact: "Kontak",
+
+    heroEyebrow:
+      "YON LEKÒL PRO-MAX ACADÉMIE",
+    heroTitleOne: "Bati konesans ou.",
+    heroTitleTwo: "Louvri pòt avni ou.",
+    heroText:
+      "Aprann prensip byen imobilye, prepare pou egzamen lisans ou, epi devlope konpetans pou sèvi kliyan avèk konfyans ak pwofesyonalis.",
+    startLearning: "Kòmanse aprann",
+    enrollNow: "Enskri kounye a",
+    statCourses: "Kou esansyèl",
+    statLanguages: "Lang",
+    statOnline: "Sou entènèt",
+    officialSchool: "LEKÒL OFISYÈL",
+
+    announcementTitle: "ENSKRIPSYON OUVÈ",
+    announcementText:
+      "Nouvo sesyon Real Estate School la disponib kounye a.",
+    reserveSeat: "Rezève plas ou",
+
+    coursesEyebrow: "PWOGRAM FÒMASYON",
+    coursesTitle:
+      "Kou ki prepare w pou mache a",
+    coursesText:
+      "Chak modil fèt pou mennen w soti nan fondasyon yo rive nan pratik pwofesyonèl.",
+    levelBeginner: "DEBITAN",
+    levelCore: "ESANSYÈL",
+    levelIntermediate: "ENTÈMEDYÈ",
+    levelProfessional: "PWOFESYONÈL",
+    levelFinal: "FINAL",
+    openCourse: "Ouvri kou a",
+
+    course1Title:
+      "Fondasyon byen imobilye",
+    course1Text:
+      "Pwopriyete, tit, dwa, responsablite ak vokabilè endistri a.",
+    course2Title:
+      "Lwa ak etik pwofesyonèl",
+    course2Text:
+      "Kontra, divilgasyon, lojman ekitab ak obligasyon fidisyè.",
+    course3Title: "Finansman ak ipotèk",
+    course3Text:
+      "Prè, enterè, kredi, closing costs ak kalkil finansye.",
+    course4Title: "Valyasyon pwopriyete",
+    course4Text:
+      "Analiz mache, konparab, estimasyon valè ak envestisman.",
+    course5Title:
+      "Komèsyalizasyon ak kliyan",
+    course5Text:
+      "Listing, negosyasyon, prezantasyon ak relasyon kliyan.",
+    course6Title: "Preparasyon egzamen",
+    course6Text:
+      "Revizyon estriktire, kesyon pratik ak estrateji egzamen.",
+
+    pathEyebrow: "PARCOURS ETIDYAN",
+    pathTitle: "Chemen ou pou reyisit",
+    step1Title: "Enskri",
+    step1Text: "Kreye pwofil etidyan ou.",
+    step2Title: "Aprann",
+    step2Text: "Fini 6 modil yo nan rit ou.",
+    step3Title: "Pratike",
+    step3Text: "Teste konesans ou regilyèman.",
+    step4Title: "Reyisi",
+    step4Text:
+      "Prepare pou egzamen ak karyè.",
+
+    quizEyebrow: "KESYON PRATIK",
+    quizTitle: "Teste konesans ou",
+    quizQuestion:
+      "Ki dokiman ki esplike kondisyon yon tranzaksyon ant achtè ak vandè?",
+    answer1: "Yon appraisal",
+    answer2: "Yon kontra acha",
+    answer3: "Yon listing photo",
+    scoreLabel: "NÒT",
+    correct: "Kòrèk! Se kontra acha a.",
+    incorrect: "Pa kòrèk. Eseye ankò.",
+
+    certificateTitle:
+      "Sètifika akonplisman",
+    certificateText:
+      "Apre w fin konplete tout modil yo ak evalyasyon final la, w ap resevwa yon sètifika dijital PRO-MAX Académie.",
+    viewRequirements: "Gade kondisyon yo",
+
+    footerSlogan:
+      "Konesans. Preparasyon. Siksè nan byen imobilye.",
+    backAcademy:
+      "← Retounen nan PRO-MAX ACADÉMIE",
+
+    modalTitle: "Kòmanse enskripsyon ou",
+    modalText:
+      "Ranpli enfòmasyon yo pou nou ka prepare pwofil etidyan ou.",
+    labelName: "Non konplè",
+    labelEmail: "Imèl",
+    labelPhone: "Telefòn",
+    submitEnroll: "Voye enskripsyon",
+    submitted:
+      "Enskripsyon ou anrejistre sou aparèy sa a.",
+
+    courseOpened:
+      "Kou a ajoute nan pwogrè ou.",
+    requirements:
+      "Konplete 6 kou yo epi pase evalyasyon final la ak omwen 80%.",
+
+    contactEyebrow: "KONTAK OFISYÈL",
+    contactTitle:
+      "Konekte avèk Real Estate School",
+    websiteLabel: "Sit entènèt",
+    emailLabel: "Imèl",
+    phoneLabel: "Telefòn",
+    phoneHaitiLabel: "Telefòn Ayiti 🇭🇹",
+    locationLabel: "Lokalizasyon",
+    globeOnline: "100% SOU ENTÈNÈT"
   }
 };
 
 document.addEventListener("DOMContentLoaded", function () {
-  "use strict";
+  var STORAGE_LANGUAGE =
+    "promaxRealEstateLanguage";
 
-  var currentLanguage = "ht";
+  var STORAGE_PROGRESS =
+    "promaxRealEstateProgress";
+
+  var STORAGE_STUDENT =
+    "promaxRealEstateStudent";
+
+  var currentLanguage = "en";
   var progress = {};
 
   function readStorage(key, fallback) {
     try {
-      var value = window.localStorage.getItem(key);
+      var value =
+        window.localStorage.getItem(key);
 
-      if (value === null) {
-        return fallback;
-      }
-
-      return value;
+      return value === null
+        ? fallback
+        : value;
     } catch (error) {
       return fallback;
     }
@@ -520,27 +527,38 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function writeStorage(key, value) {
     try {
-      window.localStorage.setItem(key, value);
+      window.localStorage.setItem(
+        key,
+        value
+      );
+
       return true;
     } catch (error) {
       return false;
     }
   }
 
+  function getLanguage(language) {
+    if (
+      language === "en" ||
+      language === "es" ||
+      language === "ht"
+    ) {
+      return language;
+    }
+
+    return "en";
+  }
+
   function translatePage(language) {
-    var selectedLanguage =
-      Object.prototype.hasOwnProperty.call(
-        translations,
-        language
-      )
-        ? language
-        : "ht";
+    currentLanguage =
+      getLanguage(language);
 
     var languagePack =
-      translations[selectedLanguage];
+      translations[currentLanguage];
 
-    currentLanguage = selectedLanguage;
-    document.documentElement.lang = currentLanguage;
+    document.documentElement.lang =
+      currentLanguage;
 
     document
       .querySelectorAll("[data-i18n]")
@@ -554,16 +572,20 @@ document.addEventListener("DOMContentLoaded", function () {
             key
           )
         ) {
-          element.textContent = languagePack[key];
+          element.textContent =
+            languagePack[key];
         }
       });
 
     document
-      .querySelectorAll("[data-i18n-placeholder]")
+      .querySelectorAll(
+        "[data-i18n-placeholder]"
+      )
       .forEach(function (element) {
-        var key = element.getAttribute(
-          "data-i18n-placeholder"
-        );
+        var key =
+          element.getAttribute(
+            "data-i18n-placeholder"
+          );
 
         if (
           Object.prototype.hasOwnProperty.call(
@@ -583,19 +605,41 @@ document.addEventListener("DOMContentLoaded", function () {
       .forEach(function (button) {
         button.classList.toggle(
           "active",
-          button.getAttribute("data-lang") ===
-            currentLanguage
+          button.getAttribute(
+            "data-lang"
+          ) === currentLanguage
+        );
+
+        button.setAttribute(
+          "aria-pressed",
+          button.getAttribute(
+            "data-lang"
+          ) === currentLanguage
+            ? "true"
+            : "false"
         );
       });
 
     writeStorage(
-      "promaxRealEstateLanguage",
+      STORAGE_LANGUAGE,
       currentLanguage
+    );
+
+    window.dispatchEvent(
+      new CustomEvent(
+        "promaxLanguageChanged",
+        {
+          detail: {
+            language: currentLanguage
+          }
+        }
+      )
     );
   }
 
   function showToast(message) {
-    var toast = document.getElementById("toast");
+    var toast =
+      document.getElementById("toast");
 
     if (!toast) {
       return;
@@ -604,28 +648,57 @@ document.addEventListener("DOMContentLoaded", function () {
     toast.textContent = message;
     toast.classList.add("show");
 
-    window.clearTimeout(showToast.timeoutId);
+    window.clearTimeout(
+      showToast.timeoutId
+    );
 
-    showToast.timeoutId = window.setTimeout(
-      function () {
+    showToast.timeoutId =
+      window.setTimeout(function () {
         toast.classList.remove("show");
-      },
-      3000
+      }, 3000);
+  }
+
+  function closeMenu() {
+    var menuToggle =
+      document.getElementById(
+        "menuToggle"
+      );
+
+    var mainNav =
+      document.getElementById(
+        "mainNav"
+      );
+
+    if (!menuToggle || !mainNav) {
+      return;
+    }
+
+    mainNav.classList.remove("open");
+
+    menuToggle.setAttribute(
+      "aria-expanded",
+      "false"
     );
   }
 
   var menuToggle =
-    document.getElementById("menuToggle");
+    document.getElementById(
+      "menuToggle"
+    );
 
   var mainNav =
-    document.getElementById("mainNav");
+    document.getElementById(
+      "mainNav"
+    );
 
   if (menuToggle && mainNav) {
     menuToggle.addEventListener(
       "click",
       function () {
         var open =
-          mainNav.classList.toggle("open");
+          mainNav.classList.toggle(
+            "open"
+          );
 
         menuToggle.setAttribute(
           "aria-expanded",
@@ -639,14 +712,7 @@ document.addEventListener("DOMContentLoaded", function () {
       .forEach(function (link) {
         link.addEventListener(
           "click",
-          function () {
-            mainNav.classList.remove("open");
-
-            menuToggle.setAttribute(
-              "aria-expanded",
-              "false"
-            );
-          }
+          closeMenu
         );
       });
   }
@@ -658,15 +724,18 @@ document.addEventListener("DOMContentLoaded", function () {
         "click",
         function () {
           translatePage(
-            button.getAttribute("data-lang") ||
-              "ht"
+            button.getAttribute(
+              "data-lang"
+            )
           );
         }
       );
     });
 
   var modal =
-    document.getElementById("enrollModal");
+    document.getElementById(
+      "enrollModal"
+    );
 
   function openModal() {
     if (!modal) {
@@ -674,11 +743,19 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     modal.classList.add("open");
-    modal.setAttribute("aria-hidden", "false");
-    document.body.style.overflow = "hidden";
+
+    modal.setAttribute(
+      "aria-hidden",
+      "false"
+    );
+
+    document.body.style.overflow =
+      "hidden";
 
     var firstInput =
-      modal.querySelector("input");
+      modal.querySelector(
+        "input, select, textarea, button"
+      );
 
     if (firstInput) {
       firstInput.focus();
@@ -691,26 +768,34 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     modal.classList.remove("open");
-    modal.setAttribute("aria-hidden", "true");
+
+    modal.setAttribute(
+      "aria-hidden",
+      "true"
+    );
+
     document.body.style.overflow = "";
   }
 
-  ["openEnroll", "announcementEnroll"].forEach(
-    function (id) {
-      var openButton =
-        document.getElementById(id);
+  [
+    "openEnroll",
+    "announcementEnroll"
+  ].forEach(function (id) {
+    var button =
+      document.getElementById(id);
 
-      if (openButton) {
-        openButton.addEventListener(
-          "click",
-          openModal
-        );
-      }
+    if (button) {
+      button.addEventListener(
+        "click",
+        openModal
+      );
     }
-  );
+  });
 
   var closeButton =
-    document.getElementById("closeEnroll");
+    document.getElementById(
+      "closeEnroll"
+    );
 
   if (closeButton) {
     closeButton.addEventListener(
@@ -735,12 +820,15 @@ document.addEventListener("DOMContentLoaded", function () {
     function (event) {
       if (event.key === "Escape") {
         closeModal();
+        closeMenu();
       }
     }
   );
 
   var enrollForm =
-    document.getElementById("enrollForm");
+    document.getElementById(
+      "enrollForm"
+    );
 
   if (enrollForm) {
     enrollForm.addEventListener(
@@ -750,27 +838,33 @@ document.addEventListener("DOMContentLoaded", function () {
 
         var student = {};
 
-        new FormData(enrollForm).forEach(
-          function (value, key) {
-            student[key] = value;
-          }
-        );
+        new FormData(
+          enrollForm
+        ).forEach(function (
+          value,
+          key
+        ) {
+          student[key] = value;
+        });
 
         student.submittedAt =
           new Date().toISOString();
 
         writeStorage(
-          "promaxRealEstateStudent",
+          STORAGE_STUDENT,
           JSON.stringify(student)
         );
 
         var formStatus =
-          document.getElementById("formStatus");
+          document.getElementById(
+            "formStatus"
+          );
 
         if (formStatus) {
           formStatus.textContent =
-            translations[currentLanguage]
-              .submitted;
+            translations[
+              currentLanguage
+            ].submitted;
         }
 
         enrollForm.reset();
@@ -779,12 +873,13 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   try {
-    var savedProgress = JSON.parse(
-      readStorage(
-        "promaxRealEstateProgress",
-        "{}"
-      )
-    );
+    var savedProgress =
+      JSON.parse(
+        readStorage(
+          STORAGE_PROGRESS,
+          "{}"
+        )
+      );
 
     progress =
       savedProgress &&
@@ -795,7 +890,7 @@ document.addEventListener("DOMContentLoaded", function () {
     progress = {};
 
     writeStorage(
-      "promaxRealEstateProgress",
+      STORAGE_PROGRESS,
       "{}"
     );
   }
@@ -804,18 +899,27 @@ document.addEventListener("DOMContentLoaded", function () {
     .querySelectorAll(".course-card")
     .forEach(function (card) {
       var key =
-        card.getAttribute("data-course");
+        card.getAttribute(
+          "data-course"
+        );
 
-      var bar = card.querySelector(
-        ".progress-track span"
-      );
+      var bar =
+        card.querySelector(
+          ".progress-track span"
+        );
 
-      if (key && progress[key] && bar) {
+      if (
+        key &&
+        progress[key] &&
+        bar
+      ) {
         bar.style.width = "20%";
       }
 
       var courseButton =
-        card.querySelector(".course-start");
+        card.querySelector(
+          ".course-start"
+        );
 
       if (!courseButton) {
         return;
@@ -828,13 +932,13 @@ document.addEventListener("DOMContentLoaded", function () {
             progress[key] = true;
 
             writeStorage(
-              "promaxRealEstateProgress",
+              STORAGE_PROGRESS,
               JSON.stringify(progress)
             );
+          }
 
-            if (bar) {
-              bar.style.width = "20%";
-            }
+          if (bar) {
+            bar.style.width = "20%";
           }
         }
       );
@@ -846,74 +950,96 @@ document.addEventListener("DOMContentLoaded", function () {
     );
 
   var quizResult =
-    document.getElementById("quizResult");
+    document.getElementById(
+      "quizResult"
+    );
 
   var scoreValue =
-    document.getElementById("scoreValue");
+    document.getElementById(
+      "scoreValue"
+    );
 
   var scoreRing =
-    document.querySelector(".score-ring");
-
-  quizButtons.forEach(function (button) {
-    button.addEventListener(
-      "click",
-      function () {
-        quizButtons.forEach(function (option) {
-          option.classList.remove(
-            "correct",
-            "wrong"
-          );
-        });
-
-        var correct =
-          button.getAttribute("data-answer") ===
-          "correct";
-
-        button.classList.add(
-          correct ? "correct" : "wrong"
-        );
-
-        if (quizResult) {
-          quizResult.textContent =
-            translations[currentLanguage][
-              correct
-                ? "correct"
-                : "incorrect"
-            ];
-        }
-
-        if (scoreValue) {
-          scoreValue.textContent =
-            correct ? "100" : "0";
-        }
-
-        if (scoreRing) {
-          scoreRing.style.background =
-            "conic-gradient(var(--orange) " +
-            (correct ? 360 : 0) +
-            "deg, #251005 0deg)";
-        }
-      }
+    document.querySelector(
+      ".score-ring"
     );
-  });
+
+  quizButtons.forEach(
+    function (button) {
+      button.addEventListener(
+        "click",
+        function () {
+          quizButtons.forEach(
+            function (option) {
+              option.classList.remove(
+                "correct",
+                "wrong"
+              );
+            }
+          );
+
+          var correct =
+            button.getAttribute(
+              "data-answer"
+            ) === "correct";
+
+          button.classList.add(
+            correct
+              ? "correct"
+              : "wrong"
+          );
+
+          if (quizResult) {
+            quizResult.textContent =
+              translations[
+                currentLanguage
+              ][
+                correct
+                  ? "correct"
+                  : "incorrect"
+              ];
+          }
+
+          if (scoreValue) {
+            scoreValue.textContent =
+              correct
+                ? "100"
+                : "0";
+          }
+
+          if (scoreRing) {
+            scoreRing.style.background =
+              "conic-gradient(var(--orange) " +
+              (correct ? 360 : 0) +
+              "deg, #251005 0deg)";
+          }
+        }
+      );
+    }
+  );
 
   var certificateButton =
-    document.getElementById("certificateBtn");
+    document.getElementById(
+      "certificateBtn"
+    );
 
   if (certificateButton) {
     certificateButton.addEventListener(
       "click",
       function () {
         showToast(
-          translations[currentLanguage]
-            .requirements
+          translations[
+            currentLanguage
+          ].requirements
         );
       }
     );
   }
 
   var yearElement =
-    document.getElementById("year");
+    document.getElementById(
+      "year"
+    );
 
   if (yearElement) {
     yearElement.textContent =
@@ -921,27 +1047,39 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   var revealElements =
-    document.querySelectorAll(".reveal");
-
-  if ("IntersectionObserver" in window) {
-    var observer = new IntersectionObserver(
-      function (entries, activeObserver) {
-        entries.forEach(function (entry) {
-          if (entry.isIntersecting) {
-            entry.target.classList.add(
-              "visible"
-            );
-
-            activeObserver.unobserve(
-              entry.target
-            );
-          }
-        });
-      },
-      {
-        threshold: 0.12
-      }
+    document.querySelectorAll(
+      ".reveal"
     );
+
+  if (
+    "IntersectionObserver" in window
+  ) {
+    var observer =
+      new IntersectionObserver(
+        function (
+          entries,
+          activeObserver
+        ) {
+          entries.forEach(
+            function (entry) {
+              if (
+                entry.isIntersecting
+              ) {
+                entry.target.classList.add(
+                  "visible"
+                );
+
+                activeObserver.unobserve(
+                  entry.target
+                );
+              }
+            }
+          );
+        },
+        {
+          threshold: 0.12
+        }
+      );
 
     revealElements.forEach(
       function (element) {
@@ -951,15 +1089,18 @@ document.addEventListener("DOMContentLoaded", function () {
   } else {
     revealElements.forEach(
       function (element) {
-        element.classList.add("visible");
+        element.classList.add(
+          "visible"
+        );
       }
     );
   }
 
-  currentLanguage = readStorage(
-    "promaxRealEstateLanguage",
-    "ht"
-  );
+  var savedLanguage =
+    readStorage(
+      STORAGE_LANGUAGE,
+      "en"
+    );
 
-  translatePage(currentLanguage);
+  translatePage(savedLanguage);
 });
