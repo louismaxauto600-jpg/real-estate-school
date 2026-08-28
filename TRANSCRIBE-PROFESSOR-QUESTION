@@ -1,0 +1,72 @@
+"use strict";
+
+exports.handler = async function (event) {
+  if (event.httpMethod !== "POST") {
+    return json(405, { error: "Method not allowed" });
+  }
+  if (!process.env.OPENAI_API_KEY) {
+    return json(503, { error: "OPENAI_API_KEY is not configured" });
+  }
+
+  let payload;
+  try {
+    payload = JSON.parse(event.body || "{}");
+  } catch (_error) {
+    return json(400, { error: "Invalid request" });
+  }
+
+  const audioBase64 = String(payload.audio || "");
+  const mimeType = String(payload.mimeType || "audio/webm").split(";")[0];
+  const language = ["ht", "en", "es"].includes(payload.language) ? payload.language : "ht";
+  if (!audioBase64) return json(400, { error: "Audio is required" });
+  if (audioBase64.length > 7_000_000) return json(413, { error: "Audio recording is too large" });
+
+  const extensions = {
+    "audio/webm": "webm",
+    "audio/mp4": "m4a",
+    "audio/mpeg": "mp3",
+    "audio/wav": "wav",
+    "audio/ogg": "ogg"
+  };
+  const extension = extensions[mimeType] || "webm";
+  const audioBuffer = Buffer.from(audioBase64, "base64");
+  if (!audioBuffer.length) return json(400, { error: "Audio is empty" });
+
+  const prompts = {
+    ht: "Kesyon yon etidyan PRO-MAX Académie sou byen imobilye. Transkri an kreyòl ayisyen. Mo kle: deed, title, appraisal, mortgage, down payment, closing, fiduciary duty.",
+    en: "A PRO-MAX Academy student asks a real estate course question. Preserve real estate terminology.",
+    es: "Un estudiante de PRO-MAX Academy hace una pregunta sobre bienes raíces. Conserve la terminología inmobiliaria."
+  };
+
+  try {
+    const form = new FormData();
+    form.append("model", "gpt-transcribe");
+    form.append("prompt", prompts[language]);
+    form.append("file", new Blob([audioBuffer], { type: mimeType }), "student-question." + extension);
+
+    const response = await fetch("https://api.openai.com/v1/audio/transcriptions", {
+      method: "POST",
+      headers: { Authorization: "Bearer " + process.env.OPENAI_API_KEY },
+      body: form
+    });
+
+    const result = await response.json();
+    if (!response.ok) {
+      console.error("Transcription API error", response.status, result);
+      return json(502, { error: "Transcription is unavailable" });
+    }
+    return json(200, { text: String(result.text || "").trim() });
+  } catch (error) {
+    console.error("Professor transcription error", error);
+    return json(500, { error: "Transcription is unavailable" });
+  }
+};
+
+function json(statusCode, body) {
+  return {
+    statusCode,
+    headers: { "Content-Type": "application/json", "Cache-Control": "no-store" },
+    body: JSON.stringify(body)
+  };
+}
+
