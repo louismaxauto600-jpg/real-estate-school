@@ -1,55 +1,1442 @@
 <!DOCTYPE html>
-<html lang="ht">
+<html lang="ht" translate="no">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="theme-color" content="#070301">
-  <title>Ask the Professor | PRO-MAX Académie</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#070402">
+  <meta name="google" content="notranslate">
+
+  <title>Mande Pwofesè — PRO-MAX Académie</title>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;800&family=Montserrat:wght@400;600;700;800;900&display=swap"
+    rel="stylesheet"
+  >
+
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+  >
+
   <style>
-    :root{--orange:#ff7300;--apricot:#ffad66;--dark:#070301;--card:#100703;--line:rgba(255,115,0,.3);--muted:#d59672}
-    *{box-sizing:border-box}body{margin:0;min-height:100vh;color:var(--apricot);background:radial-gradient(circle at 12% 15%,rgba(255,115,0,.17),transparent 28%),linear-gradient(145deg,#020100,#130701 55%,#020100);font-family:Montserrat,sans-serif}
-    a{color:inherit;text-decoration:none}button,textarea,select{font:inherit}.top{min-height:92px;padding:12px clamp(18px,5vw,70px);display:flex;align-items:center;justify-content:space-between;gap:18px;border-bottom:1px solid var(--line);background:rgba(3,1,0,.94)}
-    .brand{display:flex;align-items:center;gap:14px}.brand img{width:68px;height:68px;object-fit:contain}.brand span{display:grid;gap:4px}.brand b{font:800 clamp(.95rem,2vw,1.35rem) Cinzel,serif}.brand small{color:var(--orange);font-weight:900;letter-spacing:.12em}
-    .back{padding:13px 18px;border:1px solid var(--orange);color:var(--orange);font-weight:900}.langs{display:flex;padding:4px;border:1px solid var(--line);border-radius:999px}.langs button{padding:9px 12px;border:0;border-radius:999px;color:var(--orange);background:transparent;font-weight:900}.langs button.active{color:#000;background:linear-gradient(135deg,var(--apricot),var(--orange))}
-    main{width:min(1180px,92%);margin:auto;padding:48px 0 80px}.hero{display:grid;grid-template-columns:380px 1fr;border:1px solid var(--line);background:rgba(7,3,1,.92);box-shadow:0 28px 70px rgba(0,0,0,.55)}
-    .portrait{min-height:560px;background:#080301}.portrait img{width:100%;height:100%;display:block;object-fit:cover;object-position:center top;filter:saturate(.85) contrast(1.04)}
-    .intro{padding:clamp(30px,5vw,65px);display:flex;flex-direction:column;justify-content:center}.eyebrow{margin:0;color:var(--orange);font-weight:900;letter-spacing:.2em}.intro h1{margin:14px 0 8px;font:800 clamp(2.2rem,5vw,4.6rem)/1.05 Cinzel,serif}.alias{margin:0 0 22px;color:var(--orange);font-weight:900;letter-spacing:.13em}.intro>p:last-child{color:var(--muted);line-height:1.8}
-    .desk{margin-top:28px;padding:clamp(24px,5vw,48px);border:1px solid var(--line);background:var(--card)}.desk h2{margin:0 0 10px;font:700 clamp(1.7rem,4vw,2.7rem) Cinzel,serif}.desk-note{margin:0 0 24px;color:var(--muted);line-height:1.6}.row{display:grid;grid-template-columns:180px 1fr;gap:14px;margin-bottom:14px}select,textarea{width:100%;border:1px solid var(--line);color:var(--apricot);background:#050201}select{padding:15px}textarea{min-height:145px;padding:18px;resize:vertical;line-height:1.6}.ask{width:100%;padding:17px;border:1px solid var(--orange);color:#000;background:linear-gradient(135deg,var(--apricot),var(--orange));font-weight:900;cursor:pointer}.answer{display:none;margin-top:22px;padding:22px;border-left:4px solid var(--orange);background:rgba(255,115,0,.08);line-height:1.75}.answer.show{display:block}.answer strong{display:block;margin-bottom:8px;color:var(--orange)}
-    .quick{display:flex;flex-wrap:wrap;gap:9px;margin:16px 0}.quick button{padding:10px 13px;border:1px solid var(--line);color:var(--apricot);background:#080301;cursor:pointer}.quick button:hover{border-color:var(--orange)}.notice{margin-top:18px;color:#a96b49;font-size:.78rem;line-height:1.5}
-    @media(max-width:780px){.top{flex-wrap:wrap}.brand{width:100%}.hero{grid-template-columns:1fr}.portrait{min-height:430px}.row{grid-template-columns:1fr}.back{order:3}.langs{margin-left:auto}}
+    :root {
+      --black: #070402;
+      --black-soft: #0f0a06;
+      --black-card: #14100e;
+      --orange: #ff8c42;
+      --orange-deep: #d95700;
+      --apricot: #ffb070;
+      --apricot-light: #ffcc99;
+      --line: rgba(255, 140, 66, 0.35);
+      --shadow: 0 24px 70px rgba(0, 0, 0, 0.6);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      min-height: 100vh;
+      margin: 0;
+      overflow-x: hidden;
+      color: var(--apricot);
+      background:
+        radial-gradient(
+          circle at 20% 10%,
+          rgba(255, 140, 66, 0.25),
+          transparent 40%
+        ),
+        radial-gradient(
+          circle at 80% 70%,
+          rgba(255, 176, 112, 0.16),
+          transparent 48%
+        ),
+        linear-gradient(
+          145deg,
+          var(--black),
+          #160902 50%,
+          var(--black)
+        );
+      font-family: "Montserrat", sans-serif;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+      opacity: 0.12;
+      background-image:
+        linear-gradient(var(--line) 1px, transparent 1px),
+        linear-gradient(90deg, var(--line) 1px, transparent 1px);
+      background-size: 70px 70px;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    input,
+    select,
+    textarea {
+      font: inherit;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      min-height: 100px;
+      padding: 12px clamp(18px, 5vw, 70px);
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      border-bottom: 1px solid var(--line);
+      background: rgba(7, 4, 2, 0.96);
+      backdrop-filter: blur(18px);
+    }
+
+    .brand {
+      min-width: 0;
+      margin-right: auto;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .brand img {
+      width: 76px;
+      height: 76px;
+      flex: 0 0 76px;
+      object-fit: contain;
+      border-radius: 50%;
+      filter: drop-shadow(0 0 18px rgba(255, 140, 66, 0.65));
+    }
+
+    .brand-text {
+      min-width: 0;
+      display: grid;
+      gap: 4px;
+    }
+
+    .brand-text b {
+      color: var(--apricot);
+      font: 800 clamp(1rem, 2vw, 1.5rem) "Cinzel", serif;
+      letter-spacing: 0.06em;
+    }
+
+    .brand-text small {
+      color: var(--orange);
+      font-size: clamp(0.62rem, 1vw, 0.82rem);
+      font-weight: 900;
+      letter-spacing: 0.15em;
+    }
+
+    .brand-text em {
+      color: var(--apricot);
+      font-size: clamp(0.48rem, 0.8vw, 0.68rem);
+      font-style: normal;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .language-switcher {
+      display: flex;
+      padding: 4px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: var(--black);
+    }
+
+    .lang-btn {
+      padding: 10px 13px;
+      border: 0;
+      border-radius: 999px;
+      color: var(--orange);
+      background: transparent;
+      font-size: 0.7rem;
+      font-weight: 900;
+    }
+
+    .lang-btn.active {
+      color: var(--black);
+      background: linear-gradient(
+        135deg,
+        var(--apricot),
+        var(--orange)
+      );
+    }
+
+    .return-button {
+      min-height: 46px;
+      padding: 12px 18px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid var(--orange);
+      color: var(--orange);
+      font-weight: 900;
+    }
+
+    main {
+      width: min(1280px, 92%);
+      margin: auto;
+      padding: 60px 0 100px;
+    }
+
+    .professor-hero {
+      display: grid;
+      grid-template-columns: minmax(300px, 0.8fr) minmax(0, 1.2fr);
+      align-items: stretch;
+      border: 1px solid var(--line);
+      background:
+        linear-gradient(
+          135deg,
+          rgba(255, 140, 66, 0.14),
+          rgba(7, 4, 2, 0.96)
+        );
+      box-shadow: var(--shadow);
+    }
+
+    .professor-portrait {
+      position: relative;
+      min-height: 650px;
+      overflow: hidden;
+      background: var(--black);
+    }
+
+    .professor-portrait::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(
+          to top,
+          rgba(7, 4, 2, 0.75),
+          transparent 45%
+        );
+      pointer-events: none;
+    }
+
+    .professor-portrait img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+      object-position: center top;
+      animation: professorMotion 7s ease-in-out infinite;
+    }
+
+    .online-status {
+      position: absolute;
+      right: 22px;
+      bottom: 22px;
+      z-index: 3;
+      padding: 11px 15px;
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      border: 1px solid var(--orange);
+      border-radius: 999px;
+      color: var(--apricot);
+      background: rgba(7, 4, 2, 0.92);
+      font-size: 0.72rem;
+      font-weight: 900;
+    }
+
+    .status-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--orange);
+      box-shadow: 0 0 15px var(--orange);
+      animation: pulse 1.6s infinite;
+    }
+
+    .professor-information {
+      padding: clamp(35px, 6vw, 80px);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .eyebrow {
+      margin: 0;
+      color: var(--orange);
+      font-size: 0.74rem;
+      font-weight: 900;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+    }
+
+    .professor-information h1 {
+      margin: 15px 0 7px;
+      color: var(--apricot);
+      font: 800 clamp(2.8rem, 6vw, 5.7rem) / 1 "Cinzel", serif;
+    }
+
+    .alias {
+      margin: 0 0 28px;
+      color: var(--orange);
+      font-size: clamp(1rem, 2vw, 1.35rem);
+      font-weight: 900;
+      letter-spacing: 0.17em;
+      text-transform: uppercase;
+    }
+
+    .professor-description {
+      max-width: 720px;
+      color: var(--apricot-light);
+      font-size: clamp(1rem, 1.6vw, 1.15rem);
+      line-height: 1.9;
+    }
+
+    .professor-features {
+      margin-top: 28px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+
+    .professor-feature {
+      padding: 18px;
+      border: 1px solid var(--line);
+      background: rgba(7, 4, 2, 0.75);
+    }
+
+    .professor-feature i {
+      margin-bottom: 12px;
+      color: var(--orange);
+      font-size: 1.35rem;
+    }
+
+    .professor-feature b {
+      display: block;
+      color: var(--apricot);
+      font-size: 0.77rem;
+    }
+
+    .professor-feature small {
+      display: block;
+      margin-top: 7px;
+      color: var(--orange);
+      line-height: 1.5;
+    }
+
+    .question-panel {
+      margin-top: 32px;
+      padding: clamp(28px, 5vw, 60px);
+      border: 1px solid var(--line);
+      background:
+        linear-gradient(
+          145deg,
+          rgba(20, 16, 14, 0.97),
+          rgba(7, 4, 2, 0.98)
+        );
+      box-shadow: var(--shadow);
+    }
+
+    .question-heading {
+      max-width: 820px;
+      margin-bottom: 32px;
+    }
+
+    .question-heading h2 {
+      margin: 12px 0 14px;
+      color: var(--apricot);
+      font: 800 clamp(2rem, 4vw, 3.6rem) "Cinzel", serif;
+    }
+
+    .question-heading p:last-child {
+      color: var(--apricot-light);
+      line-height: 1.8;
+    }
+
+    .question-form {
+      display: grid;
+      gap: 20px;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .field {
+      display: grid;
+      gap: 9px;
+    }
+
+    .field label {
+      color: var(--orange);
+      font-size: 0.72rem;
+      font-weight: 900;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .field input,
+    .field select,
+    .field textarea {
+      width: 100%;
+      padding: 16px;
+      border: 1px solid var(--line);
+      border-radius: 7px;
+      outline: none;
+      color: var(--apricot);
+      background: var(--black);
+    }
+
+    .field textarea {
+      min-height: 170px;
+      resize: vertical;
+      line-height: 1.7;
+    }
+
+    .field input::placeholder,
+    .field textarea::placeholder {
+      color: rgba(255, 176, 112, 0.5);
+    }
+
+    .field input:focus,
+    .field select:focus,
+    .field textarea:focus {
+      border-color: var(--orange);
+      box-shadow: 0 0 0 3px rgba(255, 140, 66, 0.1);
+    }
+
+    .field option {
+      color: var(--apricot);
+      background: var(--black);
+    }
+
+    .suggestions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .suggestion-button {
+      padding: 11px 15px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: var(--apricot);
+      background: var(--black);
+      font-size: 0.78rem;
+    }
+
+    .suggestion-button:hover {
+      color: var(--black);
+      border-color: var(--orange);
+      background: var(--orange);
+    }
+
+    .submit-button {
+      min-height: 60px;
+      padding: 16px 25px;
+      border: 0;
+      border-radius: 8px;
+      color: var(--black);
+      background:
+        linear-gradient(
+          135deg,
+          var(--apricot),
+          var(--orange)
+        );
+      font-weight: 900;
+      letter-spacing: 0.05em;
+      box-shadow: 0 15px 35px rgba(255, 140, 66, 0.2);
+    }
+
+    .submit-button:hover {
+      transform: translateY(-2px);
+    }
+
+    .submit-button:disabled {
+      cursor: wait;
+      opacity: 0.6;
+      transform: none;
+    }
+
+    .answer-panel {
+      margin-top: 28px;
+      padding: 26px;
+      border-left: 5px solid var(--orange);
+      background: rgba(255, 140, 66, 0.09);
+    }
+
+    .answer-panel[hidden] {
+      display: none;
+    }
+
+    .answer-panel h3 {
+      margin: 0 0 14px;
+      color: var(--orange);
+      font-family: "Cinzel", serif;
+    }
+
+    .answer-panel p {
+      margin: 0;
+      color: var(--apricot-light);
+      white-space: pre-wrap;
+      line-height: 1.85;
+    }
+
+    .answer-actions {
+      margin-top: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 11px;
+    }
+
+    .answer-action {
+      padding: 11px 15px;
+      border: 1px solid var(--orange);
+      color: var(--orange);
+      background: transparent;
+      font-weight: 800;
+    }
+
+    .answer-action:hover {
+      color: var(--black);
+      background: var(--orange);
+    }
+
+    .history-section {
+      margin-top: 32px;
+      padding: clamp(28px, 5vw, 55px);
+      border: 1px solid var(--line);
+      background: rgba(7, 4, 2, 0.85);
+    }
+
+    .history-section h2 {
+      margin: 0 0 25px;
+      color: var(--apricot);
+      font-family: "Cinzel", serif;
+    }
+
+    .question-list {
+      display: grid;
+      gap: 16px;
+    }
+
+    .question-card {
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-left: 4px solid var(--orange);
+      background: var(--black-card);
+    }
+
+    .question-meta {
+      margin-bottom: 10px;
+      color: var(--orange);
+      font-size: 0.72rem;
+      font-weight: 800;
+    }
+
+    .question-text {
+      color: var(--apricot);
+      font-weight: 800;
+      line-height: 1.6;
+    }
+
+    .question-answer {
+      margin-top: 13px;
+      padding: 15px;
+      color: var(--apricot-light);
+      background: var(--black);
+      white-space: pre-wrap;
+      line-height: 1.75;
+    }
+
+    .empty-history {
+      padding: 30px;
+      text-align: center;
+      border: 1px dashed var(--line);
+      color: var(--orange);
+    }
+
+    footer {
+      padding: 45px 5%;
+      text-align: center;
+      border-top: 1px solid var(--line);
+      color: var(--orange);
+      background: var(--black);
+    }
+
+    @keyframes professorMotion {
+      0%,
+      100% {
+        transform: scale(1.01) translateY(0);
+        filter: brightness(0.96);
+      }
+
+      50% {
+        transform: scale(1.045) translateY(-7px);
+        filter: brightness(1.06);
+      }
+    }
+
+    @keyframes pulse {
+      0%,
+      100% {
+        opacity: 0.45;
+        transform: scale(0.8);
+      }
+
+      50% {
+        opacity: 1;
+        transform: scale(1.2);
+      }
+    }
+
+    @media (max-width: 900px) {
+      .site-header {
+        flex-wrap: wrap;
+      }
+
+      .header-actions {
+        width: 100%;
+        justify-content: space-between;
+      }
+
+      .professor-hero {
+        grid-template-columns: 1fr;
+      }
+
+      .professor-portrait {
+        min-height: 620px;
+      }
+
+      .professor-features {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 650px) {
+      .site-header {
+        min-height: 84px;
+        padding: 9px 13px;
+      }
+
+      .brand img {
+        width: 56px;
+        height: 56px;
+        flex-basis: 56px;
+      }
+
+      .brand-text b {
+        font-size: 0.85rem;
+      }
+
+      .brand-text small {
+        font-size: 0.54rem;
+      }
+
+      .brand-text em {
+        font-size: 0.42rem;
+      }
+
+      .header-actions {
+        gap: 8px;
+      }
+
+      .lang-btn {
+        padding: 8px 9px;
+      }
+
+      .return-button {
+        padding: 10px 12px;
+        font-size: 0.72rem;
+      }
+
+      main {
+        width: 94%;
+        padding-top: 30px;
+      }
+
+      .professor-portrait {
+        min-height: 540px;
+      }
+
+      .professor-information {
+        padding: 30px 22px;
+      }
+
+      .professor-information h1 {
+        font-size: 2.65rem;
+      }
+
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .question-panel,
+      .history-section {
+        padding: 25px 18px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+      }
+    }
   </style>
 </head>
+
 <body>
-  <header class="top">
-    <a class="brand" href="index.html"><img src="real-estate-school-logo.png" alt="PRO-MAX Académie"><span><b>PRO-MAX ACADÉMIE</b><small>REAL ESTATE SCHOOL</small></span></a>
-    <a class="back" href="index.html" id="back">← RETOUNEN</a>
-    <div class="langs"><button data-lang="en">ENG</button><button data-lang="es">ESP</button><button class="active" data-lang="ht">KRE</button></div>
+  <header class="site-header">
+    <a class="brand" href="./index.html">
+      <img
+        src="./real-estate-school-logo.png"
+        alt="PRO-MAX Académie Real Estate School"
+      >
+
+      <span class="brand-text">
+        <b>PRO-MAX ACADÉMIE</b>
+        <small>REAL ESTATE SCHOOL</small>
+        <em>EKOSISTÈM DIJITAL PWOFESYONÈL</em>
+      </span>
+    </a>
+
+    <div class="header-actions">
+      <div class="language-switcher" aria-label="Language selector">
+        <button class="lang-btn" type="button" data-lang="en">ENG</button>
+        <button class="lang-btn" type="button" data-lang="es">ESP</button>
+        <button class="lang-btn active" type="button" data-lang="ht">KRE</button>
+      </div>
+
+      <a class="return-button" href="./index.html">
+        <i class="fa-solid fa-arrow-left"></i>
+        <span data-i18n="returnHome">RETOUNEN</span>
+      </a>
+    </div>
   </header>
+
   <main>
-    <section class="hero">
-      <div class="portrait"><img src="professor-max-louis.png" alt="Professor Max Louis alias Le Baron"></div>
-      <div class="intro"><p class="eyebrow" id="role">PWOFESÈ OFISYÈL</p><h1>MAX LOUIS</h1><p class="alias">ALIAS LE BARON</p><p id="bio">Mwen la pou ede w konprann leson PRO-MAX Académie yo, revize konsèp kle yo epi prepare w pou evalyasyon an.</p></div>
+    <section class="professor-hero">
+      <div class="professor-portrait">
+        <img
+          src="./professor-max-louis.png"
+          alt="Pwofesè Max Louis alias Le Baron"
+        >
+
+        <div class="online-status">
+          <span class="status-dot"></span>
+          <span data-i18n="available">PWOFESÈ DISPONIB</span>
+        </div>
+      </div>
+
+      <div class="professor-information">
+        <p class="eyebrow" data-i18n="officialProfessor">
+          PWOFESÈ OFISYÈL
+        </p>
+
+        <h1>MAX LOUIS</h1>
+
+        <p class="alias">ALIAS LE BARON</p>
+
+        <p
+          class="professor-description"
+          data-i18n="professorDescription"
+        >
+          Mwen la pou ede w konprann leson PRO-MAX Académie yo,
+          revize konsèp enpòtan yo epi prepare w pou evalyasyon
+          ak egzamen final la.
+        </p>
+
+        <div class="professor-features">
+          <article class="professor-feature">
+            <i class="fa-solid fa-book-open"></i>
+            <b data-i18n="courseSupport">SIPÒ POU 6 KOU YO</b>
+            <small data-i18n="courseSupportText">
+              Eksplikasyon ki baze sou materyèl pwogram nan.
+            </small>
+          </article>
+
+          <article class="professor-feature">
+            <i class="fa-solid fa-language"></i>
+            <b data-i18n="languageSupport">3 LANG</b>
+            <small data-i18n="languageSupportText">
+              Kreyòl, Anglè ak Panyòl.
+            </small>
+          </article>
+
+          <article class="professor-feature">
+            <i class="fa-solid fa-graduation-cap"></i>
+            <b data-i18n="examSupport">PREPARASYON EGZAMEN</b>
+            <small data-i18n="examSupportText">
+              Revizyon ak eksplikasyon konsèp kle yo.
+            </small>
+          </article>
+        </div>
+      </div>
     </section>
-    <section class="desk">
-      <h2 id="title">Mande Pwofesè a</h2><p class="desk-note" id="note">Chwazi kou a epi ekri kesyon ou. Pwofesè a ap ba w yon eksplikasyon ki baze sou materyèl pwogram nan.</p>
-      <div class="row"><select id="course"><option value="general">Tout kou yo</option><option value="property">01 · Fondasyon</option><option value="law">02 · Lwa ak etik</option><option value="finance">03 · Finansman</option><option value="valuation">04 · Valyasyon</option><option value="marketing">05 · Maketing</option><option value="exam">06 · Preparasyon egzamen</option></select><textarea id="question" placeholder="Ekri kesyon ou isit la..."></textarea></div>
-      <div class="quick"><button data-q="Kisa yon deed ye?">Kisa yon deed ye?</button><button data-q="Kisa fiduciary duty ye?">Fiduciary duty?</button><button data-q="Kijan down payment mache?">Down payment?</button><button data-q="Kisa appraisal ye?">Appraisal?</button></div>
-      <button class="ask" id="ask">MANDE PWOFESÈ MAX</button>
-      <div class="answer" id="answer" aria-live="polite"><strong id="answerTitle">REPONS PWOFESÈ A</strong><span id="answerText"></span></div>
-      <p class="notice" id="notice">Zouti edikatif sa a pa ranplase konsèy legal, finansye oswa yon pwofesyonèl ki gen lisans.</p>
+
+    <section class="question-panel">
+      <div class="question-heading">
+        <p class="eyebrow" data-i18n="studentAssistance">
+          ASISTANS ETIDYAN
+        </p>
+
+        <h2 data-i18n="askProfessor">
+          Mande pwofesè a
+        </h2>
+
+        <p data-i18n="askIntroduction">
+          Chwazi kou a epi ekri kesyon ou. Pwofesè Max ap ba w
+          yon eksplikasyon ki baze sou materyèl Real Estate School la.
+        </p>
+      </div>
+
+      <form class="question-form" id="questionForm">
+        <div class="form-grid">
+          <div class="field">
+            <label for="studentName" data-i18n="studentName">
+              NON ETIDYAN
+            </label>
+
+            <input
+              id="studentName"
+              name="studentName"
+              type="text"
+              autocomplete="name"
+              placeholder="Ekri non ou"
+              data-i18n-placeholder="studentNamePlaceholder"
+            >
+          </div>
+
+          <div class="field">
+            <label for="courseSelect" data-i18n="selectCourse">
+              CHWAZI KOU A
+            </label>
+
+            <select id="courseSelect" name="course">
+              <option value="all" data-i18n="allCourses">
+                Tout kou yo
+              </option>
+
+              <option value="course01" data-i18n="course01">
+                Course 01 — Fondasyon byen imobilye
+              </option>
+
+              <option value="course02" data-i18n="course02">
+                Course 02 — Lwa ak etik pwofesyonèl
+              </option>
+
+              <option value="course03" data-i18n="course03">
+                Course 03 — Finansman ak ipotèk
+              </option>
+
+              <option value="course04" data-i18n="course04">
+                Course 04 — Valyasyon pwopriyete
+              </option>
+
+              <option value="course05" data-i18n="course05">
+                Course 05 — Komèsyalizasyon ak kliyan
+              </option>
+
+              <option value="course06" data-i18n="course06">
+                Course 06 — Preparasyon egzamen
+              </option>
+            </select>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="studentQuestion" data-i18n="yourQuestion">
+            KESYON OU
+          </label>
+
+          <textarea
+            id="studentQuestion"
+            name="question"
+            required
+            placeholder="Ekri kesyon ou sou byen imobilye isit la..."
+            data-i18n-placeholder="questionPlaceholder"
+          ></textarea>
+        </div>
+
+        <div class="suggestions">
+          <button
+            class="suggestion-button"
+            type="button"
+            data-question="Kisa yon deed ye?"
+          >
+            Kisa yon deed ye?
+          </button>
+
+          <button
+            class="suggestion-button"
+            type="button"
+            data-question="Kisa fiduciary duty vle di?"
+          >
+            Fiduciary duty?
+          </button>
+
+          <button
+            class="suggestion-button"
+            type="button"
+            data-question="Kisa yon down payment ye?"
+          >
+            Down payment?
+          </button>
+
+          <button
+            class="suggestion-button"
+            type="button"
+            data-question="Kisa yon appraisal ye?"
+          >
+            Appraisal?
+          </button>
+        </div>
+
+        <button class="submit-button" id="submitButton" type="submit">
+          <i class="fa-solid fa-paper-plane"></i>
+          <span data-i18n="submitQuestion">
+            MANDE PWOFESÈ MAX
+          </span>
+        </button>
+      </form>
+
+      <div
+        class="answer-panel"
+        id="answerPanel"
+        aria-live="polite"
+        hidden
+      >
+        <h3 data-i18n="professorAnswer">
+          REPONS PWOFESÈ A
+        </h3>
+
+        <p id="professorAnswerText"></p>
+
+        <div class="answer-actions">
+          <button class="answer-action" id="speakAnswer" type="button">
+            <i class="fa-solid fa-volume-high"></i>
+            <span data-i18n="listenAnswer">KOUTE REPONS LAN</span>
+          </button>
+
+          <button class="answer-action" id="copyAnswer" type="button">
+            <i class="fa-solid fa-copy"></i>
+            <span data-i18n="copyAnswer">KOPYE REPONS LAN</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section class="history-section">
+      <h2 data-i18n="questionHistory">
+        Kesyon elèv yo
+      </h2>
+
+      <div class="question-list" id="questionList"></div>
     </section>
   </main>
+
+  <footer>
+    <b>PRO-MAX ACADÉMIE · REAL ESTATE SCHOOL</b>
+    <p>
+      © <span id="year"></span> · Orlando, Florida · 100% Online
+    </p>
+  </footer>
+
   <script>
-  'use strict';
-  const copy={ht:{back:'← RETOUNEN',role:'PWOFESÈ OFISYÈL',bio:'Mwen la pou ede w konprann leson PRO-MAX Académie yo, revize konsèp kle yo epi prepare w pou evalyasyon an.',title:'Mande Pwofesè a',note:'Chwazi kou a epi ekri kesyon ou. Pwofesè a ap ba w yon eksplikasyon ki baze sou materyèl pwogram nan.',placeholder:'Ekri kesyon ou isit la...',ask:'MANDE PWOFESÈ MAX',answer:'REPONS PWOFESÈ A',empty:'Tanpri ekri yon kesyon anvan.',unknown:'Bon kesyon. Pou yon repons pi presi, site nimewo kou a oswa konsèp espesifik ou vle revize a.',notice:'Zouti edikatif sa a pa ranplase konsèy legal, finansye oswa yon pwofesyonèl ki gen lisans.'},en:{back:'← RETURN',role:'OFFICIAL PROFESSOR',bio:'I am here to help you understand the PRO-MAX Academy lessons, review key concepts, and prepare for your assessments.',title:'Ask the Professor',note:'Select a course and enter your question. The professor will provide an explanation based on the program material.',placeholder:'Enter your question here...',ask:'ASK PROFESSOR MAX',answer:"PROFESSOR'S ANSWER",empty:'Please enter a question first.',unknown:'Good question. For a more precise answer, include the course number or the specific concept you want to review.',notice:'This educational tool does not replace legal or financial advice or a licensed professional.'},es:{back:'← REGRESAR',role:'PROFESOR OFICIAL',bio:'Estoy aquí para ayudarle a comprender las lecciones de PRO-MAX Academy, repasar conceptos clave y prepararse para las evaluaciones.',title:'Pregunte al profesor',note:'Seleccione un curso y escriba su pregunta. El profesor dará una explicación basada en el material del programa.',placeholder:'Escriba su pregunta aquí...',ask:'PREGUNTAR AL PROFESOR MAX',answer:'RESPUESTA DEL PROFESOR',empty:'Escriba una pregunta primero.',unknown:'Buena pregunta. Para una respuesta más precisa, incluya el número del curso o el concepto específico que desea repasar.',notice:'Esta herramienta educativa no reemplaza asesoramiento legal o financiero ni a un profesional autorizado.'}};
-  const answers={deed:{ht:'Yon deed se dokiman legal ki transfere pwopriyetè yon byen imobilye soti nan yon pati bay yon lòt. Tit la se dwa legal sou pwopriyete a; deed la se dokiman transfè a.',en:'A deed is the legal document that transfers real-estate ownership from one party to another. Title is the legal right to the property; the deed is the transfer document.',es:'Una escritura es el documento legal que transfiere la propiedad inmobiliaria de una parte a otra. El título es el derecho legal; la escritura es el documento de transferencia.'},fiduciary:{ht:'Fiduciary duty se obligasyon ajan an genyen pou aji nan pi bon enterè kliyan an: lwayote, konfidansyalite, obeyisans legal, divilgasyon, kontablite ak swen pwofesyonèl.',en:"Fiduciary duty requires an agent to act in the client's best interest through loyalty, confidentiality, lawful obedience, disclosure, accounting, and professional care.",es:'El deber fiduciario exige que el agente actúe en el mejor interés del cliente mediante lealtad, confidencialidad, obediencia legal, divulgación, contabilidad y cuidado profesional.'},down:{ht:'Down payment se pati pri acha a achtè a peye davans. Rès la anjeneral finanse ak yon prè ipotèk. Kantite a depann de kalite prè a ak kondisyon kreditè a.',en:'A down payment is the portion of the purchase price paid upfront. The remainder is generally financed with a mortgage, depending on the loan program and lender requirements.',es:'El pago inicial es la parte del precio de compra que se paga por adelantado. El resto normalmente se financia con una hipoteca.'},appraisal:{ht:'Yon appraisal se yon estimasyon pwofesyonèl sou valè mache yon pwopriyete. Li ede kreditè ak pati yo verifye si valè a sipòte pri ak kantite prè a.',en:'An appraisal is a professional estimate of a property’s market value. It helps confirm whether the value supports the price and loan amount.',es:'Una tasación es una estimación profesional del valor de mercado de una propiedad. Ayuda a confirmar si el valor respalda el precio y el préstamo.'}};
-  let lang=localStorage.getItem('promaxRealEstateLanguage')||'ht';
-  function translate(l){lang=copy[l]?l:'ht';document.documentElement.lang=lang;const c=copy[lang];back.textContent=c.back;role.textContent=c.role;bio.textContent=c.bio;title.textContent=c.title;note.textContent=c.note;question.placeholder=c.placeholder;ask.textContent=c.ask;answerTitle.textContent=c.answer;notice.textContent=c.notice;document.querySelectorAll('[data-lang]').forEach(b=>b.classList.toggle('active',b.dataset.lang===lang));localStorage.setItem('promaxRealEstateLanguage',lang)}
-  document.querySelectorAll('[data-lang]').forEach(b=>b.addEventListener('click',()=>translate(b.dataset.lang)));document.querySelectorAll('[data-q]').forEach(b=>b.addEventListener('click',()=>{question.value=b.dataset.q;question.focus()}));
-  ask.addEventListener('click',()=>{const q=question.value.trim().toLowerCase();let key='';if(/deed|escritura|tit transf/.test(q))key='deed';else if(/fiduci|lwayote|lealtad|loyalty/.test(q))key='fiduciary';else if(/down|initial|davans|enganche/.test(q))key='down';else if(/appraisal|tasasyon|tasaci|evalyasyon val/.test(q))key='appraisal';answerText.textContent=!q?copy[lang].empty:key?answers[key][lang]:copy[lang].unknown;answer.classList.add('show');answer.scrollIntoView({behavior:'smooth',block:'nearest'})});translate(lang);
+    "use strict";
+
+    const translations = {
+      ht: {
+        returnHome: "RETOUNEN",
+        available: "PWOFESÈ DISPONIB",
+        officialProfessor: "PWOFESÈ OFISYÈL",
+        professorDescription:
+          "Mwen la pou ede w konprann leson PRO-MAX Académie yo, revize konsèp enpòtan yo epi prepare w pou evalyasyon ak egzamen final la.",
+        courseSupport: "SIPÒ POU 6 KOU YO",
+        courseSupportText:
+          "Eksplikasyon ki baze sou materyèl pwogram nan.",
+        languageSupport: "3 LANG",
+        languageSupportText:
+          "Kreyòl, Anglè ak Panyòl.",
+        examSupport: "PREPARASYON EGZAMEN",
+        examSupportText:
+          "Revizyon ak eksplikasyon konsèp kle yo.",
+        studentAssistance: "ASISTANS ETIDYAN",
+        askProfessor: "Mande pwofesè a",
+        askIntroduction:
+          "Chwazi kou a epi ekri kesyon ou. Pwofesè Max ap ba w yon eksplikasyon ki baze sou materyèl Real Estate School la.",
+        studentName: "NON ETIDYAN",
+        studentNamePlaceholder: "Ekri non ou",
+        selectCourse: "CHWAZI KOU A",
+        allCourses: "Tout kou yo",
+        course01: "Course 01 — Fondasyon byen imobilye",
+        course02: "Course 02 — Lwa ak etik pwofesyonèl",
+        course03: "Course 03 — Finansman ak ipotèk",
+        course04: "Course 04 — Valyasyon pwopriyete",
+        course05: "Course 05 — Komèsyalizasyon ak kliyan",
+        course06: "Course 06 — Preparasyon egzamen",
+        yourQuestion: "KESYON OU",
+        questionPlaceholder:
+          "Ekri kesyon ou sou byen imobilye isit la...",
+        submitQuestion: "MANDE PWOFESÈ MAX",
+        sending: "M AP PREPARE REPONS LAN...",
+        professorAnswer: "REPONS PWOFESÈ A",
+        listenAnswer: "KOUTE REPONS LAN",
+        copyAnswer: "KOPYE REPONS LAN",
+        copied: "REPONS LAN KOPYE",
+        questionHistory: "Kesyon elèv yo",
+        emptyHistory:
+          "Poko gen kesyon sou aparèy sa a.",
+        anonymous: "Etidyan anonim",
+        fallbackAnswer:
+          "Mèsi pou kesyon ou. Pwofesè Max resevwa li. Revize seksyon kou ou chwazi a pandan sistèm nan ap prepare yon repons pi detaye.",
+        errorAnswer:
+          "Sistèm pwofesè a pa t kapab konekte kounye a. Kesyon ou anrejistre sou aparèy sa a pou ou pa pèdi li."
+      },
+
+      en: {
+        returnHome: "RETURN",
+        available: "PROFESSOR AVAILABLE",
+        officialProfessor: "OFFICIAL PROFESSOR",
+        professorDescription:
+          "I am here to help you understand the PRO-MAX Académie lessons, review important concepts, and prepare for assessments and the final exam.",
+        courseSupport: "SUPPORT FOR 6 COURSES",
+        courseSupportText:
+          "Explanations based on the program material.",
+        languageSupport: "3 LANGUAGES",
+        languageSupportText:
+          "English, Spanish and Haitian Creole.",
+        examSupport: "EXAM PREPARATION",
+        examSupportText:
+          "Review and explanation of key concepts.",
+        studentAssistance: "STUDENT ASSISTANCE",
+        askProfessor: "Ask the professor",
+        askIntroduction:
+          "Select a course and enter your question. Professor Max will provide an explanation based on the Real Estate School material.",
+        studentName: "STUDENT NAME",
+        studentNamePlaceholder: "Enter your name",
+        selectCourse: "SELECT A COURSE",
+        allCourses: "All courses",
+        course01: "Course 01 — Real estate fundamentals",
+        course02: "Course 02 — Law and professional ethics",
+        course03: "Course 03 — Finance and mortgages",
+        course04: "Course 04 — Property valuation",
+        course05: "Course 05 — Marketing and clients",
+        course06: "Course 06 — Exam preparation",
+        yourQuestion: "YOUR QUESTION",
+        questionPlaceholder:
+          "Enter your real estate question here...",
+        submitQuestion: "ASK PROFESSOR MAX",
+        sending: "PREPARING THE ANSWER...",
+        professorAnswer: "PROFESSOR'S ANSWER",
+        listenAnswer: "LISTEN TO THE ANSWER",
+        copyAnswer: "COPY THE ANSWER",
+        copied: "ANSWER COPIED",
+        questionHistory: "Student questions",
+        emptyHistory:
+          "There are no questions on this device yet.",
+        anonymous: "Anonymous student",
+        fallbackAnswer:
+          "Thank you for your question. Professor Max received it. Review the selected course section while the system prepares a more detailed response.",
+        errorAnswer:
+          "The professor system could not connect right now. Your question was saved on this device so you do not lose it."
+      },
+
+      es: {
+        returnHome: "REGRESAR",
+        available: "PROFESOR DISPONIBLE",
+        officialProfessor: "PROFESOR OFICIAL",
+        professorDescription:
+          "Estoy aquí para ayudarte a comprender las lecciones de PRO-MAX Académie, repasar conceptos importantes y prepararte para las evaluaciones y el examen final.",
+        courseSupport: "APOYO PARA 6 CURSOS",
+        courseSupportText:
+          "Explicaciones basadas en el material del programa.",
+        languageSupport: "3 IDIOMAS",
+        languageSupportText:
+          "Español, inglés y criollo haitiano.",
+        examSupport: "PREPARACIÓN PARA EL EXAMEN",
+        examSupportText:
+          "Repaso y explicación de conceptos clave.",
+        studentAssistance: "ASISTENCIA AL ESTUDIANTE",
+        askProfessor: "Pregunta al profesor",
+        askIntroduction:
+          "Selecciona un curso y escribe tu pregunta. El profesor Max proporcionará una explicación basada en el material de Real Estate School.",
+        studentName: "NOMBRE DEL ESTUDIANTE",
+        studentNamePlaceholder: "Escribe tu nombre",
+        selectCourse: "SELECCIONA UN CURSO",
+        allCourses: "Todos los cursos",
+        course01: "Curso 01 — Fundamentos de bienes raíces",
+        course02: "Curso 02 — Ley y ética profesional",
+        course03: "Curso 03 — Financiamiento e hipotecas",
+        course04: "Curso 04 — Valoración de propiedades",
+        course05: "Curso 05 — Mercadeo y clientes",
+        course06: "Curso 06 — Preparación para el examen",
+        yourQuestion: "TU PREGUNTA",
+        questionPlaceholder:
+          "Escribe aquí tu pregunta sobre bienes raíces...",
+        submitQuestion: "PREGUNTAR AL PROFESOR MAX",
+        sending: "PREPARANDO LA RESPUESTA...",
+        professorAnswer: "RESPUESTA DEL PROFESOR",
+        listenAnswer: "ESCUCHAR LA RESPUESTA",
+        copyAnswer: "COPIAR LA RESPUESTA",
+        copied: "RESPUESTA COPIADA",
+        questionHistory: "Preguntas de estudiantes",
+        emptyHistory:
+          "Aún no hay preguntas en este dispositivo.",
+        anonymous: "Estudiante anónimo",
+        fallbackAnswer:
+          "Gracias por tu pregunta. El profesor Max la recibió. Repasa la sección del curso seleccionado mientras el sistema prepara una respuesta más detallada.",
+        errorAnswer:
+          "El sistema del profesor no pudo conectarse en este momento. Tu pregunta fue guardada en este dispositivo."
+      }
+    };
+
+    const STORAGE_KEY = "promaxProfessorQuestions";
+    const LANGUAGE_KEY = "promaxRealEstateLanguage";
+
+    let currentLanguage =
+      localStorage.getItem(LANGUAGE_KEY) || "ht";
+
+    let currentAnswer = "";
+
+    function getTranslation(key) {
+      const pack =
+        translations[currentLanguage] || translations.ht;
+
+      return pack[key] || translations.ht[key] || key;
+    }
+
+    function translatePage(language) {
+      if (!translations[language]) {
+        language = "ht";
+      }
+
+      currentLanguage = language;
+      document.documentElement.lang = language;
+
+      document
+        .querySelectorAll("[data-i18n]")
+        .forEach(function (element) {
+          const key = element.getAttribute("data-i18n");
+
+          if (translations[language][key]) {
+            element.textContent =
+              translations[language][key];
+          }
+        });
+
+      document
+        .querySelectorAll("[data-i18n-placeholder]")
+        .forEach(function (element) {
+          const key =
+            element.getAttribute("data-i18n-placeholder");
+
+          if (translations[language][key]) {
+            element.placeholder =
+              translations[language][key];
+          }
+        });
+
+      document
+        .querySelectorAll(".lang-btn")
+        .forEach(function (button) {
+          button.classList.toggle(
+            "active",
+            button.getAttribute("data-lang") === language
+          );
+        });
+
+      localStorage.setItem(LANGUAGE_KEY, language);
+      renderHistory();
+    }
+
+    function readHistory() {
+      try {
+        const data = JSON.parse(
+          localStorage.getItem(STORAGE_KEY) || "[]"
+        );
+
+        return Array.isArray(data) ? data : [];
+      } catch (error) {
+        return [];
+      }
+    }
+
+    function saveHistory(history) {
+      localStorage.setItem(
+        STORAGE_KEY,
+        JSON.stringify(history)
+      );
+    }
+
+    function escapeHTML(value) {
+      return String(value)
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#039;");
+    }
+
+    function renderHistory() {
+      const history = readHistory();
+      const list = document.getElementById("questionList");
+
+      if (!history.length) {
+        list.innerHTML =
+          '<div class="empty-history">' +
+          escapeHTML(getTranslation("emptyHistory")) +
+          "</div>";
+
+        return;
+      }
+
+      list.innerHTML = history
+        .map(function (item) {
+          return (
+            '<article class="question-card">' +
+              '<div class="question-meta">' +
+                '<i class="fa-solid fa-user-graduate"></i> ' +
+                escapeHTML(
+                  item.name || getTranslation("anonymous")
+                ) +
+                " · " +
+                escapeHTML(item.date || "") +
+              "</div>" +
+              '<div class="question-text">' +
+                '<i class="fa-solid fa-circle-question"></i> ' +
+                escapeHTML(item.question || "") +
+              "</div>" +
+              '<div class="question-answer">' +
+                "<strong>" +
+                  escapeHTML(getTranslation("professorAnswer")) +
+                "</strong><br>" +
+                escapeHTML(item.answer || "") +
+              "</div>" +
+            "</article>"
+          );
+        })
+        .join("");
+    }
+
+    async function requestProfessorAnswer(payload) {
+      const response = await fetch(
+        "/.netlify/functions/ask-professor",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(payload)
+        }
+      );
+
+      if (!response.ok) {
+        throw new Error("Professor service unavailable");
+      }
+
+      const data = await response.json();
+
+      return (
+        data.answer ||
+        data.response ||
+        data.message ||
+        getTranslation("fallbackAnswer")
+      );
+    }
+
+    document
+      .querySelectorAll(".lang-btn")
+      .forEach(function (button) {
+        button.addEventListener("click", function () {
+          translatePage(
+            button.getAttribute("data-lang")
+          );
+        });
+      });
+
+    document
+      .querySelectorAll(".suggestion-button")
+      .forEach(function (button) {
+        button.addEventListener("click", function () {
+          document.getElementById(
+            "studentQuestion"
+          ).value = button.getAttribute("data-question");
+
+          document.getElementById(
+            "studentQuestion"
+          ).focus();
+        });
+      });
+
+    document
+      .getElementById("questionForm")
+      .addEventListener("submit", async function (event) {
+        event.preventDefault();
+
+        const name =
+          document.getElementById("studentName").value.trim() ||
+          getTranslation("anonymous");
+
+        const course =
+          document.getElementById("courseSelect").value;
+
+        const question =
+          document.getElementById(
+            "studentQuestion"
+          ).value.trim();
+
+        if (!question) {
+          document.getElementById(
+            "studentQuestion"
+          ).focus();
+
+          return;
+        }
+
+        const submitButton =
+          document.getElementById("submitButton");
+
+        const submitText =
+          submitButton.querySelector("span");
+
+        submitButton.disabled = true;
+        submitText.textContent =
+          getTranslation("sending");
+
+        let answer;
+
+        try {
+          answer = await requestProfessorAnswer({
+            name: name,
+            course: course,
+            question: question,
+            language: currentLanguage
+          });
+        } catch (error) {
+          answer = getTranslation("errorAnswer");
+        }
+
+        currentAnswer = answer;
+
+        document.getElementById(
+          "professorAnswerText"
+        ).textContent = answer;
+
+        document.getElementById(
+          "answerPanel"
+        ).hidden = false;
+
+        const history = readHistory();
+
+        history.unshift({
+          id: Date.now(),
+          name: name,
+          course: course,
+          question: question,
+          answer: answer,
+          language: currentLanguage,
+          date: new Date().toLocaleString()
+        });
+
+        saveHistory(history.slice(0, 25));
+        renderHistory();
+
+        document.getElementById(
+          "studentQuestion"
+        ).value = "";
+
+        submitButton.disabled = false;
+        submitText.textContent =
+          getTranslation("submitQuestion");
+
+        document.getElementById(
+          "answerPanel"
+        ).scrollIntoView({
+          behavior: "smooth",
+          block: "center"
+        });
+      });
+
+    document
+      .getElementById("speakAnswer")
+      .addEventListener("click", function () {
+        if (!currentAnswer || !("speechSynthesis" in window)) {
+          return;
+        }
+
+        window.speechSynthesis.cancel();
+
+        const speech =
+          new SpeechSynthesisUtterance(currentAnswer);
+
+        speech.lang =
+          currentLanguage === "es"
+            ? "es-US"
+            : currentLanguage === "en"
+              ? "en-US"
+              : "fr-FR";
+
+        speech.rate = 0.9;
+        speech.pitch = 0.85;
+
+        window.speechSynthesis.speak(speech);
+      });
+
+    document
+      .getElementById("copyAnswer")
+      .addEventListener("click", async function () {
+        if (!currentAnswer) {
+          return;
+        }
+
+        try {
+          await navigator.clipboard.writeText(currentAnswer);
+
+          const text = this.querySelector("span");
+          const original =
+            getTranslation("copyAnswer");
+
+          text.textContent = getTranslation("copied");
+
+          setTimeout(function () {
+            text.textContent = original;
+          }, 1800);
+        } catch (error) {
+          return;
+        }
+      });
+
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+
+    translatePage(currentLanguage);
+    renderHistory();
   </script>
 </body>
 </html>
