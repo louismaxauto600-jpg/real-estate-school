@@ -973,7 +973,38 @@
             </button>
           </div>
 
-         
+          <p
+            class="quiz-result"
+            id="quizResult"
+            aria-live="polite"
+          ></p>
+
+          <button
+            class="lesson-complete"
+            id="quizCompleteButton"
+            type="button"
+            disabled
+          >
+            <span data-i18n="completeAssessment">
+              FINI EVALYASYON AN
+            </span>
+          </button>
+        </article>
+
+        <section class="completion-panel">
+          <i class="fa-solid fa-graduation-cap"></i>
+
+          <h2 data-i18n="completionTitle">
+            Konplete Course 01
+          </h2>
+
+          <p data-i18n="completionText">
+            Fini tout leson yo ak evalyasyon an pou valide
+            Course 01 epi debloke Course 02.
+          </p>
+
+          <div class="completion-actions">
+            <button
               class="action-button primary-button"
               id="validateCourse"
               type="button"
@@ -1405,4 +1436,145 @@
         });
 
       const percentage =
-        Math
+        Math.round((completedLessons / 6) * 100);
+
+      document.getElementById(
+        "progressPercentage"
+      ).textContent = percentage + "%";
+
+      document.getElementById(
+        "courseProgressBar"
+      ).style.width = percentage + "%";
+
+      document.getElementById(
+        "nextCourse"
+      ).classList.toggle(
+        "disabled",
+        !courseProgress.completed
+      );
+
+      document.getElementById(
+        "quizCompleteButton"
+      ).disabled = !courseProgress.quizPassed;
+    }
+
+    document
+      .querySelectorAll(".lang-button")
+      .forEach(function (button) {
+        button.addEventListener("click", function () {
+          translatePage(
+            button.getAttribute("data-lang")
+          );
+        });
+      });
+
+    document
+      .querySelectorAll(".lesson-complete")
+      .forEach(function (button) {
+        button.addEventListener("click", function () {
+          const lesson = button.closest(".lesson");
+          const lessonKey =
+            lesson.getAttribute("data-lesson");
+
+          if (
+            lessonKey === "lesson6" &&
+            !courseProgress.quizPassed
+          ) {
+            return;
+          }
+
+          courseProgress[lessonKey] = true;
+          saveProgress();
+          updateInterface();
+        });
+      });
+
+    const quizOptions =
+      document.querySelectorAll(".quiz-option");
+
+    quizOptions.forEach(function (button) {
+      button.addEventListener("click", function () {
+        quizOptions.forEach(function (option) {
+          option.classList.remove("correct", "wrong");
+        });
+
+        const correct =
+          button.getAttribute("data-answer") === "correct";
+
+        button.classList.add(
+          correct ? "correct" : "wrong"
+        );
+
+        document.getElementById(
+          "quizResult"
+        ).textContent = correct
+          ? translations[currentLanguage].correct
+          : translations[currentLanguage].incorrect;
+
+        if (correct) {
+          courseProgress.quizPassed = true;
+          saveProgress();
+          updateInterface();
+        }
+      });
+    });
+
+    document
+      .getElementById("validateCourse")
+      .addEventListener("click", function () {
+        const allLessonsComplete = [
+          "lesson1",
+          "lesson2",
+          "lesson3",
+          "lesson4",
+          "lesson5",
+          "lesson6"
+        ].every(function (lessonKey) {
+          return courseProgress[lessonKey];
+        });
+
+        const message =
+          document.getElementById("courseMessage");
+
+        if (!allLessonsComplete) {
+          message.textContent =
+            translations[currentLanguage].finishLessons;
+          return;
+        }
+
+        courseProgress.completed = true;
+        saveProgress();
+
+        let programProgress = {};
+
+        try {
+          programProgress =
+            JSON.parse(
+              localStorage.getItem(
+                "promaxRealEstateProgress"
+              ) || "{}"
+            ) || {};
+        } catch (error) {
+          programProgress = {};
+        }
+
+        programProgress.fundamentals = true;
+
+        localStorage.setItem(
+          "promaxRealEstateProgress",
+          JSON.stringify(programProgress)
+        );
+
+        message.textContent =
+          translations[currentLanguage].courseCompleted;
+
+        updateInterface();
+      });
+
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+
+    translatePage(currentLanguage);
+  </script>
+</body>
+</html>
