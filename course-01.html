@@ -1,56 +1,1408 @@
 <!DOCTYPE html>
-<html lang="ht">
+<html lang="ht" translate="no">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#070402">
+  <meta name="google" content="notranslate">
+
   <title>Course 01 | PRO-MAX Académie</title>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&display=swap"
+    rel="stylesheet"
+  >
+
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+  >
+
   <style>
-    :root{--orange:#ff7300;--apricot:#ffb067;--deep:#9f3600;--black:#050201;--panel:#120703;--muted:#e29a61;--line:rgba(255,115,0,.3);--shadow:0 22px 70px rgba(0,0,0,.55)}
-    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;color:var(--apricot);background:radial-gradient(circle at 80% 5%,rgba(255,115,0,.16),transparent 25%),linear-gradient(145deg,#140702,#020100 55%,#0c0301);font-family:Montserrat,sans-serif}a{text-decoration:none;color:inherit}button{font:inherit;cursor:pointer}
-    .site-header{position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-content:space-between;gap:20px;padding:13px 5%;border-bottom:1px solid var(--line);background:rgba(5,2,1,.96);backdrop-filter:blur(15px)}
-    .brand{display:flex;align-items:center;gap:13px}.brand img{width:65px;height:65px;object-fit:contain}.brand-text{display:grid}.brand-text b{color:var(--orange);font:800 1rem Cinzel,serif}.brand-text small{font-size:.65rem;font-weight:900;letter-spacing:.15em}.brand-text em{color:var(--muted);font-size:.6rem;font-style:normal;font-weight:800}
-    .languages{display:flex;padding:4px;border:1px solid var(--line);border-radius:999px;background:#080401}.lang{padding:9px 12px;border:0;border-radius:999px;color:var(--orange);background:transparent;font-size:.7rem;font-weight:900}.lang.active{color:#000;background:linear-gradient(135deg,var(--apricot),var(--orange))}
-    .progress-head{position:sticky;top:92px;z-index:90;padding:10px 5%;border-bottom:1px solid var(--line);background:rgba(9,4,1,.96)}.progress-info{display:flex;justify-content:space-between;margin-bottom:7px;color:var(--orange);font-size:.7rem;font-weight:900}.track{height:6px;background:#281208}.bar{width:0;height:100%;background:linear-gradient(90deg,var(--deep),var(--orange),var(--apricot));transition:.35s}
-    main{width:min(1240px,92%);margin:auto;padding:55px 0 90px}.hero{display:grid;grid-template-columns:1fr 250px;align-items:center;gap:35px;padding:clamp(30px,6vw,65px);border:1px solid var(--line);background:linear-gradient(130deg,rgba(255,115,0,.15),rgba(4,2,1,.97));box-shadow:var(--shadow)}.eyebrow{color:var(--orange);font-size:.75rem;font-weight:900;letter-spacing:.18em;text-transform:uppercase}.hero h1{margin:12px 0 18px;font:800 clamp(2.3rem,6vw,5rem)/1 Cinzel,serif}.hero p:last-child{color:var(--muted);line-height:1.8}.emblem{width:220px;height:220px;display:grid;place-items:center;border:2px solid var(--orange);border-radius:50%;color:#000;background:radial-gradient(circle,var(--apricot),var(--orange) 62%,var(--deep));font-size:5.5rem}
-    .layout{display:grid;grid-template-columns:270px 1fr;gap:25px;align-items:start;margin-top:28px}.nav{position:sticky;top:145px;padding:22px;border:1px solid var(--line);background:linear-gradient(145deg,#130904,#050201)}.nav h2{margin:0 0 17px;font:700 1.25rem Cinzel,serif}.nav a{display:grid;grid-template-columns:32px 1fr;align-items:center;gap:9px;margin:8px 0;padding:10px;border:1px solid var(--line);color:var(--muted);font-size:.72rem;font-weight:800}.nav a span:first-child{display:grid;place-items:center;width:29px;height:29px;color:#000;background:var(--orange)}
-    .content{display:grid;gap:22px}.lesson,.completion{padding:clamp(24px,5vw,48px);scroll-margin-top:155px;border:1px solid var(--line);background:linear-gradient(145deg,rgba(19,8,3,.97),rgba(4,2,1,.98));box-shadow:var(--shadow)}.number{color:rgba(255,115,0,.2);font:800 3.7rem Cinzel,serif}.lesson h2{margin:8px 0 18px;font:700 clamp(1.7rem,4vw,2.8rem) Cinzel,serif}.lesson h3{color:var(--orange);font-family:Cinzel,serif}.lesson p,.lesson li{color:var(--muted);line-height:1.8}.lesson li{margin:8px}.box{margin:22px 0;padding:19px;border-left:4px solid var(--orange);background:rgba(255,115,0,.08)}.box strong{display:block;margin-bottom:7px;color:var(--orange)}.cards{display:grid;grid-template-columns:1fr 1fr;gap:12px}.card{padding:18px;border:1px solid var(--line);background:#080401}.card strong{color:var(--orange)}
-    .complete,.option,.action{padding:13px 18px;border:1px solid var(--orange);color:var(--orange);background:transparent;font-weight:900}.complete.done,.option.correct,.primary{color:#000;background:var(--orange)}.options{display:grid;gap:11px}.option{text-align:left}.result{min-height:25px;color:var(--orange);font-weight:900}.completion{text-align:center;border:2px solid var(--orange)}.completion h2{font:700 clamp(1.9rem,4vw,3.2rem) Cinzel,serif}.actions{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}.disabled{pointer-events:none;opacity:.4}footer{padding:35px;text-align:center;border-top:1px solid var(--line);color:var(--muted)}
-    @media(max-width:850px){.hero,.layout{grid-template-columns:1fr}.hero{text-align:center}.emblem{margin:auto}.nav{position:static}.cards{grid-template-columns:1fr}}@media(max-width:600px){.brand-text em{display:none}.brand-text b{font-size:.73rem}.brand img{width:52px;height:52px}.progress-head{top:79px}.languages{position:fixed;right:8px;bottom:8px;z-index:200}.actions{display:grid}}
+    :root {
+      --black: #070402;
+      --black-soft: #0f0905;
+      --black-card: #130c08;
+      --orange: #ff8c42;
+      --orange-deep: #c94b00;
+      --apricot: #ffb070;
+      --apricot-soft: #d98555;
+      --line: rgba(255, 140, 66, 0.3);
+      --shadow: 0 24px 65px rgba(0, 0, 0, 0.65);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      min-height: 100vh;
+      margin: 0;
+      overflow-x: hidden;
+      color: var(--apricot);
+      background:
+        radial-gradient(
+          circle at 15% 12%,
+          rgba(255, 140, 66, 0.22),
+          transparent 32%
+        ),
+        linear-gradient(
+          145deg,
+          var(--black),
+          #241006 52%,
+          var(--black)
+        );
+      font-family: "Montserrat", sans-serif;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+      opacity: 0.12;
+      background-image:
+        linear-gradient(var(--line) 1px, transparent 1px),
+        linear-gradient(90deg, var(--line) 1px, transparent 1px);
+      background-size: 72px 72px;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font: inherit;
+      cursor: pointer;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      min-height: 94px;
+      padding: 12px clamp(16px, 5vw, 70px);
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      border-bottom: 1px solid var(--line);
+      background: rgba(7, 4, 2, 0.96);
+      backdrop-filter: blur(18px);
+    }
+
+    .brand {
+      min-width: 0;
+      margin-right: auto;
+      display: flex;
+      align-items: center;
+      gap: 13px;
+    }
+
+    .brand img {
+      width: 68px;
+      height: 68px;
+      object-fit: contain;
+      border-radius: 50%;
+      filter: drop-shadow(0 0 17px rgba(255, 140, 66, 0.6));
+    }
+
+    .brand-text {
+      min-width: 0;
+      display: grid;
+      gap: 4px;
+    }
+
+    .brand-text b {
+      color: var(--orange);
+      font-size: clamp(0.92rem, 2vw, 1.3rem);
+      font-weight: 900;
+      letter-spacing: 0.06em;
+    }
+
+    .brand-text small {
+      color: var(--apricot);
+      font-size: clamp(0.57rem, 1vw, 0.75rem);
+      font-weight: 900;
+      letter-spacing: 0.15em;
+    }
+
+    .brand-text em {
+      color: var(--apricot-soft);
+      font-size: clamp(0.45rem, 0.8vw, 0.62rem);
+      font-style: normal;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+    }
+
+    .language-switcher {
+      display: flex;
+      padding: 4px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: var(--black-soft);
+    }
+
+    .lang-button {
+      padding: 10px 14px;
+      border: 0;
+      border-radius: 999px;
+      color: var(--orange);
+      background: transparent;
+      font-size: 0.72rem;
+      font-weight: 900;
+    }
+
+    .lang-button.active {
+      color: var(--black);
+      background: linear-gradient(
+        135deg,
+        var(--apricot),
+        var(--orange)
+      );
+    }
+
+    .course-progress-header {
+      position: sticky;
+      top: 94px;
+      z-index: 900;
+      padding: 11px clamp(16px, 5vw, 70px);
+      border-bottom: 1px solid var(--line);
+      background: rgba(9, 4, 1, 0.96);
+    }
+
+    .progress-information {
+      margin-bottom: 8px;
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      color: var(--orange);
+      font-size: 0.72rem;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+    }
+
+    .progress-track {
+      height: 7px;
+      overflow: hidden;
+      border-radius: 999px;
+      background: #281208;
+    }
+
+    .progress-bar {
+      width: 0;
+      height: 100%;
+      border-radius: 999px;
+      background: linear-gradient(
+        90deg,
+        var(--orange-deep),
+        var(--orange),
+        var(--apricot)
+      );
+      transition: width 0.4s;
+    }
+
+    main {
+      width: min(1280px, 92%);
+      margin: auto;
+      padding: 55px 0 100px;
+    }
+
+    .course-hero {
+      padding: clamp(30px, 6vw, 70px);
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(260px, 0.7fr);
+      align-items: center;
+      gap: 42px;
+      border: 1px solid var(--line);
+      border-radius: 30px;
+      background:
+        linear-gradient(
+          135deg,
+          rgba(255, 140, 66, 0.16),
+          rgba(7, 4, 2, 0.96)
+        );
+      box-shadow: var(--shadow);
+    }
+
+    .eyebrow {
+      margin: 0;
+      color: var(--orange);
+      font-size: 0.75rem;
+      font-weight: 900;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+    }
+
+    .course-hero h1 {
+      margin: 16px 0 21px;
+      color: var(--apricot);
+      font-size: clamp(2.7rem, 6vw, 5.8rem);
+      font-weight: 900;
+      line-height: 1;
+      letter-spacing: -0.055em;
+    }
+
+    .course-hero p:last-child {
+      max-width: 760px;
+      margin: 0;
+      color: var(--apricot-soft);
+      font-size: 1.05rem;
+      line-height: 1.85;
+    }
+
+    .course-globe {
+      position: relative;
+      min-height: 440px;
+      display: grid;
+      place-items: center;
+    }
+
+    .course-globe::before {
+      content: "";
+      position: absolute;
+      width: 88%;
+      aspect-ratio: 1;
+      border: 1px solid var(--orange);
+      border-radius: 50%;
+      opacity: 0.45;
+      box-shadow:
+        0 0 45px rgba(255, 140, 66, 0.22),
+        inset 0 0 45px rgba(255, 140, 66, 0.13);
+      animation: globeRing 16s linear infinite;
+    }
+
+    .course-globe img {
+      position: relative;
+      z-index: 2;
+      width: min(100%, 470px);
+      display: block;
+      object-fit: contain;
+      filter: drop-shadow(0 25px 40px rgba(0, 0, 0, 0.8));
+      animation: globeFloat 5s ease-in-out infinite;
+    }
+
+    .course-layout {
+      margin-top: 30px;
+      display: grid;
+      grid-template-columns: 285px minmax(0, 1fr);
+      align-items: start;
+      gap: 26px;
+    }
+
+    .lesson-navigation {
+      position: sticky;
+      top: 150px;
+      padding: 23px;
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      background: var(--black-card);
+      box-shadow: var(--shadow);
+    }
+
+    .lesson-navigation h2 {
+      margin: 0 0 20px;
+      color: var(--apricot);
+      font-size: 1.35rem;
+    }
+
+    .lesson-navigation nav {
+      display: grid;
+      gap: 9px;
+    }
+
+    .lesson-navigation a {
+      padding: 11px;
+      display: grid;
+      grid-template-columns: 32px 1fr;
+      align-items: center;
+      gap: 10px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      color: var(--apricot-soft);
+      background: var(--black);
+      font-size: 0.73rem;
+      font-weight: 800;
+    }
+
+    .lesson-navigation a span:first-child {
+      width: 30px;
+      height: 30px;
+      display: grid;
+      place-items: center;
+      border-radius: 7px;
+      color: var(--black);
+      background: var(--orange);
+      font-weight: 900;
+    }
+
+    .lesson-navigation a:hover {
+      color: var(--apricot);
+      border-color: var(--orange);
+    }
+
+    .course-content {
+      display: grid;
+      gap: 23px;
+    }
+
+    .lesson,
+    .completion-panel {
+      padding: clamp(25px, 5vw, 50px);
+      scroll-margin-top: 165px;
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      background:
+        linear-gradient(
+          145deg,
+          rgba(20, 12, 8, 0.98),
+          rgba(7, 4, 2, 0.98)
+        );
+      box-shadow: var(--shadow);
+    }
+
+    .lesson-number {
+      color: rgba(255, 140, 66, 0.19);
+      font-size: 4rem;
+      font-weight: 900;
+    }
+
+    .lesson h2 {
+      margin: 10px 0 19px;
+      color: var(--apricot);
+      font-size: clamp(1.8rem, 4vw, 3rem);
+      line-height: 1.15;
+    }
+
+    .lesson h3 {
+      margin: 28px 0 10px;
+      color: var(--orange);
+    }
+
+    .lesson p,
+    .lesson li {
+      color: var(--apricot-soft);
+      line-height: 1.85;
+    }
+
+    .lesson li {
+      margin: 9px 0;
+    }
+
+    .information-box {
+      margin: 24px 0;
+      padding: 20px;
+      border-left: 5px solid var(--orange);
+      border-radius: 8px;
+      background: rgba(255, 140, 66, 0.09);
+    }
+
+    .information-box strong {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--orange);
+    }
+
+    .property-grid {
+      margin: 24px 0;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 13px;
+    }
+
+    .property-card {
+      padding: 19px;
+      border: 1px solid var(--line);
+      border-radius: 13px;
+      background: var(--black);
+    }
+
+    .property-card strong {
+      color: var(--orange);
+    }
+
+    .lesson-complete,
+    .quiz-option,
+    .action-button {
+      padding: 14px 19px;
+      border: 1px solid var(--orange);
+      border-radius: 999px;
+      color: var(--orange);
+      background: transparent;
+      font-weight: 900;
+    }
+
+    .lesson-complete.completed,
+    .quiz-option.correct,
+    .primary-button {
+      color: var(--black);
+      background: linear-gradient(
+        135deg,
+        var(--apricot),
+        var(--orange)
+      );
+    }
+
+    .quiz-options {
+      display: grid;
+      gap: 12px;
+      margin: 22px 0;
+    }
+
+    .quiz-option {
+      text-align: left;
+      border-radius: 12px;
+    }
+
+    .quiz-option.wrong {
+      opacity: 0.5;
+      border-color: var(--orange-deep);
+    }
+
+    .quiz-result {
+      min-height: 25px;
+      color: var(--orange);
+      font-weight: 900;
+    }
+
+    .completion-panel {
+      text-align: center;
+      border: 2px solid var(--orange);
+    }
+
+    .completion-panel i {
+      color: var(--orange);
+      font-size: 3rem;
+    }
+
+    .completion-panel h2 {
+      color: var(--apricot);
+      font-size: clamp(2rem, 4vw, 3.4rem);
+    }
+
+    .completion-panel p {
+      color: var(--apricot-soft);
+      line-height: 1.8;
+    }
+
+    .completion-actions {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .disabled {
+      pointer-events: none;
+      opacity: 0.4;
+    }
+
+    footer {
+      padding: 40px 5%;
+      text-align: center;
+      border-top: 1px solid var(--line);
+      color: var(--apricot-soft);
+      background: var(--black);
+    }
+
+    @keyframes globeFloat {
+      0%,
+      100% {
+        transform: translateY(0) rotateY(-5deg);
+      }
+
+      50% {
+        transform: translateY(-15px) rotateY(5deg);
+      }
+    }
+
+    @keyframes globeRing {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    @media (max-width: 900px) {
+      .course-hero,
+      .course-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .course-hero {
+        text-align: center;
+      }
+
+      .course-hero p:last-child {
+        margin-inline: auto;
+      }
+
+      .lesson-navigation {
+        position: static;
+      }
+    }
+
+    @media (max-width: 620px) {
+      .site-header {
+        min-height: 80px;
+        padding: 9px 12px;
+      }
+
+      .brand img {
+        width: 54px;
+        height: 54px;
+      }
+
+      .brand-text b {
+        font-size: 0.75rem;
+      }
+
+      .brand-text small {
+        font-size: 0.5rem;
+      }
+
+      .brand-text em {
+        display: none;
+      }
+
+      .language-switcher {
+        position: fixed;
+        right: 10px;
+        bottom: 10px;
+        z-index: 1200;
+        box-shadow: var(--shadow);
+      }
+
+      .course-progress-header {
+        top: 80px;
+      }
+
+      .course-globe {
+        min-height: 350px;
+      }
+
+      .property-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .completion-actions {
+        display: grid;
+      }
+    }
   </style>
 </head>
+
 <body>
-  <header class="site-header"><a class="brand" href="./index.html"><img src="./real-estate-school-logo.png" alt="PRO-MAX Académie"><span class="brand-text"><b>PRO-MAX ACADÉMIE</b><small>REAL ESTATE SCHOOL</small><em>EKOSISTÈM DIJITAL PWOFESYONÈL</em></span></a><div class="languages"><button class="lang" data-lang="en">ENG</button><button class="lang" data-lang="es">ESP</button><button class="lang active" data-lang="ht">KRE</button></div></header>
-  <div class="progress-head"><div class="progress-info"><span id="progressLabel">PWOGRÈ KOU A</span><span id="percent">0%</span></div><div class="track"><div class="bar" id="bar"></div></div></div>
+  <header class="site-header">
+    <a class="brand" href="./index.html">
+      <img
+        src="./real-estate-school-logo.png"
+        alt="PRO-MAX Académie"
+      >
+
+      <span class="brand-text">
+        <b>PRO-MAX ACADÉMIE</b>
+        <small>REAL ESTATE SCHOOL</small>
+        <em data-i18n="ecosystem">
+          EKOSISTÈM DIJITAL PWOFESYONÈL
+        </em>
+      </span>
+    </a>
+
+    <div class="language-switcher">
+      <button class="lang-button" type="button" data-lang="en">
+        ENG
+      </button>
+
+      <button class="lang-button" type="button" data-lang="es">
+        ESP
+      </button>
+
+      <button
+        class="lang-button active"
+        type="button"
+        data-lang="ht"
+      >
+        KRE
+      </button>
+    </div>
+  </header>
+
+  <div class="course-progress-header">
+    <div class="progress-information">
+      <span data-i18n="courseProgress">PWOGRÈ KOU A</span>
+      <span id="progressPercentage">0%</span>
+    </div>
+
+    <div class="progress-track">
+      <div class="progress-bar" id="courseProgressBar"></div>
+    </div>
+  </div>
+
   <main>
-    <section class="hero"><div><p class="eyebrow" id="eyebrow">KOU 01 · NIVO DEBITAN</p><h1 id="title">Fondasyon byen imobilye</h1><p id="intro">Aprann prensip fondamantal pwopriyete, tit, dwa, tranzaksyon ak vokabilè pwofesyonèl endistri byen imobilye a.</p></div><div class="emblem"><i class="fa-solid fa-house"></i></div></section>
-    <section class="layout"><aside class="nav"><h2 id="contentTitle">Kontni kou a</h2><a href="#lesson1"><span>1</span><span>Byen imobilye</span></a><a href="#lesson2"><span>2</span><span>Kalite pwopriyete</span></a><a href="#lesson3"><span>3</span><span>Dwa pwopriyete</span></a><a href="#lesson4"><span>4</span><span>Tit ak deed</span></a><a href="#lesson5"><span>5</span><span>Tranzaksyon</span></a><a href="#lesson6"><span>6</span><span>Evalyasyon</span></a></aside>
-      <div class="content">
-        <article class="lesson" id="lesson1" data-lesson="lesson1"><span class="number">01</span><p class="eyebrow">LESON</p><h2>Kisa byen imobilye ye?</h2><p>Byen imobilye se tè ansanm ak tout amelyorasyon pèmanan ki fikse sou tè a: kay, bilding, wout, kloti ak lòt estrikti.</p><p>Yon pwofesyonèl byen imobilye ede kliyan achte, vann, lwe oswa jere pwopriyete pandan li respekte lwa ak règleman yo.</p><div class="box"><strong>ENPÒTAN</strong>Tè a ak tout sa ki fikse pèmanan sou li konsidere kòm real property.</div><button class="complete">MAKE LESON AN FINI</button></article>
-        <article class="lesson" id="lesson2" data-lesson="lesson2"><span class="number">02</span><p class="eyebrow">LESON</p><h2>Kalite pwopriyete</h2><p>Pwopriyete yo klase dapre itilizasyon yo. Chak kategori gen règleman, finansman ak analiz pa li.</p><div class="cards"><div class="card"><strong>Rezidansyèl</strong><p>Kay, condominium, townhouse ak apatman.</p></div><div class="card"><strong>Komèsyal</strong><p>Biwo, magazen, restoran ak espas biznis.</p></div><div class="card"><strong>Endistriyèl</strong><p>Faktori, depo ak sant distribisyon.</p></div><div class="card"><strong>Tè vid</strong><p>Tè ki poko devlope.</p></div></div><button class="complete">MAKE LESON AN FINI</button></article>
-        <article class="lesson" id="lesson3" data-lesson="lesson3"><span class="number">03</span><p class="eyebrow">LESON</p><h2>Dwa pwopriyete</h2><ul><li>Dwa pou posede ak okipe pwopriyete a.</li><li>Dwa pou itilize pwopriyete a legalman.</li><li>Dwa pou vann, lwe oswa transfere li.</li><li>Dwa pou anpeche lòt moun antre san pèmisyon.</li><li>Dwa pou jwi pwopriyete a san entèferans ilegal.</li></ul><button class="complete">MAKE LESON AN FINI</button></article>
-        <article class="lesson" id="lesson4" data-lesson="lesson4"><span class="number">04</span><p class="eyebrow">LESON</p><h2>Tit, deed ak anrejistreman</h2><h3>Tit</h3><p>Tit la reprezante dwa legal yon moun genyen sou yon pwopriyete.</p><h3>Deed</h3><p>Deed la se dokiman legal ki transfere pwopriyetè yon byen imobilye soti nan yon pati pou ale nan yon lòt.</p><h3>Dosye piblik</h3><p>Deed la nòmalman anrejistre nan dosye piblik konte kote pwopriyete a ye.</p><button class="complete">MAKE LESON AN FINI</button></article>
-        <article class="lesson" id="lesson5" data-lesson="lesson5"><span class="number">05</span><p class="eyebrow">LESON</p><h2>Etap yon tranzaksyon</h2><ul><li>Chwazi yon pwofesyonèl byen imobilye.</li><li>Mete pwopriyete a sou mache oswa kòmanse rechèch.</li><li>Soumèt yon òf oswa kontra acha.</li><li>Negosye pri ak kondisyon yo.</li><li>Fè enspeksyon, appraisal, finansman ak rechèch tit.</li><li>Siyen dokiman final yo nan closing.</li></ul><button class="complete">MAKE LESON AN FINI</button></article>
-        <article class="lesson" id="lesson6" data-lesson="lesson6"><span class="number">06</span><p class="eyebrow">EVALYASYON</p><h2>Teste konesans ou</h2><p>Ki dokiman legal ki transfere pwopriyetè yon byen imobilye?</p><div class="options"><button class="option" data-answer="wrong">Yon appraisal</button><button class="option" data-answer="correct">Yon deed</button><button class="option" data-answer="wrong">Yon foto listing</button></div><p class="result" id="result"></p><button class="complete" id="quizComplete" disabled>FINI EVALYASYON AN</button></article>
-        <section class="completion"><i class="fa-solid fa-graduation-cap fa-3x"></i><h2>Konplete Course 01</h2><p>Fini tout leson yo ak evalyasyon an pou valide Course 01.</p><div class="actions"><button class="action primary" id="validate">VALIDE COURSE 01</button><a class="action disabled" id="next" href="./course-02.html">ALE NAN COURSE 02</a><a class="action" href="./index.html">RETOUNEN SOU HOMEPAGE</a></div><p class="result" id="message"></p></section>
+    <section class="course-hero">
+      <div>
+        <p class="eyebrow" data-i18n="courseEyebrow">
+          KOU 01 · NIVO DEBITAN
+        </p>
+
+        <h1 data-i18n="courseTitle">
+          Fondasyon byen imobilye
+        </h1>
+
+        <p data-i18n="courseIntroduction">
+          Aprann prensip fondamantal pwopriyete, tit, dwa,
+          tranzaksyon ak vokabilè pwofesyonèl endistri byen
+          imobilye a.
+        </p>
+      </div>
+
+      <div class="course-globe">
+        <img
+          src="./promax-new-globe-transparent.png"
+          alt="PRO-MAX Académie globe"
+          onerror="this.onerror=null;this.src='./promax-real-estate-3d-3.png';"
+        >
+      </div>
+    </section>
+
+    <section class="course-layout">
+      <aside class="lesson-navigation">
+        <h2 data-i18n="courseContent">Kontni kou a</h2>
+
+        <nav>
+          <a href="#lesson1">
+            <span>1</span>
+            <span data-i18n="navLesson1">Byen imobilye</span>
+          </a>
+
+          <a href="#lesson2">
+            <span>2</span>
+            <span data-i18n="navLesson2">Kalite pwopriyete</span>
+          </a>
+
+          <a href="#lesson3">
+            <span>3</span>
+            <span data-i18n="navLesson3">Dwa pwopriyete</span>
+          </a>
+
+          <a href="#lesson4">
+            <span>4</span>
+            <span data-i18n="navLesson4">Tit ak deed</span>
+          </a>
+
+          <a href="#lesson5">
+            <span>5</span>
+            <span data-i18n="navLesson5">Tranzaksyon</span>
+          </a>
+
+          <a href="#lesson6">
+            <span>6</span>
+            <span data-i18n="navLesson6">Evalyasyon</span>
+          </a>
+        </nav>
+      </aside>
+
+      <div class="course-content">
+        <article class="lesson" id="lesson1" data-lesson="lesson1">
+          <span class="lesson-number">01</span>
+
+          <p class="eyebrow" data-i18n="lessonLabel">LESON</p>
+
+          <h2 data-i18n="lesson1Title">
+            Kisa byen imobilye ye?
+          </h2>
+
+          <p data-i18n="lesson1Text1">
+            Byen imobilye se tè ansanm ak tout amelyorasyon
+            pèmanan ki fikse sou tè a: kay, bilding, wout,
+            kloti ak lòt estrikti.
+          </p>
+
+          <p data-i18n="lesson1Text2">
+            Yon pwofesyonèl byen imobilye ede kliyan achte,
+            vann, lwe oswa jere pwopriyete pandan li respekte
+            lwa ak règleman yo.
+          </p>
+
+          <div class="information-box">
+            <strong data-i18n="important">ENPÒTAN</strong>
+
+            <span data-i18n="lesson1Important">
+              Tè a ak tout sa ki fikse pèmanan sou li
+              konsidere kòm real property.
+            </span>
+          </div>
+
+          <button class="lesson-complete" type="button">
+            <span data-i18n="markComplete">
+              MAKE LESON AN FINI
+            </span>
+          </button>
+        </article>
+
+        <article class="lesson" id="lesson2" data-lesson="lesson2">
+          <span class="lesson-number">02</span>
+
+          <p class="eyebrow" data-i18n="lessonLabel">LESON</p>
+
+          <h2 data-i18n="lesson2Title">
+            Kalite pwopriyete
+          </h2>
+
+          <p data-i18n="lesson2Text">
+            Pwopriyete yo klase dapre itilizasyon yo.
+            Chak kategori gen règleman, finansman ak analiz pa li.
+          </p>
+
+          <div class="property-grid">
+            <article class="property-card">
+              <strong data-i18n="residential">
+                Rezidansyèl
+              </strong>
+
+              <p data-i18n="residentialText">
+                Kay, condominium, townhouse ak apatman.
+              </p>
+            </article>
+
+            <article class="property-card">
+              <strong data-i18n="commercial">
+                Komèsyal
+              </strong>
+
+              <p data-i18n="commercialText">
+                Biwo, magazen, restoran ak espas biznis.
+              </p>
+            </article>
+
+            <article class="property-card">
+              <strong data-i18n="industrial">
+                Endistriyèl
+              </strong>
+
+              <p data-i18n="industrialText">
+                Faktori, depo ak sant distribisyon.
+              </p>
+            </article>
+
+            <article class="property-card">
+              <strong data-i18n="vacantLand">
+                Tè vid
+              </strong>
+
+              <p data-i18n="vacantLandText">
+                Tè ki poko devlope.
+              </p>
+            </article>
+          </div>
+
+          <button class="lesson-complete" type="button">
+            <span data-i18n="markComplete">
+              MAKE LESON AN FINI
+            </span>
+          </button>
+        </article>
+
+        <article class="lesson" id="lesson3" data-lesson="lesson3">
+          <span class="lesson-number">03</span>
+
+          <p class="eyebrow" data-i18n="lessonLabel">LESON</p>
+
+          <h2 data-i18n="lesson3Title">
+            Dwa pwopriyete
+          </h2>
+
+          <ul>
+            <li data-i18n="right1">
+              Dwa pou posede ak okipe pwopriyete a.
+            </li>
+
+            <li data-i18n="right2">
+              Dwa pou itilize pwopriyete a legalman.
+            </li>
+
+            <li data-i18n="right3">
+              Dwa pou vann, lwe oswa transfere li.
+            </li>
+
+            <li data-i18n="right4">
+              Dwa pou anpeche lòt moun antre san pèmisyon.
+            </li>
+
+            <li data-i18n="right5">
+              Dwa pou jwi pwopriyete a san entèferans ilegal.
+            </li>
+          </ul>
+
+          <button class="lesson-complete" type="button">
+            <span data-i18n="markComplete">
+              MAKE LESON AN FINI
+            </span>
+          </button>
+        </article>
+
+        <article class="lesson" id="lesson4" data-lesson="lesson4">
+          <span class="lesson-number">04</span>
+
+          <p class="eyebrow" data-i18n="lessonLabel">LESON</p>
+
+          <h2 data-i18n="lesson4Title">
+            Tit, deed ak anrejistreman
+          </h2>
+
+          <h3 data-i18n="titleDefinition">Tit</h3>
+
+          <p data-i18n="titleText">
+            Tit la reprezante dwa legal yon moun genyen
+            sou yon pwopriyete.
+          </p>
+
+          <h3 data-i18n="deedDefinition">Deed</h3>
+
+          <p data-i18n="deedText">
+            Deed la se dokiman legal ki transfere pwopriyetè
+            yon byen imobilye soti nan yon pati pou ale nan yon lòt.
+          </p>
+
+          <h3 data-i18n="publicRecords">Dosye piblik</h3>
+
+          <p data-i18n="publicRecordsText">
+            Deed la nòmalman anrejistre nan dosye piblik
+            konte kote pwopriyete a ye.
+          </p>
+
+          <button class="lesson-complete" type="button">
+            <span data-i18n="markComplete">
+              MAKE LESON AN FINI
+            </span>
+          </button>
+        </article>
+
+        <article class="lesson" id="lesson5" data-lesson="lesson5">
+          <span class="lesson-number">05</span>
+
+          <p class="eyebrow" data-i18n="lessonLabel">LESON</p>
+
+          <h2 data-i18n="lesson5Title">
+            Etap yon tranzaksyon
+          </h2>
+
+          <ul>
+            <li data-i18n="transaction1">
+              Chwazi yon pwofesyonèl byen imobilye.
+            </li>
+
+            <li data-i18n="transaction2">
+              Mete pwopriyete a sou mache oswa kòmanse rechèch.
+            </li>
+
+            <li data-i18n="transaction3">
+              Soumèt yon òf oswa kontra acha.
+            </li>
+
+            <li data-i18n="transaction4">
+              Negosye pri ak kondisyon yo.
+            </li>
+
+            <li data-i18n="transaction5">
+              Fè enspeksyon, appraisal, finansman ak rechèch tit.
+            </li>
+
+            <li data-i18n="transaction6">
+              Siyen dokiman final yo nan closing.
+            </li>
+          </ul>
+
+          <button class="lesson-complete" type="button">
+            <span data-i18n="markComplete">
+              MAKE LESON AN FINI
+            </span>
+          </button>
+        </article>
+
+        <article class="lesson" id="lesson6" data-lesson="lesson6">
+          <span class="lesson-number">06</span>
+
+          <p class="eyebrow" data-i18n="assessment">
+            EVALYASYON
+          </p>
+
+          <h2 data-i18n="quizTitle">
+            Teste konesans ou
+          </h2>
+
+          <p data-i18n="quizQuestion">
+            Ki dokiman legal ki transfere pwopriyetè
+            yon byen imobilye?
+          </p>
+
+          <div class="quiz-options">
+            <button
+              class="quiz-option"
+              type="button"
+              data-answer="wrong"
+              data-i18n="answer1"
+            >
+              Yon appraisal
+            </button>
+
+            <button
+              class="quiz-option"
+              type="button"
+              data-answer="correct"
+              data-i18n="answer2"
+            >
+              Yon deed
+            </button>
+
+            <button
+              class="quiz-option"
+              type="button"
+              data-answer="wrong"
+              data-i18n="answer3"
+            >
+              Yon foto listing
+            </button>
+          </div>
+
+         
+              class="action-button primary-button"
+              id="validateCourse"
+              type="button"
+            >
+              <span data-i18n="validateCourse">
+                VALIDE COURSE 01
+              </span>
+            </button>
+
+            <a
+              class="action-button disabled"
+              id="nextCourse"
+              href="./course-02.html"
+            >
+              <span data-i18n="nextCourse">
+                ALE NAN COURSE 02
+              </span>
+            </a>
+
+            <a
+              class="action-button"
+              href="./student-dashboard.html"
+            >
+              <span data-i18n="dashboard">
+                ESPAS ETIDYAN
+              </span>
+            </a>
+          </div>
+
+          <p class="quiz-result" id="courseMessage"></p>
+        </section>
       </div>
     </section>
   </main>
-  <footer><b>PRO-MAX ACADÉMIE · REAL ESTATE SCHOOL</b><br><small>© <span id="year"></span> · Orlando, Florida · 100% Online</small></footer>
+
+  <footer>
+    <b>PRO-MAX ACADÉMIE · REAL ESTATE SCHOOL</b>
+    <br>
+    <small>
+      © <span id="year"></span> · Orlando, Florida · 100% Online
+    </small>
+  </footer>
+
   <script>
     "use strict";
-    const defaults={lesson1:false,lesson2:false,lesson3:false,lesson4:false,lesson5:false,lesson6:false,quizPassed:false,completed:false};
-    let progress;try{progress=Object.assign({},defaults,JSON.parse(localStorage.getItem("promaxCourse01Progress")||"{}"))}catch(e){progress={...defaults}}
-    const save=()=>localStorage.setItem("promaxCourse01Progress",JSON.stringify(progress));
-    function update(){let n=0;document.querySelectorAll(".lesson").forEach(l=>{const k=l.dataset.lesson,b=l.querySelector(".complete");if(progress[k]){n++;b.classList.add("done");b.textContent="LESON FINI"}});const p=Math.round(n/6*100);document.getElementById("percent").textContent=p+"%";document.getElementById("bar").style.width=p+"%";document.getElementById("next").classList.toggle("disabled",!progress.completed)}
-    document.querySelectorAll(".complete").forEach(b=>b.addEventListener("click",()=>{const l=b.closest(".lesson");if(!l)return;const k=l.dataset.lesson;if(k==="lesson6"&&!progress.quizPassed)return;progress[k]=true;save();update()}));
-    document.querySelectorAll(".option").forEach(b=>b.addEventListener("click",()=>{document.querySelectorAll(".option").forEach(x=>x.classList.remove("correct"));if(b.dataset.answer==="correct"){b.classList.add("correct");progress.quizPassed=true;document.getElementById("quizComplete").disabled=false;document.getElementById("result").textContent="Kòrèk! Deed la transfere pwopriyetè a.";save()}else document.getElementById("result").textContent="Pa kòrèk. Eseye ankò."}));
-    document.getElementById("validate").addEventListener("click",()=>{const all=[1,2,3,4,5,6].every(n=>progress["lesson"+n]);const m=document.getElementById("message");if(!all){m.textContent="Fini tout 6 leson yo anvan ou valide kou a.";return}progress.completed=true;save();m.textContent="Course 01 konplete. Course 02 debloke.";update()});
-    document.querySelectorAll(".lang").forEach(b=>b.addEventListener("click",()=>{document.querySelectorAll(".lang").forEach(x=>x.classList.remove("active"));b.classList.add("active")}));document.getElementById("year").textContent=new Date().getFullYear();update();
-  </script>
-</body>
-</html>
+
+    const translations = {
+      ht: {
+        ecosystem: "EKOSISTÈM DIJITAL PWOFESYONÈL",
+        courseProgress: "PWOGRÈ KOU A",
+        courseEyebrow: "KOU 01 · NIVO DEBITAN",
+        courseTitle: "Fondasyon byen imobilye",
+        courseIntroduction:
+          "Aprann prensip fondamantal pwopriyete, tit, dwa, tranzaksyon ak vokabilè pwofesyonèl endistri byen imobilye a.",
+        courseContent: "Kontni kou a",
+        navLesson1: "Byen imobilye",
+        navLesson2: "Kalite pwopriyete",
+        navLesson3: "Dwa pwopriyete",
+        navLesson4: "Tit ak deed",
+        navLesson5: "Tranzaksyon",
+        navLesson6: "Evalyasyon",
+        lessonLabel: "LESON",
+        lesson1Title: "Kisa byen imobilye ye?",
+        lesson1Text1:
+          "Byen imobilye se tè ansanm ak tout amelyorasyon pèmanan ki fikse sou tè a: kay, bilding, wout, kloti ak lòt estrikti.",
+        lesson1Text2:
+          "Yon pwofesyonèl byen imobilye ede kliyan achte, vann, lwe oswa jere pwopriyete pandan li respekte lwa ak règleman yo.",
+        important: "ENPÒTAN",
+        lesson1Important:
+          "Tè a ak tout sa ki fikse pèmanan sou li konsidere kòm real property.",
+        lesson2Title: "Kalite pwopriyete",
+        lesson2Text:
+          "Pwopriyete yo klase dapre itilizasyon yo. Chak kategori gen règleman, finansman ak analiz pa li.",
+        residential: "Rezidansyèl",
+        residentialText:
+          "Kay, condominium, townhouse ak apatman.",
+        commercial: "Komèsyal",
+        commercialText:
+          "Biwo, magazen, restoran ak espas biznis.",
+        industrial: "Endistriyèl",
+        industrialText:
+          "Faktori, depo ak sant distribisyon.",
+        vacantLand: "Tè vid",
+        vacantLandText: "Tè ki poko devlope.",
+        lesson3Title: "Dwa pwopriyete",
+        right1: "Dwa pou posede ak okipe pwopriyete a.",
+        right2: "Dwa pou itilize pwopriyete a legalman.",
+        right3: "Dwa pou vann, lwe oswa transfere li.",
+        right4:
+          "Dwa pou anpeche lòt moun antre san pèmisyon.",
+        right5:
+          "Dwa pou jwi pwopriyete a san entèferans ilegal.",
+        lesson4Title: "Tit, deed ak anrejistreman",
+        titleDefinition: "Tit",
+        titleText:
+          "Tit la reprezante dwa legal yon moun genyen sou yon pwopriyete.",
+        deedDefinition: "Deed",
+        deedText:
+          "Deed la se dokiman legal ki transfere pwopriyetè yon byen imobilye soti nan yon pati pou ale nan yon lòt.",
+        publicRecords: "Dosye piblik",
+        publicRecordsText:
+          "Deed la nòmalman anrejistre nan dosye piblik konte kote pwopriyete a ye.",
+        lesson5Title: "Etap yon tranzaksyon",
+        transaction1:
+          "Chwazi yon pwofesyonèl byen imobilye.",
+        transaction2:
+          "Mete pwopriyete a sou mache oswa kòmanse rechèch.",
+        transaction3:
+          "Soumèt yon òf oswa kontra acha.",
+        transaction4: "Negosye pri ak kondisyon yo.",
+        transaction5:
+          "Fè enspeksyon, appraisal, finansman ak rechèch tit.",
+        transaction6:
+          "Siyen dokiman final yo nan closing.",
+        assessment: "EVALYASYON",
+        quizTitle: "Teste konesans ou",
+        quizQuestion:
+          "Ki dokiman legal ki transfere pwopriyetè yon byen imobilye?",
+        answer1: "Yon appraisal",
+        answer2: "Yon deed",
+        answer3: "Yon foto listing",
+        correct:
+          "Kòrèk! Deed la transfere pwopriyetè a.",
+        incorrect: "Pa kòrèk. Eseye ankò.",
+        markComplete: "MAKE LESON AN FINI",
+        completed: "LESON FINI",
+        completeAssessment: "FINI EVALYASYON AN",
+        completionTitle: "Konplete Course 01",
+        completionText:
+          "Fini tout leson yo ak evalyasyon an pou valide Course 01 epi debloke Course 02.",
+        validateCourse: "VALIDE COURSE 01",
+        nextCourse: "ALE NAN COURSE 02",
+        dashboard: "ESPAS ETIDYAN",
+        finishLessons:
+          "Fini tout 6 leson yo anvan ou valide kou a.",
+        courseCompleted:
+          "Course 01 konplete. Course 02 debloke."
+      },
+
+      en: {
+        ecosystem: "PROFESSIONAL DIGITAL ECOSYSTEM",
+        courseProgress: "COURSE PROGRESS",
+        courseEyebrow: "COURSE 01 · BEGINNER LEVEL",
+        courseTitle: "Real estate fundamentals",
+        courseIntroduction:
+          "Learn the fundamental principles of property, title, rights, transactions, and professional real estate vocabulary.",
+        courseContent: "Course content",
+        navLesson1: "Real estate",
+        navLesson2: "Property types",
+        navLesson3: "Property rights",
+        navLesson4: "Title and deed",
+        navLesson5: "Transactions",
+        navLesson6: "Assessment",
+        lessonLabel: "LESSON",
+        lesson1Title: "What is real estate?",
+        lesson1Text1:
+          "Real estate is land together with all permanent improvements attached to it, including homes, buildings, roads, fences, and other structures.",
+        lesson1Text2:
+          "A real estate professional helps clients buy, sell, lease, or manage property while following applicable laws and regulations.",
+        important: "IMPORTANT",
+        lesson1Important:
+          "Land and everything permanently attached to it are considered real property.",
+        lesson2Title: "Types of property",
+        lesson2Text:
+          "Properties are classified according to their use. Each category has its own rules, financing, and analysis.",
+        residential: "Residential",
+        residentialText:
+          "Homes, condominiums, townhouses, and apartments.",
+        commercial: "Commercial",
+        commercialText:
+          "Offices, stores, restaurants, and business spaces.",
+        industrial: "Industrial",
+        industrialText:
+          "Factories, warehouses, and distribution centers.",
+        vacantLand: "Vacant land",
+        vacantLandText: "Land that has not been developed.",
+        lesson3Title: "Property rights",
+        right1:
+          "The right to possess and occupy the property.",
+        right2: "The right to use the property legally.",
+        right3:
+          "The right to sell, lease, or transfer it.",
+        right4:
+          "The right to exclude others without permission.",
+        right5:
+          "The right to enjoy the property without unlawful interference.",
+        lesson4Title: "Title, deed, and recording",
+        titleDefinition: "Title",
+        titleText:
+          "Title represents the legal rights a person holds in a property.",
+        deedDefinition: "Deed",
+        deedText:
+          "A deed is the legal document that transfers ownership of real estate from one party to another.",
+        publicRecords: "Public records",
+        publicRecordsText:
+          "The deed is normally recorded in the public records of the county where the property is located.",
+        lesson5Title: "Steps in a transaction",
+        transaction1:
+          "Select a real estate professional.",
+        transaction2:
+          "List the property or begin the property search.",
+        transaction3:
+          "Submit an offer or purchase agreement.",
+        transaction4:
+          "Negotiate the price and conditions.",
+        transaction5:
+          "Complete inspection, appraisal, financing, and title research.",
+        transaction6:
+          "Sign the final documents at closing.",
+        assessment: "ASSESSMENT",
+        quizTitle: "Test your knowledge",
+        quizQuestion:
+          "Which legal document transfers ownership of real estate?",
+        answer1: "An appraisal",
+        answer2: "A deed",
+        answer3: "A listing photograph",
+        correct:
+          "Correct! The deed transfers ownership.",
+        incorrect: "Incorrect. Try again.",
+        markComplete: "MARK LESSON COMPLETE",
+        completed: "LESSON COMPLETE",
+        completeAssessment: "COMPLETE ASSESSMENT",
+        completionTitle: "Complete Course 01",
+        completionText:
+          "Finish every lesson and the assessment to validate Course 01 and unlock Course 02.",
+        validateCourse: "VALIDATE COURSE 01",
+        nextCourse: "GO TO COURSE 02",
+        dashboard: "STUDENT DASHBOARD",
+        finishLessons:
+          "Complete all 6 lessons before validating the course.",
+        courseCompleted:
+          "Course 01 completed. Course 02 is unlocked."
+      },
+
+      es: {
+        ecosystem: "ECOSISTEMA DIGITAL PROFESIONAL",
+        courseProgress: "PROGRESO DEL CURSO",
+        courseEyebrow: "CURSO 01 · NIVEL PRINCIPIANTE",
+        courseTitle: "Fundamentos de bienes raíces",
+        courseIntroduction:
+          "Aprende los principios fundamentales de propiedad, título, derechos, transacciones y vocabulario profesional de bienes raíces.",
+        courseContent: "Contenido del curso",
+        navLesson1: "Bienes raíces",
+        navLesson2: "Tipos de propiedad",
+        navLesson3: "Derechos de propiedad",
+        navLesson4: "Título y escritura",
+        navLesson5: "Transacciones",
+        navLesson6: "Evaluación",
+        lessonLabel: "LECCIÓN",
+        lesson1Title: "¿Qué son los bienes raíces?",
+        lesson1Text1:
+          "Los bienes raíces son el terreno y todas las mejoras permanentes unidas a él, incluidas casas, edificios, carreteras, cercas y otras estructuras.",
+        lesson1Text2:
+          "Un profesional de bienes raíces ayuda a los clientes a comprar, vender, alquilar o administrar propiedades respetando las leyes aplicables.",
+        important: "IMPORTANTE",
+        lesson1Important:
+          "El terreno y todo lo unido permanentemente a él se consideran propiedad inmueble.",
+        lesson2Title: "Tipos de propiedad",
+        lesson2Text:
+          "Las propiedades se clasifican según su uso. Cada categoría tiene sus propias reglas, financiamiento y análisis.",
+        residential: "Residencial",
+        residentialText:
+          "Casas, condominios, townhouses y apartamentos.",
+        commercial: "Comercial",
+        commercialText:
+          "Oficinas, tiendas, restaurantes y espacios comerciales.",
+        industrial: "Industrial",
+        industrialText:
+          "Fábricas, almacenes y centros de distribución.",
+        vacantLand: "Terreno vacío",
+        vacantLandText:
+          "Terreno que aún no ha sido desarrollado.",
+        lesson3Title: "Derechos de propiedad",
+        right1:
+          "Derecho a poseer y ocupar la propiedad.",
+        right2:
+          "Derecho a utilizar legalmente la propiedad.",
+        right3:
+          "Derecho a vender, alquilar o transferirla.",
+        right4:
+          "Derecho a impedir la entrada sin permiso.",
+        right5:
+          "Derecho a disfrutar la propiedad sin interferencia ilegal.",
+        lesson4Title: "Título, escritura y registro",
+        titleDefinition: "Título",
+        titleText:
+          "El título representa los derechos legales que una persona posee sobre una propiedad.",
+        deedDefinition: "Escritura",
+        deedText:
+          "La escritura es el documento legal que transfiere la propiedad inmobiliaria de una parte a otra.",
+        publicRecords: "Registros públicos",
+        publicRecordsText:
+          "La escritura normalmente se registra en los registros públicos del condado donde se encuentra la propiedad.",
+        lesson5Title: "Etapas de una transacción",
+        transaction1:
+          "Seleccionar un profesional inmobiliario.",
+        transaction2:
+          "Publicar la propiedad o comenzar la búsqueda.",
+        transaction3:
+          "Presentar una oferta o contrato de compraventa.",
+        transaction4:
+          "Negociar el precio y las condiciones.",
+        transaction5:
+          "Completar la inspección, tasación, financiamiento e investigación del título.",
+        transaction6:
+          "Firmar los documentos finales durante el cierre.",
+        assessment: "EVALUACIÓN",
+        quizTitle: "Evalúa tus conocimientos",
+        quizQuestion:
+          "¿Qué documento legal transfiere la propiedad de un bien inmueble?",
+        answer1: "Una tasación",
+        answer2: "Una escritura",
+        answer3: "Una fotografía del anuncio",
+        correct:
+          "¡Correcto! La escritura transfiere la propiedad.",
+        incorrect: "Incorrecto. Inténtalo de nuevo.",
+        markComplete: "MARCAR LECCIÓN COMPLETA",
+        completed: "LECCIÓN COMPLETA",
+        completeAssessment: "COMPLETAR EVALUACIÓN",
+        completionTitle: "Completar Curso 01",
+        completionText:
+          "Termina todas las lecciones y la evaluación para validar el Curso 01 y desbloquear el Curso 02.",
+        validateCourse: "VALIDAR CURSO 01",
+        nextCourse: "IR AL CURSO 02",
+        dashboard: "PANEL DEL ESTUDIANTE",
+        finishLessons:
+          "Completa las 6 lecciones antes de validar el curso.",
+        courseCompleted:
+          "Curso 01 completado. El Curso 02 está desbloqueado."
+      }
+    };
+
+    const defaultProgress = {
+      lesson1: false,
+      lesson2: false,
+      lesson3: false,
+      lesson4: false,
+      lesson5: false,
+      lesson6: false,
+      quizPassed: false,
+      completed: false
+    };
+
+    let currentLanguage =
+      localStorage.getItem("promaxRealEstateLanguage") || "ht";
+
+    let courseProgress;
+
+    try {
+      courseProgress = Object.assign(
+        {},
+        defaultProgress,
+        JSON.parse(
+          localStorage.getItem("promaxCourse01Progress") || "{}"
+        )
+      );
+    } catch (error) {
+      courseProgress = Object.assign({}, defaultProgress);
+    }
+
+    function saveProgress() {
+      localStorage.setItem(
+        "promaxCourse01Progress",
+        JSON.stringify(courseProgress)
+      );
+    }
+
+    function translatePage(language) {
+      if (!translations[language]) {
+        language = "ht";
+      }
+
+      currentLanguage = language;
+      document.documentElement.lang = language;
+
+      document
+        .querySelectorAll("[data-i18n]")
+        .forEach(function (element) {
+          const key = element.getAttribute("data-i18n");
+          const value = translations[language][key];
+
+          if (value !== undefined) {
+            element.textContent = value;
+          }
+        });
+
+      document
+        .querySelectorAll(".lang-button")
+        .forEach(function (button) {
+          button.classList.toggle(
+            "active",
+            button.getAttribute("data-lang") === language
+          );
+        });
+
+      localStorage.setItem(
+        "promaxRealEstateLanguage",
+        language
+      );
+
+      updateInterface();
+    }
+
+    function updateInterface() {
+      let completedLessons = 0;
+
+      document
+        .querySelectorAll(".lesson")
+        .forEach(function (lesson) {
+          const lessonKey =
+            lesson.getAttribute("data-lesson");
+
+          const button =
+            lesson.querySelector(".lesson-complete");
+
+          if (courseProgress[lessonKey]) {
+            completedLessons += 1;
+            button.classList.add("completed");
+            button.querySelector("span").textContent =
+              translations[currentLanguage].completed;
+          } else {
+            button.classList.remove("completed");
+
+            button.querySelector("span").textContent =
+              lessonKey === "lesson6"
+                ? translations[currentLanguage].completeAssessment
+                : translations[currentLanguage].markComplete;
+          }
+        });
+
+      const percentage =
+        Math
