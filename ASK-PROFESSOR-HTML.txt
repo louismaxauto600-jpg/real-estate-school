@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ht">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#070301">
+  <title>Ask the Professor | PRO-MAX Académie</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{--orange:#ff7300;--apricot:#ffad66;--dark:#070301;--card:#100703;--line:rgba(255,115,0,.3);--muted:#d59672}
+    *{box-sizing:border-box}body{margin:0;min-height:100vh;color:var(--apricot);background:radial-gradient(circle at 12% 15%,rgba(255,115,0,.17),transparent 28%),linear-gradient(145deg,#020100,#130701 55%,#020100);font-family:Montserrat,sans-serif}
+    a{color:inherit;text-decoration:none}button,textarea,select{font:inherit}.top{min-height:92px;padding:12px clamp(18px,5vw,70px);display:flex;align-items:center;justify-content:space-between;gap:18px;border-bottom:1px solid var(--line);background:rgba(3,1,0,.94)}
+    .brand{display:flex;align-items:center;gap:14px}.brand img{width:68px;height:68px;object-fit:contain}.brand span{display:grid;gap:4px}.brand b{font:800 clamp(.95rem,2vw,1.35rem) Cinzel,serif}.brand small{color:var(--orange);font-weight:900;letter-spacing:.12em}
+    .back{padding:13px 18px;border:1px solid var(--orange);color:var(--orange);font-weight:900}.langs{display:flex;padding:4px;border:1px solid var(--line);border-radius:999px}.langs button{padding:9px 12px;border:0;border-radius:999px;color:var(--orange);background:transparent;font-weight:900}.langs button.active{color:#000;background:linear-gradient(135deg,var(--apricot),var(--orange))}
+    main{width:min(1180px,92%);margin:auto;padding:48px 0 80px}.hero{display:grid;grid-template-columns:380px 1fr;border:1px solid var(--line);background:rgba(7,3,1,.92);box-shadow:0 28px 70px rgba(0,0,0,.55)}
+    .portrait{position:relative;min-height:560px;overflow:hidden;background:#080301;isolation:isolate}.portrait::before{content:"";position:absolute;z-index:2;inset:0;pointer-events:none;background:linear-gradient(110deg,transparent 25%,rgba(255,173,102,.2) 43%,transparent 58%);transform:translateX(-140%);animation:professorLight 5.5s ease-in-out infinite}.portrait::after{content:"";position:absolute;z-index:3;inset:auto 0 0;height:35%;pointer-events:none;background:linear-gradient(transparent,rgba(3,1,0,.88))}.portrait img{width:100%;height:100%;display:block;object-fit:cover;object-position:center top;filter:saturate(.85) contrast(1.04) drop-shadow(0 0 18px rgba(255,115,0,.22));transform-origin:50% 30%;animation:professorAlive 8s ease-in-out infinite alternate;will-change:transform,filter}
+    @keyframes professorAlive{0%{transform:scale(1.01) translate3d(0,0,0);filter:saturate(.82) contrast(1.03) drop-shadow(0 0 10px rgba(255,115,0,.15))}45%{transform:scale(1.045) translate3d(-4px,-7px,0);filter:saturate(.95) contrast(1.06) drop-shadow(0 0 24px rgba(255,115,0,.35))}100%{transform:scale(1.075) translate3d(5px,-12px,0);filter:saturate(.88) contrast(1.08) drop-shadow(0 0 34px rgba(255,115,0,.46))}}@keyframes professorLight{0%,20%{transform:translateX(-140%)}55%,100%{transform:translateX(150%)}}
+    .intro{padding:clamp(30px,5vw,65px);display:flex;flex-direction:column;justify-content:center}.eyebrow{margin:0;color:var(--orange);font-weight:900;letter-spacing:.2em}.intro h1{margin:14px 0 8px;font:800 clamp(2.2rem,5vw,4.6rem)/1.05 Cinzel,serif}.alias{margin:0 0 22px;color:var(--orange);font-weight:900;letter-spacing:.13em}.intro>p:last-child{color:var(--muted);line-height:1.8}
+    .desk{margin-top:28px;padding:clamp(24px,5vw,48px);border:1px solid var(--line);background:var(--card)}.desk h2{margin:0 0 10px;font:700 clamp(1.7rem,4vw,2.7rem) Cinzel,serif}.desk-note{margin:0 0 24px;color:var(--muted);line-height:1.6}.row{display:grid;grid-template-columns:180px 1fr;gap:14px;margin-bottom:14px}select,textarea{width:100%;border:1px solid var(--line);color:var(--apricot);background:#050201}select{padding:15px}textarea{min-height:145px;padding:18px;resize:vertical;line-height:1.6}.ask{width:100%;padding:17px;border:1px solid var(--orange);color:#000;background:linear-gradient(135deg,var(--apricot),var(--orange));font-weight:900;cursor:pointer}.answer{display:none;margin-top:22px;padding:22px;border-left:4px solid var(--orange);background:rgba(255,115,0,.08);line-height:1.75}.answer.show{display:block}.answer strong{display:block;margin-bottom:8px;color:var(--orange)}.voice-controls{display:none;align-items:center;gap:12px;margin-top:16px}.voice-controls.show{display:flex}.voice-button{padding:11px 15px;border:1px solid var(--orange);color:#050201;background:var(--orange);font-weight:900;cursor:pointer}.voice-status{color:var(--muted);font-size:.76rem}.speaking .portrait img{animation-duration:1.8s;filter:saturate(1) contrast(1.08) drop-shadow(0 0 34px rgba(255,115,0,.58))}
+    .mic-row{display:flex;align-items:center;gap:12px;margin:0 0 16px}.mic-button{padding:12px 16px;border:1px solid var(--orange);color:var(--orange);background:#080301;font-weight:900;cursor:pointer}.mic-button.recording{color:#050201;background:var(--orange);animation:micPulse 1s ease-in-out infinite}.mic-status{color:var(--muted);font-size:.82rem}.quick{display:flex;flex-wrap:wrap;gap:9px;margin:16px 0}.quick button{padding:10px 13px;border:1px solid var(--line);color:var(--apricot);background:#080301;cursor:pointer}.quick button:hover{border-color:var(--orange)}.history-panel{margin-top:28px;padding:clamp(20px,4vw,34px);border:1px solid var(--line);background:#080301}.history-head{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-bottom:18px}.history-head h3{margin:0;font:700 clamp(1.25rem,3vw,1.8rem) Cinzel,serif}.clear-history{padding:9px 12px;border:1px solid var(--line);color:var(--orange);background:transparent;font-weight:800;cursor:pointer}.history-list{display:grid;gap:14px}.history-empty{margin:0;color:var(--muted)}.history-item{padding:16px;border-left:3px solid var(--orange);background:rgba(255,115,0,.06)}.history-question{margin:0 0 9px;color:var(--apricot);font-weight:800}.history-answer{margin:0;color:var(--muted);line-height:1.65;white-space:pre-wrap}.history-meta{display:block;margin-top:10px;color:#a96b49;font-size:.7rem}.notice{margin-top:18px;color:#a96b49;font-size:.78rem;line-height:1.5}@keyframes micPulse{50%{box-shadow:0 0 0 8px rgba(255,115,0,.18)}}
+    @media(max-width:780px){.top{flex-wrap:wrap}.brand{width:100%}.hero{grid-template-columns:1fr}.portrait{min-height:430px}.row{grid-template-columns:1fr}.back{order:3}.langs{margin-left:auto}}
+  </style>
+</head>
+<body>
+  <header class="top">
+    <a class="brand" href="index.html"><img src="real-estate-school-logo.png" alt="PRO-MAX Académie"><span><b>PRO-MAX ACADÉMIE</b><small>REAL ESTATE SCHOOL</small></span></a>
+    <a class="back" href="index.html" id="back">← RETOUNEN</a>
+    <div class="langs"><button data-lang="en">ENG</button><button data-lang="es">ESP</button><button class="active" data-lang="ht">KRE</button></div>
+  </header>
+  <main>
+    <section class="hero">
+      <div class="portrait"><img src="professor-max-louis.png" alt="Professor Max Louis alias Le Baron"></div>
+      <div class="intro"><p class="eyebrow" id="role">PWOFESÈ OFISYÈL</p><h1>MAX LOUIS</h1><p class="alias">ALIAS LE BARON</p><p id="bio">Mwen la pou ede w konprann leson PRO-MAX Académie yo, revize konsèp kle yo epi prepare w pou evalyasyon an.</p></div>
+    </section>
+    <section class="desk">
+      <h2 id="title">Mande Pwofesè a</h2><p class="desk-note" id="note">Chwazi kou a epi ekri kesyon ou. Pwofesè a ap ba w yon eksplikasyon ki baze sou materyèl pwogram nan.</p>
+      <div class="row"><select id="course"><option value="general">Tout kou yo</option><option value="property">01 · Fondasyon</option><option value="law">02 · Lwa ak etik</option><option value="finance">03 · Finansman</option><option value="valuation">04 · Valyasyon</option><option value="marketing">05 · Maketing</option><option value="exam">06 · Preparasyon egzamen</option></select><textarea id="question" placeholder="Ekri kesyon ou isit la..."></textarea></div>
+      <div class="mic-row"><button class="mic-button" id="micButton" type="button">🎙️ PALE KESYON AN</button><span class="mic-status" id="micStatus">Peze bouton an pou kòmanse pale.</span></div>
+      <div class="quick"><button data-q="Kisa yon deed ye?">Kisa yon deed ye?</button><button data-q="Kisa fiduciary duty ye?">Fiduciary duty?</button><button data-q="Kijan down payment mache?">Down payment?</button><button data-q="Kisa appraisal ye?">Appraisal?</button></div>
+      <button class="ask" id="ask">MANDE PWOFESÈ MAX</button>
+      <div class="answer" id="answer" aria-live="polite"><strong id="answerTitle">REPONS PWOFESÈ A</strong><span id="answerText"></span><div class="voice-controls" id="voiceControls"><button class="voice-button" id="speakButton" type="button">🔊 KOUTE REPONS LAN</button><span class="voice-status" id="voiceStatus">Vwa sa a pwodwi pa AI.</span></div><audio id="professorAudio" preload="none"></audio></div>
+      <p class="notice" id="notice">Zouti edikatif sa a pa ranplase konsèy legal, finansye oswa yon pwofesyonèl ki gen lisans.</p>
+      <section class="history-panel" aria-live="polite"><div class="history-head"><h3 id="historyTitle">Istwa konvèsasyon</h3><button class="clear-history" id="clearHistory" type="button">EFASE ISTWA A</button></div><div class="history-list" id="historyList"></div></section>
+    </section>
+  </main>
+  <script>
+  'use strict';
+  const back=document.getElementById('back');
+  const role=document.getElementById('role');
+  const bio=document.getElementById('bio');
+  const title=document.getElementById('title');
+  const note=document.getElementById('note');
+  const question=document.getElementById('question');
+  const course=document.getElementById('course');
+  const ask=document.getElementById('ask');
+  const answer=document.getElementById('answer');
+  const answerTitle=document.getElementById('answerTitle');
+  const answerText=document.getElementById('answerText');
+  const notice=document.getElementById('notice');
+  const voiceControls=document.getElementById('voiceControls');
+  const speakButton=document.getElementById('speakButton');
+  const voiceStatus=document.getElementById('voiceStatus');
+  const professorAudio=document.getElementById('professorAudio');
+  const micButton=document.getElementById('micButton');
+  const micStatus=document.getElementById('micStatus');
+  const historyTitle=document.getElementById('historyTitle');
+  const historyList=document.getElementById('historyList');
+  const clearHistory=document.getElementById('clearHistory');
+  const copy={ht:{back:'← RETOUNEN',role:'PWOFESÈ OFISYÈL',bio:'Mwen la pou ede w konprann leson PRO-MAX Académie yo, revize konsèp kle yo epi prepare w pou evalyasyon an.',title:'Mande Pwofesè a',note:'Chwazi kou a epi ekri kesyon ou. Pwofesè a ap ba w yon eksplikasyon ki baze sou materyèl pwogram nan.',placeholder:'Ekri kesyon ou isit la...',ask:'MANDE PWOFESÈ MAX',answer:'REPONS PWOFESÈ A',empty:'Tanpri ekri yon kesyon anvan.',unknown:'Bon kesyon. Pou yon repons pi presi, site nimewo kou a oswa konsèp espesifik ou vle revize a.',notice:'Zouti edikatif sa a pa ranplase konsèy legal, finansye oswa yon pwofesyonèl ki gen lisans.'},en:{back:'← RETURN',role:'OFFICIAL PROFESSOR',bio:'I am here to help you understand the PRO-MAX Academy lessons, review key concepts, and prepare for your assessments.',title:'Ask the Professor',note:'Select a course and enter your question. The professor will provide an explanation based on the program material.',placeholder:'Enter your question here...',ask:'ASK PROFESSOR MAX',answer:"PROFESSOR'S ANSWER",empty:'Please enter a question first.',unknown:'Good question. For a more precise answer, include the course number or the specific concept you want to review.',notice:'This educational tool does not replace legal or financial advice or a licensed professional.'},es:{back:'← REGRESAR',role:'PROFESOR OFICIAL',bio:'Estoy aquí para ayudarle a comprender las lecciones de PRO-MAX Academy, repasar conceptos clave y prepararse para las evaluaciones.',title:'Pregunte al profesor',note:'Seleccione un curso y escriba su pregunta. El profesor dará una explicación basada en el material del programa.',placeholder:'Escriba su pregunta aquí...',ask:'PREGUNTAR AL PROFESOR MAX',answer:'RESPUESTA DEL PROFESOR',empty:'Escriba una pregunta primero.',unknown:'Buena pregunta. Para una respuesta más precisa, incluya el número del curso o el concepto específico que desea repasar.',notice:'Esta herramienta educativa no reemplaza asesoramiento legal o financiero ni a un profesional autorizado.'}};
+  const answers={deed:{ht:'Yon deed se dokiman legal ki transfere pwopriyetè yon byen imobilye soti nan yon pati bay yon lòt. Tit la se dwa legal sou pwopriyete a; deed la se dokiman transfè a.',en:'A deed is the legal document that transfers real-estate ownership from one party to another. Title is the legal right to the property; the deed is the transfer document.',es:'Una escritura es el documento legal que transfiere la propiedad inmobiliaria de una parte a otra. El título es el derecho legal; la escritura es el documento de transferencia.'},fiduciary:{ht:'Fiduciary duty se obligasyon ajan an genyen pou aji nan pi bon enterè kliyan an: lwayote, konfidansyalite, obeyisans legal, divilgasyon, kontablite ak swen pwofesyonèl.',en:"Fiduciary duty requires an agent to act in the client's best interest through loyalty, confidentiality, lawful obedience, disclosure, accounting, and professional care.",es:'El deber fiduciario exige que el agente actúe en el mejor interés del cliente mediante lealtad, confidencialidad, obediencia legal, divulgación, contabilidad y cuidado profesional.'},down:{ht:'Down payment se pati pri acha a achtè a peye davans. Rès la anjeneral finanse ak yon prè ipotèk. Kantite a depann de kalite prè a ak kondisyon kreditè a.',en:'A down payment is the portion of the purchase price paid upfront. The remainder is generally financed with a mortgage, depending on the loan program and lender requirements.',es:'El pago inicial es la parte del precio de compra que se paga por adelantado. El resto normalmente se financia con una hipoteca.'},appraisal:{ht:'Yon appraisal se yon estimasyon pwofesyonèl sou valè mache yon pwopriyete. Li ede kreditè ak pati yo verifye si valè a sipòte pri ak kantite prè a.',en:'An appraisal is a professional estimate of a property’s market value. It helps confirm whether the value supports the price and loan amount.',es:'Una tasación es una estimación profesional del valor de mercado de una propiedad. Ayuda a confirmar si el valor respalda el precio y el préstamo.'}};
+  let lang=localStorage.getItem('promaxRealEstateLanguage')||'ht';
+  const historyKey='promaxProfessorHistory';
+  let conversation=[];
+  let savedHistory=readHistory();
+  let mediaRecorder=null;
+  let audioChunks=[];
+  let micTimer=null;
+  function translate(l){lang=copy[l]?l:'ht';document.documentElement.lang=lang;const c=copy[lang];back.textContent=c.back;role.textContent=c.role;bio.textContent=c.bio;title.textContent=c.title;note.textContent=c.note;question.placeholder=c.placeholder;ask.textContent=c.ask;answerTitle.textContent=c.answer;notice.textContent=c.notice;historyTitle.textContent=lang==='ht'?'Istwa konvèsasyon':lang==='es'?'Historial de conversación':'Conversation history';clearHistory.textContent=lang==='ht'?'EFASE ISTWA A':lang==='es'?'BORRAR HISTORIAL':'CLEAR HISTORY';micButton.textContent=mediaRecorder&&mediaRecorder.state==='recording'?micCopy('stop'):micCopy('start');if(!mediaRecorder||mediaRecorder.state!=='recording')micStatus.textContent=micCopy('ready');document.querySelectorAll('[data-lang]').forEach(b=>b.classList.toggle('active',b.dataset.lang===lang));localStorage.setItem('promaxRealEstateLanguage',lang);renderHistory()}
+  document.querySelectorAll('[data-lang]').forEach(b=>b.addEventListener('click',()=>translate(b.dataset.lang)));document.querySelectorAll('[data-q]').forEach(b=>b.addEventListener('click',()=>{question.value=b.dataset.q;question.focus()}));
+  function micCopy(key){const words={ht:{start:'🎙️ PALE KESYON AN',stop:'⏹️ FINI ANREJISTRE',ready:'Peze bouton an pou kòmanse pale.',listening:'M ap koute... Peze ankò lè ou fini.',working:'M ap ekri kesyon ou...',done:'Kesyon an pare. Verifye li epi voye li.',denied:'Pèmèt mikwofòn nan nan navigatè a pou itilize opsyon sa a.',error:'Mwen pa t kapab transkri vwa a. Eseye ankò.'},en:{start:'🎙️ SPEAK YOUR QUESTION',stop:'⏹️ STOP RECORDING',ready:'Press the button to start speaking.',listening:'Listening... Press again when finished.',working:'Writing your question...',done:'Your question is ready. Review and submit it.',denied:'Allow microphone access in your browser to use this option.',error:'I could not transcribe the audio. Please try again.'},es:{start:'🎙️ DIGA SU PREGUNTA',stop:'⏹️ TERMINAR GRABACIÓN',ready:'Presione el botón para comenzar a hablar.',listening:'Escuchando... Presione de nuevo al terminar.',working:'Escribiendo su pregunta...',done:'Su pregunta está lista. Revísela y envíela.',denied:'Permita el acceso al micrófono en el navegador.',error:'No pude transcribir el audio. Inténtelo de nuevo.'}};return words[lang][key]}
+  function blobToBase64(blob){return new Promise((resolve,reject)=>{const reader=new FileReader();reader.onload=()=>resolve(String(reader.result).split(',')[1]);reader.onerror=reject;reader.readAsDataURL(blob)})}
+  async function transcribeAudio(blob){micStatus.textContent=micCopy('working');micButton.disabled=true;try{const audio=await blobToBase64(blob);const response=await fetch('/.netlify/functions/transcribe-professor-question',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({audio,mimeType:blob.type||'audio/webm',language:lang})});const data=await response.json();if(!response.ok||!data.text)throw new Error(data.error||'Transcription failed');question.value=data.text.trim();question.focus();micStatus.textContent=micCopy('done')}catch(error){micStatus.textContent=micCopy('error')}finally{micButton.disabled=false;micButton.textContent=micCopy('start')}}
+  async function toggleMicrophone(){if(mediaRecorder&&mediaRecorder.state==='recording'){mediaRecorder.stop();return}if(!navigator.mediaDevices||!window.MediaRecorder){micStatus.textContent=micCopy('error');return}try{const stream=await navigator.mediaDevices.getUserMedia({audio:true});audioChunks=[];const preferred=MediaRecorder.isTypeSupported('audio/webm;codecs=opus')?'audio/webm;codecs=opus':'audio/webm';mediaRecorder=new MediaRecorder(stream,{mimeType:preferred});mediaRecorder.addEventListener('dataavailable',event=>{if(event.data.size)audioChunks.push(event.data)});mediaRecorder.addEventListener('stop',()=>{clearTimeout(micTimer);micButton.classList.remove('recording');stream.getTracks().forEach(track=>track.stop());const blob=new Blob(audioChunks,{type:mediaRecorder.mimeType||'audio/webm'});if(blob.size)transcribeAudio(blob);else micStatus.textContent=micCopy('error')});mediaRecorder.start();micButton.classList.add('recording');micButton.textContent=micCopy('stop');micStatus.textContent=micCopy('listening');micTimer=setTimeout(()=>{if(mediaRecorder&&mediaRecorder.state==='recording')mediaRecorder.stop()},45000)}catch(error){micStatus.textContent=micCopy('denied')}}
+  micButton.addEventListener('click',toggleMicrophone);
+  function readHistory(){try{const value=JSON.parse(localStorage.getItem(historyKey)||'[]');return Array.isArray(value)?value.slice(-20):[]}catch(error){return[]}}
+  function saveHistory(){localStorage.setItem(historyKey,JSON.stringify(savedHistory.slice(-20)))}
+  function renderHistory(){historyList.textContent='';if(!savedHistory.length){const empty=document.createElement('p');empty.className='history-empty';empty.textContent=lang==='ht'?'Poko gen konvèsasyon ki anrejistre.':lang==='es'?'Aún no hay conversaciones guardadas.':'No saved conversations yet.';historyList.appendChild(empty);return}savedHistory.slice().reverse().forEach(item=>{const card=document.createElement('article');card.className='history-item';const q=document.createElement('p');q.className='history-question';q.textContent=(lang==='ht'?'Kesyon: ':lang==='es'?'Pregunta: ':'Question: ')+item.question;const a=document.createElement('p');a.className='history-answer';a.textContent=item.answer;const meta=document.createElement('small');meta.className='history-meta';meta.textContent=new Date(item.date).toLocaleString();card.append(q,a,meta);historyList.appendChild(card)})}
+  clearHistory.addEventListener('click',()=>{savedHistory=[];conversation=[];saveHistory();renderHistory()});
+  async function speakAnswer(){
+    const spokenText=answerText.textContent.trim();if(!spokenText)return;
+    speakButton.disabled=true;voiceStatus.textContent=lang==='ht'?'Vwa a ap prepare...':lang==='es'?'Preparando la voz...':'Preparing voice...';
+    try{
+      const voiceResponse=await fetch('/.netlify/functions/professor-voice',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({text:spokenText,language:lang})});
+      if(!voiceResponse.ok)throw new Error('Voice unavailable');
+      if(professorAudio.src)URL.revokeObjectURL(professorAudio.src);
+      professorAudio.src=URL.createObjectURL(await voiceResponse.blob());document.body.classList.add('speaking');await professorAudio.play();
+      voiceStatus.textContent=lang==='ht'?'Pwofesè Max ap pale.':lang==='es'?'El profesor Max está hablando.':'Professor Max is speaking.';
+    }catch(error){voiceStatus.textContent=lang==='ht'?'Vwa a pa disponib kounye a.':lang==='es'?'La voz no está disponible.':'Voice is unavailable right now.'}finally{speakButton.disabled=false}
+  }
+  speakButton.addEventListener('click',speakAnswer);professorAudio.addEventListener('ended',()=>{document.body.classList.remove('speaking');voiceStatus.textContent=lang==='ht'?'Vwa sa a pwodwi pa AI.':lang==='es'?'Esta voz es generada por IA.':'This voice is AI-generated.'});
+  ask.addEventListener('click',async()=>{
+    const originalQuestion=question.value.trim();
+    if(!originalQuestion){answerText.textContent=copy[lang].empty;answer.classList.add('show');return}
+    ask.disabled=true;
+    ask.textContent=lang==='ht'?'PWOFESÈ A AP REFLECHI...':lang==='es'?'EL PROFESOR ESTÁ PENSANDO...':'PROFESSOR IS THINKING...';
+    answer.classList.add('show');
+    answerText.textContent=lang==='ht'?'Tanpri tann...':lang==='es'?'Espere por favor...':'Please wait...';
+    try{
+      const response=await fetch('/.netlify/functions/ask-professor',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({question:originalQuestion,language:lang,course:course.value,history:conversation})});
+      const data=await response.json();
+      if(!response.ok)throw new Error(data.error||'AI unavailable');
+      answerText.textContent=data.answer;voiceControls.classList.add('show');
+      conversation.push({role:'user',content:originalQuestion},{role:'assistant',content:data.answer});
+      conversation=conversation.slice(-6);
+      savedHistory.push({question:originalQuestion,answer:data.answer,course:course.value,language:lang,date:new Date().toISOString()});saveHistory();renderHistory();
+      question.value='';
+    }catch(error){
+      const q=originalQuestion.toLowerCase();let key='';
+      if(/deed|escritura|tit transf/.test(q))key='deed';else if(/fiduci|lwayote|lealtad|loyalty/.test(q))key='fiduciary';else if(/down|initial|davans|enganche/.test(q))key='down';else if(/appraisal|tasasyon|tasaci|evalyasyon val/.test(q))key='appraisal';
+      answerText.textContent=key?answers[key][lang]:(lang==='ht'?'Sistèm AI a poko konekte. Mete OPENAI_API_KEY nan Netlify pou aktive tout kesyon yo.':lang==='es'?'El sistema de IA aún no está conectado. Configure OPENAI_API_KEY en Netlify.':'The AI system is not connected yet. Add OPENAI_API_KEY in Netlify to activate all questions.');
+    }finally{
+      ask.disabled=false;ask.textContent=copy[lang].ask;answer.scrollIntoView({behavior:'smooth',block:'nearest'});
+    }
+  });translate(lang);
+  </script>
+</body>
+</html>
