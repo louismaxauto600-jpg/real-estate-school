@@ -1,39 +1,30 @@
+
 <!DOCTYPE html>
-<html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>PRO-MAX ACADEMY</title>
+<html lang="ht">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>PRO-MAX - FIXED GLOBE</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@900&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:Inter,sans-serif}
-body{background:radial-gradient(120% 90% at 50% 10%,#1A0F08 0%,#000 100%);min-height:100vh}
-.top{display:flex;justify-content:space-between;padding:14px 20px;background:#000;border-bottom:1px solid rgba(255,138,61,.15)}
-.b{color:#FF8A3D;font-weight:900;font-size:13px;letter-spacing:.15em}
-.hero{text-align:center;padding:70px 20px 20px}
-.sm{color:#FF8A3D;letter-spacing:.4em;font-size:12px;font-weight:700;margin-bottom:18px}
-.ti{font-weight:900;font-size:clamp(38px,8vw,68px);line-height:.92;background:linear-gradient(180deg,#FFD6B8,#FF6A00);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-.sub{color:#FFB07A;margin-top:14px;opacity:.85}
-.wrap{display:flex;justify-content:center;padding:40px 20px 80px}
-.shell{width:min(82vw,500px);aspect-ratio:1;position:relative;animation:f 6s ease-in-out infinite}
-.g{width:100%;height:100%;border-radius:50%;background:#000;box-shadow:inset -40px -20px 80px #000,0 0 0 1px rgba(255,138,61,.3),0 0 50px rgba(255,106,0,.6)}
-.r{position:absolute;inset:-10px;border-radius:50%;border:1px solid rgba(255,138,61,.3)}
-</style></head>
+body{background:radial-gradient(120% 90% at 50% 10%,#1A0F08 0%,#000 100%);min-height:100vh;overflow-x:hidden}
+.top{display:flex;justify-content:space-between;padding:16px 24px;background:rgba(0,0,0,.85);border-bottom:1px solid rgba(255,138,61,.15)}
+.b{color:#FF8A3D;font-weight:900;font-size:13px;letter-spacing:.18em}
+.hero{text-align:center;padding:72px 20px 10px}
+.sm{color:#FF8A3D;letter-spacing:.44em;font-size:12px;font-weight:700;margin-bottom:20px}
+.ti{font-weight:900;font-size:clamp(42px,8.8vw,78px);line-height:.9;background:linear-gradient(180deg,#FFD6B8,#FF6A00);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.sub{color:#FFB07A;margin-top:16px;opacity:.9}
+.wrap{display:flex;justify-content:center;padding:30px 20px 80px}
+.shell{width:min(90vw,580px);aspect-ratio:1;position:relative}
+.glow{position:absolute;inset:-50px;border-radius:50%;background:radial-gradient(ellipse at 50% 50%,rgba(255,106,0,.3) 0%,transparent 70%);filter:blur(20px)}
+.ring{position:absolute;inset:-14px;border-radius:50%;border:1.5px solid rgba(255,138,61,.3);box-shadow:0 0 60px rgba(255,106,0,.4)}
+.globe{width:100%;height:100%;border-radius:50%;object-fit:cover;display:block;box-shadow:0 0 0 1.5px rgba(255,138,61,.3),0 0 80px rgba(255,106,0,.6);animation:float 6s ease-in-out infinite}
+@keyframes float{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-14px) scale(1.02)}}
+</style>
+</head>
 <body>
-<div class="top"><div class="b">PRO-MAX ACADEMY</div><div class="b" style="font-size:10px">360° CLEAR</div></div>
-<div class="hero"><div class="sm">STUDENT AREA</div><div class="ti">WELCOME,<br>MAX LOUIS</div><div class="sub">Premium digital training</div></div>
-<div class="wrap"><div class="shell"><div class="g" id="globe"></div><div class="r"></div></div></div>
-<script>
-// Globe texture an zoranj - 100% offline
-const canvas=document.createElement('canvas');canvas.width=1024;canvas.height=512;
-const ctx=canvas.getContext('2d');ctx.fillStyle='#000';ctx.fillRect(0,0,1024,512);
-ctx.fillStyle='#FF8A3D';
-// Simplified continents as orange blobs - klè
-ctx.beginPath();ctx.ellipse(200,180,110,140,0,0,Math.PI*2);ctx.fill(); // N America
-ctx.beginPath();ctx.ellipse(260,340,55,85,0,0,Math.PI*2);ctx.fill(); // S America
-ctx.beginPath();ctx.ellipse(500,220,80,95,0,0,Math.PI*2);ctx.fill(); // Africa
-ctx.beginPath();ctx.ellipse(520,130,120,65,0,0,Math.PI*2);ctx.fill(); // Europe
-ctx.beginPath();ctx.ellipse(720,180,180,130,0,0,Math.PI*2);ctx.fill(); // Asia
-ctx.beginPath();ctx.ellipse(780,380,60,35,0,0,Math.PI*2);ctx.fill(); // Australia
-const g=document.getElementById('globe');
-g.style.backgroundImage=`url(${canvas.toDataURL()})`;
-g.style.backgroundSize='200% 100%';g.style.backgroundRepeat='repeat-x';
-let x=0;setInterval(()=>{x=(x+0.5)%200;g.style.backgroundPosition=`${-x}% 50%`},30);
-</script>
-</body></html>
+<div class="top"><div class="b">PRO-MAX ACADEMY</div><div class="b" style="font-size:10px">FIXED 3D</div></div>
+<div class="hero"><div class="sm">STUDENT AREA</div><div class="ti">WELCOME,<br>MAX LOUIS</div><div class="sub">Enter the premium world<br>of elite digital training</div></div>
+<div class="wrap"><div class="shell"><div class="glow"></div><div class="ring"></div><img class="globe" src="globe_3d_4k.png" alt="3D Globe"></div></div>
+</body>
+</html>
