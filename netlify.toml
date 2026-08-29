@@ -1,7 +1,3 @@
-Worked for 13s
-
-NON FICHYE A: netlify.toml
-
 [build]
   publish = "."
   functions = "netlify/functions"
