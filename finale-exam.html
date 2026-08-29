@@ -1,38 +1,21 @@
-
 <!DOCTYPE html>
-<html lang="ht">
+<html lang="en">
 <head>
-  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="theme-color" content="#070402"><title>Final Exam | PRO-MAX Académie</title>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Montserrat:wght@400;600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-  <style>
-    :root{--orange:#ff7300;--apricot:#ffb067;--black:#050201;--muted:#d99768;--line:rgba(255,115,0,.3);--panel:#100602}*{box-sizing:border-box}body{margin:0;color:var(--apricot);background:radial-gradient(circle at 75% 5%,rgba(255,115,0,.17),transparent 27%),linear-gradient(145deg,#140702,#020100 55%,#0c0301);font-family:Montserrat,sans-serif}a{text-decoration:none;color:inherit}.header{position:sticky;top:0;z-index:20;display:flex;align-items:center;justify-content:space-between;padding:13px 5%;border-bottom:1px solid var(--line);background:rgba(5,2,1,.97)}.brand{display:flex;align-items:center;gap:13px}.brand img{width:66px;height:66px;object-fit:contain}.brand span{display:grid}.brand b{color:var(--orange);font:800 1rem Cinzel,serif}.brand small{font-weight:900;letter-spacing:.12em}.back{padding:12px 17px;border:1px solid var(--orange);color:var(--orange);font-weight:900}main{width:min(980px,92%);margin:auto;padding:55px 0 90px}.hero{padding:clamp(30px,6vw,65px);text-align:center;border:1px solid var(--line);background:linear-gradient(135deg,rgba(255,115,0,.15),rgba(3,1,0,.98))}.hero i{font-size:4rem;color:var(--orange)}.eyebrow{color:var(--orange);font-size:.75rem;font-weight:900;letter-spacing:.18em}.hero h1{margin:16px 0;font:800 clamp(2.4rem,6vw,4.7rem) Cinzel,serif}.hero p{max-width:720px;margin:auto;color:var(--muted);line-height:1.8}.student{display:grid;grid-template-columns:1fr 1fr;gap:15px;margin:25px 0;padding:25px;border:1px solid var(--line);background:var(--panel)}label{display:grid;gap:8px;color:var(--orange);font-size:.75rem;font-weight:900}input{width:100%;padding:14px;border:1px solid var(--line);color:var(--apricot);background:#070301;font:inherit}.questions{display:grid;gap:18px}.question{padding:clamp(23px,4vw,38px);border:1px solid var(--line);background:linear-gradient(145deg,#120703,#040201)}.question h2{margin:0 0 20px;font:700 1.15rem/1.5 Cinzel,serif}.question h2 span{color:var(--orange)}.answers{display:grid;gap:10px}.answers label{display:flex;align-items:center;gap:12px;padding:14px;border:1px solid var(--line);color:var(--muted);background:#080401;font-size:.82rem}.answers input{width:auto;accent-color:var(--orange)}.submit{width:100%;margin-top:25px;padding:17px;border:0;color:#000;background:linear-gradient(135deg,var(--apricot),var(--orange));font-weight:900;font-size:1rem}.result{display:none;margin-top:25px;padding:35px;text-align:center;border:2px solid var(--orange);background:#080301}.result.show{display:block}.result strong{display:block;color:var(--orange);font:800 4rem Cinzel,serif}.result h2{font-family:Cinzel,serif}.certificate{display:none;margin-top:18px;padding:14px 20px;color:#000;background:var(--orange);font-weight:900}.certificate.show{display:inline-flex}footer{padding:35px;text-align:center;border-top:1px solid var(--line);color:var(--muted)}@media(max-width:650px){.student{grid-template-columns:1fr}.brand small{display:none}.brand img{width:52px;height:52px}.back{font-size:.65rem}}
-  </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta http-equiv="refresh" content="0; url=./final-exam.html">
+
+  <link rel="canonical" href="./final-exam.html">
+
+  <title>Final Exam | PRO-MAX Académie</title>
 </head>
+
 <body>
-  <header class="header"><a class="brand" href="index.html"><img src="real-estate-school-logo.png" alt="PRO-MAX Académie"><span><b>PRO-MAX ACADÉMIE</b><small>REAL ESTATE SCHOOL</small></span></a><a class="back" href="index.html">RETOUNEN</a></header>
-  <main><section class="hero"><i class="fa-solid fa-file-circle-check"></i><p class="eyebrow">EVALYASYON OFISYÈL</p><h1>Final Exam</h1><p>Reponn 10 kestyon yo. Ou bezwen omwen 80% pou pase epi debloke Certificate Center.</p></section>
-    <form id="examForm"><section class="student"><label>NON KONPLÈ<input id="studentName" required autocomplete="name"></label><label>IMÈL<input id="studentEmail" type="email" required autocomplete="email"></label></section>
-      <div class="questions" id="questions"></div><button class="submit" type="submit">SOUMÈT FINAL EXAM LAN</button>
-    </form>
-    <section class="result" id="result"><strong id="score">0%</strong><h2 id="resultTitle"></h2><p id="resultText"></p><a class="certificate" id="certificateLink" href="certificate-center.html">OUVRI CERTIFICATE CENTER</a></section>
-  </main><footer>PRO-MAX ACADÉMIE · REAL ESTATE SCHOOL · Orlando, Florida</footer>
   <script>
-  "use strict";
-  const exam=[
-    ["Ki dokiman legal ki transfere ownership yon pwopriyete?",["Appraisal","Deed","Listing photo"],1],
-    ["Ki devwa ki pwoteje enfòmasyon prive kliyan an?",["Konfidansyalite","Piblisite","Prospecting"],0],
-    ["Ki lwa federal ki entèdi diskriminasyon nan lojman?",["Fair Housing Act","Sherman Act","Building Code"],0],
-    ["Sou yon kay $300,000, konbyen down payment 10% lan ye?",["$3,000","$30,000","$300,000"],1],
-    ["Ki approach ki baze sou revni pwopriyete a?",["Income approach","Cost approach","Sales contract"],0],
-    ["Kisa ajan an dwe fè ak tout òf kliyan li resevwa?",["Kache òf ki ba yo","Prezante yo san reta","Chwazi youn pou kliyan an"],1],
-    ["Principal nan yon mortgage se kisa?",["Kantite lajan prete a","Property tax","Insurance premium"],0],
-    ["CMA itilize sitou kisa?",["Comparables ki vann resamman","Credit score vandè a","Koulè kay la"],0],
-    ["Yon vant $400,000 ak commission 6% bay konbyen?",["$4,000","$24,000","$40,000"],1],
-    ["Kiyès ki pran desizyon final nan yon negosyasyon?",["Kliyan an","Ajan an poukont li","Photographer la"],0]
-  ];
-  const box=document.getElementById("questions");exam.forEach((q,i)=>{const article=document.createElement("article");article.className="question";article.innerHTML=`<h2><span>${String(i+1).padStart(2,"0")}</span> · ${q[0]}</h2><div class="answers">${q[1].map((a,j)=>`<label><input type="radio" name="q${i}" value="${j}" required>${a}</label>`).join("")}</div>`;box.appendChild(article)});
-  document.getElementById("examForm").addEventListener("submit",e=>{e.preventDefault();let correct=0;exam.forEach((q,i)=>{const a=document.querySelector(`input[name="q${i}"]:checked`);if(a&&Number(a.value)===q[2])correct++});const score=correct*10;const passed=score>=80;const data={name:document.getElementById("studentName").value.trim(),email:document.getElementById("studentEmail").value.trim(),score,passed,completedAt:new Date().toISOString()};localStorage.setItem("promaxFinalExamResult",JSON.stringify(data));const certificateLink=document.getElementById("certificateLink");certificateLink.href="certificate-center.html?name="+encodeURIComponent(data.name)+"&score="+score+"&date="+encodeURIComponent(data.completedAt);document.getElementById("score").textContent=score+"%";document.getElementById("resultTitle").textContent=passed?"OU PASE FINAL EXAM LAN":"OU BEZWEN REVIZE ANKÒ";document.getElementById("resultText").textContent=passed?"Felisitasyon! Certificate Center debloke.":"Ou bezwen omwen 80%. Revize leson yo epi repran egzamen an.";certificateLink.classList.toggle("show",passed);document.getElementById("result").classList.add("show");document.getElementById("result").scrollIntoView({behavior:"smooth"})});
+    "use strict";
+
+    window.location.replace("./final-exam.html");
   </script>
-</body></html>
+</body>
+</html>
