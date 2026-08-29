@@ -1,444 +1,139 @@
 <!DOCTYPE html>
-<html lang="ht">
+<html lang="fr">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#070402">
-
-<title>Student Dashboard - GLOBE ANIME</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;800&family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PRO-MAX ACADÉMIE - STUDENT AREA</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@700;800;900&display=swap" rel="stylesheet">
 <style>
-:root{
-  --orange:#ff7300;
-  --apricot:#ffb067;
-  --black:#050201;
-  --muted:#d99768;
-  --line:rgba(255,115,0,.3);
-}
-
-*{
-  box-sizing:border-box;
-}
-
-body{
-  margin:0;
-  min-height:100vh;
-  color:var(--apricot);
-  background:
-    radial-gradient(circle at 80% 4%,rgba(255,115,0,.18),transparent 25%),
-    linear-gradient(145deg,#150702,#020100 55%,#0c0301);
-  font-family:Montserrat,sans-serif;
-  overflow-x:hidden;
-}
-
-.header{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:13px 5%;
-  border-bottom:1px solid var(--line);
-  background:rgba(5,2,1,.97);
-  position:sticky;
-  top:0;
-  z-index:100;
-}
-
-.brand{
-  display:flex;
-  gap:12px;
-  align-items:center;
-}
-
-.brand img{
-  width:64px;
-  height:64px;
-  object-fit:contain;
-  filter:drop-shadow(0 0 15px rgba(255,115,0,.55));
-}
-
-.brand span{
-  display:grid;
-  gap:4px;
-}
-
-.brand b{
-  color:var(--orange);
-  font:800 1rem Cinzel,serif;
-}
-
-.brand small{
-  color:var(--apricot);
-  font-weight:900;
-  letter-spacing:.12em;
-}
-
-main{
-  width:min(1250px,93%);
-  margin:auto;
-  padding:40px 0 90px;
-}
-
-.hero{
-  display:grid;
-  grid-template-columns:1.2fr .8fr;
-  gap:30px;
-  align-items:center;
-  padding:50px 40px;
-  border:1px solid rgba(255,115,0,.55);
-  background:
-    radial-gradient(circle at 82% 50%,rgba(255,115,0,.27),transparent 33%),
-    linear-gradient(120deg,rgba(37,12,2,.98),rgba(3,1,0,.98) 68%);
-  position:relative;
-  overflow:hidden;
-}
-
-.hero h1{
-  margin:10px 0;
-  color:var(--apricot);
-  font:800 clamp(2.5rem,5vw,4rem) Cinzel,serif;
-}
-
-.hero h1 span{
-  color:var(--orange);
-}
-
-.hero p{
-  max-width:600px;
-  color:var(--muted);
-  line-height:1.7;
-}
-
-.globe-wrap{
-  position:relative;
-  width:340px;
-  height:340px;
-  display:grid;
-  place-items:center;
-  justify-self:center;
-  perspective:1000px;
-  transform-style:preserve-3d;
-}
-
-.globe-float{
-  position:relative;
-  z-index:3;
-  width:100%;
-  height:100%;
-  display:grid;
-  place-items:center;
-  transform-style:preserve-3d;
-  animation:globeFloat 4s ease-in-out infinite;
-}
-
-.globe-glow{
-  position:absolute;
-  inset:-20px;
-  border-radius:50%;
-  background:
-    radial-gradient(
-      circle,
-      rgba(255,115,0,.35),
-      transparent 70%
-    );
-  filter:blur(20px);
-  animation:glowPulse 3s ease-in-out infinite;
-}
-
-.globe-img{
-  width:100%;
-  height:100%;
-  display:block;
-  object-fit:contain;
-  transform-origin:center;
-  transform-style:preserve-3d;
-  will-change:transform;
-  filter:
-    drop-shadow(0 0 40px rgba(255,115,0,.9));
-  animation:globeSpin 18s linear infinite;
-}
-
-.globe-ring{
-  position:absolute;
-  inset:5%;
-  border:1px solid rgba(255,115,0,.5);
-  border-radius:50%;
-  animation:ringSpin 12s linear infinite;
-}
-
-.globe-ring::before,
-.globe-ring::after{
-  content:"";
-  position:absolute;
-  width:11px;
-  height:11px;
-  border-radius:50%;
-  background:var(--orange);
-  box-shadow:0 0 16px var(--orange);
-}
-
-.globe-ring::before{
-  top:8%;
-  left:20%;
-}
-
-.globe-ring::after{
-  right:10%;
-  bottom:20%;
-}
-
-.globe-ring2{
-  position:absolute;
-  inset:18%;
-  border:1px dashed rgba(255,115,0,.3);
-  border-radius:50%;
-  animation:ringSpin2 8s linear infinite;
-}
-
-.globe-label{
-  position:absolute;
-  z-index:5;
-  bottom:-18px;
-  left:50%;
-  padding:8px 14px;
-  transform:translateX(-50%);
-  border:1px solid var(--orange);
-  color:var(--orange);
-  background:rgba(5,2,1,.95);
-  font-size:.6rem;
-  font-weight:900;
-  white-space:nowrap;
-}
-
-.stats{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:14px;
-  margin:22px 0;
-}
-
-.stat{
-  padding:22px;
-  border:1px solid var(--line);
-  background:#0d0401;
-}
-
-.stat i{
-  color:var(--orange);
-}
-
-.stat strong{
-  display:block;
-  margin:10px 0 5px;
-  color:var(--orange);
-  font:800 2rem Cinzel,serif;
-}
-
-.stat span{
-  color:var(--muted);
-  font-size:.7rem;
-  font-weight:800;
-}
-
-@keyframes globeFloat{
-  0%,100%{
-    transform:translateY(0);
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{
+    background:#000;
+    font-family:'Inter',sans-serif;
+    min-height:100vh;
+    overflow-x:hidden;
+    color:#FF8C42;
   }
-
-  50%{
-    transform:translateY(-14px);
+  .page{
+    min-height:100vh;
+    background: radial-gradient(80% 70% at 50% 100%, #1a0a00 0%, #000 55%, #000 100%);
+    display:flex;
+    flex-direction:column;
+    position:relative;
   }
-}
-
-@keyframes globeSpin{
-  from{
-    transform:rotateY(0deg);
+  .top-bar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:18px 28px;
+    border-bottom:1px solid rgba(255,107,0,0.12);
+    background: rgba(0,0,0,0.6);
   }
-
-  to{
-    transform:rotateY(360deg);
-  }
-}
-
-@keyframes glowPulse{
-  0%,100%{
-    opacity:.6;
-    transform:scale(1);
-  }
-
-  50%{
-    opacity:1;
-    transform:scale(1.1);
-  }
-}
-
-@keyframes ringSpin{
-  to{
-    transform:rotate(360deg);
-  }
-}
-
-@keyframes ringSpin2{
-  from{
-    transform:rotateX(70deg) rotate(0deg);
-  }
-
-  to{
-    transform:rotateX(70deg) rotate(360deg);
-  }
-}
-
-@media(max-width:800px){
-  .hero{
-    grid-template-columns:1fr;
+  .brand{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:2px;font-size:14px;color:#FF6B00}
+  .dot{width:10px;height:10px;background:#FF6B00;border-radius:50%;box-shadow:0 0 12px #FF6B00}
+  .top-right{color:#FF6B00;font-size:11px;letter-spacing:2px;opacity:0.8;display:flex;align-items:center;gap:8px}
+  .top-right .live-dot{width:6px;height:6px;background:#00FF88;border-radius:50%;box-shadow:0 0 8px #00FF88}
+  
+  .center{
+    flex:1;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    padding:40px 20px;
     text-align:center;
   }
+  .label{color:#FF6B00;font-size:13px;letter-spacing:6px;font-weight:700;margin-bottom:18px}
+  .title{
+    font-size:clamp(42px,9vw,88px);
+    font-weight:900;
+    line-height:0.9;
+    letter-spacing:-2px;
+    background: linear-gradient(180deg, #FFD4A8 0%, #FF8C42 30%, #FF6B00 65%, #CC4400 100%);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    background-clip:text;
+    filter: drop-shadow(0 0 30px rgba(255,107,0,0.5));
+    margin-bottom:22px;
+  }
+  .subtitle{color:#FFA86B;font-size:clamp(14px,2vw,18px);max-width:560px;line-height:1.5;opacity:0.9}
 
-  .hero p{
-    margin-left:auto;
-    margin-right:auto;
+  /* GLOBE - VRÈ GLOBE ORANGE/BLACK */
+  .globe-section{margin-top:48px;display:flex;flex-direction:column;align-items:center;gap:28px}
+  .globe-float{animation:floatY 5.2s ease-in-out infinite}
+  @keyframes floatY{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
+  .globe-perspective{perspective:1000px;width:380px;height:380px;display:grid;place-items:center;position:relative}
+  .globe-core{
+    width:380px;height:380px;border-radius:50%;overflow:hidden;background:#000;position:relative;
+    box-shadow:0 0 0 1px rgba(255,107,0,0.35) inset,0 0 28px rgba(255,107,0,0.85),0 0 70px rgba(255,107,0,0.45),0 0 120px rgba(255,69,0,0.28);
+  }
+  .globe-track{position:absolute;inset:0;display:flex;width:300%;height:100%;animation:globeScroll 20s linear infinite;will-change:transform}
+  @keyframes globeScroll{0%{transform:translateX(0)}100%{transform:translateX(-66.666%)}}
+  .globe-img{width:33.3333%;height:100%;object-fit:cover;filter:contrast(1.15) brightness(0.95) saturate(1.35)}
+  .shade{position:absolute;inset:0;border-radius:50%;pointer-events:none}
+  .shade1{background:radial-gradient(85% 85% at 28% 32%, transparent 38%, rgba(0,0,0,0.15) 62%, rgba(0,0,0,0.72) 92%);mix-blend-mode:multiply}
+  .shade2{background:radial-gradient(38% 42% at 30% 28%, rgba(255,212,168,0.22) 0%, rgba(255,140,60,0.12) 22%, transparent 62%);mix-blend-mode:screen}
+  .glow{position:absolute;inset:-22px;border-radius:50%;background:radial-gradient(60% 60% at 50% 50%, rgba(255,107,0,0.16) 0%, transparent 72%);filter:blur(14px);z-index:-1}
+
+  .pill{
+    margin-top:10px;
+    padding:12px 26px;
+    border-radius:999px;
+    background: rgba(20,8,0,0.8);
+    border:1px solid rgba(255,107,0,0.25);
+    color:#FF6B00;
+    font-size:11px;
+    letter-spacing:3px;
+    font-weight:700;
+    backdrop-filter:blur(12px);
+    box-shadow:0 0 30px rgba(255,107,0,0.15) inset;
   }
 
-  .globe-wrap{
-    width:260px;
-    height:260px;
-    margin:20px auto;
-  }
-
-  .stats{
-    grid-template-columns:1fr 1fr;
-  }
-}
-
-@media(max-width:500px){
-  .header{
-    padding:10px 14px;
-  }
-
-  .brand img{
-    width:52px;
-    height:52px;
-  }
-
-  .brand b{
-    font-size:.78rem;
-  }
-
-  .brand small{
-    font-size:.55rem;
-  }
-
-  main{
-    width:94%;
-    padding-top:28px;
-  }
-
-  .hero{
-    padding:35px 20px 55px;
-  }
-
-  .globe-wrap{
-    width:230px;
-    height:230px;
-  }
-
-  .stats{
-    grid-template-columns:1fr;
-  }
-}
-
-@media(prefers-reduced-motion:reduce){
-  *,
-  *::before,
-  *::after{
-    animation-duration:.01ms!important;
-    animation-iteration-count:1!important;
-  }
-}
+  .particles{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+  .particles span{position:absolute;width:2px;height:2px;background:#FF6B00;border-radius:50%;opacity:0.6;animation:particleFloat 8s ease-in-out infinite}
+  @keyframes particleFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-20px)}}
+  @media(max-width:768px){.globe-perspective,.globe-core{width:300px;height:300px}}
 </style>
 </head>
-
 <body>
-
-<header class="header">
-  <div class="brand">
-    <img
-      src="./real-estate-school-logo.png"
-      alt="PRO-MAX Académie"
-    >
-
-    <span>
-      <b>PRO-MAX ACADÉMIE</b>
-      <small>REAL ESTATE SCHOOL</small>
-    </span>
-  </div>
-</header>
-
-<main>
-
-<section class="hero">
-  <div>
-    <p style="color:var(--orange);font-weight:900;letter-spacing:.18em;font-size:.7rem">
-      STUDENT AREA
-    </p>
-
-    <h1>
-      WELCOME,
-      <span>MAX LOUIS</span>
-    </h1>
-
-    <p>
-      Track your courses, exam score and certificate in one place.
-    </p>
+<div class="page">
+  <div class="particles">
+    <span style="left:10%;top:30%;animation-delay:0s"></span>
+    <span style="left:85%;top:25%;animation-delay:1s"></span>
+    <span style="left:70%;top:70%;animation-delay:2s"></span>
+    <span style="left:15%;top:75%;animation-delay:3s"></span>
+    <span style="left:50%;top:20%;animation-delay:1.5s"></span>
   </div>
 
-  <div class="globe-wrap">
-    <div class="globe-glow"></div>
-    <div class="globe-ring"></div>
-    <div class="globe-ring2"></div>
+  <div class="top-bar">
+    <div class="brand"><div class="dot"></div>PRO-MAX ACADÉMIE</div>
+    <div class="top-right"><div class="live-dot"></div>ANIMATING • PURE CSS</div>
+  </div>
 
-    <div class="globe-float">
-      <img
-        class="globe-img"
-        src="./promax-new-globe-transparent.png"
-        alt="PRO-MAX Académie animated globe"
-      >
-    </div>
+  <div class="center">
+    <div class="label">STUDENT AREA</div>
+    <h1 class="title">WELCOME,<br>MAX LOUIS</h1>
+    <p class="subtitle">Entrez dans l'univers premium<br>de la formation digitale d'élite</p>
 
-    <div class="globe-label">
-      PRO-MAX ACADÉMIE • GLOBE ANIME 360°
+    <div class="globe-section">
+      <div class="globe-float">
+        <div class="globe-perspective">
+          <div class="glow"></div>
+          <div class="globe-core">
+            <div class="globe-track">
+              <!-- METE FOTO GLOBE OU A LA -->
+              <img class="globe-img" src="GLOBE_ORANGE_BLACK.png" alt="globe">
+              <img class="globe-img" src="GLOBE_ORANGE_BLACK.png" alt="globe">
+              <img class="globe-img" src="GLOBE_ORANGE_BLACK.png" alt="globe">
+            </div>
+            <div class="shade shade1"></div>
+            <div class="shade shade2"></div>
+          </div>
+        </div>
+      </div>
+      <div class="pill">• PRO-MAX ACADÉMIE • GLOBE ANIMÉ 360°</div>
     </div>
   </div>
-</section>
-
-<section class="stats">
-  <div class="stat">
-    <i class="fa-solid fa-book-open"></i>
-    <strong>0/6</strong>
-    <span>COMPLETED COURSES</span>
-  </div>
-
-  <div class="stat">
-    <i class="fa-solid fa-list-check"></i>
-    <strong>3%</strong>
-    <span>LESSON PROGRESS</span>
-  </div>
-
-  <div class="stat">
-    <i class="fa-solid fa-file-circle-check"></i>
-    <strong>90%</strong>
-    <span>FINAL EXAM</span>
-  </div>
-
-  <div class="stat">
-    <i class="fa-solid fa-award"></i>
-    <strong>OK</strong>
-    <span>CERTIFICATE</span>
-  </div>
-</section>
-
-</main>
+</div>
 </body>
 </html>
