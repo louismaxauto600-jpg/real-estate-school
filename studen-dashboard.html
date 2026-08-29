@@ -4,12 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#070402">
-
 <title>Student Dashboard - GLOBE ANIME</title>
-
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;800&family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-
 <style>
 :root{
   --orange:#ff7300;
@@ -18,323 +15,133 @@
   --muted:#d99768;
   --line:rgba(255,115,0,.3);
 }
-
-*{
-  box-sizing:border-box;
-}
-
+*{box-sizing:border-box}
 body{
-  margin:0;
-  min-height:100vh;
-  color:var(--apricot);
-  background:
-    radial-gradient(circle at 80% 4%,rgba(255,115,0,.18),transparent 25%),
-    linear-gradient(145deg,#150702,#020100 55%,#0c0301);
-  font-family:Montserrat,sans-serif;
-  overflow-x:hidden;
+  margin:0; min-height:100vh; color:var(--apricot);
+  background: radial-gradient(circle at 80% 4%,rgba(255,115,0,.18),transparent 25%), linear-gradient(145deg,#150702,#020100 55%,#0c0301);
+  font-family:Montserrat,sans-serif; overflow-x:hidden;
 }
-
 .header{
-  position:sticky;
-  top:0;
-  z-index:100;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:13px 5%;
-  border-bottom:1px solid var(--line);
-  background:rgba(5,2,1,.97);
+  position:sticky; top:0; z-index:100; display:flex; justify-content:space-between; align-items:center;
+  padding:13px 5%; border-bottom:1px solid var(--line); background:rgba(5,2,1,.97);
 }
-
-.brand{
-  display:flex;
-  align-items:center;
-  gap:12px;
-}
-
+.brand{display:flex; align-items:center; gap:12px}
 .brand-badge{
-  width:56px;
-  height:56px;
-  display:grid;
-  place-items:center;
-  border:1px solid var(--orange);
-  border-radius:50%;
-  background:
-    radial-gradient(
-      circle,
-      rgba(255,115,0,.25),
-      transparent 70%
-    );
-  filter:drop-shadow(
-    0 0 15px rgba(255,115,0,.55)
-  );
+  width:56px; height:56px; display:grid; place-items:center;
+  border:1px solid var(--orange); border-radius:50%;
+  background:radial-gradient(circle, rgba(255,115,0,.25), transparent 70%);
+  filter:drop-shadow(0 0 15px rgba(255,115,0,.55));
 }
+.brand-badge i{color:var(--orange); font-size:1.5rem}
+.brand span{display:grid; gap:4px}
+.brand b{color:var(--orange); font:800 1rem Cinzel,serif}
+.brand small{color:var(--apricot); font-weight:900; letter-spacing:.12em}
 
-.brand-badge i{
-  color:var(--orange);
-  font-size:1.5rem;
-}
-
-.brand span{
-  display:grid;
-  gap:4px;
-}
-
-.brand b{
-  color:var(--orange);
-  font:800 1rem Cinzel,serif;
-}
-
-.brand small{
-  color:var(--apricot);
-  font-weight:900;
-  letter-spacing:.12em;
-}
-
-main{
-  width:min(1250px,93%);
-  margin:auto;
-  padding:40px 0 90px;
-}
-
+main{width:min(1250px,93%); margin:auto; padding:40px 0 90px}
 .hero{
-  position:relative;
-  display:grid;
-  grid-template-columns:1.2fr .8fr;
-  gap:30px;
-  align-items:center;
-  padding:50px 40px;
-  overflow:hidden;
-  border:1px solid rgba(255,115,0,.55);
-  background:
-    radial-gradient(
-      circle at 82% 50%,
-      rgba(255,115,0,.27),
-      transparent 33%
-    ),
-    linear-gradient(
-      120deg,
-      rgba(37,12,2,.98),
-      rgba(3,1,0,.98) 68%
-    );
+  position:relative; display:grid; grid-template-columns:1.2fr .8fr; gap:30px; align-items:center;
+  padding:50px 40px; border:1px solid rgba(255,115,0,.55); overflow:visible;
+  background: radial-gradient(circle at 82% 50%, rgba(255,115,0,.27), transparent 33%), linear-gradient(120deg, rgba(37,12,2,.98), rgba(3,1,0,.98) 68%);
 }
-
-.hero h1{
-  margin:10px 0;
-  color:var(--apricot);
-  font:800 clamp(2.5rem,5vw,4rem) Cinzel,serif;
-}
-
-.hero h1 span{
-  color:var(--orange);
-}
-
-.hero p{
-  max-width:600px;
-  color:var(--muted);
-  line-height:1.7;
-}
-
-.student-area{
-  color:var(--orange)!important;
-  font-size:.7rem;
-  font-weight:900;
-  letter-spacing:.18em;
-}
+.hero h1{margin:10px 0; color:var(--apricot); font:800 clamp(2.5rem,5vw,4rem) Cinzel,serif}
+.hero h1 span{color:var(--orange)}
+.hero p{max-width:600px; color:var(--muted); line-height:1.7}
+.student-area{color:var(--orange)!important; font-size:.7rem; font-weight:900; letter-spacing:.18em}
 
 .globe-wrap{
-  position:relative;
-  width:340px;
-  height:340px;
-  display:grid;
-  place-items:center;
-  justify-self:center;
-  perspective:1000px;
-  transform-style:preserve-3d;
+  position:relative; width:340px; height:340px; display:grid; place-items:center;
+  justify-self:center; perspective:1200px; transform-style:preserve-3d; overflow:visible;
 }
-
 .globe-float{
-  position:relative;
-  z-index:3;
-  width:88%;
-  height:88%;
-  display:grid;
-  place-items:center;
-  overflow:hidden;
-  border-radius:50%;
-  box-shadow:0 0 40px rgba(255,115,0,.5);
+  position:relative; z-index:3; width:88%; height:88%; display:grid; place-items:center;
+  overflow:hidden; border-radius:50%; box-shadow:0 0 40px rgba(255,115,0,.5);
   animation:globeFloat 4s ease-in-out infinite;
 }
-
 .globe-glow{
-  position:absolute;
-  inset:-22px;
-  border-radius:50%;
-  background:
-    radial-gradient(
-      circle,
-      rgba(255,115,0,.4),
-      rgba(255,115,0,.14) 45%,
-      transparent 72%
-    );
-  filter:blur(20px);
-  animation:glowPulse 3s ease-in-out infinite;
+  position:absolute; inset:-22px; border-radius:50%;
+  background:radial-gradient(circle, rgba(255,115,0,.4), rgba(255,115,0,.14) 45%, transparent 72%);
+  filter:blur(20px); animation:glowPulse 3s ease-in-out infinite;
 }
-
 .globe-img{
-  width:100%;
-  height:100%;
-  display:block;
-  object-fit:cover;
-  transform-origin:center;
-  will-change:transform;
-  filter:drop-shadow(
-    0 0 40px rgba(255,115,0,.9)
-  );
+  width:100%; height:100%; display:block; object-fit:cover;
+  transform-style:preserve-3d; backface-visibility:hidden; will-change:transform;
+  filter:drop-shadow(0 0 40px rgba(255,115,0,.9));
   animation:globeSpin 18s linear infinite;
 }
-
 .globe-ring{
-  position:absolute;
-  inset:4%;
-  border:1px solid rgba(255,115,0,.55);
-  border-radius:50%;
+  position:absolute; inset:4%; border:1px solid rgba(255,115,0,.55); border-radius:50%;
   animation:ringSpin 12s linear infinite;
 }
-
-.globe-ring::before,
-.globe-ring::after{
-  content:"";
-  position:absolute;
-  width:11px;
-  height:11px;
-  border-radius:50%;
-  background:var(--orange);
-  box-shadow:0 0 17px var(--orange);
+.globe-ring::before,.globe-ring::after{
+  content:""; position:absolute; width:11px; height:11px; border-radius:50%;
+  background:var(--orange); box-shadow:0 0 17px var(--orange);
 }
-
-.globe-ring::before{
-  top:8%;
-  left:20%;
-}
-
-.globe-ring::after{
-  right:10%;
-  bottom:20%;
-}
-
+.globe-ring::before{top:8%; left:20%}
+.globe-ring::after{right:10%; bottom:20%}
 .globe-ring2{
-  position:absolute;
-  inset:17%;
-  border:1px dashed rgba(255,176,103,.45);
-  border-radius:50%;
+  position:absolute; inset:17%; border:1px dashed rgba(255,176,103,.45); border-radius:50%;
   animation:ringSpin2 8s linear infinite;
 }
-
 .globe-label{
-  position:absolute;
-  z-index:5;
-  bottom:-18px;
-  left:50%;
-  padding:8px 14px;
-  transform:translateX(-50%);
-  border:1px solid var(--orange);
-  color:var(--orange);
-  background:rgba(5,2,1,.96);
-  font-size:.6rem;
-  font-weight:900;
-  white-space:nowrap;
+  position:absolute; z-index:5; bottom:-18px; left:50%; padding:8px 14px;
+  transform:translateX(-50%); border:1px solid var(--orange); color:var(--orange);
+  background:rgba(5,2,1,.96); font-size:.6rem; font-weight:900; white-space:nowrap;
 }
+.stats{display:grid; grid-template-columns:repeat(4,1fr); gap:14px; margin:22px 0}
+.stat{padding:22px; border:1px solid var(--line); background:#0d0401}
+.stat i{color:var(--orange)}
+.stat strong{display:block; margin:10px 0 5px; color:var(--orange); font:800 2rem Cinzel,serif}
+.stat span{color:var(--muted); font-size:.7rem; font-weight:800}
 
-.stats{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:14px;
-  margin:22px 0;
+@keyframes globeFloat{0%,100%{transform:translateY(0)} 50%{transform:translateY(-14px)}}
+@keyframes globeSpin{from{transform:rotateY(0deg) scale(1.35)} to{transform:rotateY(360deg) scale(1.35)}}
+@keyframes glowPulse{0%,100%{opacity:.6; transform:scale(1)} 50%{opacity:1; transform:scale(1.1)}}
+@keyframes ringSpin{to{transform:rotate(360deg)}}
+@keyframes ringSpin2{from{transform:rotateX(70deg) rotate(0deg)} to{transform:rotateX(70deg) rotate(360deg)}}
+
+@media(max-width:900px){
+  .hero{grid-template-columns:1fr; text-align:center; padding:30px 20px}
+  .hero p{margin-left:auto; margin-right:auto}
+  .globe-wrap{width:260px; height:260px; margin:20px auto 0}
+  .stats{grid-template-columns:repeat(2,1fr)}
 }
+</style>
+</head>
+<body>
 
-.stat{
-  padding:22px;
-  border:1px solid var(--line);
-  background:#0d0401;
-}
+<header class="header">
+  <div class="brand">
+    <div class="brand-badge"><i class="fa-solid fa-graduation-cap"></i></div>
+    <span><b>GLOBE ANIME</b><small>STUDENT DASHBOARD</small></span>
+  </div>
+</header>
 
-.stat i{
-  color:var(--orange);
-}
+<main>
+  <section class="hero">
+    <div>
+      <div class="student-area"><i class="fa-solid fa-circle" style="font-size:.5rem"></i> STUDENT AREA</div>
+      <h1>LEARN <span>WITHOUT</span> LIMITS</h1>
+      <p>Dashboard ou a pare. Globe anime a ap vire san rete kounya pou montre style premium orange / black ou a.</p>
+    </div>
 
-.stat strong{
-  display:block;
-  margin:10px 0 5px;
-  color:var(--orange);
-  font:800 2rem Cinzel,serif;
-}
+    <div class="globe-wrap">
+      <div class="globe-glow"></div>
+      <div class="globe-ring"></div>
+      <div class="globe-ring2"></div>
+      <div class="globe-float">
+        <img class="globe-img" src="https://i.ibb.co/…-ou-ka-mete-lyen-foto-globe-ou-a-isi-a.jpg" alt="Globe">
+      </div>
+      <div class="globe-label">GLOBE ANIME • LIVE SYSTEM</div>
+    </div>
+  </section>
 
-.stat span{
-  color:var(--muted);
-  font-size:.7rem;
-  font-weight:800;
-}
+  <section class="stats">
+    <div class="stat"><i class="fa-solid fa-book"></i><strong>24</strong><span>COURS</span></div>
+    <div class="stat"><i class="fa-solid fa-trophy"></i><strong>12</strong><span>CERTIFICATS</span></div>
+    <div class="stat"><i class="fa-solid fa-clock"></i><strong>89h</strong><span>ETIDYE</span></div>
+    <div class="stat"><i class="fa-solid fa-star"></i><strong>4.9</strong><span>NÒT</span></div>
+  </section>
+</main>
 
-@keyframes globeFloat{
-  0%,100%{
-    transform:translateY(0);
-  }
-
-  50%{
-    transform:translateY(-14px);
-  }
-}
-
-@keyframes globeSpin{
-  from{
-    transform:rotateY(0deg) scale(1.35);
-  }
-
-  to{
-    transform:rotateY(360deg) scale(1.35);
-  }
-}
-
-@keyframes glowPulse{
-  0%,100%{
-    opacity:.6;
-    transform:scale(1);
-  }
-
-  50%{
-    opacity:1;
-    transform:scale(1.1);
-  }
-}
-
-@keyframes ringSpin{
-  to{
-    transform:rotate(360deg);
-  }
-}
-
-@keyframes ringSpin2{
-  from{
-    transform:rotateX(70deg) rotate(0deg);
-  }
-
-  to{
-    transform:rotateX(70deg) rotate(360deg);
-  }
-}
-
-@media(max-width:800px){
-  .hero{
-    grid-template-columns:1fr;
-    text-align:center;
-  }
-
-  .hero p{
-    margin-left:auto;
-    margin-right:auto;
-  }
-
-  .globe-wrap{
-    width:260px;
-    height:
+</body>
+  </html>
