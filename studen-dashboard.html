@@ -1,704 +1,974 @@
 <!DOCTYPE html>
-<html lang="ht">
+<html lang="ht" translate="no">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="theme-color" content="#070402">
+  <meta name="theme-color" content="#070301">
+  <meta name="google" content="notranslate">
 
   <title>Student Dashboard | PRO-MAX Académie</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Montserrat:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Montserrat:wght@400;600;700;800;900&display=swap"
+    rel="stylesheet"
+  >
 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+  >
 
   <style>
-    :root{
-      --orange:#ff7300;
-      --apricot:#ffb067;
-      --black:#050201;
-      --muted:#d99768;
-      --line:rgba(255,115,0,.3);
-      --panel:#0d0401;
+    :root {
+      --orange: #ff7300;
+      --orange-deep: #b83c00;
+      --apricot: #ffb067;
+      --apricot-light: #ffca98;
+      --black: #050201;
+      --black-soft: #080301;
+      --panel: #0d0401;
+      --muted: #d99768;
+      --line: rgba(255, 115, 0, 0.34);
+      --shadow: 0 25px 70px rgba(0, 0, 0, 0.65);
     }
 
-    *{box-sizing:border-box}
+    * {
+      box-sizing: border-box;
+    }
 
-    html{scroll-behavior:smooth}
+    html {
+      scroll-behavior: smooth;
+    }
 
-    body{
-      margin:0;
-      min-height:100vh;
-      overflow-x:hidden;
-      color:var(--apricot);
+    body {
+      margin: 0;
+      min-height: 100vh;
+      overflow-x: hidden;
+      color: var(--apricot);
       background:
-        radial-gradient(circle at 80% 4%,rgba(255,115,0,.17),transparent 25%),
-        linear-gradient(145deg,#150702,#020100 55%,#0c0301);
-      font-family:Montserrat,sans-serif;
+        radial-gradient(
+          circle at 80% 4%,
+          rgba(255, 115, 0, 0.2),
+          transparent 27%
+        ),
+        radial-gradient(
+          circle at 10% 65%,
+          rgba(255, 176, 103, 0.1),
+          transparent 32%
+        ),
+        linear-gradient(
+          145deg,
+          #150702,
+          #020100 55%,
+          #0c0301
+        );
+      font-family: "Montserrat", sans-serif;
     }
 
-    body::before{
-      content:"";
-      position:fixed;
-      inset:0;
-      z-index:-1;
-      pointer-events:none;
-      opacity:.13;
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+      opacity: 0.11;
       background-image:
-        linear-gradient(rgba(255,115,0,.25) 1px,transparent 1px),
-        linear-gradient(90deg,rgba(255,115,0,.25) 1px,transparent 1px);
-      background-size:75px 75px;
+        linear-gradient(
+          rgba(255, 115, 0, 0.28) 1px,
+          transparent 1px
+        ),
+        linear-gradient(
+          90deg,
+          rgba(255, 115, 0, 0.28) 1px,
+          transparent 1px
+        );
+      background-size: 75px 75px;
     }
 
-    a{
-      color:inherit;
-      text-decoration:none;
+    a {
+      color: inherit;
+      text-decoration: none;
     }
 
-    button{
-      font:inherit;
-      cursor:pointer;
+    button {
+      font: inherit;
+      cursor: pointer;
     }
 
-    .header{
-      position:sticky;
-      top:0;
-      z-index:100;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:15px;
-      padding:13px 5%;
-      border-bottom:1px solid var(--line);
-      background:rgba(5,2,1,.97);
-      backdrop-filter:blur(18px);
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      min-height: 94px;
+      padding: 13px 5%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      border-bottom: 1px solid var(--line);
+      background: rgba(5, 2, 1, 0.97);
+      backdrop-filter: blur(18px);
     }
 
-    .brand{
-      min-width:0;
-      display:flex;
-      align-items:center;
-      gap:12px;
+    .brand {
+      min-width: 0;
+      display: flex;
+      align-items: center;
+      gap: 13px;
     }
 
-    .brand img{
-      width:64px;
-      height:64px;
-      display:block;
-      object-fit:contain;
-      filter:drop-shadow(0 0 15px rgba(255,115,0,.55));
+    .brand img {
+      width: 67px;
+      height: 67px;
+      flex: 0 0 67px;
+      display: block;
+      object-fit: contain;
+      filter: drop-shadow(
+        0 0 16px rgba(255, 115, 0, 0.6)
+      );
     }
 
-    .brand span{
-      min-width:0;
-      display:grid;
-      gap:4px;
+    .brand-text {
+      min-width: 0;
+      display: grid;
+      gap: 3px;
     }
 
-    .brand b{
-      color:var(--orange);
-      font:800 1rem Cinzel,serif;
-      letter-spacing:.06em;
+    .brand-text b {
+      color: var(--orange);
+      font: 800 clamp(0.85rem, 2vw, 1.15rem) "Cinzel", serif;
+      letter-spacing: 0.06em;
     }
 
-    .brand small{
-      color:var(--apricot);
-      font-weight:900;
-      letter-spacing:.12em;
+    .brand-text small {
+      color: var(--apricot);
+      font-size: clamp(0.52rem, 1vw, 0.72rem);
+      font-weight: 900;
+      letter-spacing: 0.13em;
     }
 
-    .controls{
-      display:flex;
-      align-items:center;
-      gap:10px;
+    .controls {
+      display: flex;
+      align-items: center;
+      gap: 11px;
     }
 
-    .languages{
-      display:flex;
-      padding:4px;
-      border:1px solid var(--line);
-      border-radius:999px;
-      background:#080301;
+    .languages {
+      display: flex;
+      padding: 4px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: var(--black-soft);
     }
 
-    .lang{
-      padding:9px 11px;
-      border:0;
-      border-radius:999px;
-      color:var(--orange);
-      background:transparent;
-      font-weight:900;
+    .lang {
+      padding: 10px 13px;
+      border: 0;
+      border-radius: 999px;
+      color: var(--orange);
+      background: transparent;
+      font-size: 0.72rem;
+      font-weight: 900;
     }
 
-    .lang.active{
-      color:var(--black);
-      background:linear-gradient(135deg,var(--apricot),var(--orange));
+    .lang.active {
+      color: var(--black);
+      background: linear-gradient(
+        135deg,
+        var(--apricot),
+        var(--orange)
+      );
     }
 
-    .back{
-      padding:11px 15px;
-      border:1px solid var(--orange);
-      color:var(--orange);
-      font-weight:900;
+    .back {
+      min-height: 43px;
+      padding: 11px 16px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--orange);
+      color: var(--orange);
+      font-size: 0.76rem;
+      font-weight: 900;
     }
 
-    main{
-      width:min(1250px,93%);
-      margin:auto;
-      padding:50px 0 90px;
+    main {
+      width: min(1250px, 93%);
+      margin: auto;
+      padding: 46px 0 90px;
     }
 
-    .hero{
-      position:relative;
-      isolation:isolate;
-      min-height:530px;
-      display:grid;
-      grid-template-columns:minmax(0,1.2fr) minmax(260px,.8fr);
-      gap:42px;
-      align-items:center;
-      padding:clamp(34px,6vw,78px);
-      overflow:hidden;
-      border:1px solid rgba(255,115,0,.55);
+    .hero {
+      position: relative;
+      display: grid;
+      grid-template-columns: minmax(0, 1.18fr) minmax(280px, 0.82fr);
+      gap: 35px;
+      align-items: center;
+      min-height: 550px;
+      padding: clamp(32px, 6vw, 70px);
+      overflow: hidden;
+      border: 1px solid rgba(255, 115, 0, 0.55);
       background:
-        radial-gradient(circle at 82% 50%,rgba(255,115,0,.27),transparent 33%),
-        linear-gradient(120deg,rgba(37,12,2,.98),rgba(3,1,0,.98) 68%);
+        radial-gradient(
+          circle at 82% 50%,
+          rgba(255, 115, 0, 0.29),
+          transparent 34%
+        ),
+        linear-gradient(
+          120deg,
+          rgba(42, 13, 2, 0.98),
+          rgba(3, 1, 0, 0.98) 68%
+        );
+      box-shadow: var(--shadow);
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.18;
+      background:
+        linear-gradient(
+          90deg,
+          transparent 49.8%,
+          rgba(255, 115, 0, 0.24) 50%,
+          transparent 50.2%
+        ),
+        linear-gradient(
+          transparent 49.8%,
+          rgba(255, 115, 0, 0.24) 50%,
+          transparent 50.2%
+        );
+      background-size: 90px 90px;
+    }
+
+    .hero-copy {
+      position: relative;
+      z-index: 4;
+    }
+
+    .welcome-sign {
+      width: fit-content;
+      margin-bottom: 19px;
+      padding: 11px 17px;
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      border: 1px solid var(--orange);
+      border-radius: 999px;
+      color: var(--orange);
+      background: rgba(5, 2, 1, 0.78);
+      font-size: 0.7rem;
+      font-weight: 900;
+      letter-spacing: 0.14em;
       box-shadow:
-        0 28px 75px rgba(0,0,0,.58),
-        inset 0 0 80px rgba(255,115,0,.05);
+        0 0 25px rgba(255, 115, 0, 0.18);
     }
 
-    .hero::before{
-      content:"";
-      position:absolute;
-      inset:0;
-      z-index:-1;
-      opacity:.2;
-      pointer-events:none;
-      background-image:
-        linear-gradient(rgba(255,115,0,.28) 1px,transparent 1px),
-        linear-gradient(90deg,rgba(255,115,0,.28) 1px,transparent 1px);
-      background-size:58px 58px;
-      mask-image:linear-gradient(90deg,#000,transparent);
+    .welcome-sign i {
+      color: var(--apricot);
     }
 
-    .hero::after{
-      content:"PRO-MAX";
-      position:absolute;
-      right:-20px;
-      bottom:-35px;
-      z-index:-1;
-      color:rgba(255,115,0,.055);
-      font:800 clamp(6rem,15vw,13rem) Cinzel,serif;
+    .eyebrow {
+      margin: 0;
+      color: var(--orange);
+      font-size: 0.73rem;
+      font-weight: 900;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
     }
 
-    .welcome-badge{
-      width:max-content;
-      margin-bottom:18px;
-      padding:9px 14px;
-      border:1px solid var(--line);
-      border-radius:999px;
-      color:var(--orange);
-      background:rgba(5,2,1,.72);
-      font-size:.67rem;
-      font-weight:900;
-      letter-spacing:.14em;
+    .hero h1 {
+      max-width: 760px;
+      margin: 13px 0 18px;
+      color: var(--apricot);
+      font: 800 clamp(2.65rem, 6vw, 5.7rem) / 0.98 "Cinzel", serif;
+      text-transform: uppercase;
+      text-shadow:
+        0 0 30px rgba(255, 115, 0, 0.16);
     }
 
-    .eyebrow{
-      margin:0;
-      color:var(--orange);
-      font-size:.73rem;
-      font-weight:900;
-      letter-spacing:.19em;
+    .hero h1 span:last-child {
+      display: block;
+      color: var(--orange);
     }
 
-    .hero h1{
-      max-width:760px;
-      margin:13px 0 18px;
-      color:var(--apricot);
-      font:800 clamp(2.7rem,6vw,5.7rem)/1.02 Cinzel,serif;
-      text-shadow:0 0 28px rgba(255,115,0,.2);
+    .hero-description {
+      max-width: 700px;
+      margin: 0;
+      color: var(--apricot-light);
+      font-size: clamp(0.95rem, 1.5vw, 1.1rem);
+      line-height: 1.8;
     }
 
-    .hero h1 #heroName{
-      color:var(--orange);
+    .hero-actions {
+      margin-top: 28px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
     }
 
-    .hero-description{
-      max-width:690px;
-      margin:0;
-      color:var(--muted);
-      font-size:clamp(1rem,1.7vw,1.18rem);
-      line-height:1.8;
+    .hero-button {
+      min-height: 52px;
+      padding: 14px 20px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      border: 1px solid var(--orange);
+      color: var(--orange);
+      background: rgba(5, 2, 1, 0.7);
+      font-size: 0.78rem;
+      font-weight: 900;
     }
 
-    .welcome-actions{
-      margin-top:28px;
-      display:flex;
-      flex-wrap:wrap;
-      gap:12px;
+    .hero-button.primary {
+      color: var(--black);
+      background: linear-gradient(
+        135deg,
+        var(--apricot),
+        var(--orange)
+      );
+      box-shadow:
+        0 16px 35px rgba(255, 115, 0, 0.22);
     }
 
-    .welcome-link{
-      padding:14px 19px;
-      border:1px solid var(--orange);
-      color:var(--orange);
-      font-size:.75rem;
-      font-weight:900;
+    .hero-mini-stats {
+      max-width: 650px;
+      margin-top: 32px;
+      padding-top: 24px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      border-top: 1px solid var(--line);
+      background: var(--line);
     }
 
-    .welcome-link.primary{
-      color:var(--black);
-      background:linear-gradient(135deg,var(--apricot),var(--orange));
-      box-shadow:0 12px 30px rgba(255,115,0,.22);
+    .hero-mini-stat {
+      min-height: 88px;
+      padding: 15px;
+      background: rgba(5, 2, 1, 0.92);
     }
 
-    .welcome-mini-stats{
-      margin-top:32px;
-      display:flex;
-      flex-wrap:wrap;
-      gap:14px;
+    .hero-mini-stat strong {
+      display: block;
+      color: var(--orange);
+      font: 800 1.65rem "Cinzel", serif;
     }
 
-    .welcome-mini-stats span{
-      min-width:130px;
-      padding:13px 15px;
-      border-left:3px solid var(--orange);
-      background:rgba(5,2,1,.68);
+    .hero-mini-stat small {
+      color: var(--muted);
+      font-size: 0.62rem;
+      font-weight: 900;
+      letter-spacing: 0.09em;
     }
 
-    .welcome-mini-stats b{
-      display:block;
-      color:var(--orange);
-      font:800 1.25rem Cinzel,serif;
+    .globe-wrap {
+      position: relative;
+      z-index: 3;
+      width: min(360px, 100%);
+      aspect-ratio: 1;
+      display: grid;
+      place-items: center;
+      justify-self: center;
+      animation: globeFloat 4s ease-in-out infinite;
     }
 
-    .welcome-mini-stats small{
-      color:var(--muted);
-      font-size:.65rem;
-      font-weight:800;
-      letter-spacing:.07em;
+    .globe-glow {
+      position: absolute;
+      inset: -28px;
+      border-radius: 50%;
+      background: radial-gradient(
+        circle,
+        rgba(255, 115, 0, 0.48),
+        rgba(255, 115, 0, 0.17) 40%,
+        transparent 70%
+      );
+      filter: blur(22px);
+      animation: glowPulse 3s ease-in-out infinite;
     }
 
-    .academy-globe{
-      position:relative;
-      width:280px;
-      height:280px;
-      display:grid;
-      place-items:center;
-      justify-self:center;
-      border:1px solid rgba(255,115,0,.45);
-      border-radius:50%;
+    .globe-ring,
+    .globe-ring2,
+    .globe-ring3 {
+      position: absolute;
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .globe-ring {
+      inset: 2%;
+      border: 2px solid rgba(255, 115, 0, 0.55);
+      box-shadow:
+        0 0 27px rgba(255, 115, 0, 0.28);
+      animation: ringSpin 12s linear infinite;
+    }
+
+    .globe-ring::before,
+    .globe-ring::after {
+      content: "";
+      position: absolute;
+      width: 13px;
+      height: 13px;
+      border-radius: 50%;
+      background: var(--orange);
+      box-shadow:
+        0 0 18px var(--orange);
+    }
+
+    .globe-ring::before {
+      top: 11%;
+      left: 13%;
+    }
+
+    .globe-ring::after {
+      right: 9%;
+      bottom: 18%;
+    }
+
+    .globe-ring2 {
+      inset: 14%;
+      border: 1px dashed rgba(255, 176, 103, 0.52);
+      animation: ringSpinReverse 9s linear infinite;
+    }
+
+    .globe-ring3 {
+      inset: 9%;
+      border: 1px solid rgba(255, 115, 0, 0.38);
+      transform: rotateX(68deg);
+      animation: orbitSpin 8s linear infinite;
+    }
+
+    .globe-img {
+      position: relative;
+      z-index: 4;
+      width: 92%;
+      height: 92%;
+      display: block;
+      object-fit: contain;
+      transform-origin: center;
+      filter:
+        drop-shadow(0 0 36px rgba(255, 115, 0, 0.94));
+      animation: globeImageSpin 18s linear infinite;
+    }
+
+    .globe-label {
+      position: absolute;
+      left: 50%;
+      bottom: -18px;
+      z-index: 7;
+      min-width: 230px;
+      padding: 10px 15px;
+      text-align: center;
+      white-space: nowrap;
+      border: 1px solid var(--orange);
+      color: var(--orange);
+      background: rgba(5, 2, 1, 0.96);
+      font-size: 0.62rem;
+      font-weight: 900;
+      letter-spacing: 0.1em;
+      transform: translateX(-50%);
+      box-shadow:
+        0 12px 30px rgba(0, 0, 0, 0.65);
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 15px;
+      margin: 24px 0;
+    }
+
+    .stat {
+      min-height: 175px;
+      padding: 25px;
+      border: 1px solid var(--line);
       background:
-        radial-gradient(circle,rgba(255,176,103,.28),rgba(255,115,0,.12) 42%,transparent 68%);
-      filter:drop-shadow(0 0 32px rgba(255,115,0,.62));
-      animation:globeFloat 4.5s ease-in-out infinite;
+        linear-gradient(
+          145deg,
+          rgba(18, 6, 1, 0.98),
+          rgba(5, 2, 1, 0.98)
+        );
+      box-shadow:
+        0 16px 38px rgba(0, 0, 0, 0.32);
     }
 
-    .academy-globe::before,
-    .academy-globe::after{
-      content:"";
-      position:absolute;
-      pointer-events:none;
-      border:1px solid var(--orange);
-      border-radius:50%;
-      box-shadow:0 0 22px rgba(255,115,0,.25);
+    .stat i {
+      color: var(--orange);
+      font-size: 1.45rem;
     }
 
-    .academy-globe::before{
-      inset:2%;
-      animation:globeSpin 16s linear infinite;
+    .stat strong {
+      display: block;
+      margin: 15px 0 6px;
+      color: var(--orange);
+      font: 800 2.15rem "Cinzel", serif;
     }
 
-    .academy-globe::after{
-      inset:14%;
-      transform:rotateX(68deg);
-      animation:globeOrbit 9s linear infinite;
+    .stat span {
+      color: var(--muted);
+      font-size: 0.72rem;
+      font-weight: 900;
+      letter-spacing: 0.05em;
     }
 
-    .academy-globe img{
-      position:relative;
-      z-index:3;
-      width:100%;
-      height:100%;
-      display:block;
-      object-fit:contain;
-      filter:drop-shadow(0 0 27px rgba(255,115,0,.88));
-      animation:globeLive 6s ease-in-out infinite;
+    .section {
+      margin-top: 25px;
+      padding: clamp(24px, 4vw, 43px);
+      border: 1px solid var(--line);
+      background:
+        linear-gradient(
+          145deg,
+          rgba(17, 6, 2, 0.98),
+          rgba(4, 2, 1, 0.99)
+        );
+      box-shadow:
+        0 22px 55px rgba(0, 0, 0, 0.32);
     }
 
-    .globe-label{
-      position:absolute;
-      right:50%;
-      bottom:-14px;
-      z-index:5;
-      min-width:220px;
-      padding:10px 15px;
-      text-align:center;
-      border:1px solid var(--orange);
-      color:var(--orange);
-      background:rgba(5,2,1,.96);
-      font-size:.62rem;
-      font-weight:900;
-      letter-spacing:.12em;
-      transform:translateX(50%);
+    .section-title {
+      margin-bottom: 25px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
     }
 
-    .stats{
-      display:grid;
-      grid-template-columns:repeat(4,1fr);
-      gap:16px;
-      margin:22px 0;
+    .section h2 {
+      margin: 0;
+      color: var(--apricot);
+      font: 700 clamp(1.5rem, 3vw, 2.4rem) "Cinzel", serif;
     }
 
-    .stat{
-      padding:25px;
-      border:1px solid var(--line);
-      background:var(--panel);
+    .section-title > strong {
+      color: var(--orange);
+      font-size: 1.1rem;
     }
 
-    .stat i{
-      color:var(--orange);
-      font-size:1.4rem;
+    .overall {
+      height: 10px;
+      overflow: hidden;
+      background: #2a1005;
     }
 
-    .stat strong{
-      display:block;
-      margin:14px 0 5px;
-      color:var(--orange);
-      font:800 2rem Cinzel,serif;
+    .overall span {
+      width: 0;
+      height: 100%;
+      display: block;
+      background: linear-gradient(
+        90deg,
+        var(--orange-deep),
+        var(--orange),
+        var(--apricot)
+      );
+      box-shadow:
+        0 0 18px rgba(255, 115, 0, 0.55);
+      transition: width 0.5s ease;
     }
 
-    .stat span{
-      color:var(--muted);
-      font-size:.75rem;
-      font-weight:800;
+    .courses {
+      margin-top: 22px;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
     }
 
-    .section{
-      margin-top:25px;
-      padding:clamp(24px,4vw,42px);
-      border:1px solid var(--line);
-      background:linear-gradient(145deg,#110602,#040201);
+    .course {
+      padding: 22px;
+      border: 1px solid var(--line);
+      background: var(--black-soft);
     }
 
-    .section-title{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:18px;
-      margin-bottom:25px;
+    .course-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 15px;
     }
 
-    .section h2{
-      margin:0;
-      color:var(--apricot);
-      font:700 clamp(1.5rem,3vw,2.4rem) Cinzel,serif;
+    .course b {
+      color: var(--apricot);
+      font-family: "Cinzel", serif;
+      line-height: 1.5;
     }
 
-    .overall{
-      height:9px;
-      background:#2a1005;
+    .course strong {
+      color: var(--orange);
     }
 
-    .overall span{
-      width:0;
-      height:100%;
-      display:block;
-      background:linear-gradient(90deg,#9e3400,var(--orange),var(--apricot));
-      transition:width .5s;
+    .track {
+      height: 7px;
+      margin: 17px 0;
+      overflow: hidden;
+      background: #291005;
     }
 
-    .courses{
-      display:grid;
-      grid-template-columns:repeat(2,1fr);
-      gap:14px;
-      margin-top:22px;
+    .track span {
+      height: 100%;
+      display: block;
+      background: linear-gradient(
+        90deg,
+        var(--orange-deep),
+        var(--orange),
+        var(--apricot)
+      );
     }
 
-    .course{
-      padding:20px;
-      border:1px solid var(--line);
-      background:#080301;
+    .course a {
+      color: var(--orange);
+      font-size: 0.72rem;
+      font-weight: 900;
+      letter-spacing: 0.04em;
     }
 
-    .course-head{
-      display:flex;
-      justify-content:space-between;
-      gap:15px;
+    .exam-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
     }
 
-    .course b{
-      font-family:Cinzel,serif;
+    .exam-card {
+      min-height: 280px;
+      padding: 28px;
+      border: 1px solid var(--line);
+      background: var(--black-soft);
     }
 
-    .course strong{
-      color:var(--orange);
+    .exam-card strong {
+      display: block;
+      color: var(--orange);
+      font: 800 3rem "Cinzel", serif;
     }
 
-    .track{
-      height:6px;
-      margin:16px 0;
-      background:#291005;
+    .exam-card h3 {
+      color: var(--apricot);
     }
 
-    .track span{
-      display:block;
-      height:100%;
-      background:var(--orange);
+    .exam-card p {
+      min-height: 48px;
+      color: var(--muted);
+      line-height: 1.6;
     }
 
-    .course a{
-      color:var(--orange);
-      font-size:.72rem;
-      font-weight:900;
+    .btn {
+      min-height: 48px;
+      padding: 13px 18px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--orange);
+      color: var(--orange);
+      background: transparent;
+      font-size: 0.76rem;
+      font-weight: 900;
     }
 
-    .exam-grid{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:18px;
+    .btn.primary {
+      color: var(--black);
+      background: linear-gradient(
+        135deg,
+        var(--apricot),
+        var(--orange)
+      );
     }
 
-    .exam-card{
-      padding:25px;
-      border:1px solid var(--line);
-      background:#080301;
+    .locked {
+      pointer-events: none;
+      opacity: 0.4;
     }
 
-    .exam-card strong{
-      display:block;
-      color:var(--orange);
-      font:800 3rem Cinzel,serif;
+    .professor-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
     }
 
-    .exam-card p{
-      color:var(--muted);
+    .professor-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
     }
 
-    .btn{
-      padding:13px 18px;
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      border:1px solid var(--orange);
-      color:var(--orange);
-      background:transparent;
-      font-weight:900;
+    .professor-card {
+      min-height: 145px;
+      padding: 22px;
+      border: 1px solid var(--line);
+      background: var(--black-soft);
     }
 
-    .btn.primary{
-      color:var(--black);
-      background:linear-gradient(135deg,var(--apricot),var(--orange));
+    .professor-card i {
+      margin-bottom: 15px;
+      color: var(--orange);
+      font-size: 1.25rem;
     }
 
-    .locked{
-      pointer-events:none;
-      opacity:.4;
+    .professor-card small {
+      display: block;
+      color: var(--muted);
+      font-weight: 800;
     }
 
-    .professor-actions{
-      display:flex;
-      flex-wrap:wrap;
-      gap:8px;
+    .professor-card strong {
+      display: block;
+      margin-top: 9px;
+      color: var(--orange);
+      font: 800 1.55rem "Cinzel", serif;
     }
 
-    .professor-grid{
-      display:grid;
-      grid-template-columns:repeat(4,1fr);
-      gap:14px;
+    .profile {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 13px;
     }
 
-    .professor-card{
-      padding:22px;
-      border:1px solid var(--line);
-      background:#080301;
+    .profile div {
+      padding: 18px;
+      overflow-wrap: anywhere;
+      border: 1px solid var(--line);
+      background: var(--black-soft);
     }
 
-    .professor-card small{
-      display:block;
-      color:var(--muted);
-      font-weight:800;
+    .profile small {
+      display: block;
+      color: var(--orange);
+      font-weight: 900;
     }
 
-    .professor-card strong{
-      display:block;
-      margin-top:9px;
-      color:var(--orange);
-      font:800 1.55rem Cinzel,serif;
+    .profile b {
+      display: block;
+      margin-top: 8px;
+      color: var(--apricot);
     }
 
-    .profile{
-      display:grid;
-      grid-template-columns:repeat(2,1fr);
-      gap:13px;
+    footer {
+      padding: 38px 5%;
+      text-align: center;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      background: #020100;
     }
 
-    .profile div{
-      padding:17px;
-      border:1px solid var(--line);
-      background:#080301;
-    }
-
-    .profile small{
-      display:block;
-      color:var(--orange);
-      font-weight:900;
-    }
-
-    .profile b{
-      display:block;
-      margin-top:7px;
-    }
-
-    footer{
-      padding:35px;
-      text-align:center;
-      border-top:1px solid var(--line);
-      color:var(--muted);
-      background:#020100;
-    }
-
-    @keyframes globeFloat{
-      0%,100%{transform:translateY(0)}
-      50%{transform:translateY(-12px)}
-    }
-
-    @keyframes globeSpin{
-      to{transform:rotate(360deg)}
-    }
-
-    @keyframes globeOrbit{
-      from{transform:rotateX(68deg) rotate(360deg)}
-      to{transform:rotateX(68deg) rotate(0deg)}
-    }
-
-    @keyframes globeLive{
-      0%,100%{
-        transform:rotateY(-7deg) scale(1);
-        filter:drop-shadow(0 0 24px rgba(255,115,0,.72));
+    @keyframes globeFloat {
+      0%,
+      100% {
+        transform: translateY(0);
       }
 
-      50%{
-        transform:rotateY(7deg) scale(1.04);
-        filter:drop-shadow(0 0 48px rgba(255,115,0,.98));
+      50% {
+        transform: translateY(-14px);
       }
     }
 
-    @media(max-width:850px){
-      .hero{
-        grid-template-columns:1fr;
-        text-align:center;
+    @keyframes globeImageSpin {
+      from {
+        transform: rotateY(0deg);
       }
 
-      .welcome-badge{
-        margin-inline:auto;
+      to {
+        transform: rotateY(360deg);
+      }
+    }
+
+    @keyframes glowPulse {
+      0%,
+      100% {
+        opacity: 0.58;
+        transform: scale(0.95);
       }
 
-      .hero-description{
-        margin-inline:auto;
+      50% {
+        opacity: 1;
+        transform: scale(1.09);
+      }
+    }
+
+    @keyframes ringSpin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    @keyframes ringSpinReverse {
+      to {
+        transform: rotate(-360deg);
+      }
+    }
+
+    @keyframes orbitSpin {
+      from {
+        transform: rotateX(68deg) rotate(0deg);
       }
 
-      .welcome-actions,
-      .welcome-mini-stats{
-        justify-content:center;
+      to {
+        transform: rotateX(68deg) rotate(360deg);
+      }
+    }
+
+    @media (max-width: 920px) {
+      .header {
+        flex-wrap: wrap;
       }
 
-      .academy-globe{
-        width:230px;
-        height:230px;
+      .controls {
+        width: 100%;
+        justify-content: space-between;
       }
 
-      .stats{
-        grid-template-columns:1fr 1fr;
+      .hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .welcome-sign {
+        margin-right: auto;
+        margin-left: auto;
+      }
+
+      .hero-description {
+        margin-right: auto;
+        margin-left: auto;
+      }
+
+      .hero-actions {
+        justify-content: center;
+      }
+
+      .hero-mini-stats {
+        margin-right: auto;
+        margin-left: auto;
+      }
+
+      .globe-wrap {
+        width: min(320px, 88vw);
+        margin: 25px auto;
+      }
+
+      .stats {
+        grid-template-columns: 1fr 1fr;
       }
 
       .courses,
-      .exam-grid,
-      .professor-grid{
-        grid-template-columns:1fr;
+      .exam-grid {
+        grid-template-columns: 1fr;
       }
 
-      .section-title{
-        align-items:flex-start;
-        flex-direction:column;
+      .professor-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .section-title {
+        align-items: flex-start;
+        flex-direction: column;
       }
     }
 
-    @media(max-width:600px){
-      .header{
-        padding:10px 12px;
+    @media (max-width: 600px) {
+      .header {
+        min-height: 82px;
+        padding: 10px 12px;
       }
 
-      .brand img{
-        width:50px;
-        height:50px;
+      .brand img {
+        width: 52px;
+        height: 52px;
+        flex-basis: 52px;
       }
 
-      .brand b{
-        font-size:.78rem;
+      .brand-text b {
+        font-size: 0.76rem;
       }
 
-      .brand small{
-        font-size:.52rem;
+      .brand-text small {
+        font-size: 0.5rem;
       }
 
-      .back{
-        display:none;
+      .back {
+        display: none;
       }
 
-      .languages{
-        position:fixed;
-        right:8px;
-        bottom:8px;
-        z-index:150;
+      .controls {
+        width: auto;
+        margin-left: auto;
       }
 
-      main{
-        width:92%;
-        padding-top:30px;
+      .languages {
+        position: fixed;
+        right: 9px;
+        bottom: 9px;
+        z-index: 1500;
+        box-shadow:
+          0 12px 32px rgba(0, 0, 0, 0.72);
       }
 
-      .hero{
-        min-height:auto;
-        padding:38px 20px;
+      main {
+        width: 94%;
+        padding-top: 28px;
       }
 
-      .welcome-actions{
-        display:grid;
+      .hero {
+        min-height: auto;
+        padding: 31px 20px 55px;
       }
 
-      .welcome-link{
-        width:100%;
+      .hero h1 {
+        font-size: clamp(2.25rem, 12vw, 3.55rem);
       }
 
-      .welcome-mini-stats{
-        display:grid;
+      .hero-actions {
+        display: grid;
       }
 
-      .welcome-mini-stats span{
-        min-width:0;
+      .hero-button {
+        width: 100%;
       }
 
-      .academy-globe{
-        width:205px;
-        height:205px;
+      .hero-mini-stats {
+        grid-template-columns: 1fr;
+      }
+
+      .globe-wrap {
+        width: min(260px, 78vw);
+      }
+
+      .globe-label {
+        min-width: 205px;
+        font-size: 0.55rem;
       }
 
       .stats,
-      .profile{
-        grid-template-columns:1fr;
+      .professor-grid,
+      .profile {
+        grid-template-columns: 1fr;
       }
 
-      .professor-actions{
-        display:grid;
-        width:100%;
+      .stat {
+        min-height: 150px;
       }
 
-      .professor-actions .btn{
-        width:100%;
+      .section {
+        padding: 25px 18px;
+      }
+
+      .professor-actions {
+        width: 100%;
+        display: grid;
+      }
+
+      .professor-actions .btn {
+        width: 100%;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
       }
     }
   </style>
@@ -706,31 +976,47 @@
 
 <body>
   <header class="header">
-    <a class="brand" href="index.html">
-      <img src="real-estate-school-logo.png" alt="PRO-MAX Académie">
+    <a class="brand" href="./index.html">
+      <img
+        src="./real-estate-school-logo.png"
+        alt="PRO-MAX Académie"
+      >
 
-      <span>
+      <span class="brand-text">
         <b>PRO-MAX ACADÉMIE</b>
         <small>REAL ESTATE SCHOOL</small>
       </span>
     </a>
 
     <div class="controls">
-      <div class="languages">
-        <button class="lang" type="button" data-lang="en">ENG</button>
-        <button class="lang" type="button" data-lang="es">ESP</button>
-        <button class="lang active" type="button" data-lang="ht">KRE</button>
+      <div class="languages" aria-label="Language selector">
+        <button class="lang" type="button" data-lang="en">
+          ENG
+        </button>
+
+        <button class="lang" type="button" data-lang="es">
+          ESP
+        </button>
+
+        <button class="lang active" type="button" data-lang="ht">
+          KRE
+        </button>
       </div>
 
-      <a class="back" href="index.html" data-t="home">AKÈY</a>
+      <a class="back" href="./index.html" data-t="home">
+        AKÈY
+      </a>
     </div>
   </header>
 
   <main>
     <section class="hero">
       <div class="hero-copy">
-        <div class="welcome-badge">
-          ★ PRO-MAX ACADÉMIE · STUDENT PORTAL
+        <div class="welcome-sign">
+          <i class="fa-solid fa-sparkles"></i>
+          <span data-t="welcomeSign">
+            BYENVINI NAN ESPAS ETIDYAN OU
+          </span>
         </div>
 
         <p class="eyebrow" data-t="eyebrow">
@@ -738,52 +1024,80 @@
         </p>
 
         <h1>
-          <span data-t="welcome">Byenvini</span>,
+          <span data-t="welcome">Byenvini,</span>
           <span id="heroName">Etidyan</span>
         </h1>
 
         <p class="hero-description" data-t="intro">
-          Swiv kou ou yo, nòt egzamen ou ak sètifika ou nan yon sèl espas.
+          Kontinye bati konesans ou. Swiv tout kou ou yo,
+          pwogrè leson yo, nòt egzamen final la ak sètifika
+          pwofesyonèl ou nan yon sèl espas.
         </p>
 
-        <div class="welcome-actions">
-          <a class="welcome-link primary" href="#courseProgressSection" data-t="continueLearning">
-            KONTINYE APRANN
+        <div class="hero-actions">
+          <a
+            class="hero-button primary"
+            href="#courseProgressSection"
+          >
+            <i class="fa-solid fa-book-open-reader"></i>
+            <span data-t="continueLearning">
+              KONTINYE APRANN
+            </span>
           </a>
 
-          <a class="welcome-link" href="ask-professor.html" data-t="askProfessor">
-            MANDE PWOFESÈ A
+          <a
+            class="hero-button"
+            href="./ask-professor.html"
+          >
+            <i class="fa-solid fa-comments"></i>
+            <span data-t="askProfessor">
+              MANDE PWOFESÈ A
+            </span>
           </a>
         </div>
 
-        <div class="welcome-mini-stats">
-          <span>
-            <b>6</b>
-            <small data-t="miniCourses">KOU PWOFESYONÈL</small>
-          </span>
+        <div class="hero-mini-stats">
+          <div class="hero-mini-stat">
+            <strong>6</strong>
+            <small data-t="essentialCourses">
+              KOU ESANSYÈL
+            </small>
+          </div>
 
-          <span>
-            <b>3</b>
-            <small data-t="miniLanguages">LANG DISPONIB</small>
-          </span>
+          <div class="hero-mini-stat">
+            <strong>3</strong>
+            <small data-t="availableLanguages">
+              LANG DISPONIB
+            </small>
+          </div>
 
-          <span>
-            <b>24/7</b>
-            <small data-t="miniAccess">AKSÈ ETIDYAN</small>
-          </span>
+          <div class="hero-mini-stat">
+            <strong>24/7</strong>
+            <small data-t="professorSupport">
+              SIPÒ PWOFESÈ
+            </small>
+          </div>
         </div>
       </div>
 
-      <div class="academy-globe" aria-label="Globe PRO-MAX Académie">
+      <div
+        class="globe-wrap"
+        aria-label="Globe PRO-MAX Académie"
+      >
+        <div class="globe-glow"></div>
+        <div class="globe-ring"></div>
+        <div class="globe-ring2"></div>
+        <div class="globe-ring3"></div>
+
         <img
+          class="globe-img"
           src="./promax-new-globe-transparent.png"
           alt="Globe anime PRO-MAX Académie"
-          onerror="this.onerror=null;this.src='./promax-real-estate-3d-3.png';"
         >
 
-        <span class="globe-label">
-          PRO-MAX ACADÉMIE
-        </span>
+        <div class="globe-label">
+          PRO-MAX ACADÉMIE · GLOBE 360°
+        </div>
       </div>
     </section>
 
@@ -791,31 +1105,42 @@
       <article class="stat">
         <i class="fa-solid fa-book-open"></i>
         <strong id="coursesDone">0/6</strong>
-        <span data-t="completedCourses">KOU KONPLETE</span>
+        <span data-t="completedCourses">
+          KOU KONPLETE
+        </span>
       </article>
 
       <article class="stat">
         <i class="fa-solid fa-list-check"></i>
         <strong id="lessonPercent">0%</strong>
-        <span data-t="lessonProgress">PWOGRÈ LESON</span>
+        <span data-t="lessonProgress">
+          PWOGRÈ LESON
+        </span>
       </article>
 
       <article class="stat">
         <i class="fa-solid fa-file-circle-check"></i>
         <strong id="examScore">—</strong>
-        <span data-t="examScore">FINAL EXAM</span>
+        <span data-t="examScore">
+          EGZAMEN FINAL
+        </span>
       </article>
 
       <article class="stat">
         <i class="fa-solid fa-award"></i>
-        <strong id="certificateStatus">—</strong>
-        <span data-t="certificate">SÈTIFIKA</span>
+        <strong id="certificateStatus">🔒</strong>
+        <span data-t="certificate">
+          SÈTIFIKA
+        </span>
       </article>
     </section>
 
     <section class="section" id="courseProgressSection">
       <div class="section-title">
-        <h2 data-t="courseProgress">Pwogrè kou yo</h2>
+        <h2 data-t="courseProgress">
+          Pwogrè kou yo
+        </h2>
+
         <strong id="overallText">0%</strong>
       </div>
 
@@ -828,26 +1153,43 @@
 
     <section class="section">
       <div class="section-title">
-        <h2 data-t="examCertificate">Egzamen ak sètifika</h2>
+        <h2 data-t="examCertificate">
+          Egzamen ak sètifika
+        </h2>
       </div>
 
       <div class="exam-grid">
         <article class="exam-card">
           <strong id="examBig">—</strong>
-          <h3>Final Exam</h3>
+          <h3 data-t="finalExamTitle">
+            Egzamen final
+          </h3>
+
           <p id="examMessage"></p>
 
-          <a class="btn primary" href="final-exam.html" data-t="takeExam">
-            OUVRI FINAL EXAM
+          <a
+            class="btn primary"
+            href="./final-exam.html"
+            data-t="takeExam"
+          >
+            OUVRI EGZAMEN FINAL
           </a>
         </article>
 
         <article class="exam-card">
           <strong id="certificateBig">🔒</strong>
-          <h3>Certificate Center</h3>
+          <h3 data-t="certificateCenter">
+            Sant sètifika
+          </h3>
+
           <p id="certificateMessage"></p>
 
-          <a class="btn" id="certificateButton" href="certificate-center.html" data-t="openCertificate">
+          <a
+            class="btn"
+            id="certificateButton"
+            href="./certificate-center.html"
+            data-t="openCertificate"
+          >
             OUVRI SÈTIFIKA
           </a>
         </article>
@@ -861,19 +1203,35 @@
         </h2>
 
         <div class="professor-actions">
-          <a class="btn primary" href="ask-professor.html" data-t="askProfessor">
+          <a
+            class="btn primary"
+            href="./ask-professor.html"
+            data-t="askProfessor"
+          >
             MANDE PWOFESÈ A
           </a>
 
-          <a class="btn" href="professor-practice-center.html" data-t="practiceCenter">
+          <a
+            class="btn"
+            href="./professor-practice-center.html"
+            data-t="practiceCenter"
+          >
             PRATIK AI
           </a>
 
-          <a class="btn" href="professor-study-plan.html" data-t="studyPlan">
+          <a
+            class="btn"
+            href="./professor-study-plan.html"
+            data-t="studyPlan"
+          >
             PLAN ETID
           </a>
 
-          <a class="btn" href="student-study.html" data-t="studyReport">
+          <a
+            class="btn"
+            href="./student-study.html"
+            data-t="studyReport"
+          >
             RAPÒ ETID
           </a>
         </div>
@@ -881,22 +1239,34 @@
 
       <div class="professor-grid">
         <article class="professor-card">
-          <small data-t="questionsAsked">KESYON POZE</small>
+          <i class="fa-solid fa-circle-question"></i>
+          <small data-t="questionsAsked">
+            KESYON POZE
+          </small>
           <strong id="professorQuestions">0</strong>
         </article>
 
         <article class="professor-card">
-          <small data-t="coursesReviewed">KOU REVIZE</small>
+          <i class="fa-solid fa-book"></i>
+          <small data-t="coursesReviewed">
+            KOU REVIZE
+          </small>
           <strong id="professorCourses">0/6</strong>
         </article>
 
         <article class="professor-card">
-          <small data-t="practiceScore">NÒT PRATIK</small>
+          <i class="fa-solid fa-brain"></i>
+          <small data-t="practiceScore">
+            NÒT PRATIK
+          </small>
           <strong id="professorPractice">—</strong>
         </article>
 
         <article class="professor-card">
-          <small data-t="planProgress">PLAN ETID</small>
+          <i class="fa-solid fa-calendar-check"></i>
+          <small data-t="planProgress">
+            PLAN ETID
+          </small>
           <strong id="professorPlan">0%</strong>
         </article>
       </div>
@@ -904,7 +1274,9 @@
 
     <section class="section">
       <div class="section-title">
-        <h2 data-t="profile">Pwofil etidyan</h2>
+        <h2 data-t="profile">
+          Pwofil etidyan
+        </h2>
       </div>
 
       <div class="profile">
@@ -919,12 +1291,16 @@
         </div>
 
         <div>
-          <small data-t="location">LOKALIZASYON</small>
+          <small data-t="location">
+            LOKALIZASYON
+          </small>
           <b id="profileLocation">—</b>
         </div>
 
         <div>
-          <small data-t="language">LANG</small>
+          <small data-t="language">
+            LANG
+          </small>
           <b id="profileLanguage">—</b>
         </div>
       </div>
@@ -932,130 +1308,143 @@
   </main>
 
   <footer>
-    PRO-MAX ACADÉMIE · REAL ESTATE SCHOOL · Orlando, Florida
+    PRO-MAX ACADÉMIE · REAL ESTATE SCHOOL ·
+    ORLANDO, FLORIDA
   </footer>
 
   <script>
     "use strict";
 
-    const translations={
-      ht:{
-        home:"AKÈY",
-        eyebrow:"ESPAS ETIDYAN",
-        welcome:"Byenvini",
-        intro:"Swiv kou ou yo, nòt egzamen ou ak sètifika ou nan yon sèl espas.",
-        continueLearning:"KONTINYE APRANN",
-        miniCourses:"KOU PWOFESYONÈL",
-        miniLanguages:"LANG DISPONIB",
-        miniAccess:"AKSÈ ETIDYAN",
-        completedCourses:"KOU KONPLETE",
-        lessonProgress:"PWOGRÈ LESON",
-        examScore:"FINAL EXAM",
-        certificate:"SÈTIFIKA",
-        courseProgress:"Pwogrè kou yo",
-        examCertificate:"Egzamen ak sètifika",
-        takeExam:"OUVRI FINAL EXAM",
-        openCertificate:"OUVRI SÈTIFIKA",
-        professorActivity:"Aktivite ak Pwofesè Max",
-        askProfessor:"MANDE PWOFESÈ A",
-        practiceCenter:"PRATIK AI",
-        studyPlan:"PLAN ETID",
-        studyReport:"RAPÒ ETID",
-        questionsAsked:"KESYON POZE",
-        coursesReviewed:"KOU REVIZE",
-        practiceScore:"NÒT PRATIK",
-        planProgress:"PLAN ETID",
-        profile:"Pwofil etidyan",
-        name:"NON",
-        location:"LOKALIZASYON",
-        language:"LANG",
-        continueCourse:"KONTINYE KOU A",
-        done:"KONPLETE",
-        notPassed:"Poko pase Final Exam lan.",
-        passed:"Final Exam lan pase.",
-        locked:"Sètifika a poko debloke.",
-        unlocked:"Sètifika a pare."
+    const translations = {
+      ht: {
+        home: "AKÈY",
+        welcomeSign: "BYENVINI NAN ESPAS ETIDYAN OU",
+        eyebrow: "ESPAS ETIDYAN",
+        welcome: "Byenvini,",
+        intro:
+          "Kontinye bati konesans ou. Swiv tout kou ou yo, pwogrè leson yo, nòt egzamen final la ak sètifika pwofesyonèl ou nan yon sèl espas.",
+        continueLearning: "KONTINYE APRANN",
+        essentialCourses: "KOU ESANSYÈL",
+        availableLanguages: "LANG DISPONIB",
+        professorSupport: "SIPÒ PWOFESÈ",
+        completedCourses: "KOU KONPLETE",
+        lessonProgress: "PWOGRÈ LESON",
+        examScore: "EGZAMEN FINAL",
+        certificate: "SÈTIFIKA",
+        courseProgress: "Pwogrè kou yo",
+        examCertificate: "Egzamen ak sètifika",
+        finalExamTitle: "Egzamen final",
+        certificateCenter: "Sant sètifika",
+        takeExam: "OUVRI EGZAMEN FINAL",
+        openCertificate: "OUVRI SÈTIFIKA",
+        professorActivity: "Aktivite ak Pwofesè Max",
+        askProfessor: "MANDE PWOFESÈ A",
+        practiceCenter: "PRATIK AI",
+        studyPlan: "PLAN ETID",
+        studyReport: "RAPÒ ETID",
+        questionsAsked: "KESYON POZE",
+        coursesReviewed: "KOU REVIZE",
+        practiceScore: "NÒT PRATIK",
+        planProgress: "PLAN ETID",
+        profile: "Pwofil etidyan",
+        name: "NON",
+        location: "LOKALIZASYON",
+        language: "LANG",
+        continueCourse: "KONTINYE KOU A",
+        done: "KONPLETE",
+        notPassed: "Ou poko pase egzamen final la.",
+        passed: "Ou pase egzamen final la.",
+        locked: "Sètifika a poko debloke.",
+        unlocked: "Sètifika a pare."
       },
 
-      en:{
-        home:"HOME",
-        eyebrow:"STUDENT AREA",
-        welcome:"Welcome",
-        intro:"Track your courses, exam score and certificate in one place.",
-        continueLearning:"CONTINUE LEARNING",
-        miniCourses:"PROFESSIONAL COURSES",
-        miniLanguages:"AVAILABLE LANGUAGES",
-        miniAccess:"STUDENT ACCESS",
-        completedCourses:"COMPLETED COURSES",
-        lessonProgress:"LESSON PROGRESS",
-        examScore:"FINAL EXAM",
-        certificate:"CERTIFICATE",
-        courseProgress:"Course progress",
-        examCertificate:"Exam and certificate",
-        takeExam:"OPEN FINAL EXAM",
-        openCertificate:"OPEN CERTIFICATE",
-        professorActivity:"Professor Max activity",
-        askProfessor:"ASK THE PROFESSOR",
-        practiceCenter:"AI PRACTICE",
-        studyPlan:"STUDY PLAN",
-        studyReport:"STUDY REPORT",
-        questionsAsked:"QUESTIONS ASKED",
-        coursesReviewed:"COURSES REVIEWED",
-        practiceScore:"PRACTICE SCORE",
-        planProgress:"STUDY PLAN",
-        profile:"Student profile",
-        name:"NAME",
-        location:"LOCATION",
-        language:"LANGUAGE",
-        continueCourse:"CONTINUE COURSE",
-        done:"COMPLETED",
-        notPassed:"Final Exam not passed yet.",
-        passed:"Final Exam passed.",
-        locked:"Certificate is still locked.",
-        unlocked:"Certificate is ready."
+      en: {
+        home: "HOME",
+        welcomeSign: "WELCOME TO YOUR STUDENT AREA",
+        eyebrow: "STUDENT AREA",
+        welcome: "Welcome,",
+        intro:
+          "Continue building your knowledge. Track every course, lesson progress, final exam score and professional certificate in one place.",
+        continueLearning: "CONTINUE LEARNING",
+        essentialCourses: "ESSENTIAL COURSES",
+        availableLanguages: "AVAILABLE LANGUAGES",
+        professorSupport: "PROFESSOR SUPPORT",
+        completedCourses: "COMPLETED COURSES",
+        lessonProgress: "LESSON PROGRESS",
+        examScore: "FINAL EXAM",
+        certificate: "CERTIFICATE",
+        courseProgress: "Course progress",
+        examCertificate: "Exam and certificate",
+        finalExamTitle: "Final exam",
+        certificateCenter: "Certificate center",
+        takeExam: "OPEN FINAL EXAM",
+        openCertificate: "OPEN CERTIFICATE",
+        professorActivity: "Professor Max activity",
+        askProfessor: "ASK THE PROFESSOR",
+        practiceCenter: "AI PRACTICE",
+        studyPlan: "STUDY PLAN",
+        studyReport: "STUDY REPORT",
+        questionsAsked: "QUESTIONS ASKED",
+        coursesReviewed: "COURSES REVIEWED",
+        practiceScore: "PRACTICE SCORE",
+        planProgress: "STUDY PLAN",
+        profile: "Student profile",
+        name: "NAME",
+        location: "LOCATION",
+        language: "LANGUAGE",
+        continueCourse: "CONTINUE COURSE",
+        done: "COMPLETED",
+        notPassed: "The final exam has not been passed yet.",
+        passed: "The final exam has been passed.",
+        locked: "The certificate is still locked.",
+        unlocked: "The certificate is ready."
       },
 
-      es:{
-        home:"INICIO",
-        eyebrow:"ÁREA DEL ESTUDIANTE",
-        welcome:"Bienvenido",
-        intro:"Sigue tus cursos, nota del examen y certificado en un solo lugar.",
-        continueLearning:"CONTINUAR APRENDIENDO",
-        miniCourses:"CURSOS PROFESIONALES",
-        miniLanguages:"IDIOMAS DISPONIBLES",
-        miniAccess:"ACCESO DEL ESTUDIANTE",
-        completedCourses:"CURSOS COMPLETADOS",
-        lessonProgress:"PROGRESO DE LECCIONES",
-        examScore:"EXAMEN FINAL",
-        certificate:"CERTIFICADO",
-        courseProgress:"Progreso de cursos",
-        examCertificate:"Examen y certificado",
-        takeExam:"ABRIR EXAMEN FINAL",
-        openCertificate:"ABRIR CERTIFICADO",
-        professorActivity:"Actividad con el profesor Max",
-        askProfessor:"PREGUNTAR AL PROFESOR",
-        practiceCenter:"PRÁCTICA IA",
-        studyPlan:"PLAN DE ESTUDIO",
-        studyReport:"INFORME DE ESTUDIO",
-        questionsAsked:"PREGUNTAS HECHAS",
-        coursesReviewed:"CURSOS REPASADOS",
-        practiceScore:"NOTA DE PRÁCTICA",
-        planProgress:"PLAN DE ESTUDIO",
-        profile:"Perfil del estudiante",
-        name:"NOMBRE",
-        location:"UBICACIÓN",
-        language:"IDIOMA",
-        continueCourse:"CONTINUAR CURSO",
-        done:"COMPLETADO",
-        notPassed:"El examen final aún no está aprobado.",
-        passed:"Examen final aprobado.",
-        locked:"El certificado sigue bloqueado.",
-        unlocked:"El certificado está listo."
+      es: {
+        home: "INICIO",
+        welcomeSign: "BIENVENIDO A TU ÁREA DE ESTUDIANTE",
+        eyebrow: "ÁREA DEL ESTUDIANTE",
+        welcome: "Bienvenido,",
+        intro:
+          "Continúa desarrollando tus conocimientos. Sigue todos tus cursos, el progreso de las lecciones, la nota del examen final y tu certificado profesional en un solo lugar.",
+        continueLearning: "CONTINUAR APRENDIENDO",
+        essentialCourses: "CURSOS ESENCIALES",
+        availableLanguages: "IDIOMAS DISPONIBLES",
+        professorSupport: "APOYO DEL PROFESOR",
+        completedCourses: "CURSOS COMPLETADOS",
+        lessonProgress: "PROGRESO DE LECCIONES",
+        examScore: "EXAMEN FINAL",
+        certificate: "CERTIFICADO",
+        courseProgress: "Progreso de cursos",
+        examCertificate: "Examen y certificado",
+        finalExamTitle: "Examen final",
+        certificateCenter: "Centro de certificados",
+        takeExam: "ABRIR EXAMEN FINAL",
+        openCertificate: "ABRIR CERTIFICADO",
+        professorActivity: "Actividad con el profesor Max",
+        askProfessor: "PREGUNTAR AL PROFESOR",
+        practiceCenter: "PRÁCTICA IA",
+        studyPlan: "PLAN DE ESTUDIO",
+        studyReport: "INFORME DE ESTUDIO",
+        questionsAsked: "PREGUNTAS HECHAS",
+        coursesReviewed: "CURSOS REPASADOS",
+        practiceScore: "NOTA DE PRÁCTICA",
+        planProgress: "PLAN DE ESTUDIO",
+        profile: "Perfil del estudiante",
+        name: "NOMBRE",
+        location: "UBICACIÓN",
+        language: "IDIOMA",
+        continueCourse: "CONTINUAR CURSO",
+        done: "COMPLETADO",
+        notPassed: "El examen final aún no está aprobado.",
+        passed: "El examen final está aprobado.",
+        locked: "El certificado sigue bloqueado.",
+        unlocked: "El certificado está listo."
       }
     };
 
-    const courseTitles={
-      ht:[
+    const courseTitles = {
+      ht: [
         "Fondasyon byen imobilye",
         "Lwa ak etik pwofesyonèl",
         "Finansman ak ipotèk",
@@ -1064,7 +1453,7 @@
         "Preparasyon egzamen"
       ],
 
-      en:[
+      en: [
         "Real estate fundamentals",
         "Law and professional ethics",
         "Finance and mortgages",
@@ -1073,7 +1462,7 @@
         "Exam preparation"
       ],
 
-      es:[
+      es: [
         "Fundamentos inmobiliarios",
         "Ley y ética profesional",
         "Financiamiento e hipotecas",
@@ -1083,220 +1472,461 @@
       ]
     };
 
-    function readStorage(key,fallback){
-      try{
-        const value=localStorage.getItem(key);
-        return value===null?fallback:JSON.parse(value);
-      }catch(error){
+    function readStorage(key, fallback) {
+      try {
+        const saved = window.localStorage.getItem(key);
+
+        if (saved === null) {
+          return fallback;
+        }
+
+        return JSON.parse(saved);
+      } catch (error) {
         return fallback;
       }
     }
 
-    const student=readStorage("promaxRealEstateStudent",{});
-    const exam=readStorage("promaxFinalExamResult",{});
-    const professorHistory=readStorage("promaxProfessorHistory",[]);
-    const practiceResult=readStorage("promaxProfessorPracticeResult",{});
+    const student = readStorage(
+      "promaxRealEstateStudent",
+      {}
+    );
 
-    const savedProfessorName=
-      localStorage.getItem("promaxProfessorStudentName");
+    const exam = readStorage(
+      "promaxFinalExamResult",
+      {}
+    );
 
-    const registrationName=[
+    const professorHistory = readStorage(
+      "promaxProfessorHistory",
+      []
+    );
+
+    const professorQuestionsFallback = readStorage(
+      "promaxProfessorQuestions",
+      []
+    );
+
+    const practiceResult = readStorage(
+      "promaxProfessorPracticeResult",
+      {}
+    );
+
+    const savedProfessorName =
+      window.localStorage.getItem(
+        "promaxProfessorStudentName"
+      );
+
+    const registrationName = [
       student.first_name,
       student.last_name
-    ].filter(Boolean).join(" ");
+    ]
+      .filter(Boolean)
+      .join(" ");
 
-    const fullName=(
-      exam.name||
-      registrationName||
-      savedProfessorName||
+    const fullName = (
+      exam.name ||
+      student.fullName ||
+      student.name ||
+      registrationName ||
+      savedProfessorName ||
       "Etidyan"
     ).trim();
 
-    const progress=[];
-    let lessonTotal=0;
+    const progress = [];
+    let lessonTotal = 0;
 
-    for(let courseNumber=1;courseNumber<=6;courseNumber+=1){
-      const courseProgress=readStorage(
-        "promaxCourse0"+courseNumber+"Progress",
-        {}
-      );
+    for (
+      let courseNumber = 1;
+      courseNumber <= 6;
+      courseNumber += 1
+    ) {
+      const paddedCourseNumber =
+        String(courseNumber).padStart(2, "0");
 
-      let completedLessons=0;
+      const possibleKeys = [
+        "promaxCourse0" + courseNumber + "Progress",
+        "promaxCourse" + paddedCourseNumber + "Progress",
+        "promaxCourse" + courseNumber + "Progress"
+      ];
 
-      for(let lessonNumber=1;lessonNumber<=6;lessonNumber+=1){
-        if(courseProgress["lesson"+lessonNumber]){
-          completedLessons+=1;
+      let courseProgress = {};
+
+      possibleKeys.some(function (key) {
+        const saved = readStorage(key, null);
+
+        if (saved && typeof saved === "object") {
+          courseProgress = saved;
+          return true;
+        }
+
+        return false;
+      });
+
+      let completedLessons = 0;
+
+      for (
+        let lessonNumber = 1;
+        lessonNumber <= 6;
+        lessonNumber += 1
+      ) {
+        const lessonKeys = [
+          "lesson" + lessonNumber,
+          "lesson0" + lessonNumber,
+          "lesson_" + lessonNumber
+        ];
+
+        const lessonCompleted =
+          lessonKeys.some(function (lessonKey) {
+            return Boolean(courseProgress[lessonKey]);
+          });
+
+        if (lessonCompleted) {
+          completedLessons += 1;
         }
       }
 
-      lessonTotal+=completedLessons;
+      if (
+        Array.isArray(courseProgress.completedLessons)
+      ) {
+        completedLessons = Math.max(
+          completedLessons,
+          courseProgress.completedLessons.length
+        );
+      }
+
+      completedLessons = Math.min(
+        completedLessons,
+        6
+      );
+
+      lessonTotal += completedLessons;
+
+      const savedPercent =
+        Number(courseProgress.percent);
+
+      const calculatedPercent =
+        Math.round(
+          (completedLessons / 6) * 100
+        );
+
+      const percentage =
+        Number.isFinite(savedPercent)
+          ? Math.max(
+              0,
+              Math.min(100, savedPercent)
+            )
+          : calculatedPercent;
 
       progress.push({
-        lessons:completedLessons,
-        percent:Math.round((completedLessons/6)*100),
-        completed:Boolean(courseProgress.completed)||completedLessons===6
+        lessons: completedLessons,
+        percent: percentage,
+        completed:
+          Boolean(courseProgress.completed) ||
+          completedLessons === 6 ||
+          percentage === 100
       });
     }
 
-    const completedCourses=
-      progress.filter(course=>course.completed).length;
+    const completedCourses =
+      progress.filter(function (course) {
+        return course.completed;
+      }).length;
 
-    const overallPercentage=
-      Math.round((lessonTotal/36)*100);
+    const overallPercentage =
+      Math.round((lessonTotal / 36) * 100);
 
-    const passedExam=
-      Number(exam.score)>=80;
+    const numericExamScore =
+      Number(exam.score);
 
-    document.getElementById("heroName").textContent=fullName;
-    document.getElementById("coursesDone").textContent=completedCourses+"/6";
-    document.getElementById("lessonPercent").textContent=overallPercentage+"%";
-    document.getElementById("overallText").textContent=overallPercentage+"%";
-    document.getElementById("overallBar").style.width=overallPercentage+"%";
+    const hasExamScore =
+      exam.score !== undefined &&
+      exam.score !== null &&
+      exam.score !== "" &&
+      Number.isFinite(numericExamScore);
 
-    document.getElementById("examScore").textContent=
-      exam.score!==undefined?exam.score+"%":"—";
+    const passedExam =
+      hasExamScore && numericExamScore >= 80;
 
-    document.getElementById("examBig").textContent=
-      exam.score!==undefined?exam.score+"%":"—";
+    document.getElementById(
+      "heroName"
+    ).textContent = fullName;
 
-    document.getElementById("certificateStatus").textContent=
-      passedExam?"OK":"🔒";
+    document.getElementById(
+      "coursesDone"
+    ).textContent = completedCourses + "/6";
 
-    document.getElementById("certificateBig").textContent=
-      passedExam?"★":"🔒";
+    document.getElementById(
+      "lessonPercent"
+    ).textContent = overallPercentage + "%";
 
-    document.getElementById("profileName").textContent=fullName;
+    document.getElementById(
+      "overallText"
+    ).textContent = overallPercentage + "%";
 
-    document.getElementById("profileEmail").textContent=
-      exam.email||student.email||"—";
+    document.getElementById(
+      "overallBar"
+    ).style.width = overallPercentage + "%";
 
-    document.getElementById("profileLocation").textContent=
-      student.location||student.city_state||"—";
+    document.getElementById(
+      "examScore"
+    ).textContent = hasExamScore
+      ? numericExamScore + "%"
+      : "—";
 
-    document.getElementById("profileLanguage").textContent=
-      student.preferred_language||
-      localStorage.getItem("promaxRealEstateLanguage")||
+    document.getElementById(
+      "examBig"
+    ).textContent = hasExamScore
+      ? numericExamScore + "%"
+      : "—";
+
+    document.getElementById(
+      "certificateStatus"
+    ).textContent = passedExam ? "OK" : "🔒";
+
+    document.getElementById(
+      "certificateBig"
+    ).textContent = passedExam ? "★" : "🔒";
+
+    document.getElementById(
+      "profileName"
+    ).textContent = fullName;
+
+    document.getElementById(
+      "profileEmail"
+    ).textContent =
+      exam.email ||
+      student.email ||
       "—";
 
-    const reviewedCourses=new Set(
-      professorHistory
-        .map(item=>item.course)
-        .filter(course=>course&&course!=="general")
+    document.getElementById(
+      "profileLocation"
+    ).textContent =
+      student.location ||
+      student.city_state ||
+      student.cityState ||
+      "—";
+
+    const savedLanguage =
+      window.localStorage.getItem(
+        "promaxRealEstateLanguage"
+      ) || "ht";
+
+    document.getElementById(
+      "profileLanguage"
+    ).textContent =
+      student.preferred_language ||
+      student.preferredLanguage ||
+      savedLanguage.toUpperCase();
+
+    const validProfessorHistory =
+      Array.isArray(professorHistory)
+        ? professorHistory
+        : [];
+
+    const validProfessorQuestions =
+      Array.isArray(professorQuestionsFallback)
+        ? professorQuestionsFallback
+        : [];
+
+    const combinedProfessorHistory =
+      validProfessorHistory.length
+        ? validProfessorHistory
+        : validProfessorQuestions;
+
+    const reviewedCourses = new Set(
+      combinedProfessorHistory
+        .map(function (item) {
+          return item.course;
+        })
+        .filter(function (course) {
+          return (
+            course &&
+            course !== "general" &&
+            course !== "all"
+          );
+        })
     );
 
-    const studyPlan=readStorage(
+    const studyPlan = readStorage(
       "promaxStudyPlanProgress",
-      {completed:[]}
+      {
+        completed: []
+      }
     );
 
-    const completedPlanDays=new Set(
-      (Array.isArray(studyPlan.completed)?studyPlan.completed:[])
+    const completedPlanDays = new Set(
+      (
+        Array.isArray(studyPlan.completed)
+          ? studyPlan.completed
+          : []
+      )
         .map(Number)
-        .filter(day=>Number.isInteger(day)&&day>=0&&day<7)
+        .filter(function (day) {
+          return (
+            Number.isInteger(day) &&
+            day >= 0 &&
+            day < 7
+          );
+        })
     );
 
-    document.getElementById("professorQuestions").textContent=
-      professorHistory.length;
+    document.getElementById(
+      "professorQuestions"
+    ).textContent =
+      combinedProfessorHistory.length;
 
-    document.getElementById("professorCourses").textContent=
-      reviewedCourses.size+"/6";
+    document.getElementById(
+      "professorCourses"
+    ).textContent =
+      reviewedCourses.size + "/6";
 
-    document.getElementById("professorPractice").textContent=
-      practiceResult.score!==undefined
-        ?practiceResult.score+"%"
-        :"—";
+    document.getElementById(
+      "professorPractice"
+    ).textContent =
+      practiceResult.score !== undefined
+        ? practiceResult.score + "%"
+        : "—";
 
-    document.getElementById("professorPlan").textContent=
-      Math.round((completedPlanDays.size/7)*100)+"%";
+    document.getElementById(
+      "professorPlan"
+    ).textContent =
+      Math.round(
+        (completedPlanDays.size / 7) * 100
+      ) + "%";
 
-    const certificateButton=
-      document.getElementById("certificateButton");
+    const certificateButton =
+      document.getElementById(
+        "certificateButton"
+      );
 
-    if(!passedExam){
+    if (!passedExam) {
       certificateButton.classList.add("locked");
+      certificateButton.setAttribute(
+        "aria-disabled",
+        "true"
+      );
     }
 
-    let currentLanguage=
-      localStorage.getItem("promaxRealEstateLanguage")||"ht";
+    let currentLanguage = savedLanguage;
 
-    if(!translations[currentLanguage]){
-      currentLanguage="ht";
+    if (!translations[currentLanguage]) {
+      currentLanguage = "ht";
     }
 
-    function renderDashboard(){
-      const languagePack=translations[currentLanguage];
+    function renderDashboard() {
+      const languagePack =
+        translations[currentLanguage];
 
-      document.documentElement.lang=currentLanguage;
+      document.documentElement.lang =
+        currentLanguage;
 
-      document.querySelectorAll("[data-t]").forEach(element=>{
-        const key=element.dataset.t;
+      document
+        .querySelectorAll("[data-t]")
+        .forEach(function (element) {
+          const key =
+            element.getAttribute("data-t");
 
-        if(languagePack[key]){
-          element.textContent=languagePack[key];
-        }
-      });
+          if (
+            Object.prototype.hasOwnProperty.call(
+              languagePack,
+              key
+            )
+          ) {
+            element.textContent =
+              languagePack[key];
+          }
+        });
 
-      document.querySelectorAll(".lang").forEach(button=>{
-        button.classList.toggle(
-          "active",
-          button.dataset.lang===currentLanguage
-        );
-      });
+      document
+        .querySelectorAll(".lang")
+        .forEach(function (button) {
+          button.classList.toggle(
+            "active",
+            button.dataset.lang ===
+              currentLanguage
+          );
+        });
 
-      document.getElementById("examMessage").textContent=
-        passedExam
-          ?languagePack.passed
-          :languagePack.notPassed;
+      document.getElementById(
+        "examMessage"
+      ).textContent = passedExam
+        ? languagePack.passed
+        : languagePack.notPassed;
 
-      document.getElementById("certificateMessage").textContent=
-        passedExam
-          ?languagePack.unlocked
-          :languagePack.locked;
+      document.getElementById(
+        "certificateMessage"
+      ).textContent = passedExam
+        ? languagePack.unlocked
+        : languagePack.locked;
 
-      document.getElementById("courseGrid").innerHTML=
-        progress.map((course,index)=>{
-          const courseNumber=
-            String(index+1).padStart(2,"0");
+      document.getElementById(
+        "courseGrid"
+      ).innerHTML = progress
+        .map(function (course, index) {
+          const courseNumber =
+            String(index + 1).padStart(2, "0");
 
-          const actionText=
+          const actionText =
             course.completed
-              ?languagePack.done
-              :languagePack.continueCourse;
+              ? languagePack.done
+              : languagePack.continueCourse;
 
-          return `
-            <article class="course">
-              <div class="course-head">
-                <b>
-                  ${courseNumber} ·
-                  ${courseTitles[currentLanguage][index]}
-                </b>
+          return (
+            '<article class="course">' +
+              '<div class="course-head">' +
+                "<b>" +
+                  courseNumber +
+                  " · " +
+                  courseTitles[currentLanguage][index] +
+                "</b>" +
+                "<strong>" +
+                  course.percent +
+                  "%" +
+                "</strong>" +
+              "</div>" +
+              '<div class="track">' +
+                '<span style="width:' +
+                  course.percent +
+                  '%"></span>' +
+              "</div>" +
+              '<a href="./course-' +
+                courseNumber +
+                '.html">' +
+                actionText +
+              "</a>" +
+            "</article>"
+          );
+        })
+        .join("");
 
-                <strong>${course.percent}%</strong>
-              </div>
+      document.getElementById(
+        "profileLanguage"
+      ).textContent =
+        currentLanguage === "ht"
+          ? "KREYÒL"
+          : currentLanguage === "es"
+            ? "ESPAÑOL"
+            : "ENGLISH";
 
-              <div class="track">
-                <span style="width:${course.percent}%"></span>
-              </div>
-
-              <a href="course-${courseNumber}.html">
-                ${actionText}
-              </a>
-            </article>
-          `;
-        }).join("");
-
-      localStorage.setItem(
+      window.localStorage.setItem(
         "promaxRealEstateLanguage",
         currentLanguage
       );
     }
 
-    document.querySelectorAll(".lang").forEach(button=>{
-      button.addEventListener("click",()=>{
-        currentLanguage=button.dataset.lang;
-        renderDashboard();
+    document
+      .querySelectorAll(".lang")
+      .forEach(function (button) {
+        button.addEventListener(
+          "click",
+          function () {
+            currentLanguage =
+              button.dataset.lang;
+
+            renderDashboard();
+          }
+        );
       });
-    });
 
     renderDashboard();
   </script>
