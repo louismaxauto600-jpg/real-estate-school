@@ -10,7 +10,10 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Montserrat:wght@400;600;700;800;900&display=swap"
+    rel="stylesheet"
+  >
 
   <style>
     :root{
@@ -22,15 +25,26 @@
       --muted:#d59672;
     }
 
-    *{box-sizing:border-box}
+    *{
+      box-sizing:border-box;
+    }
 
     body{
       margin:0;
       min-height:100vh;
       color:var(--apricot);
       background:
-        radial-gradient(circle at 12% 15%,rgba(255,115,0,.17),transparent 28%),
-        linear-gradient(145deg,#020100,#130701 55%,#020100);
+        radial-gradient(
+          circle at 12% 15%,
+          rgba(255,115,0,.17),
+          transparent 28%
+        ),
+        linear-gradient(
+          145deg,
+          #020100,
+          #130701 55%,
+          #020100
+        );
       font-family:Montserrat,sans-serif;
     }
 
@@ -39,7 +53,10 @@
       text-decoration:none;
     }
 
-    button,textarea,select{
+    button,
+    textarea,
+    select,
+    input{
       font:inherit;
     }
 
@@ -107,7 +124,12 @@
 
     .langs button.active{
       color:#000;
-      background:linear-gradient(135deg,var(--apricot),var(--orange));
+      background:
+        linear-gradient(
+          135deg,
+          var(--apricot),
+          var(--orange)
+        );
     }
 
     main{
@@ -121,7 +143,8 @@
       grid-template-columns:380px 1fr;
       border:1px solid var(--line);
       background:rgba(7,3,1,.92);
-      box-shadow:0 28px 70px rgba(0,0,0,.55);
+      box-shadow:
+        0 28px 70px rgba(0,0,0,.55);
     }
 
     .portrait{
@@ -187,18 +210,37 @@
       line-height:1.6;
     }
 
+    .student-name{
+      margin-bottom:14px;
+    }
+
+    .student-name input{
+      width:100%;
+      padding:15px;
+      border:1px solid var(--line);
+      color:var(--apricot);
+      background:#050201;
+      outline:none;
+    }
+
+    .student-name input:focus{
+      border-color:var(--orange);
+    }
+
     .row{
       display:grid;
-      grid-template-columns:180px 1fr;
+      grid-template-columns:190px 1fr;
       gap:14px;
       margin-bottom:14px;
     }
 
-    select,textarea{
+    select,
+    textarea{
       width:100%;
       border:1px solid var(--line);
       color:var(--apricot);
       background:#050201;
+      outline:none;
     }
 
     select{
@@ -212,12 +254,41 @@
       line-height:1.6;
     }
 
+    select:focus,
+    textarea:focus{
+      border-color:var(--orange);
+    }
+
+    .quick{
+      margin:16px 0;
+      display:flex;
+      flex-wrap:wrap;
+      gap:9px;
+    }
+
+    .quick button{
+      padding:10px 13px;
+      border:1px solid var(--line);
+      color:var(--apricot);
+      background:#080301;
+      cursor:pointer;
+    }
+
+    .quick button:hover{
+      border-color:var(--orange);
+    }
+
     .ask{
       width:100%;
       padding:17px;
       border:1px solid var(--orange);
       color:#000;
-      background:linear-gradient(135deg,var(--apricot),var(--orange));
+      background:
+        linear-gradient(
+          135deg,
+          var(--apricot),
+          var(--orange)
+        );
       font-weight:900;
       cursor:pointer;
     }
@@ -244,25 +315,6 @@
       display:block;
       margin-bottom:8px;
       color:var(--orange);
-    }
-
-    .quick{
-      display:flex;
-      flex-wrap:wrap;
-      gap:9px;
-      margin:16px 0;
-    }
-
-    .quick button{
-      padding:10px 13px;
-      border:1px solid var(--line);
-      color:var(--apricot);
-      background:#080301;
-      cursor:pointer;
-    }
-
-    .quick button:hover{
-      border-color:var(--orange);
     }
 
     .notice{
@@ -307,7 +359,10 @@
 <body>
   <header class="top">
     <a class="brand" href="index.html">
-      <img src="real-estate-school-logo.png" alt="PRO-MAX Académie">
+      <img
+        src="real-estate-school-logo.png"
+        alt="PRO-MAX Académie"
+      >
 
       <span>
         <b>PRO-MAX ACADÉMIE</b>
@@ -320,9 +375,21 @@
     </a>
 
     <div class="langs">
-      <button type="button" data-lang="en">ENG</button>
-      <button type="button" data-lang="es">ESP</button>
-      <button type="button" class="active" data-lang="ht">KRE</button>
+      <button type="button" data-lang="en">
+        ENG
+      </button>
+
+      <button type="button" data-lang="es">
+        ESP
+      </button>
+
+      <button
+        class="active"
+        type="button"
+        data-lang="ht"
+      >
+        KRE
+      </button>
     </div>
   </header>
 
@@ -359,19 +426,49 @@
       </h2>
 
       <p class="desk-note" id="note">
-        Chwazi kou a epi ekri kesyon ou. Pwofesè a ap ba w yon
-        eksplikasyon ki baze sou materyèl pwogram nan.
+        Chwazi kou a epi ekri kesyon ou.
+        Pwofesè a ap ba w yon eksplikasyon
+        ki baze sou materyèl pwogram nan.
       </p>
+
+      <div class="student-name">
+        <input
+          id="studentName"
+          type="text"
+          autocomplete="name"
+          placeholder="Ekri non ou"
+        >
+      </div>
 
       <div class="row">
         <select id="course">
-          <option value="general">Tout kou yo</option>
-          <option value="property">01 · Fondasyon</option>
-          <option value="law">02 · Lwa ak etik</option>
-          <option value="finance">03 · Finansman</option>
-          <option value="valuation">04 · Valyasyon</option>
-          <option value="marketing">05 · Maketing</option>
-          <option value="exam">06 · Preparasyon egzamen</option>
+          <option value="general">
+            Tout kou yo
+          </option>
+
+          <option value="property">
+            01 · Fondasyon
+          </option>
+
+          <option value="law">
+            02 · Lwa ak etik
+          </option>
+
+          <option value="finance">
+            03 · Finansman
+          </option>
+
+          <option value="valuation">
+            04 · Valyasyon
+          </option>
+
+          <option value="marketing">
+            05 · Maketing
+          </option>
+
+          <option value="exam">
+            06 · Preparasyon egzamen
+          </option>
         </select>
 
         <textarea
@@ -381,28 +478,48 @@
       </div>
 
       <div class="quick">
-        <button type="button" data-q="Kisa yon deed ye?">
+        <button
+          type="button"
+          data-q="Kisa yon deed ye?"
+        >
           Kisa yon deed ye?
         </button>
 
-        <button type="button" data-q="Kisa fiduciary duty ye?">
+        <button
+          type="button"
+          data-q="Kisa fiduciary duty ye?"
+        >
           Fiduciary duty?
         </button>
 
-        <button type="button" data-q="Kijan down payment mache?">
+        <button
+          type="button"
+          data-q="Kijan down payment mache?"
+        >
           Down payment?
         </button>
 
-        <button type="button" data-q="Kisa appraisal ye?">
+        <button
+          type="button"
+          data-q="Kisa appraisal ye?"
+        >
           Appraisal?
         </button>
       </div>
 
-      <button class="ask" id="ask" type="button">
+      <button
+        class="ask"
+        id="ask"
+        type="button"
+      >
         MANDE PWOFESÈ MAX
       </button>
 
-      <div class="answer" id="answer" aria-live="polite">
+      <div
+        class="answer"
+        id="answer"
+        aria-live="polite"
+      >
         <strong id="answerTitle">
           REPONS PWOFESÈ A
         </strong>
@@ -420,19 +537,6 @@
   <script>
     "use strict";
 
-    const back = document.getElementById("back");
-    const role = document.getElementById("role");
-    const bio = document.getElementById("bio");
-    const title = document.getElementById("title");
-    const note = document.getElementById("note");
-    const question = document.getElementById("question");
-    const course = document.getElementById("course");
-    const ask = document.getElementById("ask");
-    const answer = document.getElementById("answer");
-    const answerTitle = document.getElementById("answerTitle");
-    const answerText = document.getElementById("answerText");
-    const notice = document.getElementById("notice");
-
     const copy = {
       ht: {
         back: "← RETOUNEN",
@@ -442,32 +546,38 @@
         title: "Mande Pwofesè a",
         note:
           "Chwazi kou a epi ekri kesyon ou. Pwofesè a ap ba w yon eksplikasyon ki baze sou materyèl pwogram nan.",
+        namePlaceholder: "Ekri non ou",
         placeholder: "Ekri kesyon ou isit la...",
         ask: "MANDE PWOFESÈ MAX",
-        answer: "REPONS PWOFESÈ A",
-        empty: "Tanpri ekri yon kesyon anvan.",
         thinking: "PWOFESÈ A AP REFLECHI...",
         waiting: "Tanpri tann...",
-        aiError:
-          "Sistèm AI a pa konekte. Mete OPENAI_API_KEY nan Netlify."
+        answer: "REPONS PWOFESÈ A",
+        empty: "Tanpri ekri yon kesyon anvan.",
+        unavailable:
+          "Sistèm AI a pa konekte kounye a.",
+        notice:
+          "Zouti edikatif sa a pa ranplase konsèy legal, finansye oswa yon pwofesyonèl ki gen lisans."
       },
 
       en: {
         back: "← RETURN",
         role: "OFFICIAL PROFESSOR",
         bio:
-          "I am here to help you understand the PRO-MAX Academy lessons, review key concepts, and prepare for your assessments.",
+          "I am here to help you understand the PRO-MAX Academy lessons, review key concepts and prepare for your assessments.",
         title: "Ask the Professor",
         note:
           "Select a course and enter your question. The professor will provide an explanation based on the program material.",
+        namePlaceholder: "Enter your name",
         placeholder: "Enter your question here...",
         ask: "ASK PROFESSOR MAX",
-        answer: "PROFESSOR'S ANSWER",
-        empty: "Please enter a question first.",
         thinking: "PROFESSOR IS THINKING...",
         waiting: "Please wait...",
-        aiError:
-          "The AI system is not connected. Add OPENAI_API_KEY in Netlify."
+        answer: "PROFESSOR'S ANSWER",
+        empty: "Please enter a question first.",
+        unavailable:
+          "The AI system is not connected right now.",
+        notice:
+          "This educational tool does not replace legal or financial advice or a licensed professional."
       },
 
       es: {
@@ -478,78 +588,112 @@
         title: "Pregunte al profesor",
         note:
           "Seleccione un curso y escriba su pregunta. El profesor dará una explicación basada en el material del programa.",
+        namePlaceholder: "Escriba su nombre",
         placeholder: "Escriba su pregunta aquí...",
         ask: "PREGUNTAR AL PROFESOR MAX",
-        answer: "RESPUESTA DEL PROFESOR",
-        empty: "Escriba una pregunta primero.",
         thinking: "EL PROFESOR ESTÁ PENSANDO...",
         waiting: "Espere por favor...",
-        aiError:
-          "El sistema de IA no está conectado. Configure OPENAI_API_KEY en Netlify."
-      }
-    };
-
-    const fallbackAnswers = {
-      deed: {
-        ht:
-          "Yon deed se dokiman legal ki transfere pwopriyetè yon byen imobilye soti nan yon pati bay yon lòt. Tit la se dwa legal sou pwopriyete a; deed la se dokiman transfè a.",
-        en:
-          "A deed is the legal document that transfers real-estate ownership from one party to another. Title is the legal right to the property; the deed is the transfer document.",
-        es:
-          "Una escritura es el documento legal que transfiere la propiedad inmobiliaria de una parte a otra."
-      },
-
-      fiduciary: {
-        ht:
-          "Fiduciary duty se obligasyon ajan an genyen pou aji nan pi bon enterè kliyan an: lwayote, konfidansyalite, obeyisans legal, divilgasyon, kontablite ak swen pwofesyonèl.",
-        en:
-          "Fiduciary duty requires an agent to act in the client's best interest through loyalty, confidentiality, lawful obedience, disclosure, accounting, and professional care.",
-        es:
-          "El deber fiduciario exige que el agente actúe en el mejor interés del cliente."
-      },
-
-      down: {
-        ht:
-          "Down payment se pati pri acha a achtè a peye davans. Rès la anjeneral finanse ak yon prè ipotèk.",
-        en:
-          "A down payment is the portion of the purchase price paid upfront. The remainder is generally financed with a mortgage.",
-        es:
-          "El pago inicial es la parte del precio de compra que se paga por adelantado."
-      },
-
-      appraisal: {
-        ht:
-          "Yon appraisal se yon estimasyon pwofesyonèl sou valè mache yon pwopriyete.",
-        en:
-          "An appraisal is a professional estimate of a property’s market value.",
-        es:
-          "Una tasación es una estimación profesional del valor de mercado de una propiedad."
+        answer: "RESPUESTA DEL PROFESOR",
+        empty: "Escriba una pregunta primero.",
+        unavailable:
+          "El sistema de IA no está conectado en este momento.",
+        notice:
+          "Esta herramienta educativa no reemplaza asesoramiento legal o financiero ni a un profesional autorizado."
       }
     };
 
     let language =
-      localStorage.getItem("promaxRealEstateLanguage") || "ht";
+      localStorage.getItem(
+        "promaxRealEstateLanguage"
+      ) || "ht";
 
-    function translatePage(selectedLanguage) {
-      language = copy[selectedLanguage]
-        ? selectedLanguage
-        : "ht";
+    if (!copy[language]) {
+      language = "ht";
+    }
 
-      const content = copy[language];
+    const back =
+      document.getElementById("back");
 
-      document.documentElement.lang = language;
-      back.textContent = content.back;
-      role.textContent = content.role;
-      bio.textContent = content.bio;
-      title.textContent = content.title;
-      note.textContent = content.note;
-      question.placeholder = content.placeholder;
-      ask.textContent = content.ask;
-      answerTitle.textContent = content.answer;
+    const role =
+      document.getElementById("role");
+
+    const bio =
+      document.getElementById("bio");
+
+    const title =
+      document.getElementById("title");
+
+    const note =
+      document.getElementById("note");
+
+    const studentName =
+      document.getElementById("studentName");
+
+    const course =
+      document.getElementById("course");
+
+    const question =
+      document.getElementById("question");
+
+    const ask =
+      document.getElementById("ask");
+
+    const answer =
+      document.getElementById("answer");
+
+    const answerTitle =
+      document.getElementById("answerTitle");
+
+    const answerText =
+      document.getElementById("answerText");
+
+    const notice =
+      document.getElementById("notice");
+
+    function translate(selectedLanguage) {
+      language =
+        copy[selectedLanguage]
+          ? selectedLanguage
+          : "ht";
+
+      const text = copy[language];
+
+      document.documentElement.lang =
+        language;
+
+      back.textContent =
+        text.back;
+
+      role.textContent =
+        text.role;
+
+      bio.textContent =
+        text.bio;
+
+      title.textContent =
+        text.title;
+
+      note.textContent =
+        text.note;
+
+      studentName.placeholder =
+        text.namePlaceholder;
+
+      question.placeholder =
+        text.placeholder;
+
+      ask.textContent =
+        text.ask;
+
+      answerTitle.textContent =
+        text.answer;
+
+      notice.textContent =
+        text.notice;
 
       document
         .querySelectorAll("[data-lang]")
-        .forEach(function (button) {
+        .forEach(function(button) {
           button.classList.toggle(
             "active",
             button.dataset.lang === language
@@ -564,158 +708,135 @@
 
     document
       .querySelectorAll("[data-lang]")
-      .forEach(function (button) {
-        button.addEventListener("click", function () {
-          translatePage(button.dataset.lang);
-        });
+      .forEach(function(button) {
+        button.addEventListener(
+          "click",
+          function() {
+            translate(
+              button.dataset.lang
+            );
+          }
+        );
       });
 
     document
       .querySelectorAll("[data-q]")
-      .forEach(function (button) {
-        button.addEventListener("click", function () {
-          question.value = button.dataset.q;
-          question.focus();
-        });
-      });
+      .forEach(function(button) {
+        button.addEventListener(
+          "click",
+          function() {
+            question.value =
+              button.dataset.q;
 
-    function getFallbackAnswer(value) {
-      const normalizedQuestion = value.toLowerCase();
-      let answerKey = "";
-
-      if (
-        /deed|escritura|tit transf/.test(
-          normalizedQuestion
-        )
-      ) {
-        answerKey = "deed";
-      } else if (
-        /fiduci|lwayote|lealtad|loyalty/.test(
-          normalizedQuestion
-        )
-      ) {
-        answerKey = "fiduciary";
-      } else if (
-        /down|initial|davans|enganche/.test(
-          normalizedQuestion
-        )
-      ) {
-        answerKey = "down";
-      } else if (
-        /appraisal|tasasyon|tasaci|evalyasyon val/.test(
-          normalizedQuestion
-        )
-      ) {
-        answerKey = "appraisal";
-      }
-
-      return answerKey
-        ? fallbackAnswers[answerKey][language]
-        : copy[language].aiError;
-    }
-
-    function readHistory() {
-      try {
-        const savedHistory = JSON.parse(
-          localStorage.getItem(
-            "promaxProfessorHistory"
-          ) || "[]"
-        );
-
-        return Array.isArray(savedHistory)
-          ? savedHistory
-          : [];
-      } catch (error) {
-        return [];
-      }
-    }
-
-    function saveQuestion(questionText, responseText) {
-      const history = readHistory();
-
-      history.push({
-        question: questionText,
-        answer: responseText,
-        course: course.value,
-        language: language,
-        date: new Date().toISOString()
-      });
-
-      localStorage.setItem(
-        "promaxProfessorHistory",
-        JSON.stringify(history.slice(-25))
-      );
-    }
-
-    ask.addEventListener("click", async function () {
-      const originalQuestion = question.value.trim();
-
-      if (!originalQuestion) {
-        answerText.textContent = copy[language].empty;
-        answer.classList.add("show");
-        return;
-      }
-
-      ask.disabled = true;
-      ask.textContent = copy[language].thinking;
-      answer.classList.add("show");
-      answerText.textContent = copy[language].waiting;
-
-      try {
-        const response = await fetch(
-          "/.netlify/functions/ask-professor",
-          {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-              question: originalQuestion,
-              course: course.value,
-              language: language
-            })
+            question.focus();
           }
         );
+      });
 
-        const data = await response.json();
+    ask.addEventListener(
+      "click",
+      async function() {
+        const originalQuestion =
+          question.value.trim();
 
-        if (!response.ok || !data.answer) {
-          throw new Error(
-            data.error || "AI unavailable"
-          );
+        const name =
+          studentName.value.trim();
+
+        if (!originalQuestion) {
+          answerText.textContent =
+            copy[language].empty;
+
+          answer.classList.add("show");
+          question.focus();
+
+          return;
         }
 
-        answerText.textContent = data.answer;
-        saveQuestion(
-          originalQuestion,
-          data.answer
-        );
-
-        question.value = "";
-      } catch (error) {
-        const fallbackAnswer =
-          getFallbackAnswer(originalQuestion);
-
-        answerText.textContent =
-          fallbackAnswer;
-
-        saveQuestion(
-          originalQuestion,
-          fallbackAnswer
-        );
-      } finally {
-        ask.disabled = false;
+        ask.disabled = true;
         ask.textContent =
-          copy[language].ask;
+          copy[language].thinking;
 
-        answer.scrollIntoView({
-          behavior: "smooth",
-          block: "nearest"
-        });
-      }
-    });
+        answer.classList.add("show");
+        answerText.textContent =
+          copy[language].waiting;
 
-    translatePage(language);
-  </script>
-</body>
-</html>
+        try {
+          const response = await fetch(
+            "/.netlify/functions/ask-professor",
+            {
+              method: "POST",
+
+              headers: {
+                "Content-Type":
+                  "application/json"
+              },
+
+              body: JSON.stringify({
+                studentName: name,
+                question: originalQuestion,
+                course: course.value,
+                language: language,
+                mode: "explain"
+              })
+            }
+          );
+
+          const data =
+            await response.json();
+
+          if (
+            !response.ok ||
+            !data.answer
+          ) {
+            throw new Error(
+              data.error ||
+              "AI unavailable"
+            );
+          }
+
+          answerText.textContent =
+            data.answer;
+
+          const history =
+            JSON.parse(
+              localStorage.getItem(
+                "promaxProfessorHistory"
+              ) || "[]"
+            );
+
+          history.push({
+            studentName: name,
+            question: originalQuestion,
+            answer: data.answer,
+            course: course.value,
+            language: language,
+            date:
+              new Date().toISOString()
+          });
+
+          localStorage.setItem(
+            "promaxProfessorHistory",
+            JSON.stringify(
+              history.slice(-25)
+            )
+          );
+
+          if (name) {
+            localStorage.setItem(
+              "promaxProfessorStudentName",
+              name
+            );
+          }
+
+          question.value = "";
+        } catch (error) {
+          answerText.textContent =
+            copy[language].unavailable;
+        } finally {
+          ask.disabled = false;
+          ask.textContent =
+            copy[language].ask;
+
+          answer.scrollIntoView({
+            behavior: "smooth",
+            block:
