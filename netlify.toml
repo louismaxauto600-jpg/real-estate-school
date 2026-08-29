@@ -1,3 +1,7 @@
+Worked for 13s
+
+NON FICHYE A: netlify.toml
+
 [build]
   publish = "."
   functions = "netlify/functions"
@@ -11,38 +15,80 @@
   status = 301
   force = true
 
-[[headers]]
-  for = "/*"
+[[redirects]]
+  from = "/course-1.html"
+  to = "/course-01.html"
+  status = 301
+  force = true
 
-  [headers.values]
-    X-Content-Type-Options = "nosniff"
-    Referrer-Policy = "strict-origin-when-cross-origin"
+[[redirects]]
+  from = "/course-2.html"
+  to = "/course-02.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/course-3.html"
+  to = "/course-03.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/course-4.html"
+  to = "/course-04.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/course-5.html"
+  to = "/course-05.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/course-6.html"
+  to = "/course-06.html"
+  status = 301
+  force = true
 
 [[headers]]
   for = "/*.html"
 
   [headers.values]
     Cache-Control = "no-cache, no-store, must-revalidate"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), geolocation=(), microphone=(self)"
 
 [[headers]]
   for = "/*.js"
 
   [headers.values]
     Cache-Control = "public, max-age=300, must-revalidate"
-    Content-Type = "application/javascript; charset=UTF-8"
+    X-Content-Type-Options = "nosniff"
 
 [[headers]]
   for = "/*.css"
 
   [headers.values]
     Cache-Control = "public, max-age=300, must-revalidate"
-    Content-Type = "text/css; charset=UTF-8"
+    X-Content-Type-Options = "nosniff"
+
+[[headers]]
+  for = "/*.png"
+
+  [headers.values]
+    Cache-Control = "public, max-age=86400"
+
+[[headers]]
+  for = "/*.jpg"
+
+  [headers.values]
+    Cache-Control = "public, max-age=86400"
 
 [[headers]]
   for = "/netlify/functions/*"
 
   [headers.values]
     Cache-Control = "no-store"
-    Access-Control-Allow-Origin = "*"
-    Access-Control-Allow-Headers = "Content-Type"
-    Access-Control-Allow-Methods = "GET, POST, OPTIONS"
+    X-Content-Type-Options = "nosniff"
