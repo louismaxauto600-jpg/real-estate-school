@@ -1,190 +1,236 @@
-<svg
-  class="official-school-logo"
-  viewBox="0 0 220 220"
-  role="img"
-  aria-labelledby="schoolLogoTitle schoolLogoDesc"
-  xmlns="http://www.w3.org/2000/svg"
->
-  <title id="schoolLogoTitle">
-    PRO-MAX Académie Real Estate School
-  </title>
+<!DOCTYPE html>
+<html lang="ht" id="htmlRoot" translate="no">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#070402">
+  <meta name="google" content="notranslate">
+  <meta name="description" content="PRO-MAX Académie Real Estate School — fòmasyon pwofesyonèl nan byen imobilye.">
+  <title>PRO-MAX Académie | Real Estate School</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+  <script src="Javascript.js?v=6" defer onerror="this.onerror=null;this.src='javascript.js?v=6';"></script>
+</head>
+<body>
+  <div class="ambient ambient-one"></div>
+  <div class="ambient ambient-two"></div>
 
-  <desc id="schoolLogoDesc">
-    Official orange and black Real Estate School logo
-  </desc>
+  <header class="site-header" id="top">
+    <a class="brand" href="#top" aria-label="Real Estate School home">
+      <img class="official-school-logo" src="./real-estate-school-logo.png" alt="PRO-MAX Académie Real Estate School logo" onerror="this.onerror=null;this.src='https://github.com/louismaxauto600-jpg/real-estate-school/raw/refs/heads/main/real-estate-school-logo.png';">
+      <span class="brand-text">
+        <b>PRO-MAX ACADÉMIE</b>
+        <small>REAL ESTATE SCHOOL</small>
+        <em class="ecosystem-label" data-i18n="ecosystemLabel">EKOSISTÈM DIJITAL PWOFESYONÈL</em>
+      </span>
+    </a>
 
-  <defs>
-    <linearGradient
-      id="orangeApricot"
-      x1="0"
-      y1="0"
-      x2="1"
-      y2="1"
-    >
-      <stop offset="0%" stop-color="#ffb36b"/>
-      <stop offset="45%" stop-color="#ff7a00"/>
-      <stop offset="100%" stop-color="#c94700"/>
-    </linearGradient>
+    <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
 
-    <radialGradient
-      id="blackFade"
-      cx="50%"
-      cy="42%"
-      r="65%"
-    >
-      <stop offset="0%" stop-color="#2a1307"/>
-      <stop offset="60%" stop-color="#0d0703"/>
-      <stop offset="100%" stop-color="#030201"/>
-    </radialGradient>
+    <nav class="main-nav" id="mainNav" aria-label="Main navigation">
+      <a href="#home" data-i18n="navHome">Akèy</a>
+      <a href="#courses" data-i18n="navCourses">Kou yo</a>
+      <a href="#pathway" data-i18n="navPath">Parcours</a>
+      <a href="#practice" data-i18n="navExam">Egzamen</a>
+      <a href="#certificate" data-i18n="navCertificate">Sètifika</a>
+      <a href="student-dashboard.html">Dashboard</a>
+      <a href="#contact" data-i18n="navContact">Kontak</a>
+    </nav>
 
-    <filter
-      id="orangeGlow"
-      x="-50%"
-      y="-50%"
-      width="200%"
-      height="200%"
-    >
-      <feGaussianBlur
-        stdDeviation="4"
-        result="blur"
-      />
+    <div class="language-switcher" aria-label="Language selector">
+      <button class="lang-btn notranslate" type="button" translate="no" data-lang="en">ENG</button>
+      <button class="lang-btn notranslate" type="button" translate="no" data-lang="es">ESP</button>
+      <button class="lang-btn notranslate active" type="button" translate="no" data-lang="ht">KRE</button>
+    </div>
+  </header>
 
-      <feMerge>
-        <feMergeNode in="blur"/>
-        <feMergeNode in="SourceGraphic"/>
-      </feMerge>
-    </filter>
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-copy reveal">
+        <p class="eyebrow" data-i18n="heroEyebrow">YON LEKÒL PRO-MAX ACADÉMIE</p>
+        <h1><span data-i18n="heroTitleOne">Bati konesans ou.</span><strong data-i18n="heroTitleTwo">Louvri pòt avni ou.</strong></h1>
+        <p class="hero-text" data-i18n="heroText">Aprann prensip byen imobilye, prepare pou egzamen lisans ou, epi devlope konpetans pou sèvi kliyan avèk konfyans ak pwofesyonalis.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#courses" data-i18n="startLearning">Kòmanse aprann</a>
+          <a class="btn btn-secondary" href="./registration-center.html" data-i18n="enrollNow">Enskri kounye a</a>
+        </div>
+        <div class="trust-row">
+          <span><b>6</b><small data-i18n="statCourses">Kou esansyèl</small></span>
+          <span><b>3</b><small data-i18n="statLanguages">Lang</small></span>
+          <span><b>100%</b><small data-i18n="statOnline">Sou entènèt</small></span>
+        </div>
+      </div>
 
-    <clipPath id="globeClip">
-      <circle cx="110" cy="110" r="76"/>
-    </clipPath>
-  </defs>
+      <div class="hero-emblem reveal" aria-label="Animated digital real estate globe">
+        <div class="globe-float-wrapper">
+          <div class="globe-stage">
+            <div class="globe-halo halo-one"></div>
+            <div class="globe-halo halo-two"></div>
+            <div class="digital-globe">
+              <img class="promax-new-globe" src="./promax-new-globe-transparent.png" alt="PRO-MAX Académie Real Estate School globe" onerror="this.onerror=null;this.src='./promax-real-estate-3d-3.png';">
+            </div>
+            <span class="orbit-dot dot-one"></span>
+            <span class="orbit-dot dot-two"></span>
+          </div>
+        </div>
+      </div>
+    </section>
 
-  <!-- BLACK BACKGROUND -->
-  <circle
-    cx="110"
-    cy="110"
-    r="105"
-    fill="url(#blackFade)"
-    stroke="#ff7a00"
-    stroke-width="4"
-  />
+    <section class="announcement" aria-label="School announcement">
+      <span class="pulse-dot"></span>
+      <b data-i18n="announcementTitle">ENSKRIPSYON OUVÈ</b>
+      <p data-i18n="announcementText">Nouvo sesyon Real Estate School la disponib kounye a.</p>
+      <a class="announcement-register" href="./registration-center.html" data-i18n="reserveSeat">Rezève plas ou</a>
+    </section>
 
-  <!-- OUTER ORBIT -->
-  <ellipse
-    cx="110"
-    cy="110"
-    rx="101"
-    ry="48"
-    fill="none"
-    stroke="#ff8a22"
-    stroke-width="3"
-    transform="rotate(-18 110 110)"
-    opacity="0.9"
-  />
+    <section class="section" id="courses">
+      <div class="section-heading reveal">
+        <p class="eyebrow" data-i18n="coursesEyebrow">PWOGRAM FÒMASYON</p>
+        <h2 data-i18n="coursesTitle">Kou ki prepare w pou mache a</h2>
+        <p data-i18n="coursesText">Chak modil fèt pou mennen w soti nan fondasyon yo rive nan pratik pwofesyonèl.</p>
+      </div>
 
-  <circle
-    cx="27"
-    cy="83"
-    r="6"
-    fill="#ffad66"
-    filter="url(#orangeGlow)"
-  />
+      <div class="course-grid">
+        <article class="course-card reveal" data-course="fundamentals">
+          <div class="course-number">01</div><div class="course-icon">⌂</div>
+          <span class="level" data-i18n="levelBeginner">DEBITAN</span>
+          <h3 data-i18n="course1Title">Fondasyon byen imobilye</h3>
+          <p data-i18n="course1Text">Pwopriyete, tit, dwa, responsablite ak vokabilè endistri a.</p>
+          <div class="progress-track"><span style="width:0%"></span></div>
+          <a class="course-start" href="course-01.html" data-i18n="openCourse">Ouvri kou a</a>
+        </article>
 
-  <!-- GLOBE -->
-  <circle
-    cx="110"
-    cy="110"
-    r="76"
-    fill="#080402"
-    stroke="url(#orangeApricot)"
-    stroke-width="5"
-  />
+        <article class="course-card reveal" data-course="law">
+          <div class="course-number">02</div><div class="course-icon">⚖</div>
+          <span class="level" data-i18n="levelCore">ESANSYÈL</span>
+          <h3 data-i18n="course2Title">Lwa ak etik pwofesyonèl</h3>
+          <p data-i18n="course2Text">Kontra, divilgasyon, lojman ekitab ak obligasyon fidisyè.</p>
+          <div class="progress-track"><span style="width:0%"></span></div>
+          <a class="course-start" href="course-02.html" data-i18n="openCourse">Ouvri kou a</a>
+        </article>
 
-  <g
-    clip-path="url(#globeClip)"
-    fill="none"
-    stroke="#ff7a00"
-    stroke-width="2.5"
-    opacity="0.78"
-  >
-    <ellipse cx="110" cy="110" rx="32" ry="76"/>
-    <ellipse cx="110" cy="110" rx="58" ry="76"/>
-    <path d="M34 110H186"/>
-    <path d="M42 76C78 94 142 94 178 76"/>
-    <path d="M42 144C78 126 142 126 178 144"/>
-  </g>
+        <article class="course-card reveal" data-course="finance">
+          <div class="course-number">03</div><div class="course-icon">%</div>
+          <span class="level" data-i18n="levelCore">ESANSYÈL</span>
+          <h3 data-i18n="course3Title">Finansman ak ipotèk</h3>
+          <p data-i18n="course3Text">Prè, enterè, kredi, closing costs ak kalkil finansye.</p>
+          <div class="progress-track"><span style="width:0%"></span></div>
+          <a class="course-start" href="course-03.html" data-i18n="openCourse">Ouvri kou a</a>
+        </article>
 
-  <!-- REAL ESTATE HOUSE -->
-  <g
-    fill="url(#orangeApricot)"
-    stroke="#ff9a3d"
-    stroke-linejoin="round"
-    filter="url(#orangeGlow)"
-  >
-    <path
-      d="M61 112L110 68L159 112L148 112V157H72V112Z"
-      stroke-width="3"
-    />
+        <article class="course-card reveal" data-course="valuation">
+          <div class="course-number">04</div><div class="course-icon">⌁</div>
+          <span class="level" data-i18n="levelIntermediate">ENTÈMEDYÈ</span>
+          <h3 data-i18n="course4Title">Valyasyon pwopriyete</h3>
+          <p data-i18n="course4Text">Analiz mache, konparab, estimasyon valè ak envestisman.</p>
+          <div class="progress-track"><span style="width:0%"></span></div>
+          <a class="course-start" href="course-04.html" data-i18n="openCourse">Ouvri kou a</a>
+        </article>
 
-    <path
-      d="M91 157V119H129V157Z"
-      fill="#090502"
-      stroke="#ffad66"
-      stroke-width="3"
-    />
+        <article class="course-card reveal" data-course="sales">
+          <div class="course-number">05</div><div class="course-icon">◆</div>
+          <span class="level" data-i18n="levelProfessional">PWOFESYONÈL</span>
+          <h3 data-i18n="course5Title">Komèsyalizasyon ak kliyan</h3>
+          <p data-i18n="course5Text">Listing, negosyasyon, prezantasyon ak relasyon kliyan.</p>
+          <div class="progress-track"><span style="width:0%"></span></div>
+          <a class="course-start" href="course-05.html" data-i18n="openCourse">Ouvri kou a</a>
+        </article>
 
-    <rect
-      x="78"
-      y="118"
-      width="20"
-      height="20"
-      rx="2"
-      fill="#090502"
-      stroke="#ffad66"
-      stroke-width="2"
-    />
+        <article class="course-card reveal" data-course="exam">
+          <div class="course-number">06</div><div class="course-icon">✓</div>
+          <span class="level" data-i18n="levelFinal">FINAL</span>
+          <h3 data-i18n="course6Title">Preparasyon egzamen</h3>
+          <p data-i18n="course6Text">Revizyon estriktire, kesyon pratik ak estrateji egzamen.</p>
+          <div class="progress-track"><span style="width:0%"></span></div>
+          <a class="course-start" href="course-06.html" data-i18n="openCourse">Ouvri kou a</a>
+        </article>
+      </div>
+    </section>
 
-    <rect
-      x="136"
-      y="118"
-      width="15"
-      height="20"
-      rx="2"
-      fill="#090502"
-      stroke="#ffad66"
-      stroke-width="2"
-    />
-  </g>
+    <section class="section pathway-section" id="pathway">
+      <div class="section-heading reveal">
+        <p class="eyebrow" data-i18n="pathEyebrow">PARCOURS ETIDYAN</p>
+        <h2 data-i18n="pathTitle">Chemen ou pou reyisit</h2>
+      </div>
+      <div class="pathway">
+        <div class="path-step reveal"><span>1</span><h3 data-i18n="step1Title">Enskri</h3><p data-i18n="step1Text">Kreye pwofil etidyan ou.</p></div>
+        <div class="path-line"></div>
+        <div class="path-step reveal"><span>2</span><h3 data-i18n="step2Title">Aprann</h3><p data-i18n="step2Text">Fini 6 modil yo nan rit ou.</p></div>
+        <div class="path-line"></div>
+        <div class="path-step reveal"><span>3</span><h3 data-i18n="step3Title">Pratike</h3><p data-i18n="step3Text">Teste konesans ou regilyèman.</p></div>
+        <div class="path-line"></div>
+        <div class="path-step reveal"><span>4</span><h3 data-i18n="step4Title">Reyisi</h3><p data-i18n="step4Text">Prepare pou egzamen ak karyè.</p></div>
+      </div>
+    </section>
 
-  <!-- PM MONOGRAM -->
-  <circle
-    cx="110"
-    cy="110"
-    r="18"
-    fill="#050301"
-    stroke="#ffad66"
-    stroke-width="2"
-  />
+    <section class="section practice-section" id="practice">
+      <div class="quiz-panel reveal">
+        <div class="quiz-copy">
+          <p class="eyebrow" data-i18n="quizEyebrow">KESYON PRATIK</p>
+          <h2 data-i18n="quizTitle">Teste konesans ou</h2>
+          <p id="quizQuestion" data-i18n="quizQuestion">Ki dokiman ki esplike kondisyon yon tranzaksyon ant achtè ak vandè?</p>
+          <div class="quiz-options">
+            <button data-answer="wrong" data-i18n="answer1">Yon appraisal</button>
+            <button data-answer="correct" data-i18n="answer2">Yon kontra acha</button>
+            <button data-answer="wrong" data-i18n="answer3">Yon listing photo</button>
+          </div>
+          <p class="quiz-result" id="quizResult" aria-live="polite"></p>
+          <a class="btn btn-primary" href="finale-exam.html" style="margin-top:18px">KÒMANSE FINAL EXAM</a>
+        </div>
+        <div class="score-ring"><div><b id="scoreValue">0</b><span data-i18n="scoreLabel">NÒT</span></div></div>
+      </div>
+    </section>
 
-  <text
-    x="110"
-    y="116"
-    fill="#ff8a22"
-    text-anchor="middle"
-    font-family="Cinzel, Georgia, serif"
-    font-size="16"
-    font-weight="800"
-  >
-    PM
-  </text>
+    <section class="section certificate-section" id="certificate">
+      <div class="certificate-card reveal">
+        <div class="certificate-seal">★</div>
+        <p class="eyebrow">PRO-MAX ACADÉMIE</p>
+        <h2 data-i18n="certificateTitle">Sètifika akonplisman</h2>
+        <p data-i18n="certificateText">Apre w fin konplete tout modil yo ak evalyasyon final la, w ap resevwa yon sètifika dijital PRO-MAX Académie.</p>
+        <a class="btn btn-primary" href="certificate-center.html" data-i18n="viewRequirements">Gade kondisyon yo</a>
+      </div>
+    </section>
 
-  <!-- BOTTOM ACCENT -->
-  <path
-    d="M55 178C85 195 135 195 165 178"
-    fill="none"
-    stroke="url(#orangeApricot)"
-    stroke-width="4"
-    stroke-linecap="round"
-  />
-</svg>
+    <section class="section contact-section" id="contact">
+      <div class="section-heading reveal">
+        <p class="eyebrow" data-i18n="contactEyebrow">KONTAK OFISYÈL</p>
+        <h2 data-i18n="contactTitle">Konekte avèk Real Estate School</h2>
+      </div>
+      <div class="contact-grid reveal">
+        <a class="contact-card" href="https://bss1815promaxdmp.com" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-globe"></i><span><b data-i18n="websiteLabel">Sit entènèt</b><small>bss1815promaxdmp.com</small></span></a>
+        <a class="contact-card" href="mailto:realestateschool60@gmail.com"><i class="fa-solid fa-envelope"></i><span><b data-i18n="emailLabel">Imèl</b><small>realestateschool60@gmail.com</small></span></a>
+        <a class="contact-card" href="tel:+14076405166"><i class="fa-solid fa-phone"></i><span><b data-i18n="phoneLabel">Telefòn</b><small>(407) 640-5166</small></span></a>
+        <a class="contact-card" href="tel:+15162168494"><i class="fa-solid fa-mobile-screen-button"></i><span><b data-i18n="phoneLabel">Telefòn</b><small>(516) 216-8494</small></span></a>
+        <a class="contact-card" href="tel:+50943437488"><i class="fa-solid fa-phone-volume"></i><span><b data-i18n="phoneHaitiLabel">Telefòn Ayiti 🇭🇹</b><small>+509 43 43 74 88</small></span></a>
+        <div class="contact-card"><i class="fa-solid fa-location-dot"></i><span><b data-i18n="locationLabel">Lokalizasyon</b><small>Orlando, Florida</small></span></div>
+      </div>
+      <div class="social-networks reveal" aria-label="Social networks">
+        <a href="https://telegram.org" target="_blank" rel="noopener noreferrer" aria-label="Telegram"><i class="fa-brands fa-telegram"></i><span>Telegram</span></a>
+        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fa-brands fa-instagram"></i><span>Instagram</span></a>
+        <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i><span>Facebook</span></a>
+        <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fa-brands fa-youtube"></i><span>YouTube</span></a>
+        <a href="https://wa.me/14076405166" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i><span>WhatsApp</span></a>
+        <a href="https://x.com" target="_blank" rel="noopener noreferrer" aria-label="X Twitter"><i class="fa-brands fa-x-twitter"></i><span>X / Twitter</span></a>
+        <a href="https://truthsocial.com" target="_blank" rel="noopener noreferrer" aria-label="Truth Social"><i class="fa-solid fa-t"></i><span>Truth Social</span></a>
+        <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i><span>TikTok</span></a>
+        <a href="https://spotify.com" target="_blank" rel="noopener noreferrer" aria-label="Spotify"><i class="fa-brands fa-spotify"></i><span>Spotify</span></a>
+        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i><span>LinkedIn</span></a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-brand"><b>PRO-MAX ACADÉMIE</b><span>REAL ESTATE SCHOOL</span></div>
+    <p data-i18n="footerSlogan">Konesans. Preparasyon. Siksè nan byen imobilye.</p>
+    <a href="../index.html" data-i18n="backAcademy">← Retounen nan PRO-MAX ACADÉMIE</a>
+    <small>© <span id="year"></span> PRO-MAX ACADÉMIE</small>
+  </footer>
+
+  <div class="toast" id="toast" aria-live="polite"></div>
+</body>
+</html>
