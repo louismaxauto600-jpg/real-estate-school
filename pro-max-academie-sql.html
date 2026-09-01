@@ -1,0 +1,452 @@
+-- PRO-MAX ACADEMIE
+-- INSURANCE SCHOOL + REAL ESTATE SCHOOL
+
+create extension if not exists pgcrypto;
+
+create table if not exists public.profiles (
+  id uuid primary key references auth.users(id) on delete cascade,
+  student_id text unique,
+  full_name text not null default '',
+  phone text,
+  state text default 'Florida',
+  preferred_language text default 'en',
+  role text not null default 'student'
+    check (role in ('student', 'admin')),
+  created_at timestamptz not null default now(),
+  updated_at timestamptz not null default now()
+);
+
+create table if not exists public.enrollments (
+  id uuid primary key default gen_random_uuid(),
+  user_id uuid not null references auth.users(id) on delete cascade,
+  school_key text not null
+    check (
+      school_key in (
+        'insurance-school',
+        'real-estate-school'
+      )
+    ),
+  program_key text not null,
+  program_name text not null,
+  tuition numeric(10,2) not null default 0,
+  status text not null default 'active'
+    check (
+      status in (
+        'pending',
+        'active',
+        'completed',
+        'suspended'
+      )
+    ),
+  enrolled_at timestamptz not null default now(),
+  unique (user_id, school_key, program_key)
+);
+
+create table if not exists public.payments (
+  id uuid primary key default gen_random_uuid(),
+  user_id uuid not null references auth.users(id) on delete cascade,
+  school_key text not null,
+  program_key text,
+  method text not null default 'Zelle',
+  amount numeric(10,2) not null,
+  currency text not null default 'USD',
+  payer_name text,
+  payer_email text,
+  confirmation_number text,
+  payment_date date,
+  status text not null default 'pending'
+    check (
+      status in (
+        'pending',
+        'paid',
+        'rejected'
+      )
+    ),
+  submitted_at timestamptz not null default now(),
+  confirmed_at timestamptz,
+  confirmed_by uuid references auth.users(id)
+);
+
+create table if not exists public.course_progress (
+  id uuid primary key default gen_random_uuid(),
+  user_id uuid not null references auth.users(id) on delete cascade,
+  school_key text not null,
+  course_key text not null,
+  completed_modules integer[] not null default '{}',
+  total_modules integer not null,
+  updated_at timestamptz not null default now(),
+  unique (user_id, school_key, course_key)
+);
+
+create table if not exists public.exam_results (
+  id uuid primary key default gen_random_uuid(),
+  user_id uuid not null references auth.users(id) on delete cascade,
+  school_key text not null,
+  course_key text not null,
+  score numeric(5,2) not null
+    check (score between 0 and 100),
+  passed boolean not null,
+  attempt integer not null default 1,
+  completed_at timestamptz not null default now()
+);
+
+create table if not exists public.certificates (
+  id uuid primary key default gen_random_uuid(),
+  user_id uuid not null references auth.users(id) on delete cascade,
+  school_key text not null,
+  course_key text not null,
+  issued boolean not null default false,
+  certificate_number text unique,
+  issued_at timestamptz,
+  issued_by uuid references auth.users(id),
+  created_at timestamptz not null default now(),
+  unique (user_id, school_key, course_key)
+);
+
+create or replace function public.set_updated_at()
+returns trigger
+language plpgsql
+as $$
+begin
+  new.updated_at = now();
+  return new;
+end;
+$$;
+
+drop trigger if exists profiles_set_updated_at
+on public.profiles;
+
+create trigger profiles_set_updated_at
+before update on public.profiles
+for each row
+execute function public.set_updated_at();
+
+drop trigger if exists progress_set_updated_at
+on public.course_progress;
+
+create trigger progress_set_updated_at
+before update on public.course_progress
+for each row
+execute function public.set_updated_at();
+
+create or replace function public.is_admin()
+returns boolean
+language sql
+stable
+security definer
+set search_path = public
+as $$
+  select exists (
+    select 1
+    from public.profiles
+    where id = auth.uid()
+      and role = 'admin'
+  );
+$$;
+
+create or replace function public.handle_new_user()
+returns trigger
+language plpgsql
+security definer
+set search_path = public
+as $$
+begin
+  insert into public.profiles (
+    id,
+    student_id,
+    full_name,
+    phone,
+    state,
+    preferred_language
+  )
+  values (
+    new.id,
+    'PMAX-' ||
+      upper(
+        substr(
+          replace(new.id::text, '-', ''),
+          1,
+          8
+        )
+      ),
+    coalesce(
+      new.raw_user_meta_data ->> 'full_name',
+      ''
+    ),
+    new.raw_user_meta_data ->> 'phone',
+    coalesce(
+      new.raw_user_meta_data ->> 'state',
+      'Florida'
+    ),
+    coalesce(
+      new.raw_user_meta_data ->> 'preferred_language',
+      'en'
+    )
+  )
+  on conflict (id)
+  do update set
+    full_name = excluded.full_name,
+    phone = excluded.phone,
+    state = excluded.state,
+    preferred_language = excluded.preferred_language;
+
+  return new;
+end;
+$$;
+
+drop trigger if exists on_auth_user_created
+on auth.users;
+
+create trigger on_auth_user_created
+after insert on auth.users
+for each row
+execute function public.handle_new_user();
+
+create index if not exists enrollments_user_school_idx
+on public.enrollments(user_id, school_key);
+
+create index if not exists payments_user_idx
+on public.payments(user_id);
+
+create index if not exists payments_school_status_idx
+on public.payments(school_key, status);
+
+create index if not exists progress_user_school_idx
+on public.course_progress(user_id, school_key);
+
+create index if not exists exams_user_school_idx
+on public.exam_results(user_id, school_key);
+
+create index if not exists exams_school_passed_idx
+on public.exam_results(school_key, passed);
+
+create index if not exists certificates_user_school_idx
+on public.certificates(user_id, school_key);
+
+alter table public.profiles
+enable row level security;
+
+alter table public.enrollments
+enable row level security;
+
+alter table public.payments
+enable row level security;
+
+alter table public.course_progress
+enable row level security;
+
+alter table public.exam_results
+enable row level security;
+
+alter table public.certificates
+enable row level security;
+
+drop policy if exists profiles_select
+on public.profiles;
+
+create policy profiles_select
+on public.profiles
+for select
+to authenticated
+using (
+  id = auth.uid()
+  or public.is_admin()
+);
+
+drop policy if exists profiles_update
+on public.profiles;
+
+create policy profiles_update
+on public.profiles
+for update
+to authenticated
+using (
+  id = auth.uid()
+  or public.is_admin()
+)
+with check (
+  id = auth.uid()
+  or public.is_admin()
+);
+
+drop policy if exists enrollments_select
+on public.enrollments;
+
+create policy enrollments_select
+on public.enrollments
+for select
+to authenticated
+using (
+  user_id = auth.uid()
+  or public.is_admin()
+);
+
+drop policy if exists enrollments_insert
+on public.enrollments;
+
+create policy enrollments_insert
+on public.enrollments
+for insert
+to authenticated
+with check (
+  user_id = auth.uid()
+);
+
+drop policy if exists enrollments_update
+on public.enrollments;
+
+create policy enrollments_update
+on public.enrollments
+for update
+to authenticated
+using (
+  user_id = auth.uid()
+  or public.is_admin()
+)
+with check (
+  user_id = auth.uid()
+  or public.is_admin()
+);
+
+drop policy if exists payments_select
+on public.payments;
+
+create policy payments_select
+on public.payments
+for select
+to authenticated
+using (
+  user_id = auth.uid()
+  or public.is_admin()
+);
+
+drop policy if exists payments_insert
+on public.payments;
+
+create policy payments_insert
+on public.payments
+for insert
+to authenticated
+with check (
+  user_id = auth.uid()
+);
+
+drop policy if exists payments_update
+on public.payments;
+
+create policy payments_update
+on public.payments
+for update
+to authenticated
+using (
+  public.is_admin()
+)
+with check (
+  public.is_admin()
+);
+
+drop policy if exists progress_select
+on public.course_progress;
+
+create policy progress_select
+on public.course_progress
+for select
+to authenticated
+using (
+  user_id = auth.uid()
+  or public.is_admin()
+);
+
+drop policy if exists progress_insert
+on public.course_progress;
+
+create policy progress_insert
+on public.course_progress
+for insert
+to authenticated
+with check (
+  user_id = auth.uid()
+);
+
+drop policy if exists progress_update
+on public.course_progress;
+
+create policy progress_update
+on public.course_progress
+for update
+to authenticated
+using (
+  user_id = auth.uid()
+  or public.is_admin()
+)
+with check (
+  user_id = auth.uid()
+  or public.is_admin()
+);
+
+drop policy if exists exams_select
+on public.exam_results;
+
+create policy exams_select
+on public.exam_results
+for select
+to authenticated
+using (
+  user_id = auth.uid()
+  or public.is_admin()
+);
+
+drop policy if exists exams_insert
+on public.exam_results;
+
+create policy exams_insert
+on public.exam_results
+for insert
+to authenticated
+with check (
+  user_id = auth.uid()
+);
+
+drop policy if exists certificates_select
+on public.certificates;
+
+create policy certificates_select
+on public.certificates
+for select
+to authenticated
+using (
+  user_id = auth.uid()
+  or public.is_admin()
+);
+
+drop policy if exists certificates_insert
+on public.certificates;
+
+create policy certificates_insert
+on public.certificates
+for insert
+to authenticated
+with check (
+  public.is_admin()
+);
+
+drop policy if exists certificates_update
+on public.certificates;
+
+create policy certificates_update
+on public.certificates
+for update
+to authenticated
+using (
+  public.is_admin()
+)
+with check (
+  public.is_admin()
+);
+
+update public.profiles p
+set role = 'admin'
+from auth.users u
+where p.id = u.id
+  and lower(u.email) =
+      lower('louismaxauto600@gmail.com');
